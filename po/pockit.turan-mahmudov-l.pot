@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-28 23:41+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:60
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:16
+msgid "Search"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:68
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:11
+msgid "Settings"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:76
+msgid "Sync"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:84
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:21
+msgid "About"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:204
+msgid " "
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:216
+msgid "Web View"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:216
+msgid "Article View"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:230
+msgid "External"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:238
+msgid "Refresh"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:251
+msgid "Display Settings"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:76
+msgid "Font Size"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:104
+msgid "Close"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/components/DownloadingPopup.qml:8
+msgid "Syncing"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:9
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:16
+#: /home/turan/Apps/build-PockIt-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Debug/PockIt/PockIt.desktop.h:1
+msgid "PockIt"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:27
+msgid "Credits"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:33
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:8
+msgid "Help"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:47
+msgid "Bitcoin"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:64
+msgid "3CZ9HzDacwv1vPzizHRDgq2jDRkpJgJCJn"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:74
+msgid "Copy"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:83
+msgid "Cancel"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:163
+msgid "<b>Unofficial</b> Pocket client"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:191
+msgid "Released under the terms of the GNU GPL v3"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:200
+#, qt-format
+msgid "Source code available on %1"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:216
+msgid "Donate"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:16
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:38
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:38
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:155
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:38
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:198
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:125
+msgid "Archive"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:24
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:24
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:24
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:57
+msgid "My List"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:31
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:16
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:31
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:31
+msgid "Favorites"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:84
+msgid "Archive Empty"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:85
+msgid "The Archive can list items that you're finished with."
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:86
+msgid ""
+"To add items to your Archive list, tap the checkmark button after swiping "
+"from right on item."
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:124
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:124
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:167
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:104
+msgid "Remove"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:147
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:147
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:190
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:117
+msgid "Share"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:155
+msgid "Readd"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:167
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:166
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:208
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:135
+msgid "Favorite"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:84
+msgid "Favorites Empty"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:85
+msgid "The Favorites list can help you remember your favorite content."
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:86
+msgid ""
+"To add items to your Favorites list, tap the star button after swiping from "
+"right on item."
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:19
+msgid "How To Save"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:20
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:25
+msgid "<h4>Welcome to PockIt</h4><br>"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:24
+msgid "PockIt Basics"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:11
+msgid "Login"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:42
+msgid "Connection Error"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:42
+msgid ""
+"Unable to authenticate to Pocket. Check your connection and firewall "
+"settings."
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:67
+msgid "Loading..."
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:67
+msgid "Success!"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:64
+msgid "Articles"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:71
+msgid "Videos"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:78
+msgid "Images"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:127
+msgid "Empty"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:128
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:129
+msgid "empty"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:33
+msgid "Search by Title or URL"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:64
+msgid "No Results Found"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:65
+msgid "There were no items that matched your search."
+msgstr ""

@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=PockIt
+Exec=qmlscene %U PockIt/Main.qml
+Icon=PockIt/PockIt.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Color=#ffffff

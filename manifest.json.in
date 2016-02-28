@@ -1,0 +1,16 @@
+{
+    "name": "pockit.turan-mahmudov-l",
+    "description": "description of PockIt",
+    "architecture": "@CLICK_ARCH@",
+    "title": "PockIt",
+    "hooks": {
+        "PockIt": {
+            "apparmor": "PockIt/PockIt.apparmor",
+            "desktop": "PockIt/PockIt.desktop",
+            "content-hub": "PockIt/content.json"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Turan Mahmudov <turan.mahmudov@gmail.com>",
+    "framework": "ubuntu-sdk-15.04.1"
+}
