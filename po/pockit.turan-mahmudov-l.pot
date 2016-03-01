@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-28 23:41+0400\n"
+"POT-Creation-Date: 2016-02-29 02:17+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,7 +74,7 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt/PockIt/ui/About.qml:9
 #: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:16
-#: /home/turan/Apps/build-PockIt-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Debug/PockIt/PockIt.desktop.h:1
+#: /home/turan/Apps/build-PockIt-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Release/PockIt/PockIt.desktop.h:1
 msgid "PockIt"
 msgstr ""
 
@@ -197,16 +197,16 @@ msgid ""
 "right on item."
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:19
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:17
 msgid "How To Save"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:20
-#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:25
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:18
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:23
 msgid "<h4>Welcome to PockIt</h4><br>"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:24
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:22
 msgid "PockIt Basics"
 msgstr ""
 
@@ -245,12 +245,7 @@ msgid "Images"
 msgstr ""
 
 #: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:127
-msgid "Empty"
-msgstr ""
-
-#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:128
-#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:129
-msgid "empty"
+msgid "Your list is empty"
 msgstr ""
 
 #: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:33

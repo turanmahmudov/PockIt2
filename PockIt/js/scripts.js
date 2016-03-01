@@ -224,8 +224,10 @@ function my_list(is_article, is_image, is_video) {
         }
 
         if (rs.rows.length == 0) {
-            empty = true
-            get_list()
+            if (is_article == 0 && is_image == 0 && is_video == 0) {
+                empty = true
+                get_list()
+            }
         } else {
             homeModel.clear()
             for(var i = 0; i < rs.rows.length; i++) {

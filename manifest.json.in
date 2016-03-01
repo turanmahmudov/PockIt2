@@ -1,6 +1,6 @@
 {
     "name": "pockit.turan-mahmudov-l",
-    "description": "description of PockIt",
+    "description": "New Unofficial Pocket Client for Ubuntu",
     "architecture": "@CLICK_ARCH@",
     "title": "PockIt",
     "hooks": {
@@ -10,7 +10,7 @@
             "content-hub": "PockIt/content.json"
         }
     },
-    "version": "0.1",
+    "version": "0.1.0.3",
     "maintainer": "Turan Mahmudov <turan.mahmudov@gmail.com>",
     "framework": "ubuntu-sdk-15.04.1"
 }

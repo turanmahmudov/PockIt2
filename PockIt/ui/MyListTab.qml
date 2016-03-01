@@ -124,9 +124,9 @@ Page {
         }
         visible: empty == true
 
-        title: i18n.tr("Empty")
-        description: i18n.tr("empty")
-        help: i18n.tr("empty")
+        title: i18n.tr("Your list is empty")
+        description: ''
+        help: ''
     }
 
     ListModel {

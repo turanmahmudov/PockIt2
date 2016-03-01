@@ -12,7 +12,7 @@ Page {
 
     ListModel {
         id: settingsModel
-        ListElement { kid: "logout"; title: "Logout"; subtitle: "turan.mahmudov"; type: "action"; role: "Account" }
+        ListElement { kid: "logout"; title: "Logout"; subtitle: ""; type: "action"; role: "Account" }
         ListElement { kid: "app_rotation"; title: "App rotation"; subtitle: "Automatic orientation"; type: "check"; cchecked: true; role: "General" }
         ListElement { kid: "dark_theme"; title: "Dark theme"; subtitle: "You can also toggle this by tapping the Theme button in the Article View"; type: "check"; cchecked: false; role: "General" }
         ListElement { kid: "justified_text"; title: "Justified Text"; subtitle: "Display text in Article View with justification"; type: "check"; cchecked: false; role: "Reading" }

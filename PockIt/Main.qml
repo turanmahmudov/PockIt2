@@ -25,7 +25,7 @@ MainView {
     height: units.gu(75)
 
     // Properties
-    property string consumer_key: "[CONSUMER KEY]"
+    property string consumer_key: "37879-9a829576cdc1d9842620f694"
     property string current_version: "0.1"
     property int downloaded: 0
     property int totaldownloads: 0

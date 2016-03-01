@@ -10,8 +10,6 @@ Page {
     property string slug: ''
 
     Component.onCompleted: {
-        console.log('GELDI')
-        console.log(slug)
     }
 
     property var help_content: {
