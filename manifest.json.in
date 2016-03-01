@@ -12,5 +12,5 @@
     },
     "version": "0.1.0.3",
     "maintainer": "Turan Mahmudov <turan.mahmudov@gmail.com>",
-    "framework": "ubuntu-sdk-15.04.1"
+    "framework": "ubuntu-sdk-15.04.3"
 }
