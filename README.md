@@ -11,6 +11,7 @@ TODO: Write usage instructions
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 ## Credits
-TODO: Write credits
+Creator: Turan Mahmudov
 ## License
-GNU GPL v3
+Released under the terms of [GNU GPL v3](https://github.com/turanmahmudov/PockIt2/blob/master/LICENSE).
+
