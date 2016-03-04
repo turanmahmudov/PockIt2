@@ -616,7 +616,7 @@ function parseArticleView(url, item_id, acc_article) {
                 'img { display: block; margin: auto; max-width: 100%; }' +
                 'a { text-decoration: none; color: #00C0C0; }' +
                 'span.upockit { font-size: ' + FontUtils.sizeToPixels('x-small') + 'px; color: ' + fColor + '; }' +
-                'h2.upockit { font-size: ' + FontUtils.sizeToPixels('x-large') + '; font-weight: 600; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid ' + fColor + '; text-align: left; }' +
+                'h2.upockit { font-size: ' + FontUtils.sizeToPixels('large') + 'px; font-weight: 600; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid ' + fColor + '; text-align: left; }' +
                 '</style>' +
                 '</head>' +
                 '<body>' +

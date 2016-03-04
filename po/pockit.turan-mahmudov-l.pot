@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-04 11:28+0400\n"
+"POT-Creation-Date: 2016-03-04 21:08+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,11 +60,15 @@ msgstr ""
 msgid "Display Settings"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:76
+#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:46
+msgid "Background"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:93
 msgid "Font Size"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:104
+#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:122
 msgid "Close"
 msgstr ""
 

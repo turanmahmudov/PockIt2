@@ -78,6 +78,7 @@ Dialog {
             wrapMode: Text.Wrap
             width: labelwidth
             height: fontScaleSlider.height
+            color: Qt.darker(UbuntuColors.darkGrey, 1.2)
         }
 
         Slider {
