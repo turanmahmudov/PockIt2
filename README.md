@@ -7,7 +7,7 @@ TODO: Write usage instructions
 ## Contributing
 TODO: cont
 ## Credits
-Creator & Developer: Turan Mahmudov <[turan.mahmudov@gmail.com](mailto:turan.mahmudov@gmail.com)>
+Creator & Developer: Turan Mahmudov <[turan.mahmudov@gmail.com](mailto:turan.mahmudov@gmail.com)>\n
 Logo: Sam Hewitt <[snwh@ubuntu.com](mailto:snwh@ubuntu.com)>
 ## License
 Released under the terms of [GNU GPL v3](https://github.com/turanmahmudov/PockIt2/blob/master/LICENSE).
