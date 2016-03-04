@@ -1,4 +1,4 @@
-# ![logo](/PockIt/PockIt.png =50x) PockIt2
+# <img src="/PockIt/PockIt.png" width="48"> PockIt2
 Unofficial Native Pocket Client for Ubuntu
 
 ## Installation
