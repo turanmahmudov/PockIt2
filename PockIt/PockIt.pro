@@ -71,5 +71,6 @@ DISTFILES += \
     themes/Dark.qml \
     themes/Light.qml \
     ui/Help.qml \
-    components/ArticleStyles.qml
+    components/ArticleStyles.qml \
+    ui/TagsListTab.qml
 

@@ -40,6 +40,13 @@ Page {
                     onTriggered: {
                         tabs.selectedTabIndex = 2
                     }
+                },
+                Action {
+                    text: i18n.tr("Tags")
+                    iconName: "tag"
+                    onTriggered: {
+                        tabs.selectedTabIndex = 3
+                    }
                 }
             ]
         }

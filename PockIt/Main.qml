@@ -134,7 +134,9 @@ MainView {
             var title = transfer.items[0]['title'];
             var url = transfer.items[0]['url'];
 
-            Scripts.add_item(url, title);
+            if (Connectivity.online) {
+                Scripts.add_item(url, title);
+            }
         }
     }
     Component {
@@ -186,6 +188,13 @@ MainView {
             id: archiveListTab
             ArchiveListTab {
                 id: archiveListPage
+            }
+        }
+
+        Tab {
+            id: tagsTab
+            TagsListTab {
+                id: tagsListPage
             }
         }
     }

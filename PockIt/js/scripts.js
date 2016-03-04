@@ -82,6 +82,20 @@ function download_done(results) {
         }
     });
 
+    var db = LocalDb.init();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("SELECT item_id, item_key, tag, entry_id FROM Tags");
+        for(var i = 0; i < rs.rows.length; i++) {
+            var entry_id = rs.rows.item(i).entry_id;
+            var item_key = rs.rows.item(i).item_key;
+            if (!results['list'].hasOwnProperty(entry_id)) {
+                var rstd = tx.executeSql("DELETE FROM Tags WHERE entry_id = ?", entry_id);
+            } else if (!results['list'][entry_id]['tags'].hasOwnProperty(item_key)) {
+                var rstd = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND item_key = ?", [entry_id, item_key]);
+            }
+        }
+    });
+
     if (objectLength(results['list']) > 0) {
         empty = false
 
@@ -101,6 +115,9 @@ function download_loop(data, i, db, results) {
         downloaded = totaldownloads
         download_done(results)
         return false;
+    } else {
+        if (objectLength(data[i]['tags']) > 0) {
+        }
     }
 
     db.transaction(function(tx) {
@@ -109,6 +126,9 @@ function download_loop(data, i, db, results) {
         if (res.rows.length === 0) {
             var image = (data[i]['has_image'] == '1' && data[i]['image']) ? JSON.stringify(data[i]['image']) : '{}';
             var res2 = tx.executeSql("INSERT INTO Entries(item_id, resolved_id, given_url, resolved_url, given_title, resolved_title, sortid, is_article, has_image, has_video, favorite, status, excerpt, word_count, tags, authors, images, videos, image, is_index, time_added, time_updated) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [data[i]['item_id'], data[i]['resolved_id'], data[i]['given_url'], data[i]['resolved_url'], data[i]['given_title'], data[i]['resolved_title'], data[i]['sort_id'], data[i]['is_article'], data[i]['has_image'], data[i]['has_video'], data[i]['favorite'], data[i]['status'], data[i]['excerpt'], data[i]['word_count'], JSON.stringify(data[i]['tags']), JSON.stringify(data[i]['authors']), JSON.stringify(data[i]['images']), JSON.stringify(data[i]['videos']), image, data[i]['is_index'], data[i]['time_added'], data[i]['time_updated']])
+            for (var t in data[i]['tags']) {
+                var res3 = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [data[i]['tags'][t]['item_id'], t, data[i]['tags'][t]['tag'], data[i]['item_id']]);
+            }
             if (User.getKey('auto_download_articles') == 'true') {
                 get_article(data[i]['item_id'], data[i]['resolved_url'], true, i, data, db, results);
             } else {
@@ -124,6 +144,16 @@ function download_loop(data, i, db, results) {
             if (res.rows.item(0).time_updated != data[i]['time_updated']) {
                 var image = (data[i]['has_image'] == '1' && data[i]['image']) ? JSON.stringify(data[i]['image']) : '{}';
                 res2 = tx.executeSql("UPDATE Entries SET resolved_id = ?, given_url = ?, resolved_url = ?, given_title = ?, resolved_title = ?, sortid = ?, is_article = ?, has_image = ?, has_video = ?, favorite = ?, status = ?, excerpt = ?, word_count = ?, tags = ?, authors = ?, images = ?, videos = ?, image = ?, is_index = ?, time_added = ?, time_updated = ? WHERE item_id = ?", [data[i]['resolved_id'], data[i]['given_url'], data[i]['resolved_url'], data[i]['given_title'], data[i]['resolved_title'], data[i]['sort_id'], data[i]['is_article'], data[i]['has_image'], data[i]['has_video'], data[i]['favorite'], data[i]['status'], data[i]['excerpt'], data[i]['word_count'], JSON.stringify(data[i]['tags']), JSON.stringify(data[i]['authors']), JSON.stringify(data[i]['images']), JSON.stringify(data[i]['videos']), image, data[i]['is_index'], data[i]['time_added'], data[i]['time_updated'], data[i]['item_id']])
+                for (var t in data[i]['tags']) {
+                    var res3 = tx.executeSql("SELECT * FROM Tags WHERE item_id = ? AND entry_id = ?", [data[i]['tags'][t]['item_id'], data[i]['item_id']]);
+                    if (res3.rows.length == 0) {
+                        console.log("ELAVE EDIREM")
+                        var res4 = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [data[i]['tags'][t]['item_id'], t, data[i]['tags'][t]['tag'], data[i]['item_id']]);
+                    } else {
+                        console.log("UPDATE EDIREM")
+                        var res4 = tx.executeSql("UPDATE Tags SET item_key = ?, tag = ? WHERE item_id = ? AND entry_id = ?", [t, data[i]['tags'][t]['tag'], data[i]['tags'][t]['item_id'], data[i]['item_id']]);
+                    }
+                }
                 if (User.getKey('auto_download_articles') == 'true') {
                     get_article(data[i]['item_id'], data[i]['resolved_url'], true, i, data, db, results);
                 } else {
@@ -385,6 +415,34 @@ function search_offline(query) {
                 }
 
                 searchModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video});
+
+                finished = true
+            }
+        }
+    });
+}
+
+function tags_list() {
+    finished = false
+
+    var db = LocalDb.init();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("SELECT * FROM Tags GROUP BY tag ORDER BY tag");
+
+        if (rs.rows.length == 0) {
+            empty = true
+        } else {
+            tagsModel.clear()
+
+            tagsModel.append({"item_id":"0", "item_key":"0", "tag":"0", "entry_id":"0"});
+
+            for(var i = 0; i < rs.rows.length; i++) {
+                var item_id = rs.rows.item(i).item_id;
+                var item_key = rs.rows.item(i).item_key;
+                var tag = rs.rows.item(i).tag;
+                var entry_id = rs.rows.item(i).entry_id;
+
+                tagsModel.append({"item_id":item_id, "item_key":item_key, "tag":tag, "entry_id":entry_id});
 
                 finished = true
             }
