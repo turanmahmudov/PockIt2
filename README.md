@@ -5,10 +5,10 @@ Unofficial Native Pocket Client for Ubuntu
 Search "PockIt" on Ubuntu Store and Install the app
 
 ## Usage
-TODO: Write usage instructions
+- To add new item to your list, just share url from other apps. For example, in your Web Browser tap the Share button and select PockIt.
 
 ## Contributing
-1. Fork it!
+1. Fork it
 2. Create your feature branch: `git checkout -b my-new-feature`
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
@@ -16,6 +16,7 @@ TODO: Write usage instructions
 
 ## Credits
 Creator & Developer: Turan Mahmudov <[turan.mahmudov@gmail.com](mailto:turan.mahmudov@gmail.com)>
+
 Logo: Sam Hewitt <[snwh@ubuntu.com](mailto:snwh@ubuntu.com)>
 
 ## License
