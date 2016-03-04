@@ -1,7 +1,7 @@
 # <img src="/PockIt/PockIt.png" width="48"> PockIt2
-[![GitHub issues](https://img.shields.io/github/issues/turanmahmudov/PockIt2.svg)](https://github.com/turanmahmudov/PockIt2/issues)
 [![License](https://img.shields.io/badge/license-GPLv3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.en.html)
-[![License](http://img.shields.io/:license-gplv3-blue.svg?style=flat-square)](http://www.gnu.org/licenses/gpl-3.0.en.html)
+[![GitHub release](https://img.shields.io/github/release/turanmahmudov/PockIt2.svg)](https://github.com/turanmahmudov/PockIt2)
+[![GitHub issues](https://img.shields.io/github/issues/turanmahmudov/PockIt2.svg)](https://github.com/turanmahmudov/PockIt2/issues)
 
 Unofficial Native Pocket Client for Ubuntu
 
