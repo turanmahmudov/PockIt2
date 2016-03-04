@@ -7,6 +7,11 @@ Search "PockIt" on Ubuntu Store and Install the app
 ## Usage
 - To add new item to your list, just share url from other apps. For example, in your Web Browser tap the Share button and select PockIt.
 
+## Missing Features
+- Tags
+- Text To Speech
+- Online Accounts integration
+
 ## Contributing
 1. Fork it
 2. Create your feature branch: `git checkout -b my-new-feature`
