@@ -33,5 +33,5 @@ Reach out to me at one of the following places!
 - Bitcoin: *3CZ9HzDacwv1vPzizHRDgq2jDRkpJgJCJn*
 
 ## License
-Released under the terms of [GNU GPL v3](https://github.com/turanmahmudov/PockIt2/blob/master/LICENSE).
+[![License](http://img.shields.io/:license-gplv3-blue.svg?style=flat-square)](http://www.gnu.org/licenses/gpl-3.0.en.html)
 
