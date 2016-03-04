@@ -20,9 +20,8 @@ Search "PockIt" on Ubuntu Store and Install the app
 5. Submit a pull request
 
 ## Credits
-Creator & Developer: Turan Mahmudov <[turan.mahmudov@gmail.com](mailto:turan.mahmudov@gmail.com)>
-
-Logo: Sam Hewitt <[snwh@ubuntu.com](mailto:snwh@ubuntu.com)>
+- Creator & Developer: Turan Mahmudov <[turan.mahmudov@gmail.com](mailto:turan.mahmudov@gmail.com)>
+- Logo: Sam Hewitt <[snwh@ubuntu.com](mailto:snwh@ubuntu.com)>
 
 ## License
 Released under the terms of [GNU GPL v3](https://github.com/turanmahmudov/PockIt2/blob/master/LICENSE).
