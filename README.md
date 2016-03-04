@@ -1,4 +1,4 @@
-# PockIt2
+# ![logo](/PockIt/PockIt.png) PockIt2
 Unofficial Native Pocket Client for Ubuntu
 
 ## Installation
