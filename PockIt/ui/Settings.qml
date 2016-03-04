@@ -10,6 +10,10 @@ Page {
     id: settingsPage
     title: i18n.tr("Settings")
 
+    Component.onCompleted: {
+        settingsModel.setProperty(0, "subtitle", User.getKey('username'))
+    }
+
     ListModel {
         id: settingsModel
         ListElement { kid: "logout"; title: "Logout"; subtitle: ""; type: "action"; role: "Account" }
