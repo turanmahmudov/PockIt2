@@ -1,4 +1,6 @@
 # <img src="/PockIt/PockIt.png" width="48"> PockIt2
+[![GitHub issues](https://img.shields.io/github/issues/turanmahmudov/PockIt2.svg)](https://github.com/turanmahmudov/PockIt2/issues)
+
 Unofficial Native Pocket Client for Ubuntu
 
 ## Installation
