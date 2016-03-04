@@ -1,9 +1,0 @@
-{
-    "template": "ubuntu-account-plugin",	
-    "policy_groups": [
-        "networking",
-        "accounts"
-    ],
-    "policy_version": 1.3
-}
-
