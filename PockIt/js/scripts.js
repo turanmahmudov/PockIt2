@@ -145,13 +145,13 @@ function download_loop(data, i, db, results) {
                 var image = (data[i]['has_image'] == '1' && data[i]['image']) ? JSON.stringify(data[i]['image']) : '{}';
                 res2 = tx.executeSql("UPDATE Entries SET resolved_id = ?, given_url = ?, resolved_url = ?, given_title = ?, resolved_title = ?, sortid = ?, is_article = ?, has_image = ?, has_video = ?, favorite = ?, status = ?, excerpt = ?, word_count = ?, tags = ?, authors = ?, images = ?, videos = ?, image = ?, is_index = ?, time_added = ?, time_updated = ? WHERE item_id = ?", [data[i]['resolved_id'], data[i]['given_url'], data[i]['resolved_url'], data[i]['given_title'], data[i]['resolved_title'], data[i]['sort_id'], data[i]['is_article'], data[i]['has_image'], data[i]['has_video'], data[i]['favorite'], data[i]['status'], data[i]['excerpt'], data[i]['word_count'], JSON.stringify(data[i]['tags']), JSON.stringify(data[i]['authors']), JSON.stringify(data[i]['images']), JSON.stringify(data[i]['videos']), image, data[i]['is_index'], data[i]['time_added'], data[i]['time_updated'], data[i]['item_id']])
                 for (var t in data[i]['tags']) {
-                    var res3 = tx.executeSql("SELECT * FROM Tags WHERE item_id = ? AND entry_id = ?", [data[i]['tags'][t]['item_id'], data[i]['item_id']]);
+                    var res3 = tx.executeSql("SELECT * FROM Tags WHERE item_key = ? AND entry_id = ?", [t, data[i]['item_id']]);
                     if (res3.rows.length == 0) {
                         console.log("ELAVE EDIREM")
                         var res4 = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [data[i]['tags'][t]['item_id'], t, data[i]['tags'][t]['tag'], data[i]['item_id']]);
                     } else {
                         console.log("UPDATE EDIREM")
-                        var res4 = tx.executeSql("UPDATE Tags SET item_key = ?, tag = ? WHERE item_id = ? AND entry_id = ?", [t, data[i]['tags'][t]['tag'], data[i]['tags'][t]['item_id'], data[i]['item_id']]);
+                        var res4 = tx.executeSql("UPDATE Tags SET tag = ? WHERE item_key = ? AND entry_id = ?", [data[i]['tags'][t]['tag'], t, data[i]['item_id']]);
                     }
                 }
                 if (User.getKey('auto_download_articles') == 'true') {
@@ -260,7 +260,15 @@ function my_list(is_article, is_image, is_video) {
             }
         } else {
             homeModel.clear()
+
             for(var i = 0; i < rs.rows.length; i++) {
+                // Tags
+                var rst = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
+                var tags = [];
+                for (var j = 0; j < rst.rows.length; j++) {
+                    tags.push(rst.rows.item(j));
+                }
+
                 var item_id = rs.rows.item(i).item_id;
                 var given_title = rs.rows.item(i).given_title;
                 var resolved_title = rs.rows.item(i).resolved_title ? rs.rows.item(i).resolved_title : (rs.rows.item(i).given_title ? rs.rows.item(i).given_title : rs.rows.item(i).resolved_url)
@@ -281,7 +289,7 @@ function my_list(is_article, is_image, is_video) {
                     }
                 }
 
-                homeModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video});
+                homeModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video, "tags":tags});
 
                 finished = true
             }
@@ -306,6 +314,12 @@ function my_favs_list() {
             favsModel.clear();
 
             for(var i = 0; i < rs.rows.length; i++) {
+                // Tags
+                var rst = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
+                var tags = [];
+                for (var j = 0; j < rst.rows.length; j++) {
+                    tags.push(rst.rows.item(j));
+                }
                 var item_id = rs.rows.item(i).item_id;
                 var given_title = rs.rows.item(i).given_title;
                 var resolved_title = rs.rows.item(i).resolved_title ? rs.rows.item(i).resolved_title : (rs.rows.item(i).given_title ? rs.rows.item(i).given_title : rs.rows.item(i).resolved_url)
@@ -326,7 +340,7 @@ function my_favs_list() {
                     }
                 }
 
-                favsModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video});
+                favsModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video, "tags":tags});
 
                 finished = true
             }
@@ -348,7 +362,15 @@ function my_archive_list() {
             //get_list()
         } else {
             archiveModel.clear()
+
             for(var i = 0; i < rs.rows.length; i++) {
+                // Tags
+                var rst = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
+                var tags = [];
+                for (var j = 0; j < rst.rows.length; j++) {
+                    tags.push(rst.rows.item(j));
+                }
+
                 var item_id = rs.rows.item(i).item_id;
                 var given_title = rs.rows.item(i).given_title;
                 var resolved_title = rs.rows.item(i).resolved_title ? rs.rows.item(i).resolved_title : (rs.rows.item(i).given_title ? rs.rows.item(i).given_title : rs.rows.item(i).resolved_url)
@@ -369,7 +391,7 @@ function my_archive_list() {
                     }
                 }
 
-                archiveModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video});
+                archiveModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video, "tags":tags});
 
                 finished = true
             }
