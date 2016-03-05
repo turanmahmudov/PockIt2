@@ -147,10 +147,8 @@ function download_loop(data, i, db, results) {
                 for (var t in data[i]['tags']) {
                     var res3 = tx.executeSql("SELECT * FROM Tags WHERE item_key = ? AND entry_id = ?", [t, data[i]['item_id']]);
                     if (res3.rows.length == 0) {
-                        console.log("ELAVE EDIREM")
                         var res4 = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [data[i]['tags'][t]['item_id'], t, data[i]['tags'][t]['tag'], data[i]['item_id']]);
                     } else {
-                        console.log("UPDATE EDIREM")
                         var res4 = tx.executeSql("UPDATE Tags SET tag = ? WHERE item_key = ? AND entry_id = ?", [data[i]['tags'][t]['tag'], t, data[i]['item_id']]);
                     }
                 }
@@ -446,6 +444,7 @@ function search_offline(query) {
 
 function tags_list() {
     finished = false
+    empty = false
 
     var db = LocalDb.init();
     db.transaction(function(tx) {
@@ -465,6 +464,61 @@ function tags_list() {
                 var entry_id = rs.rows.item(i).entry_id;
 
                 tagsModel.append({"item_id":item_id, "item_key":item_key, "tag":tag, "entry_id":entry_id});
+
+                finished = true
+            }
+        }
+    });
+}
+
+function tag_entries_list(tag) {
+    finished = false
+    empty = false
+
+    var db = LocalDb.init();
+    db.transaction(function(tx) {
+        if (tag == "0") {
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE item_id NOT IN (SELECT entry_id FROM Tags) AND status = ? ORDER BY time_added DESC", ["0"]);
+        } else {
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE item_id IN (SELECT entry_id FROM Tags WHERE Tags.tag = ?) AND status = ? ORDER BY time_added DESC", [tag, "0"]);
+        }
+
+        if (rs.rows.length == 0) {
+            tagEntriesModel.clear()
+            empty = true
+            finished = true
+        } else {
+            tagEntriesModel.clear()
+
+            for(var i = 0; i < rs.rows.length; i++) {
+                // Tags
+                var rst = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
+                var tags = [];
+                for (var j = 0; j < rst.rows.length; j++) {
+                    tags.push(rst.rows.item(j));
+                }
+
+                var item_id = rs.rows.item(i).item_id;
+                var given_title = rs.rows.item(i).given_title;
+                var resolved_title = rs.rows.item(i).resolved_title ? rs.rows.item(i).resolved_title : (rs.rows.item(i).given_title ? rs.rows.item(i).given_title : rs.rows.item(i).resolved_url)
+                var resolved_url = rs.rows.item(i).resolved_url;
+                var sort_id = rs.rows.item(i).sortid;
+                var only_domain = extractDomain(rs.rows.item(i).resolved_url);
+                var favorite = rs.rows.item(i).favorite;
+                var has_video = rs.rows.item(i).has_video;
+                var image_obj = JSON.parse(rs.rows.item(i).image);
+                if (image_obj.hasOwnProperty('src')) {
+                    var image = image_obj.src
+                } else {
+                    if (objectLength(JSON.parse(rs.rows.item(i).images)) > 0) {
+                        var images = JSON.parse(rs.rows.item(i).images);
+                        var image = images['1'] ? images['1']['src'] : '';
+                    } else {
+                        var image = '';
+                    }
+                }
+
+                tagEntriesModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video, "tags":tags});
 
                 finished = true
             }

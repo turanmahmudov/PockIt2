@@ -199,6 +199,31 @@ MainView {
         }
     }
 
+    Page {
+        id: tagEntries
+        visible: false
+        header: PageHeader {
+            title: i18n.tr("Tag")
+            StyleHints {
+                backgroundColor: currentTheme.backgroundColor
+                foregroundColor: currentTheme.baseFontColor
+            }
+            trailingActionBar {
+                numberOfSlots: 2
+                actions: [searchAction, settingsAction, refreshAction, aboutAction]
+            }
+        }
+        TagEntriesPage {
+            id: tagEntriesPage
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+                top: tagEntries.header.bottom
+            }
+        }
+    }
+
     // Article view
     Page {
         id: articleView

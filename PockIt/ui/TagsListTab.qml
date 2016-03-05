@@ -178,7 +178,14 @@ Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-
+                        tagEntriesPage.reqtag = tag
+                        if (tag == "0") {
+                            tagEntries.header.title = i18n.tr("All Untagged Items")
+                        } else {
+                            tagEntries.header.title = tag
+                        }
+                        pageStack.push(tagEntries)
+                        tagEntriesPage.home()
                     }
                 }
             }
