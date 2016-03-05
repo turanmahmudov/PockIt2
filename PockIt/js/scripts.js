@@ -90,7 +90,7 @@ function download_done(results) {
             var item_key = rs.rows.item(i).item_key;
             if (!results['list'].hasOwnProperty(entry_id)) {
                 var rstd = tx.executeSql("DELETE FROM Tags WHERE entry_id = ?", entry_id);
-            } else if (!results['list'][entry_id]['tags'].hasOwnProperty(item_key)) {
+            } else if (!results['list'][entry_id]['tags'] || (results['list'][entry_id]['tags'] && !results['list'][entry_id]['tags'].hasOwnProperty(item_key))) {
                 var rstd = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND item_key = ?", [entry_id, item_key]);
             }
         }
@@ -102,6 +102,7 @@ function download_done(results) {
         myListPage.home()
         favListPage.home()
         archiveListPage.home()
+        tagsListPage.home()
     }
 
     finished = true
@@ -163,6 +164,14 @@ function download_loop(data, i, db, results) {
                     }
                 }
             } else {
+                for (var t in data[i]['tags']) {
+                    var res3 = tx.executeSql("SELECT * FROM Tags WHERE item_key = ? AND entry_id = ?", [t, data[i]['item_id']]);
+                    if (res3.rows.length == 0) {
+                        var res4 = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [data[i]['tags'][t]['item_id'], t, data[i]['tags'][t]['tag'], data[i]['item_id']]);
+                    } else {
+                        var res4 = tx.executeSql("UPDATE Tags SET tag = ? WHERE item_key = ? AND entry_id = ?", [data[i]['tags'][t]['tag'], t, data[i]['item_id']]);
+                    }
+                }
                 if (++i < data.length) {
                     download_loop(data, i, db, results);
                 } else {
