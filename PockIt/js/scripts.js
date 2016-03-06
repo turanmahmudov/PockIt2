@@ -245,7 +245,7 @@ function get_article(item_id, resolved_url, lcallback, li, ldata, ldb, lreslist,
     xhr.send(data);
 }
 
-function my_list(is_article, is_image, is_video) {
+function my_list(is_article, is_image, is_video, empty_ok) {
     finished = false
 
     var db = LocalDb.init();
@@ -262,8 +262,13 @@ function my_list(is_article, is_image, is_video) {
 
         if (rs.rows.length == 0) {
             if (is_article == 0 && is_image == 0 && is_video == 0) {
+                homeModel.clear()
                 empty = true
-                get_list()
+                if (!empty_ok) {
+                    get_list()
+                } else {
+                    finished = true
+                }
             }
         } else {
             homeModel.clear()
@@ -366,7 +371,8 @@ function my_archive_list() {
         if (rs.rows.length == 0) {
             empty = true
             finished = true
-            //get_list()
+
+            archiveModel.clear()
         } else {
             archiveModel.clear()
 
@@ -461,6 +467,9 @@ function tags_list() {
 
         if (rs.rows.length == 0) {
             empty = true
+            finished = true
+
+            tagsModel.clear()
         } else {
             tagsModel.clear()
 
@@ -476,6 +485,45 @@ function tags_list() {
 
                 finished = true
             }
+        }
+    });
+}
+
+function entry_tags_list(e_id) {
+    var entryTags = [];
+    var allTags = [];
+
+    var db = LocalDb.init();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("SELECT * FROM Tags GROUP BY tag ORDER BY tag");
+        var rse = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ? GROUP BY tag ORDER BY tag", e_id);
+
+        tagsModel.clear()
+        entry_tagsModel.clear()
+
+        if (rs.rows.length != 0) {
+            for(var i = 0; i < rs.rows.length; i++) {
+                var tag = rs.rows.item(i).tag;
+
+                allTags.push(tag);
+            }
+        }
+
+        if (rse.rows.length != 0) {
+            for(var i = 0; i < rse.rows.length; i++) {
+                var tag = rse.rows.item(i).tag;
+
+                entryTags.push(tag);
+
+                entry_tagsModel.append({"tag":tag});
+
+                var index = allTags.indexOf(tag);
+                allTags.splice(index, 1);
+            }
+        }
+
+        for(var i = 0; i < allTags.length; i++) {
+            tagsModel.append({"tag":allTags[i]});
         }
     });
 }
@@ -535,12 +583,62 @@ function tag_entries_list(tag) {
     });
 }
 
+function save_tags(e_id) {
+    var newTags = [];
+    var cnewTags = [];
+
+    for (var i = 0; i < entry_tagsModel.count; i++) {
+        newTags.push("'"+entry_tagsModel.get(i).tag+"'")
+        cnewTags.push(entry_tagsModel.get(i).tag)
+
+        var tag = entry_tagsModel.get(i).tag
+
+        var db = LocalDb.init();
+        db.transaction(function(tx) {
+            var rs = tx.executeSql("SELECT * FROM Tags WHERE tag = ? AND entry_id = ?", [tag, e_id]);
+
+            if (rs.rows.length == 0) {
+                var res = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [e_id, tag, tag, e_id]);
+            }
+        });
+    }
+
+    // Send to Pocket
+    var access_token = User.getKey('access_token');
+    var url = 'https://getpocket.com/v3/send';
+    var actions = '%5B%7B%22action%22%3A%22tags_replace%22%2C%22tags%22%3A%22'+cnewTags.join("%2C")+'%22%2C%22item_id%22%3A'+e_id+'%7D%5D';
+
+    var data = "actions="+actions+"&consumer_key="+consumer_key+"&access_token="+access_token;
+
+    request(url, data, item_moded);
+
+    // Delete old tags from DB
+    var notin = "("+newTags.join(",")+")";
+
+    var db = LocalDb.init();
+    db.transaction(function(tx) {
+        var rds = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND tag NOT IN " + notin, [e_id]);
+
+        pageStack.pop()
+        myListPage.home(true)
+        favListPage.home()
+        archiveListPage.home()
+        tagsListPage.home()
+    });
+}
+
 function clear_list() {
     var db = LocalDb.init();
     db.transaction(function(tx) {
         var rs = tx.executeSql("DELETE FROM Entries");
-        //homeModel.clear();
         var rse = tx.executeSql("DELETE FROM Articles");
+        var rst = tx.executeSql("DELETE FROM Tags");
+
+        pageStack.pop()
+        myListPage.home(true, true)
+        favListPage.home()
+        archiveListPage.home()
+        tagsListPage.home()
     });
 }
 
@@ -550,6 +648,7 @@ function delete_item(item_id) {
     db.transaction(function(tx) {
         var rs = tx.executeSql("DELETE FROM Entries WHERE item_id = ?", item_id);
         var rse = tx.executeSql("DELETE FROM Articles WHERE item_id = ?", item_id);
+        var rst = tx.executeSql("DELETE FROM Tags WHERE entry_id = ?", item_id);
     });
 }
 

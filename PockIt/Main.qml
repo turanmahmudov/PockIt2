@@ -224,6 +224,39 @@ MainView {
         }
     }
 
+    Page {
+        id: entryTags
+        visible: false
+        header: PageHeader {
+            title: i18n.tr("Edit Tags")
+            StyleHints {
+                backgroundColor: currentTheme.backgroundColor
+                foregroundColor: currentTheme.baseFontColor
+            }
+            trailingActionBar {
+                actions: [
+                    Action {
+                        id: saveAction
+                        text: i18n.tr("Save")
+                        iconName: "save"
+                        onTriggered: {
+                            entryTagsPage.save()
+                        }
+                    }
+                ]
+            }
+        }
+        EntryTagsPage {
+            id: entryTagsPage
+            anchors {
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+                top: entryTags.header.bottom
+            }
+        }
+    }
+
     // Article view
     Page {
         id: articleView

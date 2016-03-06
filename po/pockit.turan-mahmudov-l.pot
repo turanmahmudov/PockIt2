@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-05 16:45+0400\n"
+"POT-Creation-Date: 2016-03-06 04:43+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,27 +40,35 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:238
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:231
+msgid "Edit Tags"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:240
+msgid "Save"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:271
 msgid " "
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:250
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:283
 msgid "Web View"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:250
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:283
 msgid "Article View"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:264
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:297
 msgid "External"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:272
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:305
 msgid "Refresh"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:285
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:318
 msgid "Display Settings"
 msgstr ""
 
@@ -153,8 +161,14 @@ msgid "Favorites"
 msgstr ""
 
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:45
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:174
+#: /home/turan/Apps/PockIt/PockIt/ui/EntryTagsPage.qml:106
 #: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:45
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:173
 #: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:45
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:215
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:135
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:130
 #: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:16
 #: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:45
 msgid "Tags"
@@ -195,12 +209,16 @@ msgstr ""
 msgid "Readd"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:174
-#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:173
-#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:215
-#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:135
-#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:130
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:184
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:183
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:225
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:145
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:140
 msgid "Favorite"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/EntryTagsPage.qml:88
+msgid "Select or enter a tag..."
 msgstr ""
 
 #: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:91

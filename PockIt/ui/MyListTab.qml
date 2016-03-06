@@ -63,28 +63,28 @@ Page {
                 Action {
                     text: i18n.tr("My List")
                     onTriggered: {
-                        Scripts.my_list(0, 0, 0)
+                        Scripts.my_list(0, 0, 0, true)
                         viewLoader.sourceComponent = myListComponent
                     }
                 },
                 Action {
                     text: i18n.tr("Articles")
                     onTriggered: {
-                        Scripts.my_list(1, 0, 0)
+                        Scripts.my_list(1, 0, 0, true)
                         viewLoader.sourceComponent = myListComponent
                     }
                 },
                 Action {
                     text: i18n.tr("Videos")
                     onTriggered: {
-                        Scripts.my_list(0, 0, 1)
+                        Scripts.my_list(0, 0, 1, true)
                         viewLoader.sourceComponent = myListComponent
                     }
                 },
                 Action {
                     text: i18n.tr("Images")
                     onTriggered: {
-                        Scripts.my_list(0, 1, 0)
+                        Scripts.my_list(0, 1, 0, true)
                         viewLoader.sourceComponent = myListComponent
                     }
                 }
@@ -96,10 +96,10 @@ Page {
         Scripts.get_list()
     }
 
-    function home(dont_get_list) {
+    function home(dont_get_list, empty_ok) {
         // Offline articles
-        Scripts.my_list(0, 0, 0)
-        if (dont_get_list == true) {
+        Scripts.my_list(0, 0, 0, empty_ok)
+        if (dont_get_list == false) {
             // Sync
             if (User.getKey('auto_download') == 'true') {
                 Scripts.get_list()
@@ -207,6 +207,16 @@ Page {
                                 removalAnimation.start()
                                 Scripts.archive_item(item_id, '1')
                                 archiveListPage.home()
+                            }
+                        },
+                        Action {
+                            enabled: Connectivity.online
+                            iconName: "tag"
+                            text: i18n.tr("Tags")
+                            onTriggered: {
+                                entryTagsPage.entry_id = item_id
+                                entryTagsPage.home()
+                                pageStack.push(entryTags)
                             }
                         },
                         Action {

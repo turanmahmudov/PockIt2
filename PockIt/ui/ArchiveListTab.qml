@@ -170,6 +170,16 @@ Page {
                         },
                         Action {
                             enabled: Connectivity.online
+                            iconName: "tag"
+                            text: i18n.tr("Tags")
+                            onTriggered: {
+                                entryTagsPage.entry_id = item_id
+                                entryTagsPage.home()
+                                pageStack.push(entryTags)
+                            }
+                        },
+                        Action {
+                            enabled: Connectivity.online
                             iconName: "starred"
                             text: i18n.tr("Favorite")
                             property var iconColor: favorite == 1 ? "orange" : UbuntuColors.lightGrey

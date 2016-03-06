@@ -73,5 +73,6 @@ DISTFILES += \
     ui/Help.qml \
     components/ArticleStyles.qml \
     ui/TagsListTab.qml \
-    ui/TagEntriesPage.qml
+    ui/TagEntriesPage.qml \
+    ui/EntryTagsPage.qml
 
