@@ -121,12 +121,12 @@ Page {
                 leadingActions: ListItemActions {
                     actions: [
                         Action {
-                            enabled: Connectivity.online
+                            enabled: Connectivity.online && item_id != "0"
                             iconName: "delete"
                             text: i18n.tr("Remove")
                             onTriggered: {
                                 removalAnimation.start()
-                                Scripts.delete_item(item_id)
+                                Scripts.delete_tag(tag)
                             }
                         }
                     ]

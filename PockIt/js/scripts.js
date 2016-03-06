@@ -636,6 +636,37 @@ function save_tags(e_id) {
     });
 }
 
+function delete_tag(tag) {
+    var entries = [];
+
+    var db = LocalDb.init();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("SELECT * FROM Tags WHERE tag = ?", [tag]);
+        for(var i = 0; i < rs.rows.length; i++) {
+            entries.push('%7B%0A%09%09%22action%22%20%3A%20%22tags_remove%22%2C%0A%09%09%22item_id%22%20%3A%20%22'+rs.rows.item(i).entry_id+'%22%2C%0A%09%09%22tags%22%09%20%3A%20%22'+tag+'%22%0A%09%7D');
+        }
+
+        // Send to Pocket
+        var access_token = User.getKey('access_token');
+        var url = 'https://getpocket.com/v3/send';
+        var actions = '%5B'+entries.join("%2C")+'%5D';
+
+        var data = "actions="+actions+"&consumer_key="+consumer_key+"&access_token="+access_token;
+
+        request(url, data, item_moded);
+
+        // Delete tags from DB
+        var rds = tx.executeSql("DELETE FROM Tags WHERE tag = ?", [tag]);
+
+        myListPage.home(true)
+        favListPage.home()
+        archiveListPage.home()
+        tagsListPage.home()
+        tagEntriesPage.home()
+        searchPage.home()
+    });
+}
+
 function clear_list() {
     var db = LocalDb.init();
     db.transaction(function(tx) {
