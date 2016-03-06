@@ -43,6 +43,10 @@ Page {
         }
     }
 
+    function home() {
+        Scripts.search_offline(searchField.text)
+    }
+
     property bool empty: false
 
     BouncingProgressBar {
@@ -189,7 +193,7 @@ Page {
                     height: entry_column.height + units.gu(3)
                     Column {
                         id: entry_column
-                        spacing: units.gu(0.5)
+                        spacing: units.gu(1)
                         anchors.verticalCenter: parent.verticalCenter
                         width: image == '' ? parent.width : parent.width - units.gu(10)
 
@@ -209,6 +213,29 @@ Page {
                             text: only_domain
                             fontSize: "x-small"
                             wrapMode: Text.WordWrap
+                        }
+
+                        Flow {
+                            width: parent.width - units.gu(4)
+                            x: units.gu(2)
+                            spacing: units.gu(0.5)
+                            Repeater {
+                                model: tags
+                                Rectangle {
+                                    height: tag_label.height + units.gu(0.5)
+                                    width: tag_label.width + units.gu(1.5)
+                                    color: "#c3c3c3"
+                                    radius: units.gu(0.3)
+                                    Label {
+                                        anchors.centerIn: parent
+                                        id: tag_label
+                                        text: tag
+                                        color: "#ffffff"
+                                        fontSize: "x-small"
+                                        font.weight: Font.DemiBold
+                                    }
+                                }
+                            }
                         }
                     }
 

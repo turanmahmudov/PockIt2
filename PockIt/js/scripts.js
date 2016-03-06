@@ -429,6 +429,13 @@ function search_offline(query) {
         } else {
             searchModel.clear()
             for(var i = 0; i < rs.rows.length; i++) {
+                // Tags
+                var rst = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
+                var tags = [];
+                for (var j = 0; j < rst.rows.length; j++) {
+                    tags.push(rst.rows.item(j));
+                }
+
                 var item_id = rs.rows.item(i).item_id;
                 var given_title = rs.rows.item(i).given_title;
                 var resolved_title = rs.rows.item(i).resolved_title ? rs.rows.item(i).resolved_title : (rs.rows.item(i).given_title ? rs.rows.item(i).given_title : rs.rows.item(i).resolved_url)
@@ -449,7 +456,7 @@ function search_offline(query) {
                     }
                 }
 
-                searchModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video});
+                searchModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video, "tags":tags});
 
                 finished = true
             }
@@ -624,6 +631,8 @@ function save_tags(e_id) {
         favListPage.home()
         archiveListPage.home()
         tagsListPage.home()
+        tagEntriesPage.home()
+        searchPage.home()
     });
 }
 
@@ -741,11 +750,13 @@ function parseArticleView(url, item_id, acc_article) {
     articleView.entry_url = '';
     articleView.entry_id = '';
     articleView.entry_title = ' ';
+    articleView.favorite = '';
+    articleView.archived = '';
 
     var db = LocalDb.init();
     db.transaction(function(tx) {
         var rs = tx.executeSql("SELECT * FROM Articles WHERE item_id = ?", item_id);
-        var rse = tx.executeSql("SELECT word_count, item_id FROM Entries WHERE item_id = ?", item_id);
+        var rse = tx.executeSql("SELECT word_count, item_id, favorite FROM Entries WHERE item_id = ?", item_id);
 
         if (rs.rows.length == 0) {
             get_article(item_id, url, false, 0, false, false, false, true);
@@ -758,6 +769,8 @@ function parseArticleView(url, item_id, acc_article) {
                 articleView.entry_id = item_id;
                 articleView.entry_title = result.title != '' ? result.title : ' ';
                 articleView.view = 'web';
+                articleView.favorite = rse.rows.item(0).favorite;
+                articleView.archived = rse.rows.item(0).status == "1" ? "1" : "0";
                 articleBody.url = url;
                 return false;
             }
@@ -771,6 +784,8 @@ function parseArticleView(url, item_id, acc_article) {
             articleView.entry_url = url;
             articleView.entry_id = item_id;
             articleView.entry_title = result.title != '' ? result.title : ' ';
+            articleView.favorite = rse.rows.item(0).favorite;
+            articleView.archived = rse.rows.item(0).status == "1" ? "1" : "0";
             articleView.view = 'article';
 
             // Style

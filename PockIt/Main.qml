@@ -265,6 +265,8 @@ MainView {
         property var entry_url
         property var entry_id
         property var entry_title
+        property var favorite
+        property var archived
         property var view
 
         header: PageHeader {
@@ -301,6 +303,7 @@ MainView {
                         }
                     },
                     Action {
+                        enabled: Connectivity.online
                         id: refresh
                         text: i18n.tr("Refresh")
                         iconName: "reload"
@@ -310,6 +313,73 @@ MainView {
                             } else {
                                 articleBody.url = articleView.entry_url;
                             }
+                        }
+                    },
+                    Action {
+                        enabled: Connectivity.online
+                        iconName: "share"
+                        text: i18n.tr("Share")
+                        onTriggered: {
+                            PopupUtils.open(shareDialog, pageStack, {"contentType": ContentType.Links, "path": articleView.entry_url});
+                        }
+                    },
+                    Action {
+                        enabled: Connectivity.online
+                        iconName: "tick"
+                        text: articleView.archived == "1" ? i18n.tr("Re-add") : i18n.tr("Archive")
+                        onTriggered: {
+                            if (articleView.archived == "1") {
+                                Scripts.archive_item(articleView.entry_id, '0')
+                                text = i18n.tr("Archive")
+                                articleView.archived = "0"
+                            } else {
+                                Scripts.archive_item(articleView.entry_id, '1')
+                                text = i18n.tr("Re-add")
+                                articleView.archived = "1"
+                            }
+                            myListPage.home(true, true)
+                            favListPage.home()
+                            archiveListPage.home()
+                        }
+                    },
+                    Action {
+                        enabled: Connectivity.online
+                        iconName: "tag"
+                        text: i18n.tr("Tags")
+                        onTriggered: {
+                            entryTagsPage.entry_id = articleView.entry_id
+                            entryTagsPage.home()
+                            pageStack.push(entryTags)
+                        }
+                    },
+                    Action {
+                        enabled: Connectivity.online
+                        iconName: "starred"
+                        text: articleView.favorite == "1" ? i18n.tr("Unfavorite") : i18n.tr("Favorite")
+                        onTriggered: {
+                            if (articleView.favorite == "1") {
+                                Scripts.fav_item(articleView.entry_id, 0)
+                                text = i18n.tr("Favorite")
+                                articleView.favorite = "0"
+                            } else {
+                                Scripts.fav_item(articleView.entry_id, 1)
+                                text = i18n.tr("Unfavorite")
+                                articleView.favorite = "1"
+                            }
+                            favListPage.home()
+                            archiveListPage.home()
+                            myListPage.home(true, true)
+                        }
+                    },
+                    Action {
+                        enabled: Connectivity.online
+                        iconName: "delete"
+                        text: i18n.tr("Remove")
+                        onTriggered: {
+                            Scripts.delete_item(articleView.entry_id)
+                            myListPage.home(true, true)
+                            favListPage.home()
+                            archiveListPage.home()
                         }
                     },
                     Action {
