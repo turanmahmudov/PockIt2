@@ -156,9 +156,16 @@ MainView {
         ArticleStyles { }
     }
 
+    // Sync dialog
     Component {
         id: downloadDialog
         DownloadingPopup { }
+    }
+
+    // Tag Edit dialog
+    Component {
+        id: tagEditDialog
+        TagEditDialog { }
     }
 
     PageStack {

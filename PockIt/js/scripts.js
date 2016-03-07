@@ -667,6 +667,29 @@ function delete_tag(tag) {
     });
 }
 
+function rename_tag(oldTag, newTag) {
+    var db = LocalDb.init();
+    db.transaction(function(tx) {
+        // Rename tags on DB
+        var rds = tx.executeSql("UPDATE Tags SET tag = ?, item_key = ? WHERE item_key = ?", [newTag, newTag, oldTag]);
+
+        // Send to Pocket
+        var access_token = User.getKey('access_token');
+        var url = 'https://getpocket.com/v3/send';
+        var actions = '%5B%7B%22action%22%3A%22tag_rename%22%2C%22old_tag%22%3A%22'+oldTag+'%22%2C%22new_tag%22%3A%22'+newTag+'%22%7D%5D';
+
+        var data = "actions="+actions+"&consumer_key="+consumer_key+"&access_token="+access_token;
+
+        request(url, data, item_moded);
+
+        myListPage.home(true)
+        favListPage.home()
+        archiveListPage.home()
+        tagsListPage.home()
+        tagEntriesPage.home()
+    });
+}
+
 function clear_list() {
     var db = LocalDb.init();
     db.transaction(function(tx) {

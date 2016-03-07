@@ -131,6 +131,18 @@ Page {
                         }
                     ]
                 }
+                trailingActions: ListItemActions {
+                    actions: [
+                        Action {
+                            enabled: Connectivity.online && item_id != "0"
+                            iconName: "compose"
+                            text: i18n.tr("Edit")
+                            onTriggered: {
+                                PopupUtils.open(tagEditDialog, mainView, {"oldTag":tag})
+                            }
+                        }
+                    ]
+                }
 
                 removalAnimation: SequentialAnimation {
                     alwaysRunToEnd: true
