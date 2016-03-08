@@ -96,13 +96,17 @@ Page {
         Scripts.get_list()
     }
 
-    function home(dont_get_list, empty_ok) {
+    function home(dont_get_list, empty_ok, but_man) {
         // Offline articles
-        Scripts.my_list(0, 0, 0, empty_ok)
-        if (dont_get_list == false) {
-            // Sync
-            if (User.getKey('auto_download') == 'true') {
-                Scripts.get_list()
+        if (but_man != true && User.getKey("first_time_sync") != "true") {
+            Scripts.my_list(0, 0, 0, true)
+        } else {
+            Scripts.my_list(0, 0, 0, empty_ok)
+            if (dont_get_list != true) {
+                // Sync
+                if (User.getKey('auto_download') == 'true') {
+                    Scripts.get_list()
+                }
             }
         }
     }
@@ -130,10 +134,12 @@ Page {
             topMargin: units.gu(5)
         }
         visible: empty == true
+        z: 100000000
 
-        title: i18n.tr("Your list is empty")
-        description: ''
+        title: i18n.tr("Your List is Empty")
+        description: i18n.tr("There are many ways to add content to your PockIt list.")
         help: ''
+        buttons: User.getKey("first_time_sync") != "true" ? [{"name":"Sync All", "description":"This may take long.", "kid":"sync_all"}, {"name":"Sync without Articles", "description":"This will sync only items without Articles.", "kid":"sync_without_articles"}] : []
     }
 
     ListModel {

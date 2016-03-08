@@ -83,8 +83,8 @@ Page {
         }
         visible: empty == true
 
-        title: i18n.tr("Tags Empty")
-        description: ""
+        title: i18n.tr("Tags List Empty")
+        description: i18n.tr("To create a tag, swipe from right on an item in your list and tap the Tag button.")
         help: ""
     }
 

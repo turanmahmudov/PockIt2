@@ -92,6 +92,7 @@ MainView {
     function home(refr) {
         // Check if user is logged in
         if (User.getKey('access_token')) {
+
             pageStack.clear();
             pageStack.push(tabs);
 
@@ -114,7 +115,10 @@ MainView {
                 User.setKey('auto_download', 'false');
             }
             if (!User.getKey('auto_download_articles')) {
-                User.setKey('auto_download_articles', 'true');
+                User.setKey('auto_download_articles', 'false');
+            }
+            if (!User.getKey('first_time_sync')) {
+                User.setKey('first_time_sync', 'false');
             }
 
             if (refr == true) {
@@ -166,6 +170,12 @@ MainView {
     Component {
         id: tagEditDialog
         TagEditDialog { }
+    }
+
+    // Info dialog
+    Component {
+        id: infoDialog
+        InfoDialog { }
     }
 
     PageStack {

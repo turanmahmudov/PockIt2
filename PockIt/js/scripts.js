@@ -96,6 +96,8 @@ function download_done(results) {
         }
     });
 
+    User.setKey('first_time_sync', 'true');
+
     if (objectLength(results['list']) > 0) {
         empty = false
 
@@ -693,15 +695,23 @@ function rename_tag(oldTag, newTag) {
 function clear_list() {
     var db = LocalDb.init();
     db.transaction(function(tx) {
-        var rs = tx.executeSql("DELETE FROM Entries");
-        var rse = tx.executeSql("DELETE FROM Articles");
-        var rst = tx.executeSql("DELETE FROM Tags");
+        var rs = tx.executeSql('INSERT OR REPLACE INTO user VALUES (?,?);', ['first_time_sync', "false"]);
+        if (rs.rowsAffected == 0) {
+            throw "Error updating key";
+        } else {
+            var db = LocalDb.init();
+            db.transaction(function(tx) {
+                var rs = tx.executeSql("DELETE FROM Entries");
+                var rse = tx.executeSql("DELETE FROM Articles");
+                var rst = tx.executeSql("DELETE FROM Tags");
 
-        pageStack.pop()
-        myListPage.home(true, true)
-        favListPage.home()
-        archiveListPage.home()
-        tagsListPage.home()
+                pageStack.pop()
+                myListPage.home(true, true)
+                favListPage.home()
+                archiveListPage.home()
+                tagsListPage.home()
+            });
+        }
     });
 }
 
