@@ -12,7 +12,6 @@ Search "PockIt" on Ubuntu Store and Install the app
 - To add new item to your list, just share url from other apps. For example, in your Web Browser tap the Share button and select PockIt.
 
 ## Missing Features
-- Tags \[in progress\]
 - Text To Speech
 - Online Accounts integration
 
