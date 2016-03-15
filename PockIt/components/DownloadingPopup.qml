@@ -24,4 +24,15 @@ Dialog {
             }
         }
     }
+
+    Button {
+        text: i18n.tr("Cancel")
+        color: UbuntuColors.coolGrey
+        onClicked: {
+            canceled = true
+            finished = true
+            downloaded = 0
+            PopupUtils.close(downloadDialog)
+        }
+    }
 }

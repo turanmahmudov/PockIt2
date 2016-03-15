@@ -111,6 +111,10 @@ function download_done(results) {
 }
 
 function download_loop(data, i, db, results) {
+    if (canceled == true) {
+        return false;
+    }
+
     downloaded++
 
     if (!data[i]) {

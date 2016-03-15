@@ -31,6 +31,7 @@ MainView {
     property int totaldownloads: 0
     property bool finished: true
     property bool empty: false
+    property bool canceled: false
 
     // Themes
     Themes.ThemeManager {
@@ -76,6 +77,7 @@ MainView {
             text: i18n.tr("Sync")
             iconName: "sync"
             onTriggered: {
+                canceled = false
                 myListPage.get_list()
             }
         },

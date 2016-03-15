@@ -39,57 +39,6 @@ Page {
         }
     }
 
-    Component {
-        id: donateDialog
-        Dialog {
-            id: donateDialog
-
-            title: i18n.tr("Bitcoin")
-
-            Column {
-                id: column
-                spacing: units.gu(3)
-
-                Image {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: units.gu(25)
-                    height: width
-                    source: "../img/bitcoin.png"
-                }
-
-                Label {
-                    id: bitcoinaddress
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    fontSize: "medium"
-                    text: i18n.tr("3CZ9HzDacwv1vPzizHRDgq2jDRkpJgJCJn")
-                }
-
-                Row {
-                    id: row
-                    width: parent.width
-                    spacing: units.gu(1)
-
-                    Button {
-                        width: (parent.width/2)-units.gu(1)
-                        text: i18n.tr("Copy")
-                        color: UbuntuColors.orange
-                        onClicked: {
-                            Clipboard.push("3CZ9HzDacwv1vPzizHRDgq2jDRkpJgJCJn");
-                        }
-                    }
-
-                    Button {
-                        width: (parent.width/2)-units.gu(1)
-                        text: i18n.tr("Cancel")
-                        color: UbuntuColors.coolGrey
-                        onClicked: PopupUtils.close(donateDialog)
-                    }
-                }
-            }
-        }
-
-    }
-
     ListModel {
         id: contributorsModel
         ListElement { name: "Turan Mahmudov"; email: "turan.mahmudov@gmail.com"; role: "Creator" }
@@ -204,20 +153,6 @@ Page {
                     linkColor: UbuntuColors.orange
                     fontSize: "small"
                     onLinkActivated: Qt.openUrlExternally(link)
-                }
-
-                Column {
-                    width: parent.width
-
-                    Button {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        width: units.gu(15)
-                        color: UbuntuColors.green
-                        text: i18n.tr("Donate")
-                        onClicked: {
-                            PopupUtils.open(donateDialog)
-                        }
-                    }
                 }
             }
         }

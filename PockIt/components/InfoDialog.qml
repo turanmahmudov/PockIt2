@@ -22,6 +22,7 @@ Dialog {
 
     Button {
         text: i18n.tr("Close")
+        color: UbuntuColors.coolGrey
         onClicked: PopupUtils.close(infoDialog)
     }
 }

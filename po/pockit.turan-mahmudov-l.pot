@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 23:07+0400\n"
+"POT-Creation-Date: 2016-03-15 23:23+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,59 +17,59 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:60
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:61
 #: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:16
 msgid "Search"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:68
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:69
 #: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:11
 msgid "Settings"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:76
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:77
 msgid "Sync"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:84
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:86
 #: /home/turan/Apps/PockIt/PockIt/ui/About.qml:21
 msgid "About"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:223
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:225
 msgid "Tag"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:248
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:250
 msgid "Edit Tags"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:257
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:259
 #: /home/turan/Apps/PockIt/PockIt/components/TagEditDialog.qml:48
 msgid "Save"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:290
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:292
 msgid " "
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:302
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:304
 msgid "Web View"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:302
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:304
 msgid "Article View"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:316
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:318
 msgid "External"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:325
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:327
 msgid "Refresh"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:338
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:340
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:154
 #: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:154
 #: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:203
@@ -78,13 +78,13 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:346
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:354
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:348
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:356
 msgid "Re-add"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:346
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:350
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:348
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:352
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:16
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:38
 #: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:38
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Archive"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:365
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:367
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:45
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:174
 #: /home/turan/Apps/PockIt/PockIt/ui/EntryTagsPage.qml:106
@@ -112,13 +112,13 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:375
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:383
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:377
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:385
 msgid "Unfavorite"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:375
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:379
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:377
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:381
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:184
 #: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:183
 #: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:231
@@ -127,7 +127,7 @@ msgstr ""
 msgid "Favorite"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:394
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:396
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:131
 #: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:131
 #: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:180
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/Main.qml:405
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:407
 msgid "Display Settings"
 msgstr ""
 
@@ -154,6 +154,11 @@ msgstr ""
 msgid "Syncing"
 msgstr ""
 
+#: /home/turan/Apps/PockIt/PockIt/components/DownloadingPopup.qml:29
+#: /home/turan/Apps/PockIt/PockIt/components/TagEditDialog.qml:41
+msgid "Cancel"
+msgstr ""
+
 #: /home/turan/Apps/PockIt/PockIt/components/TagEditDialog.qml:12
 msgid "Rename Tag"
 msgstr ""
@@ -162,14 +167,9 @@ msgstr ""
 msgid "Enter a new name for this tag"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/components/TagEditDialog.qml:41
-#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:83
-msgid "Cancel"
-msgstr ""
-
 #: /home/turan/Apps/PockIt/PockIt/ui/About.qml:9
 #: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:16
-#: /home/turan/Apps/build-PockIt-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Debug/PockIt/PockIt.desktop.h:1
+#: /home/turan/Apps/build-PockIt-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Release/PockIt/PockIt.desktop.h:1
 msgid "PockIt"
 msgstr ""
 
@@ -182,33 +182,17 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:47
-msgid "Bitcoin"
-msgstr ""
-
-#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:64
-msgid "3CZ9HzDacwv1vPzizHRDgq2jDRkpJgJCJn"
-msgstr ""
-
-#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:74
-msgid "Copy"
-msgstr ""
-
-#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:163
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:112
 msgid "<b>Unofficial</b> Pocket client"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:191
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:140
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:200
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:149
 #, qt-format
 msgid "Source code available on %1"
-msgstr ""
-
-#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:216
-msgid "Donate"
 msgstr ""
 
 #: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:24
