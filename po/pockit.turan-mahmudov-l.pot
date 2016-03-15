@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 22:25+0400\n"
+"POT-Creation-Date: 2016-03-15 23:07+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,7 +169,7 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt/PockIt/ui/About.qml:9
 #: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:16
-#: /home/turan/Apps/build-PockIt-Ubuntu_SDK_Desktop_Kit-Debug/PockIt/PockIt.desktop.h:1
+#: /home/turan/Apps/build-PockIt-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Debug/PockIt/PockIt.desktop.h:1
 msgid "PockIt"
 msgstr ""
 
