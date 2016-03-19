@@ -122,6 +122,12 @@ MainView {
             if (!User.getKey('first_time_sync')) {
                 User.setKey('first_time_sync', 'false');
             }
+            if (!User.getKey('list_order')) {
+                User.setKey('list_order', 'date');
+            }
+            if (!User.getKey('list_sort')) {
+                User.setKey('list_sort', 'DESC');
+            }
 
             if (refr == true) {
                 myListPage.home(true)

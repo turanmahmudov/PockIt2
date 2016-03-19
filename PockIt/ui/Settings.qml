@@ -2,6 +2,7 @@ import QtQuick 2.4
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components.ListItems 1.3 as ListItem
+import Ubuntu.Components.Popups 1.3
 import "../js/localdb.js" as LocalDb
 import "../js/user.js" as User
 import "../js/scripts.js" as Scripts
@@ -12,6 +13,76 @@ Page {
 
     Component.onCompleted: {
         settingsModel.setProperty(0, "subtitle", User.getKey('username'))
+
+        settingsModel.setProperty(8, "subtitle", User.getKey('list_order') == 'date' ? "Date" : "Title")
+        settingsModel.setProperty(9, "subtitle", User.getKey('list_sort') == 'DESC' ? "Descending" : "Ascending")
+    }
+
+    Component {
+        id: listOrderDialog
+        Dialog {
+            id: dialogInternal
+            title: i18n.tr("List Order")
+
+            ListItem.ItemSelector {
+                text: i18n.tr("By")
+                expanded: true
+                selectedIndex: User.getKey('list_order') == 'date' ? 0 : 1
+                model: [i18n.tr("Date"),
+                        i18n.tr("Title")]
+
+                onSelectedIndexChanged: {
+                    console.log(selectedIndex)
+                    if (selectedIndex == 0) {
+                        User.setKey('list_order', 'date')
+                    } else {
+                        User.setKey('list_order', 'name')
+                    }
+                }
+            }
+
+            Button {
+                text: i18n.tr("Close")
+                color: UbuntuColors.coolGrey
+                onClicked: {
+                    settingsModel.setProperty(8, "subtitle", User.getKey('list_order') == 'date' ? "Date" : "Title")
+                    PopupUtils.close(dialogInternal);
+                }
+            }
+        }
+    }
+
+    Component {
+        id: listSortDialog
+        Dialog {
+            id: dialogInternal
+            title: i18n.tr("List Sort")
+
+            ListItem.ItemSelector {
+                text: i18n.tr("By")
+                expanded: true
+                selectedIndex: User.getKey('list_sort') == 'DESC' ? 0 : 1
+                model: [i18n.tr("DESC"),
+                        i18n.tr("ASC")]
+
+                onSelectedIndexChanged: {
+                    if (selectedIndex == 0) {
+                        User.setKey('list_sort', 'DESC')
+                    } else {
+                        User.setKey('list_sort', 'ASC')
+                    }
+                }
+            }
+
+            Button {
+                text: i18n.tr("Close")
+                color: UbuntuColors.coolGrey
+                onClicked: {
+                    settingsModel.setProperty(9, "subtitle", User.getKey('list_sort') == 'DESC' ? "Descending" : "Ascending")
+                    PopupUtils.close(dialogInternal);
+                }
+            }
+        }
     }
 
     ListModel {
@@ -24,6 +95,8 @@ Page {
         ListElement { kid: "auto_download"; title: "Auto sync"; subtitle: ""; type: "check"; cchecked: false; role: "Offline Reading" }
         ListElement { kid: "auto_download_articles"; title: "Auto download articles"; subtitle: ""; type: "check"; cchecked: true; role: "Offline Reading" }
         ListElement { kid: "clear_files"; title: "Clear downloaded files"; subtitle: ""; type: "action"; role: "Offline Reading" }
+        ListElement { kid: "list_order"; title: "Order"; subtitle: ""; type: "select"; role: "List" }
+        ListElement { kid: "list_sort"; title: "Sort"; subtitle: ""; type: "select"; role: "List" }
     }
 
     ListView {
@@ -62,6 +135,16 @@ Page {
 
                         case 'logout':
                             Scripts.logout()
+                            break;
+                    }
+                } else if (type == 'select') {
+                    switch (kid) {
+                        case 'list_order':
+                            PopupUtils.open(listOrderDialog);
+                            break;
+
+                        case 'list_sort':
+                            PopupUtils.open(listSortDialog);
                             break;
                     }
                 }

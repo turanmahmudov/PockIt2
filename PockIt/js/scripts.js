@@ -256,16 +256,19 @@ function get_article(item_id, resolved_url, lcallback, li, ldata, ldb, lreslist,
 function my_list(is_article, is_image, is_video, empty_ok) {
     finished = false
 
+    var lorder = User.getKey('list_order') == 'date' ? "time_added" : "resolved_title";
+    var lsort = User.getKey('list_sort') == 'DESC' ? "DESC" : "ASC";
+
     var db = LocalDb.init();
     db.transaction(function(tx) {
         if (is_article != 0) {
-            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE is_article = ? AND status = ? ORDER BY time_added DESC", ["1", "0"]);
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE is_article = ? AND status = ? ORDER BY " + lorder + " " + lsort, ["1", "0"]);
         } else if (is_image != 0) {
-            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE has_image = ? AND status = ? ORDER BY time_added DESC", ["2", "0"]);
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE has_image = ? AND status = ? ORDER BY " + lorder + " " + lsort, ["2", "0"]);
         } else if (is_video != 0) {
-            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE has_video = ? AND status = ? ORDER BY time_added DESC", ["2", "0"]);
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE has_video = ? AND status = ? ORDER BY " + lorder + " " + lsort, ["2", "0"]);
         } else {
-            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE status = ? ORDER BY time_added DESC", "0");
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE status = ? ORDER BY " + lorder + " " + lsort, "0");
         }
 
         if (rs.rows.length == 0) {
@@ -321,9 +324,12 @@ function my_favs_list() {
     finished = false
     empty = false
 
+    var lorder = User.getKey('list_order') == 'date' ? "time_added" : "resolved_title";
+    var lsort = User.getKey('list_sort') == 'DESC' ? "DESC" : "ASC";
+
     var db = LocalDb.init();
     db.transaction(function(tx) {
-        var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE favorite = ? AND status = ? ORDER BY time_added DESC", ["1", "0"]);
+        var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE favorite = ? AND status = ? ORDER BY " + lorder + " " + lsort, ["1", "0"]);
 
         if (rs.rows.length == 0) {
             empty = true;
@@ -372,9 +378,12 @@ function my_archive_list() {
     finished = false
     empty = false
 
+    var lorder = User.getKey('list_order') == 'date' ? "time_added" : "resolved_title";
+    var lsort = User.getKey('list_sort') == 'DESC' ? "DESC" : "ASC";
+
     var db = LocalDb.init();
     db.transaction(function(tx) {
-        var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE status = ? ORDER BY time_added DESC", "1");
+        var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE status = ? ORDER BY " + lorder + " " + lsort, "1");
 
         if (rs.rows.length == 0) {
             empty = true
@@ -424,10 +433,13 @@ function search_offline(query) {
     finished = false
     empty = false
 
+    var lorder = User.getKey('list_order') == 'date' ? "time_added" : "resolved_title";
+    var lsort = User.getKey('list_sort') == 'DESC' ? "DESC" : "ASC";
+
     var db = LocalDb.init();
     db.transaction(function(tx) {
         var lq = '%' + query + '%';
-        var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, given_url, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE given_title LIKE ? OR resolved_title LIKE ? OR given_url LIKE ? OR resolved_url LIKE ? ORDER BY time_added DESC", [lq, lq, lq, lq]);
+        var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, given_url, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE given_title LIKE ? OR resolved_title LIKE ? OR given_url LIKE ? OR resolved_url LIKE ? ORDER BY " + lorder + " " + lsort, [lq, lq, lq, lq]);
 
         if (rs.rows.length == 0) {
             // Not found
@@ -547,12 +559,15 @@ function tag_entries_list(tag) {
     finished = false
     empty = false
 
+    var lorder = User.getKey('list_order') == 'date' ? "time_added" : "resolved_title";
+    var lsort = User.getKey('list_sort') == 'DESC' ? "DESC" : "ASC";
+
     var db = LocalDb.init();
     db.transaction(function(tx) {
         if (tag == "0") {
-            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE item_id NOT IN (SELECT entry_id FROM Tags) AND status = ? ORDER BY time_added DESC", ["0"]);
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE item_id NOT IN (SELECT entry_id FROM Tags) AND status = ? ORDER BY " + lorder + " " + lsort, ["0"]);
         } else {
-            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE item_id IN (SELECT entry_id FROM Tags WHERE Tags.tag = ?) AND status = ? ORDER BY time_added DESC", [tag, "0"]);
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE item_id IN (SELECT entry_id FROM Tags WHERE Tags.tag = ?) AND status = ? ORDER BY " + lorder + " " + lsort, [tag, "0"]);
         }
 
         if (rs.rows.length == 0) {
@@ -911,10 +926,6 @@ function request(url, params, callback) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-
-            console.log(xhr.responseText)
-            console.log(url);
-            console.log(data);
 
             if (xhr.responseText == "403 Forbidden") {
                 console.log(xhr.getResponseHeader('X-Limit-User-Reset'))

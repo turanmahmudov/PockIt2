@@ -43,12 +43,7 @@ Page {
 
             url: "https://getpocket.com/auth/authorize?request_token="+request_token+"&redirect_uri="+encodeURIComponent(redirect_uri)
 
-            Component.onCompleted: {
-                console.log(url)
-            }
-
             onUrlChanged: {
-                console.log(url)
                 //url.toString().substring(0, 46) == "https://accounts.google.com/o/oauth2/approval?"
 
                 if (url == redirect_uri) {
