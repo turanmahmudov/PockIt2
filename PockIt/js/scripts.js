@@ -10,7 +10,7 @@ function get_request_token(results) {
         request(url, data, get_request_token);
     }
 }
-function get_access_token(results) {
+function get_access_token(results, kod) {
     if (results) {
         if (results['access_token']) {
             User.setKey('access_token', results['access_token']);
@@ -19,8 +19,10 @@ function get_access_token(results) {
             mainView.home(true)
         }
     } else {
+        var code = kod ? kod : User.getKey('request_token');
+
         var url = 'https://getpocket.com/v3/oauth/authorize';
-        var data = "consumer_key="+consumer_key+"&code="+User.getKey('request_token');
+        var data = "consumer_key="+consumer_key+"&code="+code;
 
         request(url, data, get_access_token);
     }
@@ -909,6 +911,11 @@ function request(url, params, callback) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
+
+            console.log(xhr.responseText)
+            console.log(url);
+            console.log(data);
+
             if (xhr.responseText == "403 Forbidden") {
                 console.log(xhr.getResponseHeader('X-Limit-User-Reset'))
                 console.log(xhr.responseText)
@@ -922,4 +929,19 @@ function request(url, params, callback) {
     }
 
     xhr.send(data);
+}
+
+function getUrlParameter(sParam, sUrl) {
+    var sPageURL = decodeURIComponent(sUrl),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
 }

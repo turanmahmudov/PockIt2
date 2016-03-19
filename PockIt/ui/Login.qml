@@ -15,6 +15,11 @@ Page {
             fill: parent
         }
 
+        WebContext {
+            id: webcontext
+            userAgent: "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+        }
+
         WebView {
             id: webView
             anchors {
@@ -24,7 +29,13 @@ Page {
             }
             height: parent.height
 
+            context: webcontext
             incognito: true
+            preferences.localStorageEnabled: true
+            preferences.allowFileAccessFromFileUrls: true
+            preferences.allowUniversalAccessFromFileUrls: true
+            preferences.appCacheEnabled: true
+            preferences.javascriptCanAccessClipboard: true
 
             // the redirect_uri can be any site
             property string redirect_uri : "https://api.github.com/zen"
@@ -32,9 +43,20 @@ Page {
 
             url: "https://getpocket.com/auth/authorize?request_token="+request_token+"&redirect_uri="+encodeURIComponent(redirect_uri)
 
+            Component.onCompleted: {
+                console.log(url)
+            }
+
             onUrlChanged: {
-                if (url == redirect_uri || url.toString().substring(0, 46) == "https://accounts.google.com/o/oauth2/approval?") {
+                console.log(url)
+                //url.toString().substring(0, 46) == "https://accounts.google.com/o/oauth2/approval?"
+
+                if (url == redirect_uri) {
                     Scripts.get_access_token();
+                } else if (url.toString().substring(0, 28) == "https://accounts.google.com/") {
+                    webView.url = "https://getpocket.com/auth/authorize?request_token="+request_token+"&redirect_uri="+encodeURIComponent(redirect_uri)
+                } else if (url.toString().substring(0, 24) == "https://getpocket.com/a/") {
+                    webView.url = "https://getpocket.com/auth/authorize?request_token="+request_token+"&redirect_uri="+encodeURIComponent(redirect_uri)
                 }
             }
             onLoadingChanged: {
