@@ -41,8 +41,8 @@ Page {
                     text: i18n.tr("Clear")
                     color: UbuntuColors.red
                     onClicked: {
+                        PopupUtils.close(dialogInternal);
                         Scripts.clear_list()
-                        PopupUtils.close(dialogInternal)
                     }
                 }
             }

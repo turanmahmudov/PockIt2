@@ -725,17 +725,16 @@ function clear_list() {
         if (rs.rowsAffected == 0) {
             //throw "Error updating key";
         } else {
-            var db = LocalDb.init();
             db.transaction(function(tx) {
-                var rs = tx.executeSql("DELETE FROM Entries");
+                var rsen = tx.executeSql("DELETE FROM Entries");
                 var rse = tx.executeSql("DELETE FROM Articles");
                 var rst = tx.executeSql("DELETE FROM Tags");
 
-                pageStack.pop()
                 myListPage.home(true, true)
                 favListPage.home()
                 archiveListPage.home()
                 tagsListPage.home()
+                tagEntriesPage.home()
             });
         }
     });
