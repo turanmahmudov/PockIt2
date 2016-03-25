@@ -8,11 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2016-03-25 20:25+0400\n"
-=======
-"POT-Creation-Date: 2016-03-25 22:11+0530\n"
->>>>>>> c61b6b6fdd8b4be1318d8edadca7c8fae8f21056
+"POT-Creation-Date: 2016-03-26 01:57+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,346 +17,364 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:61
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:16
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:61
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:16
 msgid "Search"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:69
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:12
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:69
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:12
 msgid "Settings"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:77
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:77
 msgid "Sync"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:86
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/About.qml:21
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:86
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:21
 msgid "About"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:231
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:231
 msgid "Tag"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:256
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:256
 msgid "Edit Tags"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:265
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/TagEditDialog.qml:48
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:265
+#: /home/turan/Apps/PockIt/PockIt/components/TagEditDialog.qml:48
 msgid "Save"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:298
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:298
 msgid " "
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:310
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:310
 msgid "Web View"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:310
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:310
 msgid "Article View"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:324
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:324
 msgid "External"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:333
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:333
 msgid "Refresh"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:346
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:130
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:130
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:179
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:121
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:112
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:346
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:130
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:130
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:179
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:121
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:112
 msgid "Share"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:354
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:362
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:354
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:362
 msgid "Re-add"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:354
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:358
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/TabsList.qml:23
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:21
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:138
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:187
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:129
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:120
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:354
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:358
+#: /home/turan/Apps/PockIt/PockIt/components/TabsList.qml:23
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:21
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:138
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:187
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:129
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:120
 msgid "Archive"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:373
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/TabsList.qml:30
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:150
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/EntryTagsPage.qml:106
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:149
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:197
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:139
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:130
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:21
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:373
+#: /home/turan/Apps/PockIt/PockIt/components/TabsList.qml:30
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:150
+#: /home/turan/Apps/PockIt/PockIt/ui/EntryTagsPage.qml:106
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:149
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:197
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:139
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:130
+#: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:21
 msgid "Tags"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:383
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:391
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:383
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:391
 msgid "Unfavorite"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:383
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:387
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:160
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:159
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:207
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:149
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:140
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:383
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:387
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:160
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:159
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:207
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:149
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:140
 msgid "Favorite"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:402
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:107
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:107
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:156
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:108
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:89
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:102
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:402
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:107
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:107
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:156
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:108
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:89
+#: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:102
 msgid "Remove"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:413
+#: /home/turan/Apps/PockIt/PockIt/Main.qml:413
 msgid "Display Settings"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/ArticleStyles.qml:76
+#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:76
 msgid "Font Size"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/ArticleStyles.qml:105
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/InfoDialog.qml:24
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:45
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:78
+#: /home/turan/Apps/PockIt/PockIt/components/ArticleStyles.qml:105
+#: /home/turan/Apps/PockIt/PockIt/components/InfoDialog.qml:24
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:107
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:140
 msgid "Close"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/DownloadingPopup.qml:8
+#: /home/turan/Apps/PockIt/PockIt/components/DownloadingPopup.qml:8
 msgid "Syncing"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/DownloadingPopup.qml:29
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/TagEditDialog.qml:41
+#: /home/turan/Apps/PockIt/PockIt/components/DownloadingPopup.qml:29
+#: /home/turan/Apps/PockIt/PockIt/components/TagEditDialog.qml:41
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:34
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:65
 msgid "Cancel"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/TabsList.qml:9
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:40
+#: /home/turan/Apps/PockIt/PockIt/components/TabsList.qml:9
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:40
 msgid "My List"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/TabsList.qml:16
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:21
+#: /home/turan/Apps/PockIt/PockIt/components/TabsList.qml:16
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:21
 msgid "Favorites"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/TagEditDialog.qml:12
+#: /home/turan/Apps/PockIt/PockIt/components/TagEditDialog.qml:12
 msgid "Rename Tag"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/components/TagEditDialog.qml:22
+#: /home/turan/Apps/PockIt/PockIt/components/TagEditDialog.qml:22
 msgid "Enter a new name for this tag"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/About.qml:9
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:21
-#: /home/krnekhelesh/Development/build-PockIt-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Release/PockIt/PockIt.desktop.h:1
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:9
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:21
+#: /home/turan/Apps/build-PockIt-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Debug/PockIt/PockIt.desktop.h:1
 msgid "PockIt"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/About.qml:27
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:27
 msgid "Credits"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/About.qml:33
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Help.qml:8
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:33
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:8
 msgid "Help"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/About.qml:112
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:112
 msgid "<b>Unofficial</b> Pocket client"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/About.qml:140
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:140
 msgid "Released under the terms of the GNU GPL v3"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/About.qml:149
+#: /home/turan/Apps/PockIt/PockIt/ui/About.qml:149
 #, qt-format
 msgid "Source code available on %1"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:67
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:67
 msgid "Archive Empty"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:68
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:68
 msgid "The Archive can list items that you're finished with."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:69
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:69
 msgid ""
 "To add items to your Archive list, tap the checkmark button after swiping "
 "from right on item."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:138
+#: /home/turan/Apps/PockIt/PockIt/ui/ArchiveListTab.qml:138
 msgid "Readd"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/EntryTagsPage.qml:88
+#: /home/turan/Apps/PockIt/PockIt/ui/EntryTagsPage.qml:88
 msgid "Select or enter a tag..."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:67
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:67
 msgid "Favorites Empty"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:68
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:68
 msgid "The Favorites list can help you remember your favorite content."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:69
+#: /home/turan/Apps/PockIt/PockIt/ui/FavListTab.qml:69
 msgid ""
 "To add items to your Favorites list, tap the star button after swiping from "
 "right on item."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Help.qml:17
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:17
 msgid "How To Save"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Help.qml:18
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Help.qml:23
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:18
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:23
 msgid "<h4>Welcome to PockIt</h4><br>"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Help.qml:22
+#: /home/turan/Apps/PockIt/PockIt/ui/Help.qml:22
 msgid "PockIt Basics"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Login.qml:11
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:11
 msgid "Login"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Login.qml:59
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:59
 msgid "Connection Error"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Login.qml:59
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:59
 msgid ""
 "Unable to authenticate to Pocket. Check your connection and firewall "
 "settings."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Login.qml:84
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:84
 msgid "Loading..."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Login.qml:84
+#: /home/turan/Apps/PockIt/PockIt/ui/Login.qml:84
 msgid "Success!"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:47
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:47
 msgid "Articles"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:54
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:54
 msgid "Videos"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:61
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:61
 msgid "Images"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:115
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:115
 msgid "Your List is Empty"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:116
+#: /home/turan/Apps/PockIt/PockIt/ui/MyListTab.qml:116
 msgid "There are many ways to add content to your PockIt list."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:33
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:33
 msgid "Search by Title or URL"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:68
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:68
 msgid "No Results Found"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:69
+#: /home/turan/Apps/PockIt/PockIt/ui/Search.qml:69
 msgid "There were no items that matched your search."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:25
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:25
+msgid "Are you sure to clear files?"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:41
+msgid "Clear"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:56
+msgid "Are you sure to logout"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:72
+msgid "Logout"
+msgstr ""
+
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:87
 msgid "List Order"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:28
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:62
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:90
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:124
 msgid "By"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:31
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:93
 msgid "Date"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:32
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:94
 msgid "Title"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:59
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:121
 msgid "List Sort"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:65
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:127
 msgid "DESC"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Settings.qml:66
+#: /home/turan/Apps/PockIt/PockIt/ui/Settings.qml:128
 msgid "ASC"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:49
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:49
 msgid "No Items Tagged"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:50
+#: /home/turan/Apps/PockIt/PockIt/ui/TagEntriesPage.qml:50
 #, qt-format
 msgid "There are no items tagged with %1 in your list."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:62
+#: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:62
 msgid "Tags List Empty"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:63
+#: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:63
 msgid ""
 "To create a tag, swipe from right on an item in your list and tap the Tag "
 "button."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:115
+#: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:115
 msgid "Edit"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:159
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:171
+#: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:159
+#: /home/turan/Apps/PockIt/PockIt/ui/TagsListTab.qml:171
 msgid "All Untagged Items"
 msgstr ""

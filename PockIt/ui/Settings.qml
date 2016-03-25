@@ -19,6 +19,68 @@ Page {
     }
 
     Component {
+        id: clearFilesDialog
+        Dialog {
+            id: dialogInternal
+            title: i18n.tr("Are you sure to clear files?")
+
+            Row {
+                id: row
+                width: parent.width
+                spacing: units.gu(1)
+
+                Button {
+                    width: (parent.width/2)-units.gu(1)
+                    text: i18n.tr("Cancel")
+                    color: UbuntuColors.coolGrey
+                    onClicked: PopupUtils.close(dialogInternal)
+                }
+
+                Button {
+                    width: (parent.width/2)-units.gu(1)
+                    text: i18n.tr("Clear")
+                    color: UbuntuColors.red
+                    onClicked: {
+                        Scripts.clear_list()
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+            }
+        }
+    }
+
+    Component {
+        id: logoutDialog
+        Dialog {
+            id: dialogInternal
+            title: i18n.tr("Are you sure to logout?")
+
+            Row {
+                id: row
+                width: parent.width
+                spacing: units.gu(1)
+
+                Button {
+                    width: (parent.width/2)-units.gu(1)
+                    text: i18n.tr("Cancel")
+                    color: UbuntuColors.coolGrey
+                    onClicked: PopupUtils.close(dialogInternal)
+                }
+
+                Button {
+                    width: (parent.width/2)-units.gu(1)
+                    text: i18n.tr("Logout")
+                    color: UbuntuColors.red
+                    onClicked: {
+                        Scripts.logout()
+                        PopupUtils.close(dialogInternal)
+                    }
+                }
+            }
+        }
+    }
+
+    Component {
         id: listOrderDialog
         Dialog {
             id: dialogInternal
@@ -130,11 +192,11 @@ Page {
                 if (type == 'action') {
                     switch (kid) {
                         case 'clear_files':
-                            Scripts.clear_list()
+                            PopupUtils.open(clearFilesDialog);
                             break;
 
                         case 'logout':
-                            Scripts.logout()
+                            PopupUtils.open(logoutDialog);
                             break;
                     }
                 } else if (type == 'select') {
