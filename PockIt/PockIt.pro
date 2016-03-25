@@ -76,5 +76,6 @@ DISTFILES += \
     ui/TagEntriesPage.qml \
     ui/EntryTagsPage.qml \
     components/TagEditDialog.qml \
-    components/InfoDialog.qml
+    components/InfoDialog.qml \
+    components/TabsList.qml
 

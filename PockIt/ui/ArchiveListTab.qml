@@ -12,6 +12,11 @@ import "../js/scripts.js" as Scripts
 
 Page {
     id: pocketArchive
+
+    TabsList {
+        id: tabsList
+    }
+
     header: PageHeader {
         title: i18n.tr("Archive")
         StyleHints {
@@ -19,36 +24,7 @@ Page {
             foregroundColor: currentTheme.baseFontColor
         }
         leadingActionBar {
-            actions: [
-                Action {
-                    text: i18n.tr("My List")
-                    iconName: "view-list-symbolic"
-                    onTriggered: {
-                        tabs.selectedTabIndex = 0
-                    }
-                },
-                Action {
-                    text: i18n.tr("Favorites")
-                    iconName: "starred"
-                    onTriggered: {
-                        tabs.selectedTabIndex = 1
-                    }
-                },
-                Action {
-                    text: i18n.tr("Archive")
-                    iconName: "tick"
-                    onTriggered: {
-                        tabs.selectedTabIndex = 2
-                    }
-                },
-                Action {
-                    text: i18n.tr("Tags")
-                    iconName: "tag"
-                    onTriggered: {
-                        tabs.selectedTabIndex = 3
-                    }
-                }
-            ]
+            actions: tabsList.actions
         }
         trailingActionBar {
             numberOfSlots: 2
