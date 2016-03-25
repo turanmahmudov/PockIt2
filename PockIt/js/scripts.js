@@ -655,7 +655,7 @@ function save_tags(e_id) {
         archiveListPage.home()
         tagsListPage.home()
         tagEntriesPage.home()
-        searchPage.home()
+        //searchPage.home()
     });
 }
 

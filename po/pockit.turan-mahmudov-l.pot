@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-25 22:03+0530\n"
+"POT-Creation-Date: 2016-03-25 22:11+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,8 +70,8 @@ msgid "Refresh"
 msgstr ""
 
 #: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:346
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:154
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:154
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:130
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:130
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:179
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:121
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:112
@@ -86,29 +86,23 @@ msgstr ""
 #: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:354
 #: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:358
 #: /home/krnekhelesh/Development/PockIt2/PockIt/components/TabsList.qml:23
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:16
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:38
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:38
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:162
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:21
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:138
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:187
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:129
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:120
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:38
 msgid "Archive"
 msgstr ""
 
 #: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:373
 #: /home/krnekhelesh/Development/PockIt2/PockIt/components/TabsList.qml:30
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:45
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:174
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:150
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/EntryTagsPage.qml:106
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:45
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:173
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:149
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:197
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:139
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:130
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:16
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:45
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:21
 msgid "Tags"
 msgstr ""
 
@@ -119,8 +113,8 @@ msgstr ""
 
 #: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:383
 #: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:387
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:184
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:183
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:160
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:159
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:207
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:149
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:140
@@ -128,12 +122,12 @@ msgid "Favorite"
 msgstr ""
 
 #: /home/krnekhelesh/Development/PockIt2/PockIt/Main.qml:402
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:131
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:131
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:107
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:107
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:156
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/Search.qml:108
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagEntriesPage.qml:89
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:126
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:102
 msgid "Remove"
 msgstr ""
 
@@ -162,18 +156,12 @@ msgid "Cancel"
 msgstr ""
 
 #: /home/krnekhelesh/Development/PockIt2/PockIt/components/TabsList.qml:9
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:24
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:24
 #: /home/krnekhelesh/Development/PockIt2/PockIt/ui/MyListTab.qml:40
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:24
 msgid "My List"
 msgstr ""
 
 #: /home/krnekhelesh/Development/PockIt2/PockIt/components/TabsList.qml:16
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:31
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:16
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:31
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:31
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:21
 msgid "Favorites"
 msgstr ""
 
@@ -213,21 +201,21 @@ msgstr ""
 msgid "Source code available on %1"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:91
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:67
 msgid "Archive Empty"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:92
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:68
 msgid "The Archive can list items that you're finished with."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:93
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:69
 msgid ""
 "To add items to your Archive list, tap the checkmark button after swiping "
 "from right on item."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:162
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/ArchiveListTab.qml:138
 msgid "Readd"
 msgstr ""
 
@@ -235,15 +223,15 @@ msgstr ""
 msgid "Select or enter a tag..."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:91
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:67
 msgid "Favorites Empty"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:92
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:68
 msgid "The Favorites list can help you remember your favorite content."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:93
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/FavListTab.qml:69
 msgid ""
 "To add items to your Favorites list, tap the star button after swiping from "
 "right on item."
@@ -354,21 +342,21 @@ msgstr ""
 msgid "There are no items tagged with %1 in your list."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:86
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:62
 msgid "Tags List Empty"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:87
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:63
 msgid ""
 "To create a tag, swipe from right on an item in your list and tap the Tag "
 "button."
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:139
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:115
 msgid "Edit"
 msgstr ""
 
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:183
-#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:195
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:159
+#: /home/krnekhelesh/Development/PockIt2/PockIt/ui/TagsListTab.qml:171
 msgid "All Untagged Items"
 msgstr ""
