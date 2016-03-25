@@ -45,6 +45,8 @@ function get_list() {
     request(url, data, list_got);
 }
 function list_got(results) {
+    screenSaver.screenSaverEnabled = true;
+
     var entriesData = []
     for (var k in results['list']) {
            entriesData.push(results['list'][k]);
@@ -60,6 +62,8 @@ function list_got(results) {
 }
 
 function download_done(results) {
+    screenSaver.screenSaverEnabled = false;
+
     downloaded = 0
 
     var db = LocalDb.init();
@@ -114,6 +118,7 @@ function download_done(results) {
 
 function download_loop(data, i, db, results) {
     if (canceled == true) {
+        download_done(results);
         return false;
     }
 
@@ -716,9 +721,9 @@ function rename_tag(oldTag, newTag) {
 function clear_list() {
     var db = LocalDb.init();
     db.transaction(function(tx) {
-        var rs = tx.executeSql('INSERT OR REPLACE INTO user VALUES (?,?);', ['first_time_sync', "false"]);
+        var rs = tx.executeSql('INSERT OR REPLACE INTO user VALUES (?,?);', ['first_time_sync', 'false']);
         if (rs.rowsAffected == 0) {
-            throw "Error updating key";
+            //throw "Error updating key";
         } else {
             var db = LocalDb.init();
             db.transaction(function(tx) {

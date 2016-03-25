@@ -6,6 +6,7 @@ import Ubuntu.Components.Popups 1.3
 import com.canonical.Oxide 1.0 as Oxide
 import Ubuntu.Web 0.2
 import Ubuntu.Connectivity 1.0
+import QtSystemInfo 5.0
 import "components"
 import "ui"
 import "themes" as Themes
@@ -23,6 +24,11 @@ MainView {
 
     width: units.gu(50)
     height: units.gu(75)
+
+    ScreenSaver {
+        id: screenSaver
+        screenSaverEnabled: false
+    }
 
     // Properties
     property string consumer_key: "37879-9a829576cdc1d9842620f694"
