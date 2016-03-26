@@ -154,7 +154,7 @@ Page {
         ListElement { kid: "dark_theme"; title: "Dark theme"; subtitle: "You can also toggle this by tapping the Theme button in the Article View"; type: "check"; cchecked: false; role: "General" }
         ListElement { kid: "justified_text"; title: "Justified Text"; subtitle: "Display text in Article View with justification"; type: "check"; cchecked: false; role: "Reading" }
         ListElement { kid: "open_best_view"; title: "Open best view"; subtitle: "PockIt will automatically decide the best view (Article or Web View) to show"; type: "check"; cchecked: true; role: "Reading" }
-        ListElement { kid: "auto_download"; title: "Auto sync"; subtitle: ""; type: "check"; cchecked: false; role: "Offline Reading" }
+        ListElement { kid: "auto_download"; title: "Sync when app opens"; subtitle: ""; type: "check"; cchecked: false; role: "Offline Reading" }
         ListElement { kid: "auto_download_articles"; title: "Auto download articles"; subtitle: ""; type: "check"; cchecked: true; role: "Offline Reading" }
         ListElement { kid: "clear_files"; title: "Clear downloaded files"; subtitle: ""; type: "action"; role: "Offline Reading" }
         ListElement { kid: "list_order"; title: "Order"; subtitle: ""; type: "select"; role: "List" }
