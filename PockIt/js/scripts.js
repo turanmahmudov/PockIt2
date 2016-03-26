@@ -36,6 +36,7 @@ function logout() {
 
 // List from pocket api
 function get_list() {
+    console.log('hahaha');
     finished = false
 
     var access_token = User.getKey('access_token');
@@ -107,7 +108,7 @@ function download_done(results) {
     if (objectLength(results['list']) > 0) {
         empty = false
 
-        myListPage.home()
+        myListPage.home(true, true)
         favListPage.home()
         archiveListPage.home()
         tagsListPage.home()
