@@ -36,7 +36,6 @@ function logout() {
 
 // List from pocket api
 function get_list() {
-    console.log('hahaha');
     finished = false
 
     var access_token = User.getKey('access_token');

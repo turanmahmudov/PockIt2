@@ -76,7 +76,6 @@ Page {
         // Offline articles
         if (but_man != true && User.getKey("first_time_sync") != "true") {
             Scripts.my_list(0, 0, 0, true)
-            console.log('bosh')
         } else {
             Scripts.my_list(0, 0, 0, empty_ok)
             if (dont_get_list != true) {
