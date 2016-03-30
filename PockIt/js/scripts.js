@@ -45,7 +45,7 @@ function get_list() {
     request(url, data, list_got);
 }
 function list_got(results) {
-    screenSaver.screenSaverEnabled = true;
+    screenSaver.screenSaverEnabled = false;
 
     var entriesData = []
     for (var k in results['list']) {
@@ -62,7 +62,7 @@ function list_got(results) {
 }
 
 function download_done(results) {
-    screenSaver.screenSaverEnabled = false;
+    screenSaver.screenSaverEnabled = true;
 
     downloaded = 0
 

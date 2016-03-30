@@ -6,7 +6,6 @@
         "content_exchange_source",
         "usermetrics",
         "webview",
-        "debug",
         "keep-display-on"
     ],
     "policy_version": 1.3

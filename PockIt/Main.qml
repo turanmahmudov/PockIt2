@@ -27,7 +27,7 @@ MainView {
 
     ScreenSaver {
         id: screenSaver
-        screenSaverEnabled: false
+        screenSaverEnabled: true
     }
 
     // Properties
