@@ -46,7 +46,7 @@ Dialog {
             Button {
                 width: (parent.width/2)-units.gu(1)
                 text: i18n.tr("Save")
-                color: UbuntuColors.orange
+                color: UbuntuColors.blue
                 onClicked: {
                     Scripts.rename_tag(oldTag, tagNewName.text)
                     PopupUtils.close(tagEditDialog)

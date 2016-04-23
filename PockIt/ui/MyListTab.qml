@@ -205,7 +205,7 @@ Page {
                             enabled: Connectivity.online
                             iconName: "starred"
                             text: i18n.tr("Favorite")
-                            property var iconColor: favorite == 1 ? "orange" : UbuntuColors.lightGrey
+                            property var iconColor: favorite == 1 ? UbuntuColors.blue : UbuntuColors.lightGrey
                             property var is_fav: favorite == 1 ? 1 : 0
                             onTriggered: {
                                 if (is_fav == 1) {
@@ -213,7 +213,7 @@ Page {
                                     iconColor = UbuntuColors.lightGrey
                                 } else {
                                     Scripts.fav_item(item_id, 1)
-                                    iconColor = "orange"
+                                    iconColor = UbuntuColors.blue
                                 }
                                 favListPage.home()
                                 myListPage.home(true)

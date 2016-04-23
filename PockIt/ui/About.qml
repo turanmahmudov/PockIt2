@@ -131,7 +131,7 @@ Page {
                         width: parent.width
                         wrapMode: Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter
-                        linkColor: UbuntuColors.orange
+                        linkColor: UbuntuColors.blue
                         fontSize: "small"
                         onLinkActivated: Qt.openUrlExternally(link)
                     }
@@ -150,7 +150,7 @@ Page {
                     width: parent.width
                     wrapMode: Text.WordWrap
                     horizontalAlignment: Text.AlignHCenter
-                    linkColor: UbuntuColors.orange
+                    linkColor: UbuntuColors.blue
                     fontSize: "small"
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
@@ -202,7 +202,7 @@ Page {
                         Label {
                             id: emailLabel
                             text: '<a href=\"mailto:' + email + '\">' + email + '</a>'
-                            linkColor: UbuntuColors.orange
+                            linkColor: UbuntuColors.blue
                             fontSize: "small"
                             width: parent.width
                             elide: Text.ElideRight

@@ -228,7 +228,7 @@ Page {
                 Label {
                     id: subt
                     text: i18n.tr(subtitle)
-                    linkColor: UbuntuColors.orange
+                    linkColor: UbuntuColors.blue
                     fontSize: "small"
                     width: parent.width - units.gu(4)
                     height: subtitle == '' ? 0 : implicitHeight

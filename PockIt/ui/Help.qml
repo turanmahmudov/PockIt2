@@ -42,7 +42,7 @@ Page {
             text: help_content[slug]['content']
             width: parent.width
             wrapMode: Text.WordWrap
-            linkColor: UbuntuColors.orange
+            linkColor: UbuntuColors.blue
             fontSize: "small"
             onLinkActivated: Qt.openUrlExternally(link)
         }

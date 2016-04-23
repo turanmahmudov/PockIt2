@@ -10,8 +10,8 @@ Item {
     Rectangle {
         id: rectangle
         anchors.fill: parent
-        color: UbuntuColors.orange
-        visible: animation.running // Avoid to show the orange bar before animation starts
+        color: UbuntuColors.blue
+        visible: animation.running // Avoid to show the blue bar before animation starts
     }
 
     SequentialAnimation {
