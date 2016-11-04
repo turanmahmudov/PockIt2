@@ -1,16 +1,15 @@
 {
     "name": "pockit3.turan-mahmudov-l",
-    "description": "description of PockIt3",
+    "description": "Unofficial Pocket Client",
     "architecture": "@CLICK_ARCH@",
-    "title": "PockIt3",
+    "title": "PockIt",
     "hooks": {
         "PockIt": {
             "apparmor": "PockIt/PockIt.apparmor",
-            "desktop":  "PockIt/PockIt.desktop"
+            "desktop": "PockIt/PockIt.desktop"
         }
     },
-    "version": "0.1",
+    "version": "0.2",
     "maintainer": "Turan Mahmudov <turan.mahmudov@gmail.com>",
-    "framework" : "ubuntu-sdk-15.04.6"
+    "framework": "ubuntu-sdk-15.04.6"
 }
-

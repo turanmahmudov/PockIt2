@@ -1,8 +1,12 @@
 {
     "policy_groups": [
-        "networking"
+        "networking",
+        "connectivity",
+        "content_exchange",
+        "content_exchange_source",
+        "usermetrics",
+        "webview",
+        "keep-display-on"
     ],
     "policy_version": 1.3
 }
-
-
