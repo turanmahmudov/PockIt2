@@ -1,0 +1,7 @@
+[Desktop Entry]
+_Name=PockIt
+Exec=PockIt
+Icon=PockIt/PockIt.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
