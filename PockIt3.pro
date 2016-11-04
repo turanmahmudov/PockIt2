@@ -14,7 +14,7 @@ UBUNTU_MANIFEST_FILE=manifest.json.in
 
 # specify translation domain, this must be equal with the
 # app name in the manifest file
-UBUNTU_TRANSLATION_DOMAIN="pockit3.turan-mahmudov-l"
+UBUNTU_TRANSLATION_DOMAIN="pockit.turan-mahmudov-l"
 
 # specify the source files that should be included into
 # the translation file, from those files a translation
