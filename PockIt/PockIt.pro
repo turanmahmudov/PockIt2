@@ -39,3 +39,8 @@ INSTALLS+=desktop_file
 # Default rules for deployment.
 target.path = $${UBUNTU_CLICK_BINARY_PATH}
 INSTALLS+=target
+
+DISTFILES += \
+    qml/ui/Favorites.qml \
+    qml/ui/Archive.qml \
+    qml/ui/Tags.qml

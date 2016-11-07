@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>Main.qml</file>
+        <file>qml/ui/MyList.qml</file>
+        <file>qml/components/LoadingSpinnerComponent.qml</file>
+        <file>qml/ui/ArticleViewPage.qml</file>
+        <file>qml/ui/Favorites.qml</file>
+        <file>qml/ui/Archive.qml</file>
+        <file>qml/ui/Tags.qml</file>
     </qresource>
 </RCC>
