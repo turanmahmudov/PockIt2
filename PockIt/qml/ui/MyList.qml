@@ -10,17 +10,9 @@ Page {
         leadingActionBar {
             actions: navActions
         }
-    }
-
-    Column {
-        anchors.top: myListPage.header.bottom
-
-        Button {
-            text: 'aaaa'
-
-            onClicked: {
-                pageLayout.addPageToNextColumn(pageLayout.primaryPage, articleViewComponent)
-            }
+        trailingActionBar {
+            numberOfSlots: 2
+            actions: [searchAction, settingsAction]
         }
     }
 }

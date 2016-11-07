@@ -17,7 +17,7 @@ MainView {
     automaticOrientation: true
     anchorToKeyboard: true
 
-    width: units.gu(50)
+    width: units.gu(100)
     height: units.gu(80)
 
     Settings {
@@ -36,34 +36,63 @@ MainView {
 
     property alias firstRun: settings.firstRun
 
-    property bool wideAspect: width >= units.gu(95) && loadedUI
     property bool loadedUI: false
 
-    // Navigation Menu
+    // Navigation Menu Actions
     property list<Action> navActions: [
         Action {
             objectName: "myListTabAction"
             text: i18n.tr("My List")
             iconName: "view-list-symbolic"
-            onTriggered: pageLayout.primaryPageSource = Qt.resolvedUrl("qml/ui/MyList.qml")
+            onTriggered: {
+                pageLayout.pushPage(Qt.resolvedUrl("qml/ui/MyList.qml"))
+            }
         },
         Action {
             objectName: "favoritesTabAction"
             text: i18n.tr("Favorites")
             iconName: "starred"
-            onTriggered: pageLayout.primaryPageSource = Qt.resolvedUrl("qml/ui/Favorites.qml")
+            onTriggered: {
+                pageLayout.pushPage(Qt.resolvedUrl("qml/ui/Favorites.qml"))
+            }
         },
         Action {
             objectName: "archiveTabAction"
             text: i18n.tr("Archive")
             iconName: "tick"
-            onTriggered: pageLayout.primaryPageSource = Qt.resolvedUrl("qml/ui/Archive.qml")
+            onTriggered: {
+                pageLayout.pushPage(Qt.resolvedUrl("qml/ui/Archive.qml"))
+            }
         },
         Action {
             objectName: "tagsTabAction"
             text: i18n.tr("Tags")
             iconName: "tag"
-            onTriggered: pageLayout.primaryPageSource = Qt.resolvedUrl("qml/ui/Tags.qml")
+            onTriggered: {
+                pageLayout.pushPage(Qt.resolvedUrl("qml/ui/Tags.qml"))
+            }
+        }
+    ]
+
+    // Actions
+    actions: [
+        Action {
+            id: searchAction
+            text: i18n.tr("Search")
+            keywords: i18n.tr("Search")
+            iconName: "search"
+            onTriggered: {
+
+            }
+        },
+        Action {
+            id: settingsAction
+            text: i18n.tr("Settings")
+            keywords: i18n.tr("Settings")
+            iconName: "settings"
+            onTriggered: {
+
+            }
         }
     ]
 
@@ -71,18 +100,17 @@ MainView {
         loading.visible = true
 
         loadedUI = true;
+
+        pageLayout.pushPage(Qt.resolvedUrl("qml/ui/MyList.qml"))
     }
 
     AdaptivePageLayout {
         id: pageLayout
         anchors.fill: parent
-        primaryPage: MyList {
-            anchors.fill: parent
-        }
         layouts: PageColumnsLayout {
-            when: width > units.gu(80)
+            when: width > units.gu(60)
             PageColumn {
-                minimumWidth: units.gu(40)
+                minimumWidth: units.gu(50)
                 maximumWidth: units.gu(50)
                 preferredWidth: units.gu(50)
             }
@@ -90,13 +118,9 @@ MainView {
                 fillWidth: true
             }
         }
-    }
 
-    Component {
-        id: articleViewComponent
-
-        ArticleViewPage {
-            anchors.fill: parent
+        function pushPage(pageSource) {
+            pageLayout.primaryPageSource = pageSource
         }
     }
 

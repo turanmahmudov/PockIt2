@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-07 18:32+0300\n"
+"POT-Creation-Date: 2016-11-07 19:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:46
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:45
 msgid "My List"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:52
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:53
 msgid "Favorites"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:58
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:61
 msgid "Archive"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:64
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:69
 msgid "Tags"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:81
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:82
+msgid "Search"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:90
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:91
+msgid "Settings"
 msgstr ""
 
 #: /home/turan/Apps/build-PockIt3-Desktop-Debug/PockIt/PockIt.desktop.h:1
