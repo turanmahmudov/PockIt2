@@ -7,7 +7,6 @@ import Ubuntu.Connectivity 1.0
 import Ubuntu.Content 1.1
 
 import "qml/components"
-import "qml/ui"
 
 MainView {
     id: mainView
@@ -82,7 +81,7 @@ MainView {
             keywords: i18n.tr("Search")
             iconName: "search"
             onTriggered: {
-
+                pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Search.qml"))
             }
         },
         Action {
@@ -91,7 +90,7 @@ MainView {
             keywords: i18n.tr("Settings")
             iconName: "settings"
             onTriggered: {
-
+                pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Settings.qml"))
             }
         }
     ]
@@ -119,6 +118,7 @@ MainView {
             }
         }
 
+        // Functions
         function pushPage(pageSource) {
             pageLayout.primaryPageSource = pageSource
         }

@@ -7,5 +7,7 @@
         <file>qml/ui/Favorites.qml</file>
         <file>qml/ui/Archive.qml</file>
         <file>qml/ui/Tags.qml</file>
+        <file>qml/ui/Settings.qml</file>
+        <file>qml/ui/Search.qml</file>
     </qresource>
 </RCC>
