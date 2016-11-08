@@ -10,5 +10,9 @@ Page {
         leadingActionBar {
             actions: navActions
         }
+        trailingActionBar {
+            numberOfSlots: 2
+            actions: [searchAction, switchTileViewAction, refreshAction, settingsAction, helpAction]
+        }
     }
 }

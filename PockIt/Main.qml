@@ -92,6 +92,42 @@ MainView {
             onTriggered: {
                 pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Settings.qml"))
             }
+        },
+        Action {
+            id: switchTileViewAction
+            text: i18n.tr("Switch to Tile View")
+            keywords: i18n.tr("Switch to Tile View")
+            iconName: "view-grid-symbolic"
+            onTriggered: {
+
+            }
+        },
+        Action {
+            id: switchListViewAction
+            text: i18n.tr("Switch to List View")
+            keywords: i18n.tr("Switch to List View")
+            iconName: "view-list-symbolic"
+            onTriggered: {
+
+            }
+        },
+        Action {
+            id: refreshAction
+            text: i18n.tr("Refresh")
+            keywords: i18n.tr("Refresh")
+            iconName: "sync"
+            onTriggered: {
+
+            }
+        },
+        Action {
+            id: helpAction
+            text: i18n.tr("Help")
+            keywords: i18n.tr("Help")
+            iconName: "help"
+            onTriggered: {
+                pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Help.qml"))
+            }
         }
     ]
 

@@ -9,5 +9,6 @@
         <file>qml/ui/Tags.qml</file>
         <file>qml/ui/Settings.qml</file>
         <file>qml/ui/Search.qml</file>
+        <file>qml/ui/Help.qml</file>
     </qresource>
 </RCC>

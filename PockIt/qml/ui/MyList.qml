@@ -12,7 +12,7 @@ Page {
         }
         trailingActionBar {
             numberOfSlots: 2
-            actions: [searchAction, settingsAction]
+            actions: [searchAction, switchTileViewAction, refreshAction, settingsAction, helpAction]
         }
         extension: Sections {
             anchors {
