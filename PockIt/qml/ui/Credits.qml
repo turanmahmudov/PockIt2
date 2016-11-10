@@ -1,6 +1,5 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import Ubuntu.Components.ListItems 1.3 as ListItem
 
 Page {
     id: creditsPage
@@ -31,7 +30,6 @@ Page {
             right: parent.right
             bottom: parent.bottom
             top: creditsPage.header.bottom
-            topMargin: units.gu(1)
         }
         contentHeight: columnSuperior.height
 
@@ -39,127 +37,115 @@ Page {
            id: columnSuperior
            width: parent.width
 
-           ListItem.Header {
-               text: i18n.tr("Creator")
+           ListItem {
+               height: head1.height
+
+               ListItemLayout {
+                   id: head1
+
+                   title.text: i18n.tr("Creator")
+                   title.font.weight: Text.Normal
+               }
            }
 
-           ListItem.Base {
-               width: parent.width
-               progression: true
-               showDivider: false
+           ListItem {
+               height: dev1.height
+               divider.visible: false
+               ListItemLayout {
+                   id: dev1
+
+                   title.text: "Turan Mahmudov"
+                   subtitle.text: "turan.mahmudov@gmail.com"
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
+               }
+
                onClicked: {
                    Qt.openUrlExternally("mailto:turan.mahmudov@gmail.com")
                }
-               Column {
-                   anchors.verticalCenter: parent.verticalCenter
-                   anchors.right: parent.right
-                   anchors.left: parent.left
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       text: "Turan Mahmudov"
-                   }
+           }
 
-                   Label {
-                       fontSize: "small"
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: "turan.mahmudov@gmail.com"
-                   }
+           ListItem {
+               height: head2.height
+
+               ListItemLayout {
+                   id: head2
+
+                   title.text: i18n.tr("Developers")
+                   title.font.weight: Text.Normal
                }
            }
 
-           ListItem.Header {
-               text: i18n.tr("Developers")
-           }
+           ListItem {
+               height: dev2.height
+               divider.visible: false
+               ListItemLayout {
+                   id: dev2
 
-           ListItem.Base {
-               width: parent.width
-               progression: true
-               showDivider: false
+                   title.text: "Turan Mahmudov"
+                   subtitle.text: "turan.mahmudov@gmail.com"
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
+               }
+
                onClicked: {
                    Qt.openUrlExternally("mailto:turan.mahmudov@gmail.com")
                }
-               Column {
-                   anchors.verticalCenter: parent.verticalCenter
-                   anchors.right: parent.right
-                   anchors.left: parent.left
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       text: "Turan Mahmudov"
-                   }
+           }
 
-                   Label {
-                       fontSize: "small"
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: "turan.mahmudov@gmail.com"
-                   }
+           ListItem {
+               height: head3.height
+
+               ListItemLayout {
+                   id: head3
+
+                   title.text: i18n.tr("Icons")
+                   title.font.weight: Text.Normal
                }
            }
 
-           ListItem.Header {
-               text: i18n.tr("Icons")
-           }
+           ListItem {
+               height: dev3.height
+               divider.visible: false
+               ListItemLayout {
+                   id: dev3
 
-           ListItem.Base {
-               width: parent.width
-               progression: true
-               showDivider: false
+                   title.text: "Sam Hewitt"
+                   subtitle.text: "snwh@ubuntu.com"
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
+               }
+
                onClicked: {
                    Qt.openUrlExternally("mailto:snwh@ubuntu.com")
                }
-               Column {
-                   anchors.verticalCenter: parent.verticalCenter
-                   anchors.right: parent.right
-                   anchors.left: parent.left
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       text: "Sam Hewitt"
-                   }
+           }
 
-                   Label {
-                       fontSize: "small"
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: "snwh@ubuntu.com"
-                   }
+           ListItem {
+               height: head4.height
+
+               ListItemLayout {
+                   id: head4
+
+                   title.text: i18n.tr("Translators")
+                   title.font.weight: Text.Normal
                }
            }
 
-           ListItem.Header {
-               text: i18n.tr("Translators")
-           }
+           ListItem {
+               height: dev4.height
+               divider.visible: false
+               ListItemLayout {
+                   id: dev4
 
-           ListItem.Base {
-               width: parent.width
-               progression: true
-               showDivider: false
+                   title.text: "Emanuele Antonio Faraone"
+                   subtitle.text: "https://github.com/FaraoneLele"
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
+               }
+
                onClicked: {
                    Qt.openUrlExternally("https://github.com/FaraoneLele")
-               }
-               Column {
-                   anchors.verticalCenter: parent.verticalCenter
-                   anchors.right: parent.right
-                   anchors.left: parent.left
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       text: "Emanuele Antonio Faraone"
-                   }
-
-                   Label {
-                       fontSize: "small"
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: "https://github.com/FaraoneLele"
-                   }
                }
            }
         }

@@ -1,7 +1,6 @@
 import QtQuick 2.4
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.3
-import Ubuntu.Components.ListItems 1.3 as ListItem
 
 import "../js/localdb.js" as LocalDB
 import "../js/user.js" as User
@@ -37,7 +36,6 @@ Page {
             right: parent.right
             bottom: parent.bottom
             top: settingsPage.header.bottom
-            topMargin: units.gu(1)
         }
         contentHeight: columnSuperior.height
 
@@ -45,89 +43,58 @@ Page {
            id: columnSuperior
            width: parent.width
 
-           ListItem.Header {
-               text: i18n.tr("Account")
+           ListItem {
+               height: accountHeader.height
+
+               ListItemLayout {
+                   id: accountHeader
+
+                   title.text: i18n.tr("Account")
+                   title.font.weight: Text.Normal
+               }
            }
 
-           ListItem.Base {
-               width: parent.width
-               height: logoutColumn.height + units.gu(3)
-               showDivider: false
+           ListItem {
+               height: logoutLayout.height
+               divider.visible: false
+               ListItemLayout {
+                   id: logoutLayout
+
+                   title.text: i18n.tr("Logout")
+                   subtitle.text: User.getKey('username') ? User.getKey('username') : ''
+                   subtitle.visible: User.getKey('username') ? true : false
+               }
+
                onClicked: {
-                    Scripts.logOut()
-               }
-
-               Column {
-                   id: logoutColumn
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
-
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: i18n.tr("Logout")
-                   }
-
-                   Label {
-                       width: parent.width
-                       elide: Text.ElideRight
-                       wrapMode: Text.WordWrap
-                       text: User.getKey('username') ? User.getKey('username') : ''
-                       fontSize: "small"
-                   }
+                   Scripts.logOut()
                }
            }
 
-           ListItem.Header {
-               text: i18n.tr("General")
+           ListItem {
+               height: generalHeader.height
+
+               ListItemLayout {
+                   id: generalHeader
+
+                   title.text: i18n.tr("General")
+                   title.font.weight: Text.Normal
+               }
            }
 
-           ListItem.Base {
-               width: parent.width
-               height: themeRow.height + units.gu(3)
-               showDivider: false
-               onClicked: {
+           ListItem {
+               height: themeLayout.height
+               divider.visible: false
+               ListItemLayout {
+                   id: themeLayout
 
-               }
-
-               Row {
-                   id: themeRow
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
-                   spacing: units.gu(1)
-
-                   Column {
-                       width: parent.width - themeSwitch.width - units.gu(1)
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
-
-                       Label {
-                           width: parent.width
-                           wrapMode: Text.WordWrap
-                           elide: Text.ElideRight
-                           text: i18n.tr("Dark theme")
-                       }
-
-                       Label {
-                           width: parent.width
-                           elide: Text.ElideRight
-                           wrapMode: Text.WordWrap
-                           text: i18n.tr("You can also toggle this by tapping the Theme button in the Article View")
-                           fontSize: "small"
-                       }
-                   }
+                   title.text: i18n.tr("Dark theme")
+                   subtitle.text: i18n.tr("You can also toggle this by tapping the Theme button in the Article View")
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
 
                    Switch {
                        id: themeSwitch
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
+                       SlotsLayout.position: SlotsLayout.Trailing
                        checked: settings.darkTheme
                        onCheckedChanged: {
                             if (checked) {
@@ -142,53 +109,30 @@ Page {
                }
            }
 
-           ListItem.Header {
-               text: i18n.tr("Reading")
+           ListItem {
+               height: readingHeader.height
+
+               ListItemLayout {
+                   id: readingHeader
+
+                   title.text: i18n.tr("Reading")
+                   title.font.weight: Text.Normal
+               }
            }
 
-           ListItem.Base {
-               width: parent.width
-               height: justifiedTextRow.height + units.gu(3)
-               showDivider: true
-               onClicked: {
+           ListItem {
+               height: justifiedTextLayout.height
+               ListItemLayout {
+                   id: justifiedTextLayout
 
-               }
-
-               Row {
-                   id: justifiedTextRow
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
-                   spacing: units.gu(1)
-
-                   Column {
-                       width: parent.width - justifiedTextSwitch.width - units.gu(1)
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
-
-                       Label {
-                           width: parent.width
-                           wrapMode: Text.WordWrap
-                           elide: Text.ElideRight
-                           text: i18n.tr("Justified Text")
-                       }
-
-                       Label {
-                           width: parent.width
-                           elide: Text.ElideRight
-                           wrapMode: Text.WordWrap
-                           text: i18n.tr("Display text in Article View with justification")
-                           fontSize: "small"
-                       }
-                   }
+                   title.text: i18n.tr("Justified Text")
+                   subtitle.text: i18n.tr("Display text in Article View with justification")
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
 
                    Switch {
                        id: justifiedTextSwitch
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
+                       SlotsLayout.position: SlotsLayout.Trailing
                        checked: settings.justifiedText
                        onCheckedChanged: {
                             if (checked) {
@@ -201,49 +145,20 @@ Page {
                }
            }
 
-           ListItem.Base {
-               width: parent.width
-               height: openBestViewRow.height + units.gu(3)
-               showDivider: false
-               onClicked: {
+           ListItem {
+               height: openBestViewLayout.height
+               divider.visible: false
+               ListItemLayout {
+                   id: openBestViewLayout
 
-               }
-
-               Row {
-                   id: openBestViewRow
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
-                   spacing: units.gu(1)
-
-                   Column {
-                       width: parent.width - openBestViewSwitch.width - units.gu(1)
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
-
-                       Label {
-                           width: parent.width
-                           wrapMode: Text.WordWrap
-                           elide: Text.ElideRight
-                           text: i18n.tr("Open best view")
-                       }
-
-                       Label {
-                           width: parent.width
-                           elide: Text.ElideRight
-                           wrapMode: Text.WordWrap
-                           text: i18n.tr("PockIt will automatically decide the best view (Article or Web View) to show")
-                           fontSize: "small"
-                       }
-                   }
+                   title.text: i18n.tr("Open best view")
+                   subtitle.text: i18n.tr("PockIt will automatically decide the best view (Article or Web View) to show")
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
 
                    Switch {
                        id: openBestViewSwitch
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
+                       SlotsLayout.position: SlotsLayout.Trailing
                        checked: settings.openBestView
                        onCheckedChanged: {
                             if (checked) {
@@ -256,53 +171,27 @@ Page {
                }
            }
 
-           ListItem.Header {
-               text: i18n.tr("Offline Reading & Syncing")
+           ListItem {
+               height: offlineReadingSyncingHeader.height
+
+               ListItemLayout {
+                   id: offlineReadingSyncingHeader
+
+                   title.text: i18n.tr("Offline Reading & Syncing")
+                   title.font.weight: Text.Normal
+               }
            }
 
-           ListItem.Base {
-               width: parent.width
-               height: autoSyncRow.height + units.gu(3)
-               showDivider: true
-               onClicked: {
+           ListItem {
+               height: autoSyncLayout.height
+               ListItemLayout {
+                   id: autoSyncLayout
 
-               }
-
-               Row {
-                   id: autoSyncRow
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
-                   spacing: units.gu(1)
-
-                   Column {
-                       width: parent.width - autoSyncSwitch.width - units.gu(1)
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
-
-                       Label {
-                           width: parent.width
-                           wrapMode: Text.WordWrap
-                           elide: Text.ElideRight
-                           text: i18n.tr("Sync when app opens")
-                       }
-
-                       Label {
-                           width: parent.width
-                           elide: Text.ElideRight
-                           wrapMode: Text.WordWrap
-                           text: ""
-                           fontSize: "small"
-                       }
-                   }
+                   title.text: i18n.tr("Sync when app opens")
 
                    Switch {
                        id: autoSyncSwitch
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
+                       SlotsLayout.position: SlotsLayout.Trailing
                        checked: settings.autoSync
                        onCheckedChanged: {
                             if (checked) {
@@ -315,49 +204,18 @@ Page {
                }
            }
 
-           ListItem.Base {
-               width: parent.width
-               height: downloadArticlesRow.height + units.gu(3)
-               showDivider: true
-               onClicked: {
+           ListItem {
+               height: downloadArticlesLayout.height
+               ListItemLayout {
+                   id: downloadArticlesLayout
 
-               }
-
-               Row {
-                   id: downloadArticlesRow
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
-                   spacing: units.gu(1)
-
-                   Column {
-                       width: parent.width - downloadArticlesSync.width - units.gu(1)
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
-
-                       Label {
-                           width: parent.width
-                           wrapMode: Text.WordWrap
-                           elide: Text.ElideRight
-                           text: i18n.tr("Auto download articles")
-                       }
-
-                       Label {
-                           width: parent.width
-                           elide: Text.ElideRight
-                           wrapMode: Text.WordWrap
-                           text: ""
-                           fontSize: "small"
-                       }
-                   }
+                   title.text: i18n.tr("Auto download articles")
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
 
                    Switch {
                        id: downloadArticlesSync
-                       anchors {
-                           verticalCenter: parent.verticalCenter
-                       }
+                       SlotsLayout.position: SlotsLayout.Trailing
                        checked: settings.downloadArticlesSync
                        onCheckedChanged: {
                             if (checked) {
@@ -370,126 +228,89 @@ Page {
                }
            }
 
-           ListItem.Base {
-               width: parent.width
-               height: clearFilesColumn.height + units.gu(3)
-               showDivider: false
+           ListItem {
+               height: clearFilesLayout.height
+               divider.visible: false
+               ListItemLayout {
+                   id: clearFilesLayout
+
+                   title.text: i18n.tr("Clear downloaded files")
+               }
+
                onClicked: {
 
                }
+           }
 
-               Column {
-                   id: clearFilesColumn
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
+           ListItem {
+               height: listHeader.height
 
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: i18n.tr("Clear downloaded files")
-                   }
+               ListItemLayout {
+                   id: listHeader
+
+                   title.text: i18n.tr("List")
+                   title.font.weight: Text.Normal
                }
            }
 
-           ListItem.Header {
-               text: i18n.tr("List")
-           }
+           ListItem {
+               height: sortLayout.height
+               divider.visible: false
+               ListItemLayout {
+                   id: sortLayout
 
-           ListItem.Base {
-               width: parent.width
-               height: sortColumn.height + units.gu(3)
-               showDivider: false
+                   title.text: i18n.tr("Sort")
+                   subtitle.text: settings.listSort === 'DESC' ? i18n.tr("Newest First") : i18n.tr("Oldest First")
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
+               }
+
                onClicked: {
                    isArticleOpen = true
                    pageLayout.addPageToNextColumn(settingsPage, Qt.resolvedUrl("settings/ListSort.qml"))
                }
+           }
 
-               Column {
-                   id: sortColumn
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
+           ListItem {
+               height: aboutHeader.height
 
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: i18n.tr("Sort")
-                   }
+               ListItemLayout {
+                   id: aboutHeader
 
-                   Label {
-                       width: parent.width
-                       elide: Text.ElideRight
-                       wrapMode: Text.WordWrap
-                       text: i18n.tr("Newest First")
-                       fontSize: "small"
-                   }
+                   title.text: i18n.tr("About")
+                   title.font.weight: Text.Normal
                }
            }
 
-           ListItem.Header {
-               text: i18n.tr("About")
-           }
+           ListItem {
+               height: aboutLayout.height
+               ListItemLayout {
+                   id: aboutLayout
 
-           ListItem.Base {
-               width: parent.width
-               height: aboutColumn.height + units.gu(3)
-               showDivider: true
+                   title.text: i18n.tr("About")
+                   subtitle.text: i18n.tr("Version %1").arg(appVersion)
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
+               }
+
                onClicked: {
                    isArticleOpen = true
                    pageLayout.addPageToNextColumn(settingsPage, Qt.resolvedUrl("About.qml"))
                }
-
-               Column {
-                   id: aboutColumn
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
-
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: i18n.tr("About")
-                   }
-
-                   Label {
-                       width: parent.width
-                       elide: Text.ElideRight
-                       wrapMode: Text.WordWrap
-                       text: i18n.tr("Version %1").arg(appVersion)
-                       fontSize: "small"
-                   }
-               }
            }
 
-           ListItem.Base {
-               width: parent.width
-               height: creditsColumn.height + units.gu(3)
-               showDivider: false
+           ListItem {
+               height: creditsLayout.height
+               divider.visible: false
+               ListItemLayout {
+                   id: creditsLayout
+
+                   title.text: i18n.tr("Credits")
+               }
+
                onClicked: {
                    isArticleOpen = true
                    pageLayout.addPageToNextColumn(settingsPage, Qt.resolvedUrl("Credits.qml"))
-               }
-
-               Column {
-                   id: creditsColumn
-                   width: parent.width
-                   anchors {
-                       verticalCenter: parent.verticalCenter
-                   }
-
-                   Label {
-                       width: parent.width
-                       wrapMode: Text.WordWrap
-                       elide: Text.ElideRight
-                       text: i18n.tr("Credits")
-                   }
                }
            }
         }
