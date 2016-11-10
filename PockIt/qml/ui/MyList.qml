@@ -14,32 +14,5 @@ Page {
             numberOfSlots: (isArticleOpen && wideScreen) || !wideScreen ? 2 : 5
             actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction, helpAction] : [helpAction, settingsAction, refreshAction, searchAction]
         }
-        extension: Sections {
-            anchors {
-                bottom: parent.bottom
-            }
-            actions: [
-                Action {
-                    text: i18n.tr("My List")
-                    onTriggered: {
-                    }
-                },
-                Action {
-                    text: i18n.tr("Articles")
-                    onTriggered: {
-                    }
-                },
-                Action {
-                    text: i18n.tr("Videos")
-                    onTriggered: {
-                    }
-                },
-                Action {
-                    text: i18n.tr("Images")
-                    onTriggered: {
-                    }
-                }
-            ]
-        }
     }
 }

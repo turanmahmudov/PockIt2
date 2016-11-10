@@ -26,5 +26,9 @@
         <file>qml/components/Walkthrough/Slide3.qml</file>
         <file>qml/components/Walkthrough/Slide4.qml</file>
         <file>qml/components/Walkthrough/Slide5.qml</file>
+        <file>qml/images/blank.png</file>
+        <file>qml/ui/Articles.qml</file>
+        <file>qml/ui/Videos.qml</file>
+        <file>qml/ui/Images.qml</file>
     </qresource>
 </RCC>

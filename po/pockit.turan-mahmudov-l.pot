@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-10 20:37+0300\n"
+"POT-Creation-Date: 2016-11-10 22:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,34 +22,46 @@ msgid "My List"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:84
-msgid "Favorites"
+msgid "Articles"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:92
-msgid "Archive"
+msgid "Videos"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:100
+msgid "Images"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:108
+msgid "Favorites"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:116
+msgid "Archive"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:124
 msgid "Tags"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:112
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:113
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:136
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:137
 msgid "Search"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:121
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:122
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:145
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:146
 msgid "Settings"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:130
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:131
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:154
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:155
 msgid "Refresh"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:139
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:140
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:163
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:164
 msgid "Help"
 msgstr ""
 

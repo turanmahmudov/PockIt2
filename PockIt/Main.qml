@@ -80,6 +80,30 @@ MainView {
             }
         },
         Action {
+            objectName: "articlesTabAction"
+            text: i18n.tr("Articles")
+            iconSource: Qt.resolvedUrl("qml/images/blank.png")
+            onTriggered: {
+                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Articles.qml"))
+            }
+        },
+        Action {
+            objectName: "videosTabAction"
+            text: i18n.tr("Videos")
+            iconSource: Qt.resolvedUrl("qml/images/blank.png")
+            onTriggered: {
+                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Videos.qml"))
+            }
+        },
+        Action {
+            objectName: "imagesTabAction"
+            text: i18n.tr("Images")
+            iconSource: Qt.resolvedUrl("qml/images/blank.png")
+            onTriggered: {
+                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Images.qml"))
+            }
+        },
+        Action {
             objectName: "favoritesTabAction"
             text: i18n.tr("Favorites")
             iconName: "starred"
