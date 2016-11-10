@@ -19,5 +19,7 @@
         <file>qml/ui/About.qml</file>
         <file>PockIt.png</file>
         <file>qml/ui/Credits.qml</file>
+        <file>qml/js/localdb.js</file>
+        <file>qml/ui/Login.qml</file>
     </qresource>
 </RCC>

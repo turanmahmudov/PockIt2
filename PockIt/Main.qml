@@ -9,6 +9,8 @@ import Ubuntu.Content 1.1
 import "qml/components"
 import "qml/themes" as Themes
 
+import "qml/js/localdb.js" as LocalDB
+
 MainView {
     id: mainView
     objectName: "mainView"
@@ -32,6 +34,11 @@ MainView {
     ScreenSaver {
         id: screenSaver
         screenSaverEnabled: true
+    }
+
+    // Connectivity
+    Connections {
+        target: Connectivity
     }
 
     // Themes
@@ -138,11 +145,18 @@ MainView {
 
         //settings.firstRun = true
 
+        init()
+    }
+
+    // Functions
+    function init() {
+
         if (firstRun) {
             pageLayout.replacePage(Qt.resolvedUrl("qml/components/Walkthrough/FirstRunWalkthrough.qml"))
         } else {
             pageLayout.replacePage(Qt.resolvedUrl("qml/ui/MyList.qml"))
         }
+
     }
 
     AdaptivePageLayout {
