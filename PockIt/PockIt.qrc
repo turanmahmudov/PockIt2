@@ -30,5 +30,8 @@
         <file>qml/ui/Articles.qml</file>
         <file>qml/ui/Videos.qml</file>
         <file>qml/ui/Images.qml</file>
+        <file>qml/js/user.js</file>
+        <file>qml/js/scripts.js</file>
+        <file>qml/js/apiKeys.js</file>
     </qresource>
 </RCC>

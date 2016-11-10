@@ -287,7 +287,7 @@ Page {
                            width: parent.width
                            elide: Text.ElideRight
                            wrapMode: Text.WordWrap
-                           text: i18n.tr("")
+                           text: ""
                            fontSize: "small"
                        }
                    }
@@ -342,7 +342,7 @@ Page {
                            width: parent.width
                            elide: Text.ElideRight
                            wrapMode: Text.WordWrap
-                           text: i18n.tr("")
+                           text: ""
                            fontSize: "small"
                        }
                    }

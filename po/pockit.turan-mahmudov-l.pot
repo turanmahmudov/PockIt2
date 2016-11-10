@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-10 22:00+0300\n"
+"POT-Creation-Date: 2016-11-10 19:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,54 +17,281 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:76
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:79
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:23
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:23
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:23
 msgid "My List"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:84
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:87
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:8
 msgid "Articles"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:92
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:95
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:8
 msgid "Videos"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:100
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:103
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:8
 msgid "Images"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:108
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:111
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:8
 msgid "Favorites"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:116
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:119
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:8
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:28
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:28
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:28
 msgid "Archive"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:124
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:127
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Tags.qml:8
 msgid "Tags"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:136
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:137
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:139
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:140
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:8
 msgid "Search"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:145
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:146
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:148
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:149
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:9
 msgid "Settings"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:154
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:155
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:157
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:158
 msgid "Refresh"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:163
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:164
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:166
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:167
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Help.qml:8
 msgid "Help"
 msgstr ""
 
-#: /home/turan/Apps/build-PockIt3-Desktop-Debug/PockIt/PockIt.desktop.h:1
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/LoadingSpinnerComponent.qml:47
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:87
+msgid "Loading..."
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:8
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:429
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:452
+msgid "About"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:14
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:15
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:15
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:14
+msgid "Close"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:67
+msgid "Unofficial Pocket Client"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:95
+msgid "Released under the terms of the GNU GPL v3"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:104
+#, qt-format
+msgid "Source code available on %1"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:8
+msgid "Article"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:9
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:485
+msgid "Credits"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:43
+msgid "Creator"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:74
+msgid "Developers"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:105
+msgid "Icons"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:136
+msgid "Translators"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:19
+msgid "Login"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:87
+msgid "Success!"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:8
+#: /home/turan/Apps/build-PockIt3-UbuntuSDK_for_device_armhf_GCC_armhf_ubuntu_sdk_15_04-Debug/PockIt/PockIt.desktop.h:1
 msgid "PockIt"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:25
+msgid "Search by Title or URL"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:43
+msgid "Account"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:65
+msgid "Logout"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:79
+msgid "General"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:108
+msgid "Dark theme"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:115
+msgid ""
+"You can also toggle this by tapping the Theme button in the Article View"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:140
+msgid "Reading"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:169
+msgid "Justified Text"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:176
+msgid "Display text in Article View with justification"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:224
+msgid "Open best view"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:231
+msgid ""
+"PockIt will automatically decide the best view (Article or Web View) to show"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:254
+msgid "Offline Reading & Syncing"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:283
+msgid "Sync when app opens"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:338
+msgid "Auto download articles"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:386
+msgid "Clear downloaded files"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:392
+msgid "List"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:415
+msgid "Sort"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:422
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:29
+msgid "Newest First"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:459
+#, qt-format
+msgid "Version %1"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide1.qml:60
+msgid "Welcome to PockIt!"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide1.qml:74
+msgid ""
+"There are a few ways you can save items to PockIt. We'll walk you through "
+"each of them so you can start getting the most out of your list."
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide2.qml:60
+msgid "Save From Your Computer"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide2.qml:74
+msgid ""
+"Adding the PockIt button to your browser makes it easy to save articles, "
+"videos and webpages with a single click on your computer."
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide3.qml:60
+msgid "Save Via Email"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide3.qml:74
+msgid ""
+"You can save from any app that doesn't have a PockIt button by emailing the "
+"link to <b>add@getpocket.com</b>."
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide4.qml:60
+msgid "Save From Anywhere"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide4.qml:74
+msgid ""
+"Save from Browser, or any of your favorite apps like Twitter and Facebook. "
+"It only takes a minute."
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide5.qml:60
+msgid "You're All Set!"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide5.qml:74
+msgid ""
+"Your Pocket account is ready to go. Now go save all the things you'd like to "
+"view later."
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Slide5.qml:89
+msgid "Finish"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/Walkthrough/Walkthrough.qml:117
+msgid "Skip"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:8
+msgid "List Sort"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:30
+msgid "Oldest First"
 msgstr ""

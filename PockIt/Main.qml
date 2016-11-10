@@ -10,6 +10,9 @@ import "qml/components"
 import "qml/themes" as Themes
 
 import "qml/js/localdb.js" as LocalDB
+import "qml/js/user.js" as User
+import "qml/js/apiKeys.js" as ApiKeys
+import "qml/js/scripts.js" as Scripts
 
 MainView {
     id: mainView
@@ -186,6 +189,10 @@ MainView {
             pageLayout.replacePage(Qt.resolvedUrl("qml/components/Walkthrough/FirstRunWalkthrough.qml"))
         } else {
             pageLayout.replacePage(Qt.resolvedUrl("qml/ui/MyList.qml"))
+
+            if (!User.getKey('access_token')) {
+                Scripts.get_request_token()
+            }
         }
 
     }
