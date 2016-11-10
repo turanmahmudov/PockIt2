@@ -191,11 +191,13 @@ MainView {
             pageLayout.replacePage(Qt.resolvedUrl("qml/ui/MyList.qml"))
 
             if (!User.getKey('access_token')) {
-                Scripts.get_request_token()
+                //Scripts.get_request_token()
             }
         }
 
     }
+
+    // Models
 
     AdaptivePageLayout {
         id: pageLayout

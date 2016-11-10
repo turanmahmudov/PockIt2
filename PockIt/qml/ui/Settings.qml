@@ -1,6 +1,12 @@
 import QtQuick 2.4
+import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItem
+
+import "../js/localdb.js" as LocalDB
+import "../js/user.js" as User
+import "../js/apiKeys.js" as ApiKeys
+import "../js/scripts.js" as Scripts
 
 Page {
     id: settingsPage
@@ -48,7 +54,7 @@ Page {
                height: logoutColumn.height + units.gu(3)
                showDivider: false
                onClicked: {
-
+                    Scripts.logOut()
                }
 
                Column {
@@ -69,7 +75,7 @@ Page {
                        width: parent.width
                        elide: Text.ElideRight
                        wrapMode: Text.WordWrap
-                       text: "turanmahmudov"
+                       text: User.getKey('username') ? User.getKey('username') : ''
                        fontSize: "small"
                    }
                }
