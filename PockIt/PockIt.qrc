@@ -10,5 +10,14 @@
         <file>qml/ui/Settings.qml</file>
         <file>qml/ui/Search.qml</file>
         <file>qml/ui/Help.qml</file>
+        <file>qml/components/Walkthrough/Walkthrough.qml</file>
+        <file>qml/components/Walkthrough/FirstRunWalkthrough.qml</file>
+        <file>qml/components/Walkthrough/Slide1.qml</file>
+        <file>qml/themes/ThemeManager.qml</file>
+        <file>qml/themes/Light.qml</file>
+        <file>qml/themes/Dark.qml</file>
+        <file>qml/ui/About.qml</file>
+        <file>PockIt.png</file>
+        <file>qml/ui/Credits.qml</file>
     </qresource>
 </RCC>

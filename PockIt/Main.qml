@@ -7,6 +7,7 @@ import Ubuntu.Connectivity 1.0
 import Ubuntu.Content 1.1
 
 import "qml/components"
+import "qml/themes" as Themes
 
 MainView {
     id: mainView
@@ -22,20 +23,37 @@ MainView {
     Settings {
         id: settings
 
-        property bool firstRun: false
+        property bool firstRun: true
+
+        property bool darkTheme: false
     }
 
+    // Keep screen on
     ScreenSaver {
         id: screenSaver
         screenSaverEnabled: true
     }
 
+    // Themes
+    Themes.ThemeManager {
+        id: themeManager
+        themes: [
+            {name: i18n.tr('Light'), source: Qt.resolvedUrl('qml/themes/Light.qml')},
+            {name: i18n.tr('Dark'), source: Qt.resolvedUrl('qml/themes/Dark.qml')}
+        ]
+        source: settings.darkTheme == true ? "Dark.qml" : "Light.qml"
+    }
+    property alias currentTheme: themeManager.theme
+    property var themeManager: themeManager
+    theme.name: currentTheme.baseThemeName
+
     // Variables
     property string appVersion: '0.2'
 
     property alias firstRun: settings.firstRun
-
+    property bool wideScreen: width > units.gu(100)
     property bool loadedUI: false
+    property bool isArticleOpen: false
 
     // Navigation Menu Actions
     property list<Action> navActions: [
@@ -44,7 +62,7 @@ MainView {
             text: i18n.tr("My List")
             iconName: "view-list-symbolic"
             onTriggered: {
-                pageLayout.pushPage(Qt.resolvedUrl("qml/ui/MyList.qml"))
+                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/MyList.qml"))
             }
         },
         Action {
@@ -52,7 +70,7 @@ MainView {
             text: i18n.tr("Favorites")
             iconName: "starred"
             onTriggered: {
-                pageLayout.pushPage(Qt.resolvedUrl("qml/ui/Favorites.qml"))
+                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Favorites.qml"))
             }
         },
         Action {
@@ -60,7 +78,7 @@ MainView {
             text: i18n.tr("Archive")
             iconName: "tick"
             onTriggered: {
-                pageLayout.pushPage(Qt.resolvedUrl("qml/ui/Archive.qml"))
+                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Archive.qml"))
             }
         },
         Action {
@@ -68,7 +86,7 @@ MainView {
             text: i18n.tr("Tags")
             iconName: "tag"
             onTriggered: {
-                pageLayout.pushPage(Qt.resolvedUrl("qml/ui/Tags.qml"))
+                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Tags.qml"))
             }
         }
     ]
@@ -94,24 +112,6 @@ MainView {
             }
         },
         Action {
-            id: switchTileViewAction
-            text: i18n.tr("Switch to Tile View")
-            keywords: i18n.tr("Switch to Tile View")
-            iconName: "view-grid-symbolic"
-            onTriggered: {
-
-            }
-        },
-        Action {
-            id: switchListViewAction
-            text: i18n.tr("Switch to List View")
-            keywords: i18n.tr("Switch to List View")
-            iconName: "view-list-symbolic"
-            onTriggered: {
-
-            }
-        },
-        Action {
             id: refreshAction
             text: i18n.tr("Refresh")
             keywords: i18n.tr("Refresh")
@@ -132,18 +132,24 @@ MainView {
     ]
 
     Component.onCompleted: {
-        loading.visible = true
+        loading.visible = false
 
         loadedUI = true;
 
-        pageLayout.pushPage(Qt.resolvedUrl("qml/ui/MyList.qml"))
+        //settings.firstRun = true
+
+        if (firstRun) {
+            pageLayout.replacePage(Qt.resolvedUrl("qml/components/Walkthrough/FirstRunWalkthrough.qml"))
+        } else {
+            pageLayout.replacePage(Qt.resolvedUrl("qml/ui/MyList.qml"))
+        }
     }
 
     AdaptivePageLayout {
         id: pageLayout
         anchors.fill: parent
         layouts: PageColumnsLayout {
-            when: width > units.gu(60)
+            when: wideScreen && isArticleOpen
             PageColumn {
                 minimumWidth: units.gu(50)
                 maximumWidth: units.gu(50)
@@ -155,7 +161,8 @@ MainView {
         }
 
         // Functions
-        function pushPage(pageSource) {
+        function replacePage(pageSource) {
+            isArticleOpen = false
             pageLayout.primaryPageSource = pageSource
         }
     }

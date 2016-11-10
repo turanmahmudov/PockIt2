@@ -11,8 +11,8 @@ Page {
             actions: navActions
         }
         trailingActionBar {
-            numberOfSlots: 2
-            actions: [searchAction, switchTileViewAction, refreshAction, settingsAction, helpAction]
+            numberOfSlots: (isArticleOpen && wideScreen) || !wideScreen ? 2 : 5
+            actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction, helpAction] : [helpAction, settingsAction, refreshAction, searchAction]
         }
         extension: Sections {
             anchors {

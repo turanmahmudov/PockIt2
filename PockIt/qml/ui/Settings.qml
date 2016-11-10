@@ -7,6 +7,21 @@ Page {
 
     header: PageHeader {
         title: i18n.tr("Settings")
+
+        leadingActionBar {
+            actions: [
+                Action {
+                    id: closePageAction
+                    text: i18n.tr("Close")
+                    iconName: "back"
+                    onTriggered: {
+                        isArticleOpen = false
+                        pageLayout.removePages(settingsPage)
+                    }
+                }
+
+            ]
+        }
     }
 
     Flickable {
@@ -107,12 +122,14 @@ Page {
                        anchors {
                            verticalCenter: parent.verticalCenter
                        }
-                       checked: false
+                       checked: settings.darkTheme
                        onCheckedChanged: {
                             if (checked) {
-
+                                settings.darkTheme = true
+                                themeManager.currentThemeIndex = 1
                             } else {
-
+                                settings.darkTheme = false
+                                themeManager.currentThemeIndex = 0
                             }
                        }
                    }
@@ -416,7 +433,8 @@ Page {
                height: aboutColumn.height + units.gu(3)
                showDivider: true
                onClicked: {
-
+                   isArticleOpen = true
+                   pageLayout.addPageToNextColumn(settingsPage, Qt.resolvedUrl("About.qml"))
                }
 
                Column {
@@ -448,7 +466,8 @@ Page {
                height: creditsColumn.height + units.gu(3)
                showDivider: false
                onClicked: {
-
+                   isArticleOpen = true
+                   pageLayout.addPageToNextColumn(settingsPage, Qt.resolvedUrl("Credits.qml"))
                }
 
                Column {
