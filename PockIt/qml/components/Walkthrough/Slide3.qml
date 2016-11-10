@@ -23,12 +23,12 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-// Slide 1
+// Slide 3
 Component {
-    id: slide1
+    id: slide3
 
     Item {
-        id: slide1Container
+        id: slide3Container
 
         UbuntuShape {
             anchors {
@@ -57,7 +57,7 @@ Component {
             fontSize: "x-large"
             horizontalAlignment: Text.AlignHLeft
             maximumLineCount: 2
-            text: i18n.tr("Welcome to PockIt!")
+            text: i18n.tr("Save Via Email")
             width: units.gu(36)
             wrapMode: Text.WordWrap
         }
@@ -71,7 +71,7 @@ Component {
             fontSize: "large"
             height: contentHeight
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("There are a few ways you can save items to PockIt. We'll walk you through each of them so you can start getting the most out of your list.")
+            text: i18n.tr("You can save from any app that doesn't have a PockIt button by emailing the link to <b>add@getpocket.com</b>.")
             width: units.gu(36)
             wrapMode: Text.WordWrap
         }

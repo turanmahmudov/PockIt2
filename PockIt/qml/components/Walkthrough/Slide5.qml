@@ -23,12 +23,12 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-// Slide 1
+// Slide 5
 Component {
-    id: slide1
+    id: slide5
 
     Item {
-        id: slide1Container
+        id: slide5Container
 
         UbuntuShape {
             anchors {
@@ -57,7 +57,7 @@ Component {
             fontSize: "x-large"
             horizontalAlignment: Text.AlignHLeft
             maximumLineCount: 2
-            text: i18n.tr("Welcome to PockIt!")
+            text: i18n.tr("You're All Set!")
             width: units.gu(36)
             wrapMode: Text.WordWrap
         }
@@ -65,15 +65,29 @@ Component {
         Label {
             id: bodyText
             anchors {
-                bottom: parent.bottom
-                bottomMargin: units.gu(10)
+                bottom: continueButton.top
+                bottomMargin: units.gu(6)
             }
             fontSize: "large"
             height: contentHeight
             horizontalAlignment: Text.AlignHLeft
-            text: i18n.tr("There are a few ways you can save items to PockIt. We'll walk you through each of them so you can start getting the most out of your list.")
+            text: i18n.tr("Your Pocket account is ready to go. Now go save all the things you'd like to view later.")
             width: units.gu(36)
             wrapMode: Text.WordWrap
+        }
+
+        Button {
+            id: continueButton
+            anchors {
+                bottom: parent.bottom
+                bottomMargin: units.gu(3)
+                horizontalCenter: parent.horizontalCenter
+            }
+            height: units.gu(6)
+            width: parent.width/1.3
+            color: UbuntuColors.blue
+            text: i18n.tr("Finish")
+            onClicked: finished()
         }
     }
 }

@@ -22,5 +22,9 @@
         <file>qml/js/localdb.js</file>
         <file>qml/ui/Login.qml</file>
         <file>qml/ui/settings/ListSort.qml</file>
+        <file>qml/components/Walkthrough/Slide2.qml</file>
+        <file>qml/components/Walkthrough/Slide3.qml</file>
+        <file>qml/components/Walkthrough/Slide4.qml</file>
+        <file>qml/components/Walkthrough/Slide5.qml</file>
     </qresource>
 </RCC>

@@ -60,7 +60,7 @@ Page {
 
     // Go to next slide, if possible
     function nextSlide() {
-        if (listView.currentIndex < 2) {
+        if (listView.currentIndex < 4) {
             listView.currentIndex++
         }
     }
@@ -115,7 +115,7 @@ Page {
         fontSize: "medium"
         objectName: "skipLabel"
         text: i18n.tr("Skip")
-        visible: listView.currentIndex !== 2
+        visible: listView.currentIndex !== 4
         width: contentWidth
 
         anchors {
@@ -131,7 +131,7 @@ Page {
             horizontalCenter: skipLabel.horizontalCenter
         }
         height: units.gu(6)
-        visible: listView.currentIndex !== 2
+        visible: listView.currentIndex !== 4
         width: skipLabel.width + skipLabel.anchors.margins*2
 
         onClicked: walkthrough.finished()
@@ -189,7 +189,7 @@ Page {
         color: "#000"
         height: units.gu(2)
         name: "chevron"
-        visible: listView.currentIndex !== 2
+        visible: listView.currentIndex !== 4
         width: height
         asynchronous: true
     }
@@ -200,7 +200,7 @@ Page {
             horizontalCenter: nextIcon.horizontalCenter
         }
         height: units.gu(6)
-        visible: listView.currentIndex !== 2
+        visible: listView.currentIndex !== 4
         width: height
 
         onClicked: nextSlide()
