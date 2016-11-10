@@ -22,7 +22,7 @@ MainView {
     automaticOrientation: true
     anchorToKeyboard: true
 
-    width: units.gu(100)
+    width: units.gu(50)
     height: units.gu(80)
 
     Settings {
@@ -71,6 +71,9 @@ MainView {
     property bool wideScreen: width > units.gu(100)
     property bool loadedUI: false
     property bool isArticleOpen: false
+    property bool syncing: false
+
+    property bool myListWorked: false
 
     // Navigation Menu Actions
     property list<Action> navActions: [
@@ -198,6 +201,9 @@ MainView {
     }
 
     // Models
+    ListModel {
+        id: myListModel
+    }
 
     AdaptivePageLayout {
         id: pageLayout

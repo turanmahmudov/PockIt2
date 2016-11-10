@@ -15,4 +15,22 @@ Page {
             actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction, helpAction] : [helpAction, settingsAction, refreshAction, searchAction]
         }
     }
+
+    Component.onCompleted: {
+        if (!myListWorked) {
+
+        }
+    }
+
+    ListView {
+        id: myListView
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            top: myListPage.header.bottom
+        }
+        cacheBuffer: parent.height*2
+        model: myListModel
+    }
 }
