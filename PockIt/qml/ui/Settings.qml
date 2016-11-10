@@ -183,12 +183,12 @@ Page {
                        anchors {
                            verticalCenter: parent.verticalCenter
                        }
-                       checked: false
+                       checked: settings.justifiedText
                        onCheckedChanged: {
                             if (checked) {
-
+                                settings.justifiedText = true
                             } else {
-
+                                settings.justifiedText = false
                             }
                        }
                    }
@@ -238,12 +238,12 @@ Page {
                        anchors {
                            verticalCenter: parent.verticalCenter
                        }
-                       checked: false
+                       checked: settings.openBestView
                        onCheckedChanged: {
                             if (checked) {
-
+                                settings.openBestView = true
                             } else {
-
+                                settings.openBestView = false
                             }
                        }
                    }
@@ -297,12 +297,12 @@ Page {
                        anchors {
                            verticalCenter: parent.verticalCenter
                        }
-                       checked: false
+                       checked: settings.autoSync
                        onCheckedChanged: {
                             if (checked) {
-
+                                settings.autoSync = true
                             } else {
-
+                                settings.autoSync = false
                             }
                        }
                    }
@@ -352,12 +352,12 @@ Page {
                        anchors {
                            verticalCenter: parent.verticalCenter
                        }
-                       checked: false
+                       checked: settings.downloadArticlesSync
                        onCheckedChanged: {
                             if (checked) {
-
+                                settings.downloadArticlesSync = true
                             } else {
-
+                                settings.downloadArticlesSync = false
                             }
                        }
                    }
@@ -397,7 +397,8 @@ Page {
                height: sortColumn.height + units.gu(3)
                showDivider: false
                onClicked: {
-
+                   isArticleOpen = true
+                   pageLayout.addPageToNextColumn(settingsPage, Qt.resolvedUrl("settings/ListSort.qml"))
                }
 
                Column {

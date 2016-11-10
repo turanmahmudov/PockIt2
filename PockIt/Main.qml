@@ -27,7 +27,14 @@ MainView {
 
         property bool firstRun: true
 
+        property bool firstSync: true
+
         property bool darkTheme: false
+        property bool justifiedText: false
+        property bool openBestView: true
+        property bool autoSync: false
+        property bool downloadArticlesSync: false
+        property string listSort: 'DESC'
     }
 
     // Keep screen on

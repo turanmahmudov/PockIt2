@@ -21,5 +21,6 @@
         <file>qml/ui/Credits.qml</file>
         <file>qml/js/localdb.js</file>
         <file>qml/ui/Login.qml</file>
+        <file>qml/ui/settings/ListSort.qml</file>
     </qresource>
 </RCC>
