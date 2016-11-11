@@ -3,6 +3,7 @@ import Ubuntu.Components 1.3
 
 PageHeader {
     property var listview
+    property var itemstype
 
     leadingActionBar {
         actions: [

@@ -20,25 +20,29 @@ Page {
         visible: myListPage.state == "selection"
         title: i18n.tr("PockIt")
         listview: myListView
+        itemstype: "all"
     }
 
     ItemDefaultHeader {
         id: defaultHeader
         visible: myListPage.state == "default"
         title: i18n.tr("PockIt")
-        sections: [
-            Action {
-                text: i18n.tr("My List")
-                onTriggered: {
-                }
+        extension: Sections {
+            anchors {
+                bottom: parent.bottom
             }
-        ]
+            actions: [
+                Action {
+                    text: i18n.tr("My List")
+                    onTriggered: {
+                    }
+                }
+            ]
+        }
     }
 
     Component.onCompleted: {
-        if (!myListWorked) {
 
-        }
     }
 
     ItemListView {
