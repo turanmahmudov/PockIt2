@@ -108,7 +108,7 @@ Page {
                     iconName: "back"
                     onTriggered: {
                         isArticleOpen = false
-                        pageLayout.removePages(pageLayout.primaryPage)
+                        pageLayout.removePages(articleViewPage)
                     }
                 }
 

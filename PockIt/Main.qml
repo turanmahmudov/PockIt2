@@ -265,8 +265,8 @@ MainView {
             when: wideScreen && isArticleOpen
             PageColumn {
                 minimumWidth: units.gu(50)
-                maximumWidth: units.gu(50)
-                preferredWidth: units.gu(50)
+                maximumWidth: units.gu(70)
+                preferredWidth: units.gu(60)
             }
             PageColumn {
                 fillWidth: true
@@ -275,6 +275,7 @@ MainView {
 
         // Functions
         function replacePage(pageSource) {
+            pageLayout.removePages(pageLayout.primaryPage)
             isArticleOpen = false
             pageLayout.primaryPageSource = pageSource
         }
