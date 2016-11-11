@@ -35,5 +35,8 @@
         <file>qml/js/apiKeys.js</file>
         <file>qml/components/ItemListDelegate.qml</file>
         <file>qml/images/play.png</file>
+        <file>qml/components/ItemListView.qml</file>
+        <file>qml/components/ItemDefaultHeader.qml</file>
+        <file>qml/components/ItemMultiSelectableHeader.qml</file>
     </qresource>
 </RCC>

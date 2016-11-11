@@ -12,28 +12,27 @@ import "../js/scripts.js" as Scripts
 Page {
     id: myListPage
 
-    header: PageHeader {
-        title: i18n.tr("PockIt")
+    header: state == "default" ? defaultHeader : multiselectableHeader
+    state: "default"
 
-        leadingActionBar {
-            actions: navActions
-        }
-        trailingActionBar {
-            numberOfSlots: (isArticleOpen && wideScreen) || !wideScreen ? 2 : 5
-            actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction, helpAction] : [helpAction, settingsAction, refreshAction, searchAction]
-        }
-        extension: Sections {
-            anchors {
-                bottom: parent.bottom
-            }
-            actions: [
-                Action {
-                    text: i18n.tr("My List")
-                    onTriggered: {
-                    }
+    ItemMultiSelectableHeader {
+        id: multiselectableHeader
+        visible: myListPage.state == "selection"
+        title: i18n.tr("PockIt")
+        listview: myListView
+    }
+
+    ItemDefaultHeader {
+        id: defaultHeader
+        visible: myListPage.state == "default"
+        title: i18n.tr("PockIt")
+        sections: [
+            Action {
+                text: i18n.tr("My List")
+                onTriggered: {
                 }
-            ]
-        }
+            }
+        ]
     }
 
     Component.onCompleted: {
@@ -42,7 +41,7 @@ Page {
         }
     }
 
-    ListView {
+    ItemListView {
         id: myListView
         anchors {
             left: parent.left
@@ -51,10 +50,7 @@ Page {
             top: myListPage.header.bottom
         }
         cacheBuffer: parent.height*2
-        clip: true
         model: myListModel
-        delegate: ItemListDelegate {
-            pageId: myListPage
-        }
+        page: myListPage
     }
 }
