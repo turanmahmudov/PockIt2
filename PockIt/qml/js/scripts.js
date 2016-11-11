@@ -30,6 +30,7 @@ function get_access_token(results, res_code) {
     }
 }
 
+// Logout
 function logOut() {
     User.deleteKey('access_token')
     User.deleteKey('request_token')
@@ -38,6 +39,7 @@ function logOut() {
     mainView.init()
 }
 
+// Request
 function request(url, params, callback) {
     var xhr = new XMLHttpRequest;
     xhr.open("POST", url);

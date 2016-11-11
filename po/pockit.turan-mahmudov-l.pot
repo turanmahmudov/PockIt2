@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-11 13:44+0300\n"
+"POT-Creation-Date: 2016-11-11 15:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,11 +72,16 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:160
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:161
+msgid "Stop Refresh"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:160
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:161
 msgid "Refresh"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:169
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:170
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:173
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:174
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Help.qml:8
 msgid "Help"
 msgstr ""

@@ -157,11 +157,15 @@ MainView {
         },
         Action {
             id: refreshAction
-            text: i18n.tr("Refresh")
-            keywords: i18n.tr("Refresh")
+            text: syncing ? i18n.tr("Stop Refresh") : i18n.tr("Refresh")
+            keywords: syncing ? i18n.tr("Stop Refresh") : i18n.tr("Refresh")
             iconName: "sync"
             onTriggered: {
+                if (syncing) {
 
+                } else {
+
+                }
             }
         },
         Action {
