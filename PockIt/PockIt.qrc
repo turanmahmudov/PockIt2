@@ -33,5 +33,7 @@
         <file>qml/js/user.js</file>
         <file>qml/js/scripts.js</file>
         <file>qml/js/apiKeys.js</file>
+        <file>qml/components/ItemListDelegate.qml</file>
+        <file>qml/images/play.png</file>
     </qresource>
 </RCC>

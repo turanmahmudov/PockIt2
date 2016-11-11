@@ -4,6 +4,9 @@ import Ubuntu.Components 1.3
 Page {
     id: articleViewPage
 
+    property string resolved_url
+    property string item_id
+
     header: PageHeader {
         title: i18n.tr("Article")
 

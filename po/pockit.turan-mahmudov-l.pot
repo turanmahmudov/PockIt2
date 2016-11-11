@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-11 01:10+0300\n"
+"POT-Creation-Date: 2016-11-11 13:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,7 @@ msgstr ""
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:82
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:23
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:23
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:31
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:23
 msgid "My List"
 msgstr ""
@@ -81,7 +82,7 @@ msgid "Help"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/LoadingSpinnerComponent.qml:47
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:87
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:86
 msgid "Loading..."
 msgstr ""
 
@@ -92,7 +93,7 @@ msgid "About"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:14
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:17
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:14
@@ -112,7 +113,7 @@ msgstr ""
 msgid "Source code available on %1"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:8
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:11
 msgid "Article"
 msgstr ""
 
@@ -137,15 +138,15 @@ msgstr ""
 msgid "Translators"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:19
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:18
 msgid "Login"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:87
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:86
 msgid "Success!"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:8
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:16
 #: /home/turan/Apps/build-PockIt3-Desktop-Profile/PockIt/PockIt.desktop.h:1
 msgid "PockIt"
 msgstr ""

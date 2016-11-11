@@ -5,7 +5,6 @@ import Ubuntu.Connectivity 1.0
 import Ubuntu.Web 0.2
 
 import "../components"
-import "../themes" as Themes
 
 import "../js/localdb.js" as LocalDB
 import "../js/user.js" as User
