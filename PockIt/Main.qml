@@ -7,6 +7,7 @@ import Ubuntu.Connectivity 1.0
 import Ubuntu.Content 1.1
 
 import "qml/components"
+import "qml/ui" as Ui
 import "qml/themes" as Themes
 
 import "qml/js/localdb.js" as LocalDB
@@ -68,6 +69,16 @@ MainView {
     property string appVersion: '0.2'
 
     property alias firstRun: settings.firstRun
+
+    property alias firstSync: settings.firstSync
+
+    property alias darkTheme: settings.darkTheme
+    property alias justifiedText: settings.justifiedText
+    property alias openBestView: settings.openBestView
+    property alias autoSync: settings.autoSync
+    property alias downloadArticlesSync: settings.downloadArticlesSync
+    property alias listSort: settings.listSort
+
     property bool wideScreen: width > units.gu(100)
     property bool loadedUI: false
     property bool isArticleOpen: false
@@ -82,7 +93,7 @@ MainView {
             text: i18n.tr("My List")
             iconName: "view-list-symbolic"
             onTriggered: {
-                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/MyList.qml"))
+                pageLayout.replacePage(myListPage)
             }
         },
         Action {
@@ -90,7 +101,7 @@ MainView {
             text: i18n.tr("Articles")
             iconSource: Qt.resolvedUrl("qml/images/blank.png")
             onTriggered: {
-                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Articles.qml"))
+                pageLayout.replacePage(articlesPage)
             }
         },
         Action {
@@ -98,7 +109,7 @@ MainView {
             text: i18n.tr("Videos")
             iconSource: Qt.resolvedUrl("qml/images/blank.png")
             onTriggered: {
-                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Videos.qml"))
+                pageLayout.replacePage(videosPage)
             }
         },
         Action {
@@ -106,7 +117,7 @@ MainView {
             text: i18n.tr("Images")
             iconSource: Qt.resolvedUrl("qml/images/blank.png")
             onTriggered: {
-                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Images.qml"))
+                pageLayout.replacePage(imagesPage)
             }
         },
         Action {
@@ -114,7 +125,7 @@ MainView {
             text: i18n.tr("Favorites")
             iconName: "starred"
             onTriggered: {
-                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Favorites.qml"))
+                pageLayout.replacePage(favoritesPage)
             }
         },
         Action {
@@ -122,7 +133,7 @@ MainView {
             text: i18n.tr("Archive")
             iconName: "tick"
             onTriggered: {
-                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Archive.qml"))
+                pageLayout.replacePage(archivePage)
             }
         },
         Action {
@@ -130,7 +141,7 @@ MainView {
             text: i18n.tr("Tags")
             iconName: "tag"
             onTriggered: {
-                pageLayout.replacePage(Qt.resolvedUrl("qml/ui/Tags.qml"))
+                pageLayout.replacePage(tagsPage)
             }
         }
     ]
@@ -193,9 +204,9 @@ MainView {
     function init() {
 
         if (firstRun) {
-            pageLayout.replacePage(Qt.resolvedUrl("qml/components/Walkthrough/FirstRunWalkthrough.qml"))
+            pageLayout.replacePageSource(Qt.resolvedUrl("qml/components/Walkthrough/FirstRunWalkthrough.qml"))
         } else {
-            pageLayout.replacePage(Qt.resolvedUrl("qml/ui/MyList.qml"))
+            pageLayout.replacePage(myListPage)
 
             if (!User.getKey('access_token')) {
                 //Scripts.get_request_token()
@@ -273,11 +284,40 @@ MainView {
             }
         }
 
+        // Pages
+        Ui.MyList {
+            id: myListPage
+        }
+        Ui.Articles {
+            id: articlesPage
+        }
+        Ui.Images {
+            id: imagesPage
+        }
+        Ui.Videos {
+            id: videosPage
+        }
+        Ui.Favorites {
+            id: favoritesPage
+        }
+        Ui.Archive {
+            id: archivePage
+        }
+        Ui.Tags {
+            id: tagsPage
+        }
+
         // Functions
-        function replacePage(pageSource) {
+        function replacePageSource(pageSource) {
             pageLayout.removePages(pageLayout.primaryPage)
             isArticleOpen = false
             pageLayout.primaryPageSource = pageSource
+        }
+
+        function replacePage(pageId) {
+            pageLayout.removePages(pageLayout.primaryPage)
+            isArticleOpen = false
+            pageLayout.primaryPage = pageId
         }
     }
 

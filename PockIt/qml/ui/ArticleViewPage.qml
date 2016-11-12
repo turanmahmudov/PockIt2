@@ -116,7 +116,7 @@ Page {
         }
         trailingActionBar {
             numberOfSlots: !wideScreen ? 3 : 9
-            actions: !wideScreen ? [goExternalAction, switchToWebViewAction, refreshAction, shareAction, archiveAction, tagsAction, favoriteAction, removeAction, displaySettingsAction] : [displaySettingsAction, removeAction, favoriteAction, tagsAction, archiveAction, shareAction, refreshAction, goExternalAction, switchToWebViewAction]
+            actions: !wideScreen ? [goExternalAction, switchToWebViewAction, refreshAction, shareAction, archiveAction, favoriteAction, tagsAction, removeAction, displaySettingsAction] : [displaySettingsAction, removeAction, tagsAction, favoriteAction, archiveAction, shareAction, refreshAction, goExternalAction, switchToWebViewAction]
         }
     }
 

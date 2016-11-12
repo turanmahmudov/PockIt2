@@ -31,7 +31,7 @@ Walkthrough {
 
     onFinished: {
         walkthrough.visible = false
-        pageLayout.replacePage(Qt.resolvedUrl("../../ui/MyList.qml"))
+        pageLayout.replacePage(myListPage)
         firstRun = false
     }
 

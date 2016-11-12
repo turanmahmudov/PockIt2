@@ -113,9 +113,11 @@ ListItem {
             Image {
                 width: parent.width
                 height: parent.height
-                source: image
+                source: image ? image : ""
                 clip: true
-                cache: true
+                asynchronous: true
+                cache: true // maybe false
+                sourceSize: Qt.size(width, height)
                 fillMode: Image.PreserveAspectCrop
             }
             Image {

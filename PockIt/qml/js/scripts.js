@@ -3,7 +3,7 @@ function get_request_token(results) {
     if (results) {
         User.setKey('request_token', results['code'])
 
-        pageLayout.replacePage(Qt.resolvedUrl("../ui/Login.qml"))
+        pageLayout.replacePageSource(Qt.resolvedUrl("../ui/Login.qml"))
     } else {
         var url = 'https://getpocket.com/v3/oauth/request'
         var data = "consumer_key="+ApiKeys.consumer_key+"&redirect_uri=https://api.github.com/zen"

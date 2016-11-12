@@ -95,13 +95,13 @@ Page {
                    Switch {
                        id: themeSwitch
                        SlotsLayout.position: SlotsLayout.Trailing
-                       checked: settings.darkTheme
+                       checked: darkTheme
                        onCheckedChanged: {
                             if (checked) {
-                                settings.darkTheme = true
+                                darkTheme = true
                                 themeManager.currentThemeIndex = 1
                             } else {
-                                settings.darkTheme = false
+                                darkTheme = false
                                 themeManager.currentThemeIndex = 0
                             }
                        }
@@ -133,12 +133,12 @@ Page {
                    Switch {
                        id: justifiedTextSwitch
                        SlotsLayout.position: SlotsLayout.Trailing
-                       checked: settings.justifiedText
+                       checked: justifiedText
                        onCheckedChanged: {
                             if (checked) {
-                                settings.justifiedText = true
+                                justifiedText = true
                             } else {
-                                settings.justifiedText = false
+                                justifiedText = false
                             }
                        }
                    }
@@ -159,12 +159,12 @@ Page {
                    Switch {
                        id: openBestViewSwitch
                        SlotsLayout.position: SlotsLayout.Trailing
-                       checked: settings.openBestView
+                       checked: openBestView
                        onCheckedChanged: {
                             if (checked) {
-                                settings.openBestView = true
+                                openBestView = true
                             } else {
-                                settings.openBestView = false
+                                openBestView = false
                             }
                        }
                    }
@@ -192,12 +192,12 @@ Page {
                    Switch {
                        id: autoSyncSwitch
                        SlotsLayout.position: SlotsLayout.Trailing
-                       checked: settings.autoSync
+                       checked: autoSync
                        onCheckedChanged: {
                             if (checked) {
-                                settings.autoSync = true
+                                autoSync = true
                             } else {
-                                settings.autoSync = false
+                                autoSync = false
                             }
                        }
                    }
@@ -214,14 +214,14 @@ Page {
                    subtitle.wrapMode: Text.WordWrap
 
                    Switch {
-                       id: downloadArticlesSync
+                       id: downloadArticlesSyncSwitch
                        SlotsLayout.position: SlotsLayout.Trailing
-                       checked: settings.downloadArticlesSync
+                       checked: downloadArticlesSync
                        onCheckedChanged: {
                             if (checked) {
-                                settings.downloadArticlesSync = true
+                                downloadArticlesSync = true
                             } else {
-                                settings.downloadArticlesSync = false
+                                downloadArticlesSync = false
                             }
                        }
                    }
@@ -260,7 +260,7 @@ Page {
                    id: sortLayout
 
                    title.text: i18n.tr("Sort")
-                   subtitle.text: settings.listSort === 'DESC' ? i18n.tr("Newest First") : i18n.tr("Oldest First")
+                   subtitle.text: listSort === 'DESC' ? i18n.tr("Newest First") : i18n.tr("Oldest First")
                    subtitle.maximumLineCount: 2
                    subtitle.wrapMode: Text.WordWrap
                }
