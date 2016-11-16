@@ -36,8 +36,8 @@ MainView {
         property bool darkTheme: false
         property bool justifiedText: false
         property bool openBestView: true
-        property bool autoSync: false
-        property bool downloadArticlesSync: false
+        property bool autoSync: true
+        property bool downloadArticlesSync: true
         property string listSort: 'DESC'
     }
 
@@ -83,8 +83,6 @@ MainView {
     property bool loadedUI: false
     property bool isArticleOpen: false
     property bool syncing: false
-
-    property bool myListWorked: false
 
     // Navigation Menu Actions
     property list<Action> navActions: [
@@ -154,6 +152,7 @@ MainView {
             keywords: i18n.tr("Search")
             iconName: "search"
             onTriggered: {
+                isArticleOpen = false
                 pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Search.qml"))
             }
         },
@@ -163,6 +162,7 @@ MainView {
             keywords: i18n.tr("Settings")
             iconName: "settings"
             onTriggered: {
+                isArticleOpen = false
                 pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Settings.qml"))
             }
         },
@@ -185,6 +185,7 @@ MainView {
             keywords: i18n.tr("Help")
             iconName: "help"
             onTriggered: {
+                isArticleOpen = false
                 pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Help.qml"))
             }
         }
@@ -212,56 +213,16 @@ MainView {
                 //Scripts.get_request_token()
             }
         }
+    }
 
-        // TEST
+    // Workers
+    // Sync Worker
+    WorkerScript {
+        id: sync_worker
+        source: "js/sync_worker.js"
+        onMessage: {
 
-        var lorder = "time_added"
-        var lsort = "DESC"
-
-        var db = LocalDB.init();
-        db.transaction(function(tx) {
-            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE status = ? ORDER BY " + lorder + " " + lsort, "0");
-
-            if (rs.rows.length == 0) {
-
-            } else {
-                myListModel.clear()
-
-                for(var i = 0; i < rs.rows.length; i++) {
-                    // Tags
-                    var rst = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
-                    var tags = [];
-                    for (var j = 0; j < rst.rows.length; j++) {
-                        tags.push(rst.rows.item(j));
-                    }
-
-                    var item_id = rs.rows.item(i).item_id;
-                    var given_title = rs.rows.item(i).given_title;
-                    var resolved_title = rs.rows.item(i).resolved_title ? rs.rows.item(i).resolved_title : (rs.rows.item(i).given_title ? rs.rows.item(i).given_title : rs.rows.item(i).resolved_url)
-                    var resolved_url = rs.rows.item(i).resolved_url;
-                    var sort_id = rs.rows.item(i).sortid;
-                    var only_domain = Scripts.extractDomain(rs.rows.item(i).resolved_url);
-                    var favorite = rs.rows.item(i).favorite;
-                    var has_video = rs.rows.item(i).has_video;
-                    var image_obj = JSON.parse(rs.rows.item(i).image);
-                    if (image_obj.hasOwnProperty('src')) {
-                        var image = image_obj.src
-                    } else {
-                        if (Scripts.objectLength(JSON.parse(rs.rows.item(i).images)) > 0) {
-                            var images = JSON.parse(rs.rows.item(i).images);
-                            var image = images['1'] ? images['1']['src'] : '';
-                        } else {
-                            var image = '';
-                        }
-                    }
-
-                    myListModel.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video, "tags":tags});
-                }
-            }
-        });
-
-        // TEST END
-
+        }
     }
 
     // Models
