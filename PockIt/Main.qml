@@ -219,7 +219,7 @@ MainView {
     // Sync Worker
     WorkerScript {
         id: sync_worker
-        source: "js/sync_worker.js"
+        source: "qml/js/sync_worker.js"
         onMessage: {
 
         }

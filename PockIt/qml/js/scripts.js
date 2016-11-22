@@ -39,6 +39,23 @@ function logOut() {
     mainView.init()
 }
 
+// Get list from Pocket API
+function get_list(results) {
+    if (results) {
+        var entriesData = []
+        for (var k in results['list']) {
+            entriesData.push(results['list'][k]);
+        }
+    } else {
+        var access_token = User.getKey('access_token');
+
+        var url = 'https://getpocket.com/v3/get';
+        var data = "state=all&sort=oldest&detailType=complete&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
+
+        request(url, data, get_list);
+    }
+}
+
 // Request
 function request(url, params, callback) {
     var xhr = new XMLHttpRequest;
@@ -66,33 +83,4 @@ function request(url, params, callback) {
     }
 
     xhr.send(data);
-}
-
-function extractDomain(url) {
-    var domain;
-    //find & remove protocol (http, ftp, etc.) and get domain
-    if (typeof(url) === "undefined") {
-        return '';
-    }
-    if (url.indexOf("://") > -1) {
-        domain = url.split('/')[2];
-    }
-    else {
-        domain = url.split('/')[0];
-    }
-
-    //find & remove port number
-    domain = domain.split(':')[0];
-
-    return domain;
-}
-
-function objectLength(obj) {
-  var result = 0;
-  for(var prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-      result++;
-    }
-  }
-  return result;
 }
