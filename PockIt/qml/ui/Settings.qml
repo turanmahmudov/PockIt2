@@ -238,7 +238,7 @@ Page {
                }
 
                onClicked: {
-
+                    Scripts.clear_list()
                }
            }
 

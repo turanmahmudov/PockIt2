@@ -209,8 +209,11 @@ MainView {
         } else {
             pageLayout.replacePage(myListPage)
 
+            // Login required
             if (!User.getKey('access_token')) {
-                //Scripts.get_request_token()
+                //Scripts.get_request_token()     
+            } else {
+                Scripts.get_list()
             }
         }
     }
@@ -221,7 +224,9 @@ MainView {
         id: sync_worker
         source: "qml/js/sync_worker.js"
         onMessage: {
-
+            if (messageObject.action === "ENTRIES_WORKS") {
+                Scripts.complete_entries_works(messageObject.entries_works, messageObject.api_entries)
+            }
         }
     }
 

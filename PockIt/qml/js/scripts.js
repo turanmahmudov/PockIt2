@@ -1,4 +1,4 @@
-// Login
+// Get request token from API & Save request token to DB and open login page
 function get_request_token(results) {
     if (results) {
         User.setKey('request_token', results['code'])
@@ -12,6 +12,7 @@ function get_request_token(results) {
     }
 }
 
+// Get access token from API & Save access token, username to DB and "start" the app
 function get_access_token(results, res_code) {
     if (results) {
         if (results['access_token']) {
@@ -30,7 +31,7 @@ function get_access_token(results, res_code) {
     }
 }
 
-// Logout
+// Logout (Delete access_token, request_token and username from DB)
 function logOut() {
     User.deleteKey('access_token')
     User.deleteKey('request_token')
@@ -39,13 +40,16 @@ function logOut() {
     mainView.init()
 }
 
-// Get list from Pocket API
+// Get list from Pocket API & Start syncing
 function get_list(results) {
     if (results) {
-        var entriesData = []
+        var entriesData = {}
         for (var k in results['list']) {
-            entriesData.push(results['list'][k]);
+            entriesData[k] = results['list'][k]
         }
+
+        // Start syncing
+        sync_start(entriesData)
     } else {
         var access_token = User.getKey('access_token');
 
@@ -54,6 +58,68 @@ function get_list(results) {
 
         request(url, data, get_list);
     }
+}
+
+// Sync start (GET all entries from DB and send data to sync worker)
+function sync_start(api_entries) {
+    console.log('sync loop worked')
+
+    firstSync = false
+    syncing = true
+
+    screenSaver.screenSaverEnabled = false
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("SELECT item_id, time_updated FROM Entries")
+        var dbEntriesData = {}
+        for(var i = 0; i < rs.rows.length; i++) {
+            dbEntriesData[rs.rows.item(i).item_id] = rs.rows.item(i);
+        }
+
+        // Start sync worker
+        sync_worker.sendMessage({'api_entries': api_entries, 'db_entries': dbEntriesData});
+    })
+}
+
+// Complete entries work (Worker sends processed data here)
+function complete_entries_works(entries_works, api_entries) {
+    console.log('complete entries worked')
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        for (var ew_i in entries_works) {
+            if (entries_works[ew_i].action === 'INSERT') {
+                var image = (api_entries[ew_i].has_image == '1' && api_entries[ew_i].image) ? JSON.stringify(api_entries[ew_i].image) : '{}';
+                // Entries
+                var rs = tx.executeSql("INSERT INTO Entries(item_id, resolved_id, given_url, resolved_url, given_title, resolved_title, sortid, is_article, has_image, has_video, favorite, status, excerpt, word_count, tags, authors, images, videos, image, is_index, time_added, time_updated) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [api_entries[ew_i].item_id, api_entries[ew_i].resolved_id, api_entries[ew_i].given_url, api_entries[ew_i].resolved_url, api_entries[ew_i].given_title, api_entries[ew_i].resolved_title, api_entries[ew_i].sort_id, api_entries[ew_i].is_article, api_entries[ew_i].has_image, api_entries[ew_i].has_video, api_entries[ew_i].favorite, api_entries[ew_i].status, api_entries[ew_i].excerpt, api_entries[ew_i].word_count, JSON.stringify(api_entries[ew_i].tags), JSON.stringify(api_entries[ew_i].authors), JSON.stringify(api_entries[ew_i].images), JSON.stringify(api_entries[ew_i].videos), image, api_entries[ew_i].is_index, api_entries[ew_i].time_added, api_entries[ew_i].time_updated])
+            } else if (entries_works[ew_i].action === 'UPDATE') {
+                var image = (api_entries[ew_i].has_image == '1' && api_entries[ew_i].image) ? JSON.stringify(api_entries[ew_i].image) : '{}';
+                rs = tx.executeSql("UPDATE Entries SET resolved_id = ?, given_url = ?, resolved_url = ?, given_title = ?, resolved_title = ?, sortid = ?, is_article = ?, has_image = ?, has_video = ?, favorite = ?, status = ?, excerpt = ?, word_count = ?, tags = ?, authors = ?, images = ?, videos = ?, image = ?, is_index = ?, time_added = ?, time_updated = ? WHERE item_id = ?", [api_entries[ew_i].resolved_id, api_entries[ew_i].given_url, api_entries[ew_i].resolved_url, api_entries[ew_i].given_title, api_entries[ew_i].resolved_title, api_entries[ew_i].sort_id, api_entries[ew_i].is_article, api_entries[ew_i].has_image, api_entries[ew_i].has_video, api_entries[ew_i].favorite, api_entries[ew_i].status, api_entries[ew_i].excerpt, api_entries[ew_i].word_count, JSON.stringify(api_entries[ew_i].tags), JSON.stringify(api_entries[ew_i].authors), JSON.stringify(api_entries[ew_i].images), JSON.stringify(api_entries[ew_i].videos), image, api_entries[ew_i].is_index, api_entries[ew_i].time_added, api_entries[ew_i].time_updated, api_entries[ew_i].item_id])
+            } else if (entries_works[ew_i].action === 'KEEP') {
+
+            } else {
+                console.log('Something goes wrong.')
+            }
+
+            // Tags
+            for (var t in api_entries[ew_i].tags) {
+                var rs_t = tx.executeSql('INSERT OR REPLACE INTO Tags(item_id, item_key, tag, entry_id) VALUES (?, ?, ?, ?)', [api_entries[ew_i].tags[t].item_id, t, api_entries[ew_i].tags[t].tag, api_entries[ew_i].item_id]);
+            }
+        }
+    })
+}
+
+// Clear downloaded files
+function clear_list() {
+    firstSync = true
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        var rsen = tx.executeSql("DELETE FROM Entries");
+        var rse = tx.executeSql("DELETE FROM Articles");
+        var rst = tx.executeSql("DELETE FROM Tags");
+    })
 }
 
 // Request
@@ -69,7 +135,7 @@ function request(url, params, callback) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
 
-            console.log(xhr.responseText)
+            //console.log(xhr.responseText)
 
             if (xhr.responseText == "403 Forbidden") {
                 console.log(xhr.getResponseHeader('X-Limit-User-Reset'))
