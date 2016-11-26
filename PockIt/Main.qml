@@ -175,7 +175,7 @@ MainView {
                 if (syncing) {
 
                 } else {
-
+                    Scripts.get_list()
                 }
             }
         },
@@ -211,7 +211,7 @@ MainView {
 
             // Login required
             if (!User.getKey('access_token')) {
-                //Scripts.get_request_token()     
+                Scripts.get_request_token()
             } else {
                 Scripts.get_list()
             }
@@ -229,10 +229,40 @@ MainView {
             }
         }
     }
+    // Entries Worker
+    WorkerScript {
+        id: entries_worker
+        source: "qml/js/entries_worker.js"
+        onMessage: {
+
+        }
+    }
 
     // Models
+    // MyList
     ListModel {
         id: myListModel
+    }
+    // Articles
+    ListModel {
+        id: articlesListModel
+    }
+    ListModel {
+        id: articlesArchiveListModel
+    }
+    // Images
+    ListModel {
+        id: imagesListModel
+    }
+    ListModel {
+        id: imagesArchiveListModel
+    }
+    // Videos
+    ListModel {
+        id: videosListModel
+    }
+    ListModel {
+        id: videosArchiveListModel
     }
 
     AdaptivePageLayout {

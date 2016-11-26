@@ -53,13 +53,14 @@ Page {
                     width: units.gu(2)
                     height: width
                     name: "ok"
-                    visible: settings.listSort === model.value
+                    visible: listSort === model.value
                     SlotsLayout.position: SlotsLayout.Trailing
                 }
             }
 
             onClicked: {
-                settings.listSort = model.value
+                listSort = model.value
+                pageLayout.primaryPage.home()
             }
         }
     }

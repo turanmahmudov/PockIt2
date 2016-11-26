@@ -27,7 +27,7 @@ ListItem {
                 name: action.iconName
                 width: units.gu(2)
                 height: width
-                color: action.iconColor ? action.iconColor : settings.darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
+                color: action.iconColor ? action.iconColor : darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
                 anchors.centerIn: parent
             }
         }
@@ -56,11 +56,11 @@ ListItem {
             Action {
                 iconName: "starred"
                 text: i18n.tr("Favorite")
-                property var iconColor: favorite == 1 ? UbuntuColors.blue : settings.darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
+                property var iconColor: favorite == 1 ? UbuntuColors.blue : darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
                 property var is_fav: favorite == 1 ? 1 : 0
                 onTriggered: {
                     if (is_fav === 1) {
-                        iconColor = settings.darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
+                        iconColor = darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
                     } else {
                         iconColor = UbuntuColors.blue
                     }
@@ -131,6 +131,7 @@ ListItem {
             }
         }
     }
+
     onClicked: {
         if (selectMode) {
             selected = !selected;
