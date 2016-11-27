@@ -56,14 +56,14 @@ Page {
             } else {
                 var all_tags = {}
                 var dbEntriesData = []
-                for(var i = 0; i < rs.rows.length; i++) {
-                    dbEntriesData.push(rs.rows.item(i));
+                for (var i = 0; i < rs.rows.length; i++) {
+                    dbEntriesData.push(rs.rows.item(i))
 
                     // Tags
                     var rs_t = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
+                    var tags = []
                     for (var j = 0; j < rs_t.rows.length; j++) {
-                        var tags = [];
-                        tags.push(rs_t.rows.item(j));
+                        tags.push(rs_t.rows.item(j))
                     }
                     all_tags[rs.rows.item(i).item_id] = tags
                 }

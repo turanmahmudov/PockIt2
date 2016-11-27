@@ -60,20 +60,22 @@ Page {
             if (rs.rows.length === 0) {
 
             } else {
+                var all_tags = {}
                 var dbEntriesData = []
-                for(var i = 0; i < rs.rows.length; i++) {
-                    dbEntriesData.push(rs.rows.item(i));
+                for (var i = 0; i < rs.rows.length; i++) {
+                    dbEntriesData.push(rs.rows.item(i))
 
                     // Tags
                     var rs_t = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
-                    var tags = [];
+                    var tags = []
                     for (var j = 0; j < rs_t.rows.length; j++) {
-                        tags.push(rs_t.rows.item(j));
+                        tags.push(rs_t.rows.item(j))
                     }
+                    all_tags[rs.rows.item(i).item_id] = tags
                 }
 
                 // Start entries worker
-                entries_worker.sendMessage({'entries_feed': 'imagesList', 'db_entries': dbEntriesData, 'db_tags': tags, 'entries_model': imagesListModel, 'clear_model': true});
+                entries_worker.sendMessage({'entries_feed': 'imagesList', 'db_entries': dbEntriesData, 'db_tags': all_tags, 'entries_model': imagesListModel, 'clear_model': true});
             }
         })
     }
@@ -88,6 +90,7 @@ Page {
             if (rs.rows.length === 0) {
 
             } else {
+                var all_tags = {}
                 var dbEntriesData = []
                 for(var i = 0; i < rs.rows.length; i++) {
                     dbEntriesData.push(rs.rows.item(i));
@@ -98,10 +101,11 @@ Page {
                     for (var j = 0; j < rs_t.rows.length; j++) {
                         tags.push(rs_t.rows.item(j));
                     }
+                    all_tags[rs.rows.item(i).item_id] = tags
                 }
 
                 // Start entries worker
-                entries_worker.sendMessage({'entries_feed': 'imagesList', 'db_entries': dbEntriesData, 'db_tags': tags, 'entries_model': imagesArchiveListModel, 'clear_model': true});
+                entries_worker.sendMessage({'entries_feed': 'imagesList', 'db_entries': dbEntriesData, 'db_tags': all_tags, 'entries_model': imagesArchiveListModel, 'clear_model': true});
             }
         })
     }

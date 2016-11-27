@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import QtQuick.Layouts 1.1
 
 ListItem {
     id: itemListDelegate
@@ -91,16 +92,57 @@ ListItem {
         }
     }
 
-    ListItemLayout {
+    SlotsLayout {
         id: layout
+        mainSlot: Column {
+            id: mainSlot
+            spacing: units.gu(1)
 
-        title.text: resolved_title
-        title.maximumLineCount: 3
-        title.wrapMode: Text.WordWrap
+            Label {
+                id: title
+                text: resolved_title
+                fontSize: "medium"
+                maximumLineCount: 3
+                wrapMode: Text.WordWrap
+                width: parent.width
+            }
 
-        subtitle.text: only_domain
-        subtitle.maximumLineCount: 2
-        subtitle.wrapMode: Text.WordWrap
+            Label {
+                id: subtitle
+                text: only_domain
+                fontSize: "small"
+                color: theme.palette.normal.backgroundSecondaryText
+                maximumLineCount: 2
+                wrapMode: Text.WordWrap
+                width: parent.width
+            }
+
+            RowLayout {
+                width: parent.width
+                Flow {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    spacing: units.gu(0.5)
+                    Repeater {
+                        model: tags
+                        Rectangle {
+                            height: tag_label.height + units.gu(0.5)
+                            width: tag_label.width + units.gu(1.5)
+                            color: "#c3c3c3"
+                            radius: units.gu(0.3)
+                            Label {
+                                anchors.centerIn: parent
+                                id: tag_label
+                                text: tag
+                                color: "#ffffff"
+                                fontSize: "x-small"
+                                font.weight: Font.DemiBold
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         Rectangle {
             SlotsLayout.position: SlotsLayout.Trailing
@@ -128,6 +170,7 @@ ListItem {
                 width: parent.width/2
                 height: width
                 source: "../images/play.png"
+
             }
         }
     }

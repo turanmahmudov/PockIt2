@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-27 19:39+0300\n"
+"POT-Creation-Date: 2016-11-27 21:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "Favorites"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:140
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:44
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:45
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:43
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:21
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:29
@@ -63,7 +63,7 @@ msgid "Archive"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:148
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:51
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:52
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:92
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:93
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Tags.qml:8
@@ -99,19 +99,19 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:16
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:17
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:101
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:102
 msgid "Remove"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:37
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:38
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:65
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:66
 msgid "Share"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:58
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:59
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:36
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:83
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:84
