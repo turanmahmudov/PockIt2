@@ -180,7 +180,10 @@ ListItem {
             selected = !selected;
         } else {
             isArticleOpen = true
-            pageLayout.addPageToNextColumn(pageId, Qt.resolvedUrl("../ui/ArticleViewPage.qml"), {"resolved_url": resolved_url, "item_id": item_id})
+            articleViewPage.item_id = item_id
+            articleViewPage.resolved_url = resolved_url
+            articleViewPage.home()
+            pageLayout.addPageToNextColumn(pageId, articleViewPage)
         }
     }
     onPressAndHold: {

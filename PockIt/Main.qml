@@ -268,7 +268,7 @@ MainView {
         source: "qml/js/articles_sync_worker.js"
         onMessage: {
             if (messageObject.action === "ARTICLES_WORKS") {
-                Scripts.complete_articles_works(messageObject.article_result, messageObject.item_id, messageObject.finish)
+                Scripts.complete_articles_works(messageObject.article_result, messageObject.item_id, messageObject.finish, messageObject.parseArticle)
             } else if (messageObject.action === "LOOP_WORKS") {
                 Scripts.get_article(messageObject.mustGetArticlesList, messageObject.index)
             }
@@ -346,6 +346,10 @@ MainView {
         }
         Ui.Tags {
             id: tagsPage
+        }
+
+        Ui.ArticleViewPage {
+            id: articleViewPage
         }
 
         // Functions

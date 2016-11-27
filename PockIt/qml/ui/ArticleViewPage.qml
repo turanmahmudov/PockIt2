@@ -58,7 +58,9 @@ Page {
             keywords: i18n.tr("Re-get article")
             iconName: "reload"
             onTriggered: {
-
+                var mustGetArticlesList = []
+                mustGetArticlesList.push({'item_id': item_id, 'resolved_url': resolved_url})
+                Scripts.get_article(mustGetArticlesList, 0, true)
             }
         },
         Action {
@@ -150,7 +152,9 @@ Page {
             var rs_e = tx.executeSql("SELECT word_count, item_id, favorite, status FROM Entries WHERE item_id = ?", item_id);
 
             if (rs.rows.length === 0) {
-
+                var mustGetArticlesList = []
+                mustGetArticlesList.push({'item_id': item_id, 'resolved_url': resolved_url})
+                Scripts.get_article(mustGetArticlesList, 0, true)
             } else {
                 var result = rs.rows.item(0);
 
@@ -176,8 +180,11 @@ Page {
                     var newdate = result.datePublished ? result.datePublished.replace('00:00:00', '') : '';
 
                     // Style
-                    var article_backgroundColor = currentTheme.backgroundColor
-                    var article_fontColor = currentTheme.baseFontColor
+                    var article_backgroundColor = theme.palette.normal.background
+                    var article_fontColor = theme.palette.normal.backgroundText
+                    var article_borderColor = theme.palette.normal.backgroundSecondaryText
+
+                    console.log(article_fontColor)
 
                     articleBody.loadHtml(
                         '<!DOCTYPE html>' +
@@ -199,7 +206,7 @@ Page {
                         'img { display: block; margin: auto; max-width: 100%; }' +
                         'a { text-decoration: none; color: #00C0C0; }' +
                         'span.upockit { font-size: ' + FontUtils.sizeToPixels('x-small') + 'px; color: ' + article_fontColor + '; }' +
-                        'h2.upockit { font-size: ' + FontUtils.sizeToPixels('large') + 'px; font-weight: 600; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid ' + article_fontColor + '; text-align: left; }' +
+                        'h2.upockit { font-size: ' + FontUtils.sizeToPixels('large') + 'px; font-weight: 600; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid ' + article_borderColor + '; text-align: left; }' +
                         '</style>' +
                         '</head>' +
                         '<body>' +
@@ -220,7 +227,7 @@ Page {
     }
 
     Component.onCompleted: {
-        parse_article()
+
     }
 
     WebContext {

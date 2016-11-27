@@ -6,6 +6,11 @@ WorkerScript.onMessage = function(msg) {
     var index = msg.index
     var mustGetArticlesList = msg.mustGetArticlesList
 
+    var parseArticle = false
+    if (msg.parseArticle) {
+        parseArticle = true
+    }
+
     var data = "consumer_key="+msg.consumer_key+"&url="+encodeURIComponent(resolved_url)+"&refresh=1&images=1&videos=1&output=json";
 
     var xhr = new XMLHttpRequest;
@@ -20,7 +25,7 @@ WorkerScript.onMessage = function(msg) {
 
             console.log('geldi')
 
-            WorkerScript.sendMessage({'action': 'ARTICLES_WORKS', 'article_result': results, 'item_id': item_id, 'finish': index+1===objectLength(mustGetArticlesList)})
+            WorkerScript.sendMessage({'action': 'ARTICLES_WORKS', 'article_result': results, 'item_id': item_id, 'parseArticle': parseArticle, 'finish': index+1===objectLength(mustGetArticlesList)})
             if (index+1 < objectLength(mustGetArticlesList)) {
                 WorkerScript.sendMessage({'action': 'LOOP_WORKS', 'index': index+1, 'mustGetArticlesList': mustGetArticlesList})
             }

@@ -186,7 +186,7 @@ function complete_entries_works(entries_works, api_entries) {
 }
 
 // Get article from API
-function get_article(mustGetArticlesList, index) {
+function get_article(mustGetArticlesList, index, parseArticle) {
 
     // Check if 'stop syncing' pressed
     if (syncing_stopped) {
@@ -196,11 +196,11 @@ function get_article(mustGetArticlesList, index) {
     }
 
     // Start articles sync worker
-    articles_sync_worker.sendMessage({'item_id': mustGetArticlesList[index].item_id, 'resolved_url': mustGetArticlesList[index].resolved_url, 'index': index, 'mustGetArticlesList': mustGetArticlesList, 'consumer_key': ApiKeys.consumer_key});
+    articles_sync_worker.sendMessage({'item_id': mustGetArticlesList[index].item_id, 'resolved_url': mustGetArticlesList[index].resolved_url, 'index': index, 'mustGetArticlesList': mustGetArticlesList, 'parseArticle': parseArticle, 'consumer_key': ApiKeys.consumer_key});
 }
 
 // Complete articles works (Worker sends processed data here)
-function complete_articles_works(article_result, item_id, finish) {
+function complete_articles_works(article_result, item_id, finish, parseArticle) {
     console.log('complete articles worked')
 
     var db = LocalDB.init();
@@ -218,6 +218,11 @@ function complete_articles_works(article_result, item_id, finish) {
             tx.executeSql("INSERT INTO Articles(item_id, resolved_url, title, host, article, datePublished) VALUES(?, ?, ?, ?, ?, ?)", [item_id, article_result.resolvedUrl, article_result.title, article_result.host, article_result.article, article_result.datePublished]);
         } else {
             tx.executeSql("UPDATE Articles SET resolved_url = ?, title = ?, host = ?, article = ?, datePublished = ? WHERE item_id = ?", [article_result.resolvedUrl, article_result.title, article_result.host, article_result.article, article_result.datePublished, item_id]);
+        }
+
+        // If request has came from ArticleViewPage to get_article
+        if (parseArticle) {
+            articleViewPage.home()
         }
 
         if (finish) {
