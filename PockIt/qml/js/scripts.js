@@ -62,6 +62,7 @@ function get_list(results) {
     } else {
         syncing_stopped = false
         syncing = true
+        entryworksfinished(false)
 
         var access_token = User.getKey('access_token');
 
@@ -170,6 +171,7 @@ function complete_entries_works(entries_works, api_entries) {
             loop_index++
             if (loop_index === objectLength(entries_works)) {
                 reinit_pages()
+                entryworksfinished(true)
                 if (mustGetArticlesList.length > 0 && downloadArticlesSync) {
                     get_article(mustGetArticlesList, 0)
                 } else {

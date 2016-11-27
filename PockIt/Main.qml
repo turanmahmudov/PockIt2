@@ -5,6 +5,7 @@ import Qt.labs.settings 1.0
 import Ubuntu.Components 1.3
 import Ubuntu.Connectivity 1.0
 import Ubuntu.Content 1.1
+import Ubuntu.Components.Popups 1.3
 
 import "qml/components"
 import "qml/ui" as Ui
@@ -92,6 +93,17 @@ MainView {
     property bool isArticleOpen: false
     property bool syncing: false
     property bool syncing_stopped: false
+
+    signal entryworksfinished(bool finished)
+
+    Connections {
+        target: mainView
+        onEntryworksfinished: {
+            if (!finished) {
+                PopupUtils.open(popoverComponent)
+            }
+        }
+    }
 
     // Navigation Menu Actions
     property list<Action> navActions: [
@@ -201,9 +213,9 @@ MainView {
     ]
 
     Component.onCompleted: {
-        loading.visible = false
+        //loading.visible = true
 
-        loadedUI = true;
+        loadedUI = true
 
         //settings.firstRun = true
 
@@ -352,5 +364,12 @@ MainView {
 
     LoadingSpinnerComponent {
         id: loading
+    }
+
+    Component {
+        id: popoverComponent
+        LoadingSpinnerPopup {
+            spinner_text: i18n.tr("Syncing...")
+        }
     }
 }

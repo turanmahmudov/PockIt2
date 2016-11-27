@@ -6,7 +6,9 @@
         "content_exchange_source",
         "usermetrics",
         "webview",
-        "keep-display-on"
+        "keep-display-on",
+        "audio",
+        "video"
     ],
     "policy_version": 1.3
 }

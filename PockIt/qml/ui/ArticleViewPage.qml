@@ -35,6 +35,7 @@ Page {
             iconName: articleWebView ? "stock_note" : "stock_website"
             onTriggered: {
                 if (articleWebView) {
+                    articleWebView = false
                     parse_article(true)
                 } else {
                     articleBody.url = articleEntryUrl

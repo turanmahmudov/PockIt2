@@ -33,6 +33,12 @@ Item {
         top: parent.top
         margins: units.gu(20)
     }
+
+    Rectangle {
+        anchors.fill: parent
+        color: theme.palette.normal.foreground
+    }
+
     ActivityIndicator {
         id: loading
         objectName: "LoadingSpinner"

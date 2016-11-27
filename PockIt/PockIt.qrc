@@ -42,5 +42,6 @@
         <file>qml/js/entries_worker.js</file>
         <file>qml/js/articles_sync_worker.js</file>
         <file>qml/components/SyncingProgressBar.qml</file>
+        <file>qml/components/LoadingSpinnerPopup.qml</file>
     </qresource>
 </RCC>

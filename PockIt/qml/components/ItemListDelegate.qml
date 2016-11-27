@@ -128,7 +128,7 @@ ListItem {
                         Rectangle {
                             height: tag_label.height + units.gu(0.5)
                             width: tag_label.width + units.gu(1.5)
-                            color: "#c3c3c3"
+                            color: theme.palette.normal.base
                             radius: units.gu(0.3)
                             Label {
                                 anchors.centerIn: parent
