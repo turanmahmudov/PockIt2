@@ -39,6 +39,10 @@ MainView {
         property bool autoSync: true
         property bool downloadArticlesSync: true
         property string listSort: 'DESC'
+
+        property string article_fontSize: "small"
+        property string article_fontFamily: "Ubuntu"
+        property string article_textAlign: "initial"
     }
 
     // Keep screen on
@@ -78,6 +82,10 @@ MainView {
     property alias autoSync: settings.autoSync
     property alias downloadArticlesSync: settings.downloadArticlesSync
     property alias listSort: settings.listSort
+
+    property alias article_fontSize: settings.article_fontSize
+    property alias article_fontFamily: settings.article_fontFamily
+    property alias article_textAlign: settings.article_textAlign
 
     property bool wideScreen: width > units.gu(100)
     property bool loadedUI: false

@@ -14,18 +14,32 @@ import "../js/scripts.js" as Scripts
 Page {
     id: articleViewPage
 
+    // Params come from List
     property string resolved_url
     property string item_id
+
+    // Other params
+    property bool articleWebView: false
+    property string articleEntryId: ''
+    property string articleEntryUrl: ''
+    property string articleEntryTitle: ''
+    property bool articleEntryFavorited: false
+    property bool articleEntryArchived: false
 
     // Actions
     property list<Action> articleHeaderActions: [
         Action {
             id: switchToWebViewAction
-            text: i18n.tr("Web View")
-            keywords: i18n.tr("Switch to Web View")
-            iconName: "stock_website"
+            text: articleWebView ? i18n.tr("Article View") : i18n.tr("Web View")
+            keywords: articleWebView ? i18n.tr("Switch to Article View") : i18n.tr("Switch to Web View")
+            iconName: articleWebView ? "stock_note" : "stock_website"
             onTriggered: {
-
+                if (articleWebView) {
+                    parse_article(true)
+                } else {
+                    articleBody.url = articleEntryUrl
+                    articleWebView = true
+                }
             }
         },
         Action {
@@ -34,7 +48,7 @@ Page {
             keywords: i18n.tr("Go to external link")
             iconName: "external-link"
             onTriggered: {
-
+                Qt.openUrlExternally(articleEntryUrl)
             }
         },
         Action {
@@ -65,19 +79,19 @@ Page {
             }
         },
         Action {
-            id: tagsAction
-            text: i18n.tr("Tags")
-            keywords: i18n.tr("Tags")
-            iconName: "tag"
+            id: favoriteAction
+            text: i18n.tr("Favorite")
+            keywords: i18n.tr("Favorite")
+            iconName: "starred"
             onTriggered: {
 
             }
         },
         Action {
-            id: favoriteAction
-            text: i18n.tr("Favorite")
-            keywords: i18n.tr("Favorite")
-            iconName: "starred"
+            id: tagsAction
+            text: i18n.tr("Tags")
+            keywords: i18n.tr("Tags")
+            iconName: "tag"
             onTriggered: {
 
             }
@@ -122,57 +136,80 @@ Page {
         }
     }
 
-    function parse_article() {
+    function clear_old_article() {
+        articleBody.loadHtml('')
+    }
 
-        // Style
-        var fSize = User.getKey("fontSize") ? FontUtils.sizeToPixels(User.getKey("fontSize")) : FontUtils.sizeToPixels('small');
-        var bColor = currentTheme.backgroundColor
-        var fColor = currentTheme.baseFontColor
-        var font = User.getKey("font") ? User.getKey("font") : "Ubuntu";
-        var text_align = User.getKey("justified_text") == 'true' ? "justify" : "initial";
+    function parse_article(articleViewSwitch) {
+        clear_old_article()
 
         var db = LocalDB.init();
         db.transaction(function(tx) {
-            var rs = tx.executeSql("SELECT * FROM Articles WHERE item_id = ?", item_id)
+            var rs = tx.executeSql("SELECT * FROM Articles WHERE item_id = ?", item_id);
+            var rs_e = tx.executeSql("SELECT word_count, item_id, favorite, status FROM Entries WHERE item_id = ?", item_id);
 
             if (rs.rows.length === 0) {
 
             } else {
                 var result = rs.rows.item(0);
 
-                var newdate = result.datePublished ? result.datePublished.replace('00:00:00', '') : '';
+                if (!articleViewSwitch && openBestView && rs_e.rows.item(0).word_count === '0') {
+                    // Other params
+                    articleWebView = true
+                    articleEntryId = item_id
+                    articleEntryUrl = resolved_url
+                    articleEntryTitle = result.title !== '' ? result.title : ' '
+                    articleEntryFavorited = rs_e.rows.item(0).favorite === "1" ? true : false
+                    articleEntryArchived = rs_e.rows.item(0).status === "1" ? true : false
 
-                articleBody.loadHtml(
-                    '<!DOCTYPE html>' +
-                    '<html>' +
-                    '<head>' +
-                    '<meta charset="utf-8">' +
-                    '<meta name="viewport" content="width=' + articleBody.width + '">' +
-                    '<style>' +
-                    'body {' +
-                    'background-color: ' + bColor + ';' +
-                    'color: ' + fColor + ';' +
-                    'padding: 0px ' + units.gu(1.5) + 'px;' +
-                    'font-family: ' + font + ';' +
-                    'font-weight: 300;' +
-                    'font-size: ' + fSize + 'px;' +
-                    'text-align: ' + text_align +
-                    '}' +
-                    'code, pre { white-space: pre-wrap; word-wrap: break-word; }' +
-                    'img { display: block; margin: auto; max-width: 100%; }' +
-                    'a { text-decoration: none; color: #00C0C0; }' +
-                    'span.upockit { font-size: ' + FontUtils.sizeToPixels('x-small') + 'px; color: ' + fColor + '; }' +
-                    'h2.upockit { font-size: ' + FontUtils.sizeToPixels('large') + 'px; font-weight: 600; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid ' + fColor + '; text-align: left; }' +
-                    '</style>' +
-                    '</head>' +
-                    '<body>' +
-                    '<h2 class="upockit">' + result.title + '</h2>' +
-                    '<span class="upockit">' + result.host + '</span><br/>' +
-                    '<span class="upockit">' + newdate + '</span><br/><br/>' +
-                    result.article +
-                    '</body>' +
-                    '</html>'
-                );
+                    articleBody.url = resolved_url
+                } else {
+                    // Other params
+                    articleWebView = false
+                    articleEntryId = item_id
+                    articleEntryUrl = resolved_url
+                    articleEntryTitle = result.title !== '' ? result.title : ' '
+                    articleEntryFavorited = rs_e.rows.item(0).favorite === "1" ? true : false
+                    articleEntryArchived = rs_e.rows.item(0).status === "1" ? true : false
+
+                    var newdate = result.datePublished ? result.datePublished.replace('00:00:00', '') : '';
+
+                    // Style
+                    var article_backgroundColor = currentTheme.backgroundColor
+                    var article_fontColor = currentTheme.baseFontColor
+
+                    articleBody.loadHtml(
+                        '<!DOCTYPE html>' +
+                        '<html>' +
+                        '<head>' +
+                        '<meta charset="utf-8">' +
+                        '<meta name="viewport" content="width=' + articleBody.width + '">' +
+                        '<style>' +
+                        'body {' +
+                        'background-color: ' + article_backgroundColor + ';' +
+                        'color: ' + article_fontColor + ';' +
+                        'padding: 0px ' + units.gu(1.5) + 'px;' +
+                        'font-family: ' + article_fontFamily + ';' +
+                        'font-weight: 300;' +
+                        'font-size: ' + article_fontSize + 'px;' +
+                        'text-align: ' + article_textAlign +
+                        '}' +
+                        'code, pre { white-space: pre-wrap; word-wrap: break-word; }' +
+                        'img { display: block; margin: auto; max-width: 100%; }' +
+                        'a { text-decoration: none; color: #00C0C0; }' +
+                        'span.upockit { font-size: ' + FontUtils.sizeToPixels('x-small') + 'px; color: ' + article_fontColor + '; }' +
+                        'h2.upockit { font-size: ' + FontUtils.sizeToPixels('large') + 'px; font-weight: 600; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid ' + article_fontColor + '; text-align: left; }' +
+                        '</style>' +
+                        '</head>' +
+                        '<body>' +
+                        '<h2 class="upockit">' + result.title + '</h2>' +
+                        '<span class="upockit">' + result.host + '</span><br/>' +
+                        '<span class="upockit">' + newdate + '</span><br/><br/>' +
+                        result.article +
+                        '</body>' +
+                        '</html>'
+                    );
+                }
             }
         })
     }

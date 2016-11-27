@@ -83,13 +83,19 @@ Page {
         get_my_list()
     }
 
+    SyncingProgressBar {
+        id: syncingProgressBar
+        anchors.top: myListPage.header.bottom
+        visible: syncing
+    }
+
     ItemListView {
         id: myListView
         anchors {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-            top: myListPage.header.bottom
+            top:  !syncing ? myListPage.header.bottom : syncingProgressBar.bottom
         }
         cacheBuffer: parent.height*2
         model: myListModel
