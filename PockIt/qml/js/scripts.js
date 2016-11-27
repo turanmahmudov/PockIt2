@@ -159,6 +159,12 @@ function complete_entries_works(entries_works, api_entries) {
                         var rs_t = tx.executeSql("UPDATE Tags SET tag = ? WHERE item_key = ? AND entry_id = ?", [api_entries[ew_i].tags[t].tag, t, api_entries[ew_i].item_id]);
                     }
                 }
+
+                // Fill must-get-articles list
+                var rs_a = tx.executeSql("SELECT item_id FROM Articles WHERE item_id = ?", ew_i);
+                if (rs_a.rows.length === 0) {
+                    mustGetArticlesList.push({'item_id': ew_i, 'resolved_url': api_entries[ew_i].resolved_url})
+                }
             } else {
                 console.log('Something goes wrong.')
             }
@@ -166,7 +172,7 @@ function complete_entries_works(entries_works, api_entries) {
             loop_index++
             if (loop_index === objectLength(entries_works)) {
                 reinit_pages()
-                if (mustGetArticlesList.length > 0) {
+                if (mustGetArticlesList.length > 0 && downloadArticlesSync) {
                     get_article(mustGetArticlesList, 0)
                 } else {
                     syncing_stopped = false

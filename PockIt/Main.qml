@@ -193,7 +193,7 @@ MainView {
     ]
 
     Component.onCompleted: {
-        loading.visible = true
+        loading.visible = false
 
         loadedUI = true;
 
@@ -214,7 +214,9 @@ MainView {
             if (!User.getKey('access_token')) {
                 Scripts.get_request_token()
             } else {
-                Scripts.get_list()
+                if (autoSync) {
+                    Scripts.get_list()
+                }
             }
         }
     }
