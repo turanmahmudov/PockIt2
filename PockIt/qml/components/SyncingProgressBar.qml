@@ -7,7 +7,7 @@ Column {
     Rectangle {
         width: parent.width
         height: units.gu(5)
-        color: Qt.lighter(UbuntuColors.lightGrey, 1.2)
+        color: theme.palette.normal.foreground
 
         ActivityIndicator {
             id: syncingIndicator
