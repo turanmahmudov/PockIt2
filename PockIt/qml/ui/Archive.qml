@@ -29,6 +29,10 @@ Page {
         title: i18n.tr("Archive")
     }
 
+    function home() {
+
+    }
+
     Component.onCompleted: {
 
     }

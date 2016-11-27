@@ -29,6 +29,10 @@ Page {
         title: i18n.tr("Favorites")
     }
 
+    function home() {
+
+    }
+
     Component.onCompleted: {
 
     }

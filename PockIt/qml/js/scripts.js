@@ -42,15 +42,27 @@ function logOut() {
 
 // Get list from Pocket API & Start syncing
 function get_list(results) {
+    console.log('get list started')
+
     if (results) {
         var entriesData = {}
         for (var k in results['list']) {
             entriesData[k] = results['list'][k]
         }
 
+        // Check if 'stop syncing' pressed
+        if (syncing_stopped) {
+            syncing_stopped = false
+            syncing = false
+            screenSaver.screenSaverEnabled = true
+            return false
+        }
+
         // Start syncing
         sync_start(entriesData)
     } else {
+        syncing = true
+
         var access_token = User.getKey('access_token');
 
         var url = 'https://getpocket.com/v3/get';
@@ -65,7 +77,6 @@ function sync_start(api_entries) {
     console.log('sync loop worked')
 
     firstSync = false
-    syncing = true
 
     screenSaver.screenSaverEnabled = false
 
@@ -77,6 +88,14 @@ function sync_start(api_entries) {
             dbEntriesData[rs.rows.item(i).item_id] = rs.rows.item(i);
         }
 
+        // Check if 'stop syncing' pressed
+        if (syncing_stopped) {
+            syncing_stopped = false
+            syncing = false
+            screenSaver.screenSaverEnabled = true
+            return false
+        }
+
         // Start sync worker
         sync_worker.sendMessage({'api_entries': api_entries, 'db_entries': dbEntriesData});
     })
@@ -86,20 +105,35 @@ function sync_start(api_entries) {
 function complete_entries_works(entries_works, api_entries) {
     console.log('complete entries worked')
 
+    var mustGetArticlesList = []
+
     var db = LocalDB.init();
     db.transaction(function(tx) {
         var loop_index = 0
         for (var ew_i in entries_works) {
+
+            // Check if 'stop syncing' pressed
+            if (syncing_stopped) {
+                syncing_stopped = false
+                syncing = false
+                screenSaver.screenSaverEnabled = true
+                return false
+            }
+
             if (entries_works[ew_i].action === 'INSERT') {
-                var image = (api_entries[ew_i].has_image == '1' && api_entries[ew_i].image) ? JSON.stringify(api_entries[ew_i].image) : '{}';
                 // Entries
+                var image = (api_entries[ew_i].has_image == '1' && api_entries[ew_i].image) ? JSON.stringify(api_entries[ew_i].image) : '{}';
                 var rs = tx.executeSql("INSERT INTO Entries(item_id, resolved_id, given_url, resolved_url, given_title, resolved_title, sortid, is_article, has_image, has_video, favorite, status, excerpt, word_count, tags, authors, images, videos, image, is_index, time_added, time_updated) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [api_entries[ew_i].item_id, api_entries[ew_i].resolved_id, api_entries[ew_i].given_url, api_entries[ew_i].resolved_url, api_entries[ew_i].given_title, api_entries[ew_i].resolved_title, api_entries[ew_i].sort_id, api_entries[ew_i].is_article, api_entries[ew_i].has_image, api_entries[ew_i].has_video, api_entries[ew_i].favorite, api_entries[ew_i].status, api_entries[ew_i].excerpt, api_entries[ew_i].word_count, JSON.stringify(api_entries[ew_i].tags), JSON.stringify(api_entries[ew_i].authors), JSON.stringify(api_entries[ew_i].images), JSON.stringify(api_entries[ew_i].videos), image, api_entries[ew_i].is_index, api_entries[ew_i].time_added, api_entries[ew_i].time_updated])
 
                 // Tags
                 for (var t in api_entries[ew_i].tags) {
                     var rs_t = tx.executeSql('INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES (?, ?, ?, ?)', [api_entries[ew_i].tags[t].item_id, t, api_entries[ew_i].tags[t].tag, api_entries[ew_i].item_id]);
                 }
+
+                // Fill must-get-articles list
+                mustGetArticlesList.push({'item_id': ew_i, 'resolved_url': api_entries[ew_i].resolved_url})
             } else if (entries_works[ew_i].action === 'UPDATE') {
+                // Entries
                 var image = (api_entries[ew_i].has_image == '1' && api_entries[ew_i].image) ? JSON.stringify(api_entries[ew_i].image) : '{}';
                 rs = tx.executeSql("UPDATE Entries SET resolved_id = ?, given_url = ?, resolved_url = ?, given_title = ?, resolved_title = ?, sortid = ?, is_article = ?, has_image = ?, has_video = ?, favorite = ?, status = ?, excerpt = ?, word_count = ?, tags = ?, authors = ?, images = ?, videos = ?, image = ?, is_index = ?, time_added = ?, time_updated = ? WHERE item_id = ?", [api_entries[ew_i].resolved_id, api_entries[ew_i].given_url, api_entries[ew_i].resolved_url, api_entries[ew_i].given_title, api_entries[ew_i].resolved_title, api_entries[ew_i].sort_id, api_entries[ew_i].is_article, api_entries[ew_i].has_image, api_entries[ew_i].has_video, api_entries[ew_i].favorite, api_entries[ew_i].status, api_entries[ew_i].excerpt, api_entries[ew_i].word_count, JSON.stringify(api_entries[ew_i].tags), JSON.stringify(api_entries[ew_i].authors), JSON.stringify(api_entries[ew_i].images), JSON.stringify(api_entries[ew_i].videos), image, api_entries[ew_i].is_index, api_entries[ew_i].time_added, api_entries[ew_i].time_updated, api_entries[ew_i].item_id])
 
@@ -112,6 +146,9 @@ function complete_entries_works(entries_works, api_entries) {
                         var rs_t = tx.executeSql("UPDATE Tags SET tag = ? WHERE item_key = ? AND entry_id = ?", [api_entries[ew_i].tags[t].tag, t, api_entries[ew_i].item_id]);
                     }
                 }
+
+                // Fill must-get-articles list
+                mustGetArticlesList.push({'item_id': ew_i, 'resolved_url': api_entries[ew_i].resolved_url})
             } else if (entries_works[ew_i].action === 'KEEP') {
                 // Tags
                 for (var t in api_entries[ew_i].tags) {
@@ -128,9 +165,61 @@ function complete_entries_works(entries_works, api_entries) {
 
             loop_index++
             if (loop_index === objectLength(entries_works)) {
-                syncing = false
-                pageLayout.primaryPage.home()
+                reinit_pages()
+                if (mustGetArticlesList.length > 0) {
+                    get_article(mustGetArticlesList, 0)
+                } else {
+                    syncing_stopped = false
+                    syncing = false
+                    screenSaver.screenSaverEnabled = true
+                }
             }
+
+        }
+    })
+}
+
+// Get article from API
+function get_article(mustGetArticlesList, index) {
+
+    // Check if 'stop syncing' pressed
+    if (syncing_stopped) {
+        syncing_stopped = false
+        syncing = false
+        screenSaver.screenSaverEnabled = true
+        return false
+    }
+
+    // Start articles sync worker
+    articles_sync_worker.sendMessage({'item_id': mustGetArticlesList[index].item_id, 'resolved_url': mustGetArticlesList[index].resolved_url, 'index': index, 'mustGetArticlesList': mustGetArticlesList, 'consumer_key': ApiKeys.consumer_key});
+}
+
+// Complete articles works (Worker sends processed data here)
+function complete_articles_works(article_result, item_id, finish) {
+    console.log('complete articles worked')
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+
+        // Check if 'stop syncing' pressed
+        if (syncing_stopped) {
+            syncing_stopped = false
+            syncing = false
+            screenSaver.screenSaverEnabled = true
+            return false
+        }
+
+        var rs_a = tx.executeSql("SELECT item_id FROM Articles WHERE item_id = ?", item_id);
+        if (rs_a.rows.length === 0) {
+            tx.executeSql("INSERT INTO Articles(item_id, resolved_url, title, host, article, datePublished) VALUES(?, ?, ?, ?, ?, ?)", [item_id, article_result.resolvedUrl, article_result.title, article_result.host, article_result.article, article_result.datePublished]);
+        } else {
+            tx.executeSql("UPDATE Articles SET resolved_url = ?, title = ?, host = ?, article = ?, datePublished = ? WHERE item_id = ?", [article_result.resolvedUrl, article_result.title, article_result.host, article_result.article, article_result.datePublished, item_id]);
+        }
+
+        if (finish) {
+            syncing_stopped = false
+            syncing = false
+            screenSaver.screenSaverEnabled = true
         }
     })
 }
@@ -145,7 +234,7 @@ function clear_list() {
         var rse = tx.executeSql("DELETE FROM Articles");
         var rst = tx.executeSql("DELETE FROM Tags");
 
-        pageLayout.primaryPage.home()
+        reinit_pages()
     })
 }
 

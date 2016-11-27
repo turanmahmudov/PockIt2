@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-26 20:54+0300\n"
+"POT-Creation-Date: 2016-11-27 04:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:91
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:92
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:38
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:38
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:38
@@ -25,31 +25,31 @@ msgstr ""
 msgid "My List"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:99
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:100
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:23
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:31
 msgid "Articles"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:107
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:108
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:23
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:31
 msgid "Videos"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:115
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:116
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:23
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:31
 msgid "Images"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:123
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:124
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:21
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:29
 msgid "Favorites"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:131
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:132
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:44
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:43
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:21
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Archive"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:139
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:140
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:51
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:67
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:68
@@ -70,31 +70,31 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:151
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:152
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:153
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:8
 msgid "Search"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:161
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:162
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:163
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:14
 msgid "Settings"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:171
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:172
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:173
 msgid "Stop Refresh"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:171
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:172
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:173
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:40
 msgid "Refresh"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:184
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:185
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:186
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Help.qml:8
 msgid "Help"
 msgstr ""

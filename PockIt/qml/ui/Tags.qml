@@ -15,4 +15,12 @@ Page {
             actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction, helpAction] : [helpAction, settingsAction, refreshAction, searchAction]
         }
     }
+
+    function home() {
+
+    }
+
+    Component.onCompleted: {
+
+    }
 }

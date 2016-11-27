@@ -83,6 +83,7 @@ MainView {
     property bool loadedUI: false
     property bool isArticleOpen: false
     property bool syncing: false
+    property bool syncing_stopped: false
 
     // Navigation Menu Actions
     property list<Action> navActions: [
@@ -173,7 +174,7 @@ MainView {
             iconName: "sync"
             onTriggered: {
                 if (syncing) {
-
+                    syncing_stopped = true
                 } else {
                     Scripts.get_list()
                 }
@@ -192,7 +193,7 @@ MainView {
     ]
 
     Component.onCompleted: {
-        loading.visible = false
+        loading.visible = true
 
         loadedUI = true;
 
@@ -218,6 +219,16 @@ MainView {
         }
     }
 
+    function reinit_pages() {
+        myListPage.home()
+        articlesPage.home()
+        imagesPage.home()
+        videosPage.home()
+        favoritesPage.home()
+        archivePage.home()
+        tagsPage.home()
+    }
+
     // Workers
     // Sync Worker
     WorkerScript {
@@ -226,6 +237,18 @@ MainView {
         onMessage: {
             if (messageObject.action === "ENTRIES_WORKS") {
                 Scripts.complete_entries_works(messageObject.entries_works, messageObject.api_entries)
+            }
+        }
+    }
+    // Articles Sync Worker
+    WorkerScript {
+        id: articles_sync_worker
+        source: "qml/js/articles_sync_worker.js"
+        onMessage: {
+            if (messageObject.action === "ARTICLES_WORKS") {
+                Scripts.complete_articles_works(messageObject.article_result, messageObject.item_id, messageObject.finish)
+            } else if (messageObject.action === "LOOP_WORKS") {
+                Scripts.get_article(messageObject.mustGetArticlesList, messageObject.index)
             }
         }
     }
