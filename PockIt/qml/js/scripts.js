@@ -52,7 +52,6 @@ function get_list(results) {
 
         // Check if 'stop syncing' pressed
         if (syncing_stopped) {
-            syncing_stopped = false
             syncing = false
             screenSaver.screenSaverEnabled = true
             return false
@@ -61,6 +60,7 @@ function get_list(results) {
         // Start syncing
         sync_start(entriesData)
     } else {
+        syncing_stopped = false
         syncing = true
 
         var access_token = User.getKey('access_token');
@@ -90,7 +90,6 @@ function sync_start(api_entries) {
 
         // Check if 'stop syncing' pressed
         if (syncing_stopped) {
-            syncing_stopped = false
             syncing = false
             screenSaver.screenSaverEnabled = true
             return false
@@ -114,7 +113,6 @@ function complete_entries_works(entries_works, api_entries) {
 
             // Check if 'stop syncing' pressed
             if (syncing_stopped) {
-                syncing_stopped = false
                 syncing = false
                 screenSaver.screenSaverEnabled = true
                 return false
@@ -175,8 +173,8 @@ function complete_entries_works(entries_works, api_entries) {
                 if (mustGetArticlesList.length > 0 && downloadArticlesSync) {
                     get_article(mustGetArticlesList, 0)
                 } else {
-                    syncing_stopped = false
                     syncing = false
+                    syncing_stopped = false
                     screenSaver.screenSaverEnabled = true
                 }
             }
@@ -190,7 +188,6 @@ function get_article(mustGetArticlesList, index) {
 
     // Check if 'stop syncing' pressed
     if (syncing_stopped) {
-        syncing_stopped = false
         syncing = false
         screenSaver.screenSaverEnabled = true
         return false
@@ -209,7 +206,6 @@ function complete_articles_works(article_result, item_id, finish) {
 
         // Check if 'stop syncing' pressed
         if (syncing_stopped) {
-            syncing_stopped = false
             syncing = false
             screenSaver.screenSaverEnabled = true
             return false
@@ -223,8 +219,8 @@ function complete_articles_works(article_result, item_id, finish) {
         }
 
         if (finish) {
-            syncing_stopped = false
             syncing = false
+            syncing_stopped = false
             screenSaver.screenSaverEnabled = true
         }
     })
