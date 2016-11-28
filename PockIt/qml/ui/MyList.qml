@@ -95,7 +95,7 @@ Page {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-            top:  !syncing ? myListPage.header.bottom : syncingProgressBar.bottom
+            top: !syncing ? myListPage.header.bottom : syncingProgressBar.bottom
         }
         cacheBuffer: parent.height*2
         model: myListModel

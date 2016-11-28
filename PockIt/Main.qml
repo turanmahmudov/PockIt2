@@ -309,6 +309,14 @@ MainView {
     ListModel {
         id: videosArchiveListModel
     }
+    // Favorites
+    ListModel {
+        id: favoritesListModel
+    }
+    // Archive
+    ListModel {
+        id: archiveListModel
+    }
 
     AdaptivePageLayout {
         id: pageLayout

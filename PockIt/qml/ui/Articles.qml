@@ -21,7 +21,7 @@ Page {
         id: multiselectableHeader
         visible: articlesPage.state == "selection"
         title: i18n.tr("Articles")
-        listview: articlesView
+        listview: active_section == 0 ? articlesView : articlesArchiveView
         itemstype: "all"
     }
 
@@ -122,16 +122,37 @@ Page {
         get_articles_archive_list()
     }
 
+    SyncingProgressBar {
+        id: syncingProgressBar
+        anchors.top: articlesPage.header.bottom
+        visible: syncing
+    }
+
     ItemListView {
         id: articlesView
+        visible: active_section == 0
         anchors {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-            top: articlesPage.header.bottom
+            top: !syncing ? articlesPage.header.bottom : syncingProgressBar.bottom
         }
         cacheBuffer: parent.height*2
-        model: active_section == 0 ? articlesListModel : articlesArchiveListModel
+        model: articlesListModel
+        page: articlesPage
+    }
+
+    ItemListView {
+        id: articlesArchiveView
+        visible: active_section == 1
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            top: !syncing ? articlesPage.header.bottom : syncingProgressBar.bottom
+        }
+        cacheBuffer: parent.height*2
+        model: articlesArchiveListModel
         page: articlesPage
     }
 }

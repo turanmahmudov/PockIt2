@@ -29,12 +29,49 @@ Page {
         title: i18n.tr("Archive")
     }
 
-    function home() {
+    function get_archive_list() {
+        var list_sort = listSort == 'DESC' ? "DESC" : "ASC";
 
+        var db = LocalDB.init();
+        db.transaction(function(tx) {
+            var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE status = ? ORDER BY time_added " + list_sort, "1")
+
+            if (rs.rows.length === 0) {
+
+            } else {
+                var all_tags = {}
+                var dbEntriesData = []
+                for (var i = 0; i < rs.rows.length; i++) {
+                    dbEntriesData.push(rs.rows.item(i))
+
+                    // Tags
+                    var rs_t = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ?", rs.rows.item(i).item_id);
+                    var tags = []
+                    for (var j = 0; j < rs_t.rows.length; j++) {
+                        tags.push(rs_t.rows.item(j))
+                    }
+                    all_tags[rs.rows.item(i).item_id] = tags
+                }
+
+                // Start entries worker
+                entries_worker.sendMessage({'entries_feed': 'archiveList', 'db_entries': dbEntriesData, 'db_tags': all_tags, 'entries_model': archiveListModel, 'clear_model': true});
+            }
+        })
+    }
+
+    function home() {
+        archiveListModel.clear()
+        get_archive_list()
     }
 
     Component.onCompleted: {
+        get_archive_list()
+    }
 
+    SyncingProgressBar {
+        id: syncingProgressBar
+        anchors.top: archivePage.header.bottom
+        visible: syncing
     }
 
     ItemListView {
@@ -43,10 +80,10 @@ Page {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-            top: archivePage.header.bottom
+            top: !syncing ? archivePage.header.bottom : syncingProgressBar.bottom
         }
         cacheBuffer: parent.height*2
-        model: myListModel
+        model: archiveListModel
         page: archivePage
     }
 }

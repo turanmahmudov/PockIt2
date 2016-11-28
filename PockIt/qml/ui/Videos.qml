@@ -21,7 +21,7 @@ Page {
         id: multiselectableHeader
         visible: videosPage.state == "selection"
         title: i18n.tr("Videos")
-        listview: videosView
+        listview: active_section == 0 ? videosView : videosArchiveView
         itemstype: "all"
     }
 
@@ -122,16 +122,37 @@ Page {
         get_videos_archive_list()
     }
 
+    SyncingProgressBar {
+        id: syncingProgressBar
+        anchors.top: videosPage.header.bottom
+        visible: syncing
+    }
+
     ItemListView {
         id: videosView
+        visible: active_section == 0
         anchors {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-            top: videosPage.header.bottom
+            top: !syncing ? videosPage.header.bottom : syncingProgressBar.bottom
         }
         cacheBuffer: parent.height*2
-        model: active_section == 0 ? videosListModel : videosArchiveListModel
+        model: videosListModel
+        page: videosPage
+    }
+
+    ItemListView {
+        id: videosArchiveView
+        visible: active_section == 1
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            top: !syncing ? videosPage.header.bottom : syncingProgressBar.bottom
+        }
+        cacheBuffer: parent.height*2
+        model: videosArchiveListModel
         page: videosPage
     }
 }

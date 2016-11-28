@@ -21,7 +21,7 @@ Page {
         id: multiselectableHeader
         visible: imagesPage.state == "selection"
         title: i18n.tr("Images")
-        listview: imagesView
+        listview: active_section == 0 ? imagesView : imagesArchiveView
         itemstype: "all"
     }
 
@@ -122,16 +122,37 @@ Page {
         get_images_archive_list()
     }
 
+    SyncingProgressBar {
+        id: syncingProgressBar
+        anchors.top: imagesPage.header.bottom
+        visible: syncing
+    }
+
     ItemListView {
         id: imagesView
+        visible: active_section == 0
         anchors {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-            top: imagesPage.header.bottom
+            top: !syncing ? imagesPage.header.bottom : syncingProgressBar.bottom
         }
         cacheBuffer: parent.height*2
-        model: active_section == 0 ? imagesListModel : imagesArchiveListModel
+        model: imagesListModel
+        page: imagesPage
+    }
+
+    ItemListView {
+        id: imagesArchiveView
+        visible: active_section == 1
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            top: !syncing ? imagesPage.header.bottom : syncingProgressBar.bottom
+        }
+        cacheBuffer: parent.height*2
+        model: imagesArchiveListModel
         page: imagesPage
     }
 }
