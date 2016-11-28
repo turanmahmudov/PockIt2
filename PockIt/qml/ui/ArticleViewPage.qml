@@ -183,6 +183,7 @@ Page {
                     var article_backgroundColor = theme.palette.normal.background
                     var article_fontColor = theme.palette.normal.backgroundText
                     var article_borderColor = theme.palette.normal.backgroundSecondaryText
+                    var article_textAlign = justifiedText == true ? "justify" : "initial"
 
                     console.log(article_fontColor)
 
