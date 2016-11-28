@@ -188,6 +188,11 @@ function complete_entries_works(entries_works, api_entries) {
 // Get article from API
 function get_article(mustGetArticlesList, index, parseArticle) {
 
+    // If request has came from ArticleViewPage to get_article
+    if (parseArticle) {
+        syncing_stopped = false
+    }
+
     // Check if 'stop syncing' pressed
     if (syncing_stopped) {
         syncing = false
@@ -223,6 +228,7 @@ function complete_articles_works(article_result, item_id, finish, parseArticle) 
         // If request has came from ArticleViewPage to get_article
         if (parseArticle) {
             articleViewPage.home()
+            return false
         }
 
         if (finish) {
@@ -244,6 +250,7 @@ function clear_list() {
         var rst = tx.executeSql("DELETE FROM Tags");
 
         reinit_pages()
+        syncing_stopped = true
     })
 }
 
