@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-28 23:12+0300\n"
+"POT-Creation-Date: 2016-11-28 23:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:52
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:95
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:96
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Tags.qml:8
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Tags.qml:16
 msgid "Tags"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:384
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:400
 msgid "Syncing..."
 msgstr ""
 

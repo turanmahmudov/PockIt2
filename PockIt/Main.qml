@@ -223,9 +223,12 @@ MainView {
     // Functions
     function init() {
 
+        // If first run
         if (firstRun) {
+            // Replace primary page with Walkthrough
             pageLayout.replacePageSource(Qt.resolvedUrl("qml/components/Walkthrough/FirstRunWalkthrough.qml"))
         } else {
+            // Replace primary page with MyList
             pageLayout.replacePage(myListPage)
 
             // Login required
@@ -239,6 +242,7 @@ MainView {
         }
     }
 
+    // Re-initialize pages
     function reinit_pages() {
         myListPage.home()
         articlesPage.home()
@@ -282,6 +286,14 @@ MainView {
 
         }
     }
+    // Tags Worker
+    WorkerScript {
+        id: tags_worker
+        source: "qml/js/tags_worker.js"
+        onMessage: {
+
+        }
+    }
 
     // Models
     // MyList
@@ -316,6 +328,10 @@ MainView {
     // Archive
     ListModel {
         id: archiveListModel
+    }
+    // Tags
+    ListModel {
+        id: tagsModel
     }
 
     AdaptivePageLayout {

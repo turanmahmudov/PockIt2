@@ -43,5 +43,8 @@
         <file>qml/js/articles_sync_worker.js</file>
         <file>qml/components/SyncingProgressBar.qml</file>
         <file>qml/components/LoadingSpinnerPopup.qml</file>
+        <file>qml/js/tags_worker.js</file>
+        <file>qml/components/TagsListView.qml</file>
+        <file>qml/components/TagsListDelegate.qml</file>
     </qresource>
 </RCC>
