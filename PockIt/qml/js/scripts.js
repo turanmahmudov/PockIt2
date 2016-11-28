@@ -1,8 +1,10 @@
 // Get request token from API & Save request token to DB and open login page
 function get_request_token(results) {
     if (results) {
+        // Save request_token to user table
         User.setKey('request_token', results['code'])
 
+        // Replace primary page with Login page
         pageLayout.replacePageSource(Qt.resolvedUrl("../ui/Login.qml"))
     } else {
         var url = 'https://getpocket.com/v3/oauth/request'
@@ -16,12 +18,15 @@ function get_request_token(results) {
 function get_access_token(results, res_code) {
     if (results) {
         if (results['access_token']) {
+            // Save access_token and username to user table
             User.setKey('access_token', results['access_token'])
             User.setKey('username', results['username'])
 
+            // Initialize mainView again
             mainView.init()
         }
     } else {
+        // Get request_token from params or from user table
         var code = res_code ? res_code : User.getKey('request_token')
 
         var url = 'https://getpocket.com/v3/oauth/authorize'
@@ -31,12 +36,14 @@ function get_access_token(results, res_code) {
     }
 }
 
-// Logout (Delete access_token, request_token and username from DB)
+// Logout
 function logOut() {
+    // Delete access_token, request_token and username from user table
     User.deleteKey('access_token')
     User.deleteKey('request_token')
     User.deleteKey('username')
 
+    // Initialize mainView again
     mainView.init()
 }
 
@@ -60,10 +67,12 @@ function get_list(results) {
         // Start syncing
         sync_start(entriesData)
     } else {
+        // Syncing isn't stopped, syncing is started, entry works isn't finished
         syncing_stopped = false
         syncing = true
         entryworksfinished(false)
 
+        // Get access_token from user table
         var access_token = User.getKey('access_token');
 
         var url = 'https://getpocket.com/v3/get';
@@ -77,8 +86,9 @@ function get_list(results) {
 function sync_start(api_entries) {
     console.log('sync loop worked')
 
+    // It's not first sync anymore
     firstSync = false
-
+    // Keep screen on
     screenSaver.screenSaverEnabled = false
 
     var db = LocalDB.init();
@@ -89,6 +99,18 @@ function sync_start(api_entries) {
             dbEntriesData[rs.rows.item(i).item_id] = rs.rows.item(i);
         }
 
+        var rs_a = tx.executeSql("SELECT item_id FROM Articles")
+        var dbArticlesData = {}
+        for(var i = 0; i < rs_a.rows.length; i++) {
+            dbArticlesData[rs_a.rows.item(i).item_id] = rs_a.rows.item(i);
+        }
+
+        var rs_t = tx.executeSql("SELECT item_id, item_key, tag, entry_id FROM Tags")
+        var dbTagsData = {}
+        for(var i = 0; i < rs_t.rows.length; i++) {
+            dbTagsData[rs_t.rows.item(i).item_id] = rs_t.rows.item(i);
+        }
+
         // Check if 'stop syncing' pressed
         if (syncing_stopped) {
             syncing = false
@@ -97,7 +119,7 @@ function sync_start(api_entries) {
         }
 
         // Start sync worker
-        sync_worker.sendMessage({'api_entries': api_entries, 'db_entries': dbEntriesData});
+        sync_worker.sendMessage({'api_entries': api_entries, 'db_entries': dbEntriesData, 'db_articles': dbArticlesData, 'db_tags': dbTagsData});
     })
 }
 
@@ -169,12 +191,14 @@ function complete_entries_works(entries_works, api_entries) {
             }
 
             loop_index++
+            // If loop finished
             if (loop_index === objectLength(entries_works)) {
-                reinit_pages()
-                entryworksfinished(true)
+                // If auto-download-articles is on and there are articles to get
                 if (mustGetArticlesList.length > 0 && downloadArticlesSync) {
+                    // Get first article from API
                     get_article(mustGetArticlesList, 0)
                 } else {
+                    // Syncing is finished, Syncing isn't stopped, Keep screen off
                     syncing = false
                     syncing_stopped = false
                     screenSaver.screenSaverEnabled = true
@@ -182,6 +206,37 @@ function complete_entries_works(entries_works, api_entries) {
             }
 
         }
+    })
+}
+
+// Delete items from db which deleted from api
+function delete_works(entries, articles, tags) {
+    console.log('delete works')
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        for (var e_i in entries) {
+            var rs_e = tx.executeSql("DELETE FROM Entries WHERE item_id = ?", e_i);
+        }
+
+        for (var a_i in entries) {
+            var rs_a = tx.executeSql("DELETE FROM Articles WHERE item_id = ?", a_i);
+        }
+
+        for (var t_i in tags) {
+            if (tags[t_i].entry_id && !tags[t_i].item_key) {
+                var rs_t = tx.executeSql("DELETE FROM Tags WHERE entry_id = ?", tags[t_i].entry_id);
+            } else if (tags[t_i].entry_id && !tags[t_i].item_key) {
+                var rs_t = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND item_key = ?", [tags[t_i].entry_id, tags[t_i].item_key]);
+            } else {
+
+            }
+        }
+
+        // Re-initialize pages again
+        reinit_pages()
+        // Entry works finished
+        entryworksfinished(true)
     })
 }
 
@@ -227,11 +282,14 @@ function complete_articles_works(article_result, item_id, finish, parseArticle) 
 
         // If request has came from ArticleViewPage to get_article
         if (parseArticle) {
+            // Re-initialize Article View Page again
             articleViewPage.home()
             return false
         }
 
+        // If got finish param
         if (finish) {
+            // Syncing is finished, Syncing isn't stopped, Keep screen off
             syncing = false
             syncing_stopped = false
             screenSaver.screenSaverEnabled = true
@@ -241,6 +299,7 @@ function complete_articles_works(article_result, item_id, finish, parseArticle) 
 
 // Clear downloaded files
 function clear_list() {
+    // It'll first sync
     firstSync = true
 
     var db = LocalDB.init();
@@ -249,7 +308,9 @@ function clear_list() {
         var rse = tx.executeSql("DELETE FROM Articles");
         var rst = tx.executeSql("DELETE FROM Tags");
 
+        // Re-initialize pages
         reinit_pages()
+        // Syncing is stopped (don't continue to syncing)
         syncing_stopped = true
     })
 }

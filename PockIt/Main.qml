@@ -257,6 +257,8 @@ MainView {
         onMessage: {
             if (messageObject.action === "ENTRIES_WORKS") {
                 Scripts.complete_entries_works(messageObject.entries_works, messageObject.api_entries)
+            } else if (messageObject.action === "DELETE_WORKS") {
+                Scripts.delete_works(messageObject.entries, messageObject.articles, messageObject.tags)
             }
         }
     }
