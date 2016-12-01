@@ -83,6 +83,8 @@ ListItem {
     }
 
     onClicked: {
-
+        tagEntriesPage.tag = tag
+        tagEntriesPage.home()
+        pageLayout.addPageToCurrentColumn(pageId, tagEntriesPage)
     }
 }

@@ -46,5 +46,6 @@
         <file>qml/js/tags_worker.js</file>
         <file>qml/components/TagsListView.qml</file>
         <file>qml/components/TagsListDelegate.qml</file>
+        <file>qml/ui/TagEntriesList.qml</file>
     </qresource>
 </RCC>

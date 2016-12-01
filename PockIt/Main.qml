@@ -333,6 +333,10 @@ MainView {
     ListModel {
         id: tagsModel
     }
+    // Tag Entries
+    ListModel {
+        id: tagEntriesModel
+    }
 
     AdaptivePageLayout {
         id: pageLayout
@@ -374,6 +378,12 @@ MainView {
 
         Ui.ArticleViewPage {
             id: articleViewPage
+            visible: false
+        }
+
+        Ui.TagEntriesList {
+            id: tagEntriesPage
+            visible: false
         }
 
         // Functions
