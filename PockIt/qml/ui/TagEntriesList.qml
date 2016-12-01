@@ -30,6 +30,21 @@ Page {
         id: defaultHeader
         visible: tagEntriesPage.state == "default"
         title: tag == "0" ? i18n.tr("All Untagged Items") : tag
+        leadingActionBar {
+            actions: [
+                Action {
+                    id: closePageAction
+                    text: i18n.tr("Close")
+                    iconName: "back"
+                    onTriggered: {
+                        isTagOpen = false
+                        isArticleOpen = false
+                        pageLayout.removePages(tagEntriesPage)
+                    }
+                }
+
+            ]
+        }
     }
 
     function get_tag_list() {

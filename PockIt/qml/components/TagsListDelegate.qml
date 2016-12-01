@@ -83,8 +83,9 @@ ListItem {
     }
 
     onClicked: {
+        isTagOpen = true
         tagEntriesPage.tag = tag
         tagEntriesPage.home()
-        pageLayout.addPageToCurrentColumn(pageId, tagEntriesPage)
+        pageLayout.addPageToNextColumn(pageId, tagEntriesPage)
     }
 }

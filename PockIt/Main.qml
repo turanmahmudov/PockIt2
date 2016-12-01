@@ -89,6 +89,7 @@ MainView {
     property bool wideScreen: width > units.gu(100)
     property bool loadedUI: false
     property bool isArticleOpen: false
+    property bool isTagOpen: false
     property bool syncing: false
     property bool syncing_stopped: false
 
@@ -345,17 +346,35 @@ MainView {
     AdaptivePageLayout {
         id: pageLayout
         anchors.fill: parent
-        layouts: PageColumnsLayout {
-            when: wideScreen && isArticleOpen
-            PageColumn {
-                minimumWidth: units.gu(50)
-                maximumWidth: units.gu(70)
-                preferredWidth: units.gu(60)
+        layouts: [
+            PageColumnsLayout {
+                when: wideScreen && ((isArticleOpen && !isTagOpen) || (!isArticleOpen && isTagOpen))
+                PageColumn {
+                    minimumWidth: units.gu(50)
+                    maximumWidth: units.gu(70)
+                    preferredWidth: units.gu(60)
+                }
+                PageColumn {
+                    fillWidth: true
+                }
+            },
+            PageColumnsLayout {
+                when: wideScreen && isTagOpen && isArticleOpen
+                PageColumn {
+                    minimumWidth: units.gu(50)
+                    maximumWidth: units.gu(70)
+                    preferredWidth: units.gu(60)
+                }
+                PageColumn {
+                    minimumWidth: units.gu(50)
+                    maximumWidth: units.gu(70)
+                    preferredWidth: units.gu(60)
+                }
+                PageColumn {
+                    fillWidth: true
+                }
             }
-            PageColumn {
-                fillWidth: true
-            }
-        }
+        ]
 
         // Pages
         Ui.MyList {
@@ -401,6 +420,13 @@ MainView {
             pageLayout.removePages(pageLayout.primaryPage)
             isArticleOpen = false
             pageLayout.primaryPage = pageId
+        }
+    }
+
+    onWidthChanged: {
+        if (pageLayout.columns > 2 && isArticleOpen && isTagOpen) {
+            isArticleOpen = false
+            pageLayout.addPageToNextColumn(tagsPage, tagEntriesPage)
         }
     }
 

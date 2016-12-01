@@ -185,8 +185,6 @@ Page {
                     var article_borderColor = theme.palette.normal.backgroundSecondaryText
                     var article_textAlign = justifiedText == true ? "justify" : "initial"
 
-                    console.log(article_fontColor)
-
                     articleBody.loadHtml(
                         '<!DOCTYPE html>' +
                         '<html>' +
