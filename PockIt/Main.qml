@@ -337,6 +337,10 @@ MainView {
     ListModel {
         id: tagEntriesModel
     }
+    // Search
+    ListModel {
+        id: searchEntriesModel
+    }
 
     AdaptivePageLayout {
         id: pageLayout
