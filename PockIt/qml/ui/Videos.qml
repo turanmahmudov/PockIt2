@@ -22,7 +22,7 @@ Page {
         visible: videosPage.state == "selection"
         title: i18n.tr("Videos")
         listview: active_section == 0 ? videosView : videosArchiveView
-        itemstype: "all"
+        itemstype: active_section == 0 ? "all" : "archive"
     }
 
     ItemDefaultHeader {

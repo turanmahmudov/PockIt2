@@ -13,6 +13,7 @@ ListItem {
     leadingActions: ListItemActions {
         actions: [
             Action {
+                enabled: item_id != "0"
                 iconName: "delete"
                 text: i18n.tr("Remove")
                 onTriggered: {
@@ -34,6 +35,7 @@ ListItem {
         }
         actions: [
             Action {
+                enabled: item_id != "0"
                 iconName: "compose"
                 text: i18n.tr("Edit")
                 onTriggered: {

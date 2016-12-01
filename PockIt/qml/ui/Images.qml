@@ -22,7 +22,7 @@ Page {
         visible: imagesPage.state == "selection"
         title: i18n.tr("Images")
         listview: active_section == 0 ? imagesView : imagesArchiveView
-        itemstype: "all"
+        itemstype: active_section == 0 ? "all" : "archive"
     }
 
     ItemDefaultHeader {

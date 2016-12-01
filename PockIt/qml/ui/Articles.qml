@@ -22,7 +22,7 @@ Page {
         visible: articlesPage.state == "selection"
         title: i18n.tr("Articles")
         listview: active_section == 0 ? articlesView : articlesArchiveView
-        itemstype: "all"
+        itemstype: active_section == 0 ? "all" : "archive"
     }
 
     ItemDefaultHeader {
