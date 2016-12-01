@@ -27,6 +27,20 @@ Page {
         id: defaultHeader
         visible: searchPage.state == "default"
         title: i18n.tr("Search")
+        leadingActionBar {
+            actions: [
+                Action {
+                    id: closePageAction
+                    text: i18n.tr("Close")
+                    iconName: "back"
+                    onTriggered: {
+                        isArticleOpen = false
+                        pageLayout.removePages(searchPage)
+                    }
+                }
+
+            ]
+        }
 
         contents: TextField {
             id: searchField

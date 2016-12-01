@@ -84,6 +84,7 @@ ListItem {
 
     onClicked: {
         isTagOpen = true
+        isArticleOpen = false
         tagEntriesPage.tag = tag
         tagEntriesPage.home()
         pageLayout.addPageToNextColumn(pageId, tagEntriesPage)

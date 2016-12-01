@@ -173,6 +173,7 @@ MainView {
             iconName: "search"
             onTriggered: {
                 isArticleOpen = false
+                isTagOpen = false
                 pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Search.qml"))
             }
         },
@@ -183,6 +184,7 @@ MainView {
             iconName: "settings"
             onTriggered: {
                 isArticleOpen = false
+                isTagOpen = false
                 pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Settings.qml"))
             }
         },
@@ -206,6 +208,7 @@ MainView {
             iconName: "help"
             onTriggered: {
                 isArticleOpen = false
+                isTagOpen = false
                 pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Help.qml"))
             }
         }
@@ -413,12 +416,14 @@ MainView {
         function replacePageSource(pageSource) {
             pageLayout.removePages(pageLayout.primaryPage)
             isArticleOpen = false
+            isTagOpen = false
             pageLayout.primaryPageSource = pageSource
         }
 
         function replacePage(pageId) {
             pageLayout.removePages(pageLayout.primaryPage)
             isArticleOpen = false
+            isTagOpen = false
             pageLayout.primaryPage = pageId
         }
     }
