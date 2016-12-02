@@ -38,9 +38,9 @@ WorkerScript.onMessage = function(msg) {
     }
 
     for (var db_t_i in db_tags) {
-        if (!api_entries.hasOwnProperty(db_a_i)) {
+        if (!api_entries.hasOwnProperty(db_tags[db_t_i].entry_id)) {
             delete_tags_works[db_t_i] = {'action': 'DELETE', 'entry_id': db_tags[db_t_i].entry_id}
-        } else if (!api_entries[db_tags[db_t_i].entry_id]['tags'] || (api_entries[db_tags[db_t_i].entry_id]['tags'] && api_entries[db_tags[db_t_i].entry_id]['tags'].hasOwnProperty(db_tags[db_t_i].item_key))) {
+        } else if (!api_entries[db_tags[db_t_i].entry_id]['tags'] || (api_entries[db_tags[db_t_i].entry_id]['tags'] && !api_entries[db_tags[db_t_i].entry_id]['tags'].hasOwnProperty(db_tags[db_t_i].item_key))) {
             delete_tags_works[db_t_i] = {'action': 'DELETE', 'item_key': db_tags[db_t_i].item_key, 'entry_id': db_tags[db_t_i].entry_id}
         }
     }

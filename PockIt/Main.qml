@@ -99,7 +99,7 @@ MainView {
         target: mainView
         onEntryworksfinished: {
             if (!finished) {
-                PopupUtils.open(popoverComponent)
+                PopupUtils.open(syncingPopupComponent)
             }
         }
     }
@@ -440,9 +440,16 @@ MainView {
     }
 
     Component {
-        id: popoverComponent
+        id: syncingPopupComponent
         LoadingSpinnerPopup {
             spinner_text: i18n.tr("Syncing...")
+        }
+    }
+
+    Component {
+        id: tagRenamePopupComponent
+        TagRenamePopup {
+
         }
     }
 }

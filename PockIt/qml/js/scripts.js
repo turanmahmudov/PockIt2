@@ -108,7 +108,7 @@ function sync_start(api_entries) {
         var rs_t = tx.executeSql("SELECT item_id, item_key, tag, entry_id FROM Tags")
         var dbTagsData = {}
         for(var i = 0; i < rs_t.rows.length; i++) {
-            dbTagsData[rs_t.rows.item(i).item_id] = rs_t.rows.item(i);
+            dbTagsData[rs_t.rows.item(i).item_key] = rs_t.rows.item(i);
         }
 
         // Check if 'stop syncing' pressed
@@ -226,7 +226,7 @@ function delete_works(entries, articles, tags) {
         for (var t_i in tags) {
             if (tags[t_i].entry_id && !tags[t_i].item_key) {
                 var rs_t = tx.executeSql("DELETE FROM Tags WHERE entry_id = ?", tags[t_i].entry_id);
-            } else if (tags[t_i].entry_id && !tags[t_i].item_key) {
+            } else if (tags[t_i].entry_id && tags[t_i].item_key) {
                 var rs_t = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND item_key = ?", [tags[t_i].entry_id, tags[t_i].item_key]);
             } else {
 
@@ -315,8 +315,40 @@ function clear_list() {
     })
 }
 
+// Rename tag
+function rename_tag(oldTagName, newTagName) {
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        // Rename tags on DB
+        var rs = tx.executeSql("UPDATE Tags SET tag = ?, item_key = ? WHERE item_key = ?", [newTagName, newTagName, oldTagName]);
+
+        // Send to Pocket
+        // Get access_token from user table
+        var access_token = User.getKey('access_token');
+
+        var url = 'https://getpocket.com/v3/send';
+
+        var actions = [{
+            "action": "tag_rename",
+            "old_tag": oldTagName,
+            "new_tag": newTagName
+        }]
+        var data = "actions="+encodeURIComponent(JSON.stringify(actions))+"&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
+
+        request(url, data, item_moded);
+
+        reinit_pages()
+    })
+}
+
+function item_moded(results, params) {
+    console.log('geldu')
+}
+
 // Request
-function request(url, params, callback) {
+function request(url, params, callback, callbackParams) {
+    console.log('getdu')
+
     var xhr = new XMLHttpRequest;
     xhr.open("POST", url);
 
@@ -328,7 +360,7 @@ function request(url, params, callback) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
 
-            //console.log(xhr.responseText)
+            console.log(xhr.responseText)
 
             if (xhr.responseText == "403 Forbidden") {
                 console.log(xhr.getResponseHeader('X-Limit-User-Reset'))
@@ -336,8 +368,13 @@ function request(url, params, callback) {
                 return false;
             }
 
-            var results = JSON.parse(xhr.responseText);
-            callback(results);
+            var results = JSON.parse(xhr.responseText)
+
+            if (callbackParams) {
+                callback(results, callbackParams)
+            } else {
+                callback(results)
+            }
         }
     }
 

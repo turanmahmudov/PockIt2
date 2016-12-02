@@ -47,5 +47,6 @@
         <file>qml/components/TagsListView.qml</file>
         <file>qml/components/TagsListDelegate.qml</file>
         <file>qml/ui/TagEntriesList.qml</file>
+        <file>qml/components/TagRenamePopup.qml</file>
     </qresource>
 </RCC>
