@@ -322,20 +322,47 @@ function rename_tag(oldTagName, newTagName) {
         // Rename tags on DB
         var rs = tx.executeSql("UPDATE Tags SET tag = ?, item_key = ? WHERE item_key = ?", [newTagName, newTagName, oldTagName]);
 
-        // Send to Pocket
-        // Get access_token from user table
-        var access_token = User.getKey('access_token');
-
-        var url = 'https://getpocket.com/v3/send';
-
         var actions = [{
             "action": "tag_rename",
             "old_tag": oldTagName,
             "new_tag": newTagName
         }]
+
+        // Send to Pocket
+        // Get access_token from user table
+        var access_token = User.getKey('access_token');
+        var url = 'https://getpocket.com/v3/send';
         var data = "actions="+encodeURIComponent(JSON.stringify(actions))+"&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
 
-        request(url, data, item_moded);
+        request(url, data, item_moded, actions);
+
+        reinit_pages()
+    })
+}
+
+// Delete tag
+function delete_tag(tag) {
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        // Get tags from DB
+        var rs = tx.executeSql("SELECT * FROM Tags WHERE tag = ?", tag);
+
+        var actions = []
+
+        for(var i = 0; i < rs.rows.length; i++) {
+            actions.push({"action": "tags_remove", "item_id": rs.rows.item(i).entry_id, "tags": tag})
+        }
+
+        // Send to Pocket
+        // Get access_token from user table
+        var access_token = User.getKey('access_token');
+        var url = 'https://getpocket.com/v3/send';
+        var data = "actions="+encodeURIComponent(JSON.stringify(actions))+"&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
+
+        request(url, data, item_moded, actions);
+
+        // Delete tags from DB
+        var rs_d = tx.executeSql("DELETE FROM Tags WHERE tag = ?", tag);
 
         reinit_pages()
     })

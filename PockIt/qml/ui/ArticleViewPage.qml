@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.3
+import Ubuntu.Connectivity 1.0
 import Ubuntu.Web 0.2
 import com.canonical.Oxide 1.0 as Oxide
 
@@ -54,6 +55,7 @@ Page {
         },
         Action {
             id: refreshAction
+            enabled: Connectivity.online
             text: i18n.tr("Refresh")
             keywords: i18n.tr("Re-get article")
             iconName: "reload"
@@ -152,9 +154,11 @@ Page {
             var rs_e = tx.executeSql("SELECT word_count, item_id, favorite, status FROM Entries WHERE item_id = ?", item_id);
 
             if (rs.rows.length === 0) {
-                var mustGetArticlesList = []
-                mustGetArticlesList.push({'item_id': item_id, 'resolved_url': resolved_url})
-                Scripts.get_article(mustGetArticlesList, 0, true)
+                if (Connectivity.online) {
+                    var mustGetArticlesList = []
+                    mustGetArticlesList.push({'item_id': item_id, 'resolved_url': resolved_url})
+                    Scripts.get_article(mustGetArticlesList, 0, true)
+                }
             } else {
                 var result = rs.rows.item(0);
 
