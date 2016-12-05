@@ -18,15 +18,15 @@ PageHeader {
         numberOfSlots: 5
         actions: [
             Action {
-                iconName: "tag"
-                text: i18n.tr("Add tag")
+                iconName: "delete"
+                text: i18n.tr("Delete")
                 onTriggered: {
 
                 }
             },
             Action {
-                iconName: "delete"
-                text: i18n.tr("Delete")
+                iconName: "tag"
+                text: i18n.tr("Add tag")
                 onTriggered: {
 
                 }

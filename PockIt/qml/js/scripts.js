@@ -64,12 +64,14 @@ function get_list(results) {
             return false
         }
 
+        // Syncing is started, entry works isn't finished
+        syncing = true
+
         // Start syncing
         sync_start(entriesData)
     } else {
-        // Syncing isn't stopped, syncing is started, entry works isn't finished
+        // Syncing isn't stopped, entry works isn't finished
         syncing_stopped = false
-        syncing = true
         entryworksfinished(false)
 
         // Get access_token from user table
@@ -372,7 +374,7 @@ function item_moded(results, params) {
     console.log('geldu')
 }
 
-// Request
+// Request (POST url, POST params, Callback function, Callback params)
 function request(url, params, callback, callbackParams) {
     console.log('getdu')
 
@@ -386,21 +388,31 @@ function request(url, params, callback, callbackParams) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-
-            console.log(xhr.responseText)
-
-            if (xhr.responseText == "403 Forbidden") {
-                console.log(xhr.getResponseHeader('X-Limit-User-Reset'))
-                console.log(xhr.responseText)
-                return false;
-            }
-
-            var results = JSON.parse(xhr.responseText)
-
-            if (callbackParams) {
-                callback(results, callbackParams)
+            if (xhr.status === 0) {
+                // Syncing is stopped, syncing is stopped, entry works is finished
+                entryworksfinished(true)
+                networkerroroccured()
             } else {
-                callback(results)
+                //console.log(xhr.responseText)
+
+                if (xhr.responseText == "403 Forbidden") {
+                    console.log(xhr.getResponseHeader('X-Limit-User-Reset'))
+                    console.log(xhr.responseText)
+
+                    // Syncing is stopped, syncing is stopped, entry works is finished
+                    entryworksfinished(true)
+                    networkerroroccured()
+
+                    return false
+                }
+
+                var results = JSON.parse(xhr.responseText)
+
+                if (callbackParams) {
+                    callback(results, callbackParams)
+                } else {
+                    callback(results)
+                }
             }
         }
     }
@@ -428,6 +440,7 @@ function extractDomain(url) {
     return domain
 }
 
+// Object length
 function objectLength(obj) {
     var result = 0
 

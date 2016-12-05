@@ -8,7 +8,9 @@ Dialog {
     Connections {
         target: mainView
         onEntryworksfinished: {
-            PopupUtils.close(dialog)
+            if (finished) {
+                PopupUtils.close(dialog)
+            }
         }
     }
 
@@ -16,6 +18,7 @@ Dialog {
 
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
+        spacing: units.gu(2)
 
         Row {
             spacing: units.gu(1)

@@ -48,13 +48,6 @@ ListItem {
                 }
             },
             Action {
-                iconName: "tag"
-                text: i18n.tr("Tags")
-                onTriggered: {
-
-                }
-            },
-            Action {
                 iconName: "starred"
                 text: i18n.tr("Favorite")
                 property var iconColor: favorite == 1 ? UbuntuColors.blue : darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
@@ -65,6 +58,13 @@ ListItem {
                     } else {
                         iconColor = UbuntuColors.blue
                     }
+                }
+            },
+            Action {
+                iconName: "tag"
+                text: i18n.tr("Tags")
+                onTriggered: {
+
                 }
             }
         ]

@@ -94,6 +94,7 @@ MainView {
     property bool syncing_stopped: false
 
     signal entryworksfinished(bool finished)
+    signal networkerroroccured()
 
     Connections {
         target: mainView
@@ -101,6 +102,13 @@ MainView {
             if (!finished) {
                 PopupUtils.open(syncingPopupComponent)
             }
+        }
+    }
+
+    Connections {
+        target: mainView
+        onNetworkerroroccured: {
+            PopupUtils.open(networkErrorPopupComponent)
         }
     }
 
@@ -443,6 +451,14 @@ MainView {
         id: syncingPopupComponent
         LoadingSpinnerPopup {
             spinner_text: i18n.tr("Syncing...")
+        }
+    }
+
+    Component {
+        id: networkErrorPopupComponent
+        ErrorPopup {
+            error_text: i18n.tr("Network error occured.")
+            error_subtitle_text: i18n.tr("Please check your network settings.")
         }
     }
 
