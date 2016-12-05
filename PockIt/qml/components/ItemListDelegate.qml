@@ -1,7 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
-import Ubuntu.Connectivity 1.0
 
 ListItem {
     id: itemListDelegate
@@ -146,18 +145,17 @@ ListItem {
         }
 
         Rectangle {
-            visible: Connectivity.online
             SlotsLayout.position: SlotsLayout.Trailing
             SlotsLayout.overrideVerticalPositioning: true
             SlotsLayout.padding.trailing: units.gu(-1)
 
-            width: Connectivity.online ? (image ? units.gu(10) : 0) : 0
+            width: image ? units.gu(10) : 0
             height: parent.height
             color: "#dfdfdf"
             Image {
                 width: parent.width
                 height: parent.height
-                source: Connectivity.online ? (image ? image : "") : ""
+                source: image ? image : ""
                 clip: true
                 asynchronous: true
                 cache: true // maybe false

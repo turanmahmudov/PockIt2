@@ -55,7 +55,6 @@ Page {
         },
         Action {
             id: refreshAction
-            enabled: Connectivity.online
             text: i18n.tr("Refresh")
             keywords: i18n.tr("Re-get article")
             iconName: "reload"
@@ -154,11 +153,9 @@ Page {
             var rs_e = tx.executeSql("SELECT word_count, item_id, favorite, status FROM Entries WHERE item_id = ?", item_id);
 
             if (rs.rows.length === 0) {
-                if (Connectivity.online) {
-                    var mustGetArticlesList = []
-                    mustGetArticlesList.push({'item_id': item_id, 'resolved_url': resolved_url})
-                    Scripts.get_article(mustGetArticlesList, 0, true)
-                }
+                var mustGetArticlesList = []
+                mustGetArticlesList.push({'item_id': item_id, 'resolved_url': resolved_url})
+                Scripts.get_article(mustGetArticlesList, 0, true)
             } else {
                 var result = rs.rows.item(0);
 

@@ -190,7 +190,6 @@ MainView {
         },
         Action {
             id: refreshAction
-            enabled: Connectivity.online
             text: syncing ? i18n.tr("Stop Refresh") : i18n.tr("Refresh")
             keywords: syncing ? i18n.tr("Stop Refresh") : i18n.tr("Refresh")
             iconName: "sync"
@@ -240,7 +239,7 @@ MainView {
             if (!User.getKey('access_token')) {
                 Scripts.get_request_token()
             } else {
-                if (Connectivity.online && autoSync) {
+                if (autoSync) {
                     Scripts.get_list()
                 }
             }
