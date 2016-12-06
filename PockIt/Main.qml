@@ -464,8 +464,6 @@ MainView {
 
     Component {
         id: tagRenamePopupComponent
-        TagRenamePopup {
-
-        }
+        TagRenamePopup { }
     }
 }

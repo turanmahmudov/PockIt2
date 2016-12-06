@@ -204,7 +204,7 @@ Page {
                         '}' +
                         'code, pre { white-space: pre-wrap; word-wrap: break-word; }' +
                         'img { display: block; margin: auto; max-width: 100%; }' +
-                        'a { text-decoration: none; color: #00C0C0; }' +
+                        'a { text-decoration: none; color: ' + UbuntuColors.blue + '; }' +
                         'span.upockit { font-size: ' + FontUtils.sizeToPixels('x-small') + 'px; color: ' + article_fontColor + '; }' +
                         'h2.upockit { font-size: ' + FontUtils.sizeToPixels('large') + 'px; font-weight: 600; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid ' + article_borderColor + '; text-align: left; }' +
                         '</style>' +
