@@ -10,7 +10,7 @@ Dialog {
 
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
-        spacing: units.gu(2)
+        spacing: units.gu(1)
 
         Column {
             anchors.horizontalCenter: parent.horizontalCenter
