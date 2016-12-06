@@ -223,8 +223,6 @@ MainView {
     ]
 
     Component.onCompleted: {
-        //loading.visible = true
-
         loadedUI = true
 
         //settings.firstRun = true

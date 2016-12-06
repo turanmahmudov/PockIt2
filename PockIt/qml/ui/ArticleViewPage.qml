@@ -191,12 +191,12 @@ Page {
                         '<html>' +
                         '<head>' +
                         '<meta charset="utf-8">' +
-                        '<meta name="viewport" content="width=' + articleBody.width + '">' +
+                        '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />' +
                         '<style>' +
                         'body {' +
                         'background-color: ' + article_backgroundColor + ';' +
                         'color: ' + article_fontColor + ';' +
-                        'padding: 0px ' + units.gu(1.5) + 'px;' +
+                        'padding: 0 ' + units.gu(1.5) + 'px;' +
                         'font-family: ' + article_fontFamily + ';' +
                         'font-weight: 300;' +
                         'font-size: ' + article_fontSize + 'px;' +
