@@ -22,7 +22,7 @@ Column {
             anchors.left: syncingIndicator.right
             anchors.leftMargin: units.gu(1)
             anchors.verticalCenter: parent.verticalCenter
-            text: syncing && syncing_stopped ? i18n.tr("Stopping syncing...") : i18n.tr("Syncing... Tap to cancel syncing.")
+            text: syncing && syncing_stopped ? i18n.tr("Stopping download...") : i18n.tr("Downloading Items... Tap to cancel download.")
         }
 
         MouseArea {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-06 21:07+0300\n"
+"POT-Creation-Date: 2016-12-06 21:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,15 +100,15 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:451
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:455
 msgid "Syncing..."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:458
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:462
 msgid "Network error occured."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:459
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:463
 msgid "Please check your network settings."
 msgstr ""
 
@@ -153,11 +153,11 @@ msgid "Loading..."
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/SyncingProgressBar.qml:25
-msgid "Stopping syncing..."
+msgid "Stopping download..."
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/SyncingProgressBar.qml:25
-msgid "Syncing... Tap to cancel syncing."
+msgid "Downloading Items... Tap to cancel download."
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:8
