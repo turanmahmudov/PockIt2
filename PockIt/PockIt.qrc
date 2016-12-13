@@ -49,5 +49,6 @@
         <file>qml/ui/TagEntriesList.qml</file>
         <file>qml/components/TagRenamePopup.qml</file>
         <file>qml/components/ErrorPopup.qml</file>
+        <file>qml/components/EmptyBox.qml</file>
     </qresource>
 </RCC>

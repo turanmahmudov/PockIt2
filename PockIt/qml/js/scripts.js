@@ -336,7 +336,7 @@ function rename_tag(oldTagName, newTagName) {
         var url = 'https://getpocket.com/v3/send';
         var data = "actions="+encodeURIComponent(JSON.stringify(actions))+"&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
 
-        request(url, data, item_moded, actions);
+        request(url, data, item_moded, actions, true);
 
         reinit_pages()
     })
@@ -361,7 +361,7 @@ function delete_tag(tag) {
         var url = 'https://getpocket.com/v3/send';
         var data = "actions="+encodeURIComponent(JSON.stringify(actions))+"&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
 
-        request(url, data, item_moded, actions);
+        request(url, data, item_moded, actions, true);
 
         // Delete tags from DB
         var rs_d = tx.executeSql("DELETE FROM Tags WHERE tag = ?", tag);
@@ -370,12 +370,23 @@ function delete_tag(tag) {
     })
 }
 
-function item_moded(results, params) {
+function item_moded(results, params, data) {
     console.log('geldu')
 }
 
+function queue_insert(url, data) {
+    console.log('insert to queue')
+
+    console.log(data)
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("INSERT INTO Queue(url, params) VALUES(?, ?)", [url, data])
+    })
+}
+
 // Request (POST url, POST params, Callback function, Callback params)
-function request(url, params, callback, callbackParams) {
+function request(url, params, callback, callbackParams, addToQueue) {
     console.log('getdu')
 
     var xhr = new XMLHttpRequest;
@@ -389,20 +400,45 @@ function request(url, params, callback, callbackParams) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 0) {
+                if (addToQueue) {
+                    queue_insert(url, params)
+                    return false
+                }
+
                 // Syncing is stopped, syncing is stopped, entry works is finished
                 entryworksfinished(true)
                 networkerroroccured()
+                return false
             } else {
-                //console.log(xhr.responseText)
+                console.log(xhr.responseText)
 
                 if (xhr.responseText == "403 Forbidden") {
                     console.log(xhr.getResponseHeader('X-Limit-User-Reset'))
                     console.log(xhr.responseText)
 
+                    if (addToQueue) {
+                        queue_insert(url, params)
+                        return false
+                    }
+
                     // Syncing is stopped, syncing is stopped, entry works is finished
                     entryworksfinished(true)
                     networkerroroccured()
+                    return false
+                }
 
+                if (xhr.responseText == "400 Bad Request") {
+                    console.log(xhr.getResponseHeader('X-Error'))
+                    console.log(xhr.responseText)
+
+                    if (addToQueue) {
+                        queue_insert(url, params)
+                        return false
+                    }
+
+                    // Syncing is stopped, syncing is stopped, entry works is finished
+                    entryworksfinished(true)
+                    networkerroroccured()
                     return false
                 }
 

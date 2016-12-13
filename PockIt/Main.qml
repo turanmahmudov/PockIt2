@@ -245,6 +245,10 @@ MainView {
             if (!User.getKey('access_token')) {
                 Scripts.get_request_token()
             } else {
+                /**
+                  * Sync queued items (tags, favs, archives, deletes, adds)
+                  */
+
                 if (autoSync) {
                     Scripts.get_list()
                 }
