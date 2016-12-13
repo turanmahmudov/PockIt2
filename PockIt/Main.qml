@@ -39,6 +39,7 @@ MainView {
         property bool openBestView: true
         property bool autoSync: true
         property bool downloadArticlesSync: true
+        property bool mobileUserAgent: true
         property string listSort: 'DESC'
 
         property string article_fontSize: "small"
@@ -81,6 +82,7 @@ MainView {
     property alias openBestView: settings.openBestView
     property alias autoSync: settings.autoSync
     property alias downloadArticlesSync: settings.downloadArticlesSync
+    property alias mobileUserAgent: settings.mobileUserAgent
     property alias listSort: settings.listSort
 
     property alias article_fontSize: settings.article_fontSize
