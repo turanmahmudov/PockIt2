@@ -16,6 +16,7 @@ Page {
     state: "default"
 
     property int active_section: 0
+    property bool isEmpty: true
 
     ItemMultiSelectableHeader {
         id: multiselectableHeader
@@ -52,8 +53,10 @@ Page {
             var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE status = ? ORDER BY time_added " + list_sort, "0")
 
             if (rs.rows.length === 0) {
-
+                isEmpty = true
             } else {
+                isEmpty = false
+
                 var all_tags = {}
                 var dbEntriesData = []
                 for (var i = 0; i < rs.rows.length; i++) {
@@ -100,5 +103,19 @@ Page {
         cacheBuffer: parent.height*2
         model: myListModel
         page: myListPage
+    }
+
+    EmptyBox {
+        visible: isEmpty && active_section == 0
+        anchors {
+            top: !syncing ? myListPage.header.bottom : syncingProgressBar.bottom
+            topMargin: units.gu(3)
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width
+
+        icon: false
+        title: i18n.tr("Your List Empty")
+        description: i18n.tr("There are many ways to add content to your List.")
     }
 }

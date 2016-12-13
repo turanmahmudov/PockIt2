@@ -15,6 +15,8 @@ Page {
     header: state == "default" ? defaultHeader : multiselectableHeader
     state: "default"
 
+    property bool isEmpty: true
+
     ItemMultiSelectableHeader {
         id: multiselectableHeader
         visible: searchPage.state == "selection"
@@ -57,14 +59,18 @@ Page {
             }
             hasClearButton: true
             inputMethodHints: Qt.ImhNoPredictiveText
-            placeholderText: i18n.tr("Search by Title or URL")
             onVisibleChanged: {
                 if (visible) {
                     forceActiveFocus()
                 }
             }
             onTextChanged: {
-                home(searchField.text)
+                if (searchField.text == "") {
+                    searchEntriesModel.clear()
+                    isEmpty = true
+                } else {
+                    home(searchField.text)
+                }
             }
         }
     }
@@ -78,8 +84,10 @@ Page {
             var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, given_url, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE given_title LIKE ? OR resolved_title LIKE ? OR given_url LIKE ? OR resolved_url LIKE ? ORDER BY time_added " + list_sort, [lq, lq, lq, lq])
 
             if (rs.rows.length === 0) {
-
+                isEmpty = true
             } else {
+                isEmpty = false
+
                 var all_tags = {}
                 var dbEntriesData = []
                 for (var i = 0; i < rs.rows.length; i++) {
@@ -122,5 +130,19 @@ Page {
         cacheBuffer: parent.height*2
         model: searchEntriesModel
         page: searchPage
+    }
+
+    EmptyBox {
+        visible: isEmpty
+        anchors {
+            top: !syncing ? searchPage.header.bottom : syncingProgressBar.bottom
+            topMargin: units.gu(3)
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width
+
+        icon: true
+        iconName: "find"
+        subtitle: i18n.tr("Search by title or URL")
     }
 }

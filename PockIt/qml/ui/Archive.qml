@@ -15,6 +15,8 @@ Page {
     header: state == "default" ? defaultHeader : multiselectableHeader
     state: "default"
 
+    property bool isEmpty: true
+
     ItemMultiSelectableHeader {
         id: multiselectableHeader
         visible: archivePage.state == "selection"
@@ -37,8 +39,10 @@ Page {
             var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE status = ? ORDER BY time_added " + list_sort, "1")
 
             if (rs.rows.length === 0) {
-
+                isEmpty = true
             } else {
+                isEmpty = false
+
                 var all_tags = {}
                 var dbEntriesData = []
                 for (var i = 0; i < rs.rows.length; i++) {
@@ -85,5 +89,20 @@ Page {
         cacheBuffer: parent.height*2
         model: archiveListModel
         page: archivePage
+    }
+
+    EmptyBox {
+        visible: isEmpty
+        anchors {
+            top: !syncing ? archivePage.header.bottom : syncingProgressBar.bottom
+            topMargin: units.gu(3)
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width
+
+        icon: false
+        title: i18n.tr("Archive Empty")
+        description: i18n.tr("The Archive can be used to list items that you're finished with.")
+        description2: i18n.tr("To add items to your Archive, tap the checkmark button after opening an item.")
     }
 }

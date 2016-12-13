@@ -12,6 +12,8 @@ import "../js/scripts.js" as Scripts
 Page {
     id: tagsPage
 
+    property bool isEmpty: true
+
     header: PageHeader {
         title: i18n.tr("Tags")
 
@@ -32,8 +34,10 @@ Page {
             var rs = tx.executeSql("SELECT * FROM Tags GROUP BY tag ORDER BY tag");
 
             if (rs.rows.length === 0) {
-
+                isEmpty = true
             } else {
+                isEmpty = false
+
                 var dbTagsData = []
                 for (var i = 0; i < rs.rows.length; i++) {
                     dbTagsData.push(rs.rows.item(i))
@@ -71,5 +75,19 @@ Page {
         cacheBuffer: parent.height*2
         model: tagsModel
         page: tagsPage
+    }
+
+    EmptyBox {
+        visible: isEmpty
+        anchors {
+            top: !syncing ? tagsPage.header.bottom : syncingProgressBar.bottom
+            topMargin: units.gu(3)
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width
+
+        icon: false
+        title: i18n.tr("Tags List Empty")
+        description: i18n.tr("To create a tag, swipe from right on an item in your list and tap the Tag button.")
     }
 }

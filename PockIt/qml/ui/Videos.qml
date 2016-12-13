@@ -16,6 +16,8 @@ Page {
     state: "default"
 
     property int active_section: 0
+    property bool isEmpty: true
+    property bool isArchiveEmpty: true
 
     ItemMultiSelectableHeader {
         id: multiselectableHeader
@@ -58,8 +60,10 @@ Page {
             var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE has_video = ? AND status = ? ORDER BY time_added " + list_sort, ["2", "0"])
 
             if (rs.rows.length === 0) {
-
+                isEmpty = true
             } else {
+                isEmpty = false
+
                 var all_tags = {}
                 var dbEntriesData = []
                 for(var i = 0; i < rs.rows.length; i++) {
@@ -88,8 +92,10 @@ Page {
             var rs = tx.executeSql("SELECT item_id, given_title, resolved_title, resolved_url, sortid, favorite, has_video, has_image, image, images, is_article, status, time_added FROM Entries WHERE has_video = ? AND status = ? ORDER BY time_added " + list_sort, ["2", "1"])
 
             if (rs.rows.length === 0) {
-
+                isArchiveEmpty = true
             } else {
+                isArchiveEmpty = false
+
                 var all_tags = {}
                 var dbEntriesData = []
                 for (var i = 0; i < rs.rows.length; i++) {
@@ -154,5 +160,33 @@ Page {
         cacheBuffer: parent.height*2
         model: videosArchiveListModel
         page: videosPage
+    }
+
+    EmptyBox {
+        visible: isEmpty && active_section == 0
+        anchors {
+            top: !syncing ? videosPage.header.bottom : syncingProgressBar.bottom
+            topMargin: units.gu(3)
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width
+
+        icon: false
+        title: i18n.tr("No Videos Found")
+        description: i18n.tr("There are no videos in your List.")
+    }
+
+    EmptyBox {
+        visible: isArchiveEmpty && active_section == 1
+        anchors {
+            top: !syncing ? videosPage.header.bottom : syncingProgressBar.bottom
+            topMargin: units.gu(3)
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width
+
+        icon: false
+        title: i18n.tr("No Videos Found")
+        description: i18n.tr("There are no videos in your Archive.")
     }
 }
