@@ -15,6 +15,7 @@ Page {
     header: state == "default" ? defaultHeader : multiselectableHeader
     state: "default"
 
+    property bool noQuery: true
     property bool isEmpty: true
 
     ItemMultiSelectableHeader {
@@ -67,9 +68,10 @@ Page {
             onTextChanged: {
                 if (searchField.text == "") {
                     searchEntriesModel.clear()
-                    isEmpty = true
+                    noQuery = true
                 } else {
                     home(searchField.text)
+                    noQuery = false
                 }
             }
         }
@@ -133,7 +135,7 @@ Page {
     }
 
     EmptyBox {
-        visible: isEmpty
+        visible: noQuery
         anchors {
             top: !syncing ? searchPage.header.bottom : syncingProgressBar.bottom
             topMargin: units.gu(3)
@@ -144,5 +146,19 @@ Page {
         icon: true
         iconName: "find"
         subtitle: i18n.tr("Search by title or URL")
+    }
+
+    EmptyBox {
+        visible: isEmpty && !noQuery
+        anchors {
+            top: !syncing ? searchPage.header.bottom : syncingProgressBar.bottom
+            topMargin: units.gu(3)
+            horizontalCenter: parent.horizontalCenter
+        }
+        width: parent.width
+
+        icon: false
+        title: i18n.tr("No Results Found")
+        description: i18n.tr('There were no items in your list that matched your search for "'+searchField.text+'"')
     }
 }
