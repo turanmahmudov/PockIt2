@@ -42,14 +42,14 @@ ListItem {
             },
             Action {
                 iconName: "tick"
-                text: i18n.tr("Archive")
+                text: status == 1 ? i18n.tr("Re-add") : i18n.tr("Archive")
                 onTriggered: {
 
                 }
             },
             Action {
                 iconName: "starred"
-                text: i18n.tr("Favorite")
+                text: favorite == 1 ? i18n.tr("Unfavorite") : i18n.tr("Favorite")
                 property var iconColor: favorite == 1 ? UbuntuColors.blue : darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
                 property var is_fav: favorite == 1 ? 1 : 0
                 onTriggered: {

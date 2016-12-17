@@ -16,6 +16,7 @@ WorkerScript.onMessage = function(msg) {
         var sort_id = db_entries[db_i].sortid;
         var only_domain = extractDomain(db_entries[db_i].resolved_url);
         var favorite = db_entries[db_i].favorite;
+        var status = db_entries[db_i].status;
         var has_video = db_entries[db_i].has_video;
         var image_obj = JSON.parse(db_entries[db_i].image);
         var image = ''
@@ -30,7 +31,7 @@ WorkerScript.onMessage = function(msg) {
             }
         }
 
-        entries_model.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "has_video":has_video, "tags":db_tags[item_id]});
+        entries_model.append({"item_id":item_id, "given_title":given_title, "resolved_title":resolved_title, "resolved_url":resolved_url, "sort_id":sort_id, "only_domain":only_domain, "image":image, "favorite":favorite, "status":status, "has_video":has_video, "tags":db_tags[item_id]});
     }
 
     entries_model.sync()
