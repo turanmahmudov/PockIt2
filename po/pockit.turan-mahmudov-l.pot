@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-16 20:45+0300\n"
+"POT-Creation-Date: 2016-12-17 04:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:161
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:45
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:43
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:53
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:23
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:31
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:46
@@ -125,7 +125,7 @@ msgid "Share"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:52
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:36
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:38
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:87
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:88
 msgid "Favorite"
@@ -139,11 +139,11 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:29
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:30
 msgid "Add tag"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:50
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:61
 msgid "Select All"
 msgstr ""
 

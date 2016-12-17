@@ -20,6 +20,7 @@ PageHeader {
             Action {
                 iconName: "delete"
                 text: i18n.tr("Delete")
+                visible: listview !== null ? listview.getSelectedIndices().length > 0 : false
                 onTriggered: {
 
                 }
@@ -27,6 +28,7 @@ PageHeader {
             Action {
                 iconName: "tag"
                 text: i18n.tr("Add tag")
+                visible: listview !== null ? listview.getSelectedIndices().length > 0 : false
                 onTriggered: {
 
                 }
@@ -34,13 +36,20 @@ PageHeader {
             Action {
                 iconName: "starred"
                 text: i18n.tr("Favorite")
+                visible: listview !== null ? listview.getSelectedIndices().length > 0 : false
                 onTriggered: {
+                    var items = []
+                    var indicies = listview.getSelectedIndices()
 
+                    for (var i = 0; i < indicies.length; i++) {
+                        items.push(listview.model.get(indicies[i], listview.model.RoleModelData).item_id)
+                    }
                 }
             },
             Action {
                 iconName: "tick"
                 text: i18n.tr("Archive")
+                visible: listview !== null ? listview.getSelectedIndices().length > 0 : false
                 onTriggered: {
 
                 }
