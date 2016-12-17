@@ -114,6 +114,21 @@ MainView {
         }
     }
 
+    // Share to PockIt
+    Connections {
+        target: ContentHub
+        onShareRequested: {
+            var title = transfer.items[0]['title'];
+            var url = transfer.items[0]['url'];
+
+            console.log(url)
+        }
+    }
+    Component {
+        id: shareComponent
+        ContentItem { }
+    }
+
     // Navigation Menu Actions
     property list<Action> navActions: [
         Action {

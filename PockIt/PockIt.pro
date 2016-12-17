@@ -13,7 +13,8 @@ QML_FILES += $$files(*.qml,true) \
              $$files(*.js,true)
 
 CONF_FILES +=  PockIt.apparmor \
-               PockIt.png
+               PockIt.png \
+               content.json
 
 AP_TEST_FILES += tests/autopilot/run \
                  $$files(tests/*.py,true)
@@ -44,4 +45,4 @@ DISTFILES += \
     qml/ui/Favorites.qml \
     qml/ui/Archive.qml \
     qml/ui/Tags.qml \
-    qml/assets/global.min.css
+    content.json

@@ -6,7 +6,8 @@
     "hooks": {
         "PockIt": {
             "apparmor": "PockIt/PockIt.apparmor",
-            "desktop": "PockIt/PockIt.desktop"
+            "desktop": "PockIt/PockIt.desktop",
+            "content-hub": "PockIt/content.json"
         }
     },
     "version": "0.2",

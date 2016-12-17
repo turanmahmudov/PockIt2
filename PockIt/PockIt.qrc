@@ -50,5 +50,6 @@
         <file>qml/components/TagRenamePopup.qml</file>
         <file>qml/components/ErrorPopup.qml</file>
         <file>qml/components/EmptyBox.qml</file>
+        <file>content.json</file>
     </qresource>
 </RCC>
