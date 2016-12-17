@@ -193,18 +193,24 @@ Page {
                         '<meta charset="utf-8">' +
                         '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />' +
                         '<style>' +
-                        'body {' +
-                        'background-color: ' + article_backgroundColor + ';' +
-                        'color: ' + article_fontColor + ';' +
-                        'padding: 0 ' + units.gu(1.5) + 'px;' +
-                        'font-family: ' + article_fontFamily + ';' +
-                        'font-weight: 300;' +
-                        'font-size: ' + article_fontSize + 'px;' +
-                        'text-align: ' + article_textAlign +
-                        '}' +
-                        'code, pre { white-space: pre-wrap; word-wrap: break-word; }' +
+                        'body { background-color: ' + article_backgroundColor + '; color: ' + article_fontColor + '; padding: 0 ' + units.gu(1.5) + 'px; font-family: ' + article_fontFamily + '; font-weight: 400; font-size: ' + article_fontSize + 'px; text-align: ' + article_textAlign + '}' +
+                        '.text_body { line-height: 1.5; }' +
+                        'img { display: inline-block; vertical-align: middle; height: auto; }' +
+                        'p { line-height: 1.5; margin: 0 0 1.5em; font-size: 1em; font-weight: 400; text-rendering: optimizeLegibility; }' +
+                        'h1, h2 { line-height: 1.3; font-size: 1.4em; margin: 1.7em 0 .7em; font-weight: 700; }' +
+                        'ul { margin: 1.5em 0 1.5em 2em; font-size: 1em; line-height: 1.5; list-style-position: outside; }' +
+                        'li { margin: 0 0 .4em; }' +
+                        'code { white-space: pre-wrap; word-wrap: break-word; color: #1f35be; font-weight: 700; font-size: 1em; }' +
+                        'pre, blockquote { white-space: pre-wrap; word-wrap: break-word; display: block; margin: 1.5em 0; padding: .5em 1.5em; }' +
+                        'figure { margin: 0; display: block; }' +
+                        'blockquote { border-left: 2px solid #313131; }' +
                         'img { display: block; margin: auto; max-width: 100%; }' +
-                        'a { text-decoration: none; color: ' + UbuntuColors.blue + '; }' +
+                        'a { text-decoration: none; color: #43aea8; }' +
+                        '.RIL_IMG { display: none; margin: 0 auto; overflow: visible; position: relative;}' +
+                        '.RIL_IMG { display: block; text-align: center; margin: 0 auto 18px; }' +
+                        '.RIL_IMG img { border: 0 !important; text-decoration: none !important; max-width: 100%; }' +
+                        '.RIL_IMG caption, .RIL_IMG .ril_caption, .RIL_IMG cite { clear: both; }' +
+                        '.RIL_IMG caption, .RIL_IMG .ril_caption { display: block; padding: 10px 0 1px; color: #b1b2b2 !important; font-size: .8em; line-height: 1.2em; text-align: left !important; text-decoration: none !important; }' +
                         'span.upockit { font-size: ' + FontUtils.sizeToPixels('x-small') + 'px; color: ' + article_fontColor + '; }' +
                         'h2.upockit { font-size: ' + FontUtils.sizeToPixels('large') + 'px; font-weight: 600; padding-bottom: 12px; margin-bottom: 8px; border-bottom: 1px solid ' + article_borderColor + '; text-align: left; }' +
                         '</style>' +
@@ -213,7 +219,7 @@ Page {
                         '<h2 class="upockit">' + result.title + '</h2>' +
                         '<span class="upockit">' + result.host + '</span><br/>' +
                         '<span class="upockit">' + newdate + '</span><br/><br/>' +
-                        result.article +
+                        '<div class="text_body">' + result.article + '</div>' +
                         '</body>' +
                         '</html>'
                     );

@@ -43,4 +43,5 @@ INSTALLS+=target
 DISTFILES += \
     qml/ui/Favorites.qml \
     qml/ui/Archive.qml \
-    qml/ui/Tags.qml
+    qml/ui/Tags.qml \
+    qml/assets/global.min.css

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 04:37+0300\n"
+"POT-Creation-Date: 2016-12-17 06:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:161
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:45
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:53
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:51
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:23
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:31
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:46
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Add tag"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:61
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:59
 msgid "Select All"
 msgstr ""
 
