@@ -115,6 +115,7 @@ Page {
             keywords: i18n.tr("Display Settings")
             iconName: "settings"
             onTriggered: {
+                bottomEdge.commit()
             }
         }
     ]
@@ -137,6 +138,127 @@ Page {
         trailingActionBar {
             numberOfSlots: !wideScreen ? 3 : 9
             actions: !wideScreen ? [goExternalAction, switchToWebViewAction, refreshAction, shareAction, archiveAction, favoriteAction, tagsAction, removeAction, displaySettingsAction] : [displaySettingsAction, removeAction, tagsAction, favoriteAction, archiveAction, shareAction, refreshAction, goExternalAction, switchToWebViewAction]
+        }
+    }
+
+    BottomEdge {
+        id: bottomEdge
+        height: units.gu(20)
+        hint.visible: false
+        contentComponent: Page {
+            width: bottomEdge.width
+            height: bottomEdge.height
+
+            header: PageHeader {
+                title: i18n.tr("Display Settings")
+            }
+
+            Column {
+                width: parent.width
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    top: parent.header.bottom
+                    bottom: parent.bottom
+                }
+
+                Row {
+                    width: parent.width - units.gu(4)
+                    spacing: units.gu(0.45)
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    Row {
+                        height: units.gu(5)
+                        width: (parent.width-units.gu(1))/2
+
+                        Label {
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: article_fontFamily
+                            fontSize: "large"
+                        }
+                    }
+
+                    Rectangle {
+                        width: units.gu(0.1)
+                        height: units.gu(5)
+                        color: theme.palette.normal.backgroundTertiaryText
+                        opacity: 0.4
+                    }
+
+                    Column {
+                        height: units.gu(5)
+                        width: (parent.width-units.gu(1))/2
+
+                        Row {
+                            height: units.gu(5)
+                            spacing: units.gu(1)
+                            anchors.horizontalCenter: parent.horizontalCenter
+
+                            Rectangle {
+                                width: units.gu(5)
+                                height: width
+                                anchors.verticalCenter: parent.verticalCenter
+
+                                Label {
+                                    anchors.centerIn: parent
+                                    text: "-"
+                                    fontSize: "x-large"
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        article_fontSize = article_fontSize-1
+                                        if (article_fontSize < 0) {
+                                            article_fontSize = 0
+                                        } else {
+                                            parse_article()
+                                        }
+                                    }
+                                }
+                            }
+
+                            Label {
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: "A"
+                                fontSize: "x-large"
+                                font.weight: Font.DemiBold
+                            }
+
+                            Rectangle {
+                                width: units.gu(5)
+                                height: width
+                                anchors.verticalCenter: parent.verticalCenter
+
+                                Label {
+                                    anchors.centerIn: parent
+                                    text: "+"
+                                    fontSize: "x-large"
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        article_fontSize = article_fontSize+1
+                                        if (article_fontSize > 9) {
+                                            article_fontSize = 9
+                                        } else {
+                                            parse_article()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: units.gu(0.1)
+                    color: theme.palette.normal.backgroundTertiaryText
+                    opacity: 0.4
+                }
+            }
         }
     }
 
@@ -291,7 +413,7 @@ Page {
                         '<li class="date">' + newdate + '</li>' +
                         '</ul>' +
                         '</div>' +
-                        '<div class="fontsize-'+ article_fontSize +'"><div class="text_body">' + result.article + '</div></div>' +
+                        '<div class="fontsize-'+ article_fontSize.toString() +'"><div class="text_body">' + result.article + '</div></div>' +
                         '</body>' +
                         '</html>'
                     );

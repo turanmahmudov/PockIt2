@@ -42,7 +42,7 @@ MainView {
         property bool mobileUserAgent: true
         property string listSort: 'DESC'
 
-        property string article_fontSize: "small"
+        property int article_fontSize: 0
         property string article_fontFamily: "Ubuntu"
     }
 

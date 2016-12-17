@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 21:08+0300\n"
+"POT-Creation-Date: 2016-12-18 00:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -167,7 +167,7 @@ msgid "About"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:127
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:128
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:37
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
@@ -244,6 +244,7 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:114
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:115
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:153
 msgid "Display Settings"
 msgstr ""
 
