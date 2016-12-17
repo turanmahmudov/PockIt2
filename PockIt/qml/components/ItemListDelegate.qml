@@ -92,6 +92,41 @@ ListItem {
         }
     }
 
+    Item {
+        width: favorite == 1 ? units.gu(5) : 0
+        height: width
+        visible: favorite == 1
+
+        Rectangle {
+            id: categoryColorRec
+            width: units.gu(6)
+            height: width
+            transform: Rotation {
+                origin.x: categoryColorRec.width
+                origin.y: categoryColorRec.height
+                angle: 45
+            }
+            anchors{
+                verticalCenter: parent.top
+                right: parent.left
+            }
+            color: UbuntuColors.blue
+        }
+
+        Icon {
+            width: units.gu(1.2)
+            height: width
+            anchors {
+                left: parent.left
+                leftMargin: units.gu(0.3)
+                top: parent.top
+                topMargin: units.gu(0.3)
+            }
+            name: "starred"
+            color: "#ffffff"
+        }
+    }
+
     SlotsLayout {
         id: layout
         mainSlot: Column {
