@@ -75,8 +75,8 @@ Page {
         },
         Action {
             id: archiveAction
-            text: i18n.tr("Archive")
-            keywords: i18n.tr("Archive")
+            text: articleEntryArchived ? i18n.tr("Re-add") : i18n.tr("Archive")
+            keywords: articleEntryArchived ? i18n.tr("Re-add") : i18n.tr("Archive")
             iconName: "tick"
             onTriggered: {
 
@@ -84,8 +84,8 @@ Page {
         },
         Action {
             id: favoriteAction
-            text: i18n.tr("Favorite")
-            keywords: i18n.tr("Favorite")
+            text: articleEntryFavorited ? i18n.tr("Unfavorite") : i18n.tr("Favorite")
+            keywords: articleEntryFavorited ? i18n.tr("Unfavorite") : i18n.tr("Favorite")
             iconName: "starred"
             onTriggered: {
 
