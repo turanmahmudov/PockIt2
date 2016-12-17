@@ -203,7 +203,7 @@ Page {
                     }
 
                     var style = '<style>' +
-                            'body { overflow-x: hidden; font-weight: 400; font-size: 13px; font-family: ' + article_fontFamilyString + '; line-height: 1; margin: 0; padding: 0 ' + units.gu(2.5) + 'px; background-color: ' + article_backgroundColor + '; color: ' + article_fontColor + '; text-align: ' + article_textAlign + '; }' +
+                            'body { overflow-x: hidden; font-weight: 400; font-size: 13px; font-family: ' + article_fontFamilyString + '; line-height: 1; margin: 0; padding: 0 ' + units.gu(1.5) + 'px; background-color: ' + article_backgroundColor + '; color: ' + article_fontColor + '; text-align: ' + article_textAlign + '; }' +
                             'a { text-decoration: none }' +
                             'a:active,a:hover,a:focus { outline:0 }' +
                             'hr { box-sizing:content-box }' +
@@ -225,7 +225,7 @@ Page {
                             '.text_body h5,.text_body h6,.text_body h7 { font-size:1.1; font-weight:700; margin:1.7em 0 .4em }' +
                             '.text_body hr { background:#ddd; border:0; height:1px; margin:1em 0 1.5em; padding:0 }' + // ?
                             '.text_body p { line-height:1.5; margin:0 0 1.5em }' +
-                            '.text_body ol,.text_body ul { margin:1.5em 0 1.5em 0.5em }' +
+                            '.text_body ol,.text_body ul { margin:1.5em 0 1.5em 2em; padding: 0 }' +
                             '.text_body li { margin:0 0 .4em }' +
                             '.text_body ol ol,.text_body ul ul { margin:.75em 0 1em 2em }' +
                             '.text_body blockquote,.text_body pre { display:block; margin:1.5em 0; padding:.5em 1.5em; white-space:pre-wrap; white-space:-pre-wrap; white-space:-o-pre-wrap; word-wrap:break-word }' +
@@ -260,7 +260,7 @@ Page {
                             '.fontsize-9 .text_body { font-size:25px }' +
                             '@media only screen and (min-width:34em) { .fontsize-9 .text_body { font-size:36px } }' +
                             '.reader_head { margin-bottom: 35px; font-size: 14px; padding-bottom: 0; }' +
-                            '.reader_head h1 { font-size: 1.7em; font-weight: 500; line-height: 1.2; margin: 1em 0 0; padding-bottom: .1em; }' +
+                            '.reader_head h1 { font-size: 1.6em; font-weight: 500; line-height: 1.2; margin: 1em 0 0; padding-bottom: .1em; }' +
                             '.reader_head h1:after { content:""; display:block; height:1px; background: ' + article_borderColor + '; opacity: 0.4; margin-top: 0.4em; }' +
                             '@media only screen and (min-width:34em) { .reader_head h1 { font-size:2em } }' +
                             '.reader_head .sub { list-style: none; margin-bottom: 4em; margin-top:10px; color: ' + theme.palette.normal.backgroundSecondaryText + ' }' +
