@@ -51,5 +51,6 @@
         <file>qml/components/ErrorPopup.qml</file>
         <file>qml/components/EmptyBox.qml</file>
         <file>content.json</file>
+        <file>qml/components/ContentShareDialog.qml</file>
     </qresource>
 </RCC>

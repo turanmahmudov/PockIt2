@@ -2,6 +2,8 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.3
+import Ubuntu.Content 1.1
+import Ubuntu.Components.Popups 1.3
 
 import "../js/localdb.js" as LocalDB
 import "../js/user.js" as User
@@ -44,7 +46,7 @@ ListItem {
                 iconName: "share"
                 text: i18n.tr("Share")
                 onTriggered: {
-
+                    PopupUtils.open(shareDialog, mainView, {"contentType": ContentType.Links, "path": resolved_url});
                 }
             },
             Action {

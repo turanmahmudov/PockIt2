@@ -132,6 +132,12 @@ MainView {
         ContentItem { }
     }
 
+    // Share dialog for sharing url to other apps
+    Component {
+        id: shareDialog
+        ContentShareDialog { }
+    }
+
     // Navigation Menu Actions
     property list<Action> navActions: [
         Action {
