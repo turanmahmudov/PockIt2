@@ -27,6 +27,7 @@ MainView {
     width: units.gu(50)
     height: units.gu(80)
 
+    // Startup settings
     Settings {
         id: settings
 
@@ -98,6 +99,7 @@ MainView {
     signal entryworksfinished(bool finished)
     signal networkerroroccured()
 
+    // Entry works finished
     Connections {
         target: mainView
         onEntryworksfinished: {
@@ -107,6 +109,7 @@ MainView {
         }
     }
 
+    // Network error occured
     Connections {
         target: mainView
         onNetworkerroroccured: {
@@ -466,6 +469,7 @@ MainView {
         id: loading
     }
 
+    // Syncing popup component
     Component {
         id: syncingPopupComponent
         LoadingSpinnerPopup {
@@ -473,6 +477,7 @@ MainView {
         }
     }
 
+    // Network error popup component
     Component {
         id: networkErrorPopupComponent
         ErrorPopup {
@@ -481,6 +486,7 @@ MainView {
         }
     }
 
+    // Tag rename popup component
     Component {
         id: tagRenamePopupComponent
         TagRenamePopup { }
