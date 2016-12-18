@@ -320,12 +320,24 @@ Page {
                         case 'Ubuntu':
                             article_fontFamilyString = "'Ubuntu', sans-serif"
                             break;
+                        case 'Roboto':
+                            article_fontFamilyString = "'Roboto', sans-serif"
+                            break;
+                        case 'Open+Sans':
+                            article_fontFamilyString = "'Open Sans', sans-serif"
+                            break;
+                        case 'Raleway':
+                            article_fontFamilyString = "'Raleway', sans-serif"
+                            break;
+                        case 'Dosis':
+                            article_fontFamilyString = "'Dosis', sans-serif"
+                            break;
                         default:
                             article_fontFamilyString = "'Ubuntu', sans-serif"
                     }
 
                     var style = '<style>' +
-                            'body { overflow-x: hidden; font-weight: 400; font-size: 13px; font-family: ' + article_fontFamilyString + '; line-height: 1; margin: 0; padding: 0 ' + units.gu(1.5) + 'px; background-color: ' + article_backgroundColor + '; color: ' + article_fontColor + '; text-align: ' + article_textAlign + '; }' +
+                            'body { overflow-x: hidden; font-weight: 400; font-size: 13px; font-family: \'Ubuntu\', sans-serif; line-height: 1; margin: 0; padding: 0 ' + units.gu(1.5) + 'px; background-color: ' + article_backgroundColor + '; color: ' + article_fontColor + '; text-align: left; }' +
                             'a { text-decoration: none }' +
                             'a:active,a:hover,a:focus { outline:0 }' +
                             'hr { box-sizing:content-box }' +
@@ -339,7 +351,7 @@ Page {
                             'a img { border:none }' +
                             'figure { margin:0 }' +
                             '* { box-sizing:border-box; }' +
-                            '.text_body { clear: both; line-height: 1.5; }' +
+                            '.text_body { clear: both; line-height: 1.5; text-align: ' + article_textAlign + '; font-family: ' + article_fontFamilyString + '; }' +
                             '.text_body h1,.text_body h2,.text_body h3,.text_body h4,.text_body h5,.text_body h6,.text_body h7 { font-weight: 700; }' +
                             '.text_body h1,.text_body h2 { line-height:1.3; font-size:1.4em; margin:1.7em 0 .7em; }' +
                             '.text_body h3 { line-height:1.3; font-size:1.3em; margin:1.7em 0 .5em }' +
@@ -400,6 +412,7 @@ Page {
                         '<head>' +
                         '<meta charset="utf-8">' +
                         '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />' +
+                        (article_fontFamily != 'Ubuntu' ? '<link href="https://fonts.googleapis.com/css?family=' + article_fontFamily + '" rel="stylesheet">' : '') +
                         style +
                         '</head>' +
                         '<body>' +
