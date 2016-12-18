@@ -56,15 +56,29 @@ PageHeader {
                 visible: listview !== null ? listview.getSelectedIndices().length > 0 : false
                 onTriggered: {
                     var items = []
+                    var favs = []
                     var indicies = listview.getSelectedIndices()
+
+                    listview.clearSelection()
 
                     for (var i = 0; i < indicies.length; i++) {
                         items.push(listview.model.get(indicies[i], listview.model.RoleModelData).item_id)
+                        if (listview.model.get(indicies[i], listview.model.RoleModelData).favorite == 1) {
+                            favs.push(listview.model.get(indicies[i], listview.model.RoleModelData).favorite == 1)
+                        }
                     }
+
+                    if (items.length == favs.length) {
+                        Scripts.fav_item(items, 0)
+                    } else {
+                        Scripts.fav_item(items, 1)
+                    }
+
+                    listview.closeSelection()
                 }
             },
             Action {
-                iconName: "tick"
+                iconName: itemstype == "archive" ? "add" : "tick"
                 text: itemstype == "archive" ? i18n.tr("Re-add") : i18n.tr("Archive")
                 visible: listview !== null ? listview.getSelectedIndices().length > 0 : false
                 onTriggered: {

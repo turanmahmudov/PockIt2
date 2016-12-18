@@ -48,7 +48,7 @@ ListItem {
                 }
             },
             Action {
-                iconName: "tick"
+                iconName: status == 1 ? "add" : "tick"
                 text: status == 1 ? i18n.tr("Re-add") : i18n.tr("Archive")
                 onTriggered: {
                     removalAnimation.start()
@@ -63,8 +63,10 @@ ListItem {
                 onTriggered: {
                     if (is_fav === 1) {
                         iconColor = darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
+                        Scripts.fav_item([item_id], 0)
                     } else {
                         iconColor = UbuntuColors.blue
+                        Scripts.fav_item([item_id], 1)
                     }
                 }
             },
