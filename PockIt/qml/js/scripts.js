@@ -370,6 +370,36 @@ function delete_tag(tag) {
     })
 }
 
+// Delete item
+function delete_item(items_ids) {
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        for (var i = 0; i < items_ids.length; i++) {
+            var rs_e = tx.executeSql("DELETE FROM Entries WHERE item_id = ?", items_ids[i]);
+            var rs_a = tx.executeSql("DELETE FROM Articles WHERE item_id = ?", items_ids[i]);
+            var rs_t = tx.executeSql("DELETE FROM Tags WHERE entry_id = ?", items_ids[i]);
+        }
+
+        mod_item(items_ids, 'delete')
+    })
+}
+
+function mod_item(items_ids, action) {
+    var actions = []
+
+    for(var i = 0; i < items_ids.length; i++) {
+        actions.push({"action": action, "item_id": items_ids[i]})
+    }
+
+    // Send to Pocket
+    // Get access_token from user table
+    var access_token = User.getKey('access_token');
+    var url = 'https://getpocket.com/v3/send';
+    var data = "actions="+encodeURIComponent(JSON.stringify(actions))+"&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
+
+    request(url, data, item_moded, actions, true);
+}
+
 function item_moded(results, params, data) {
     console.log('geldu')
 }
