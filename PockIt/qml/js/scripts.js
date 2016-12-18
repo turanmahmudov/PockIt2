@@ -381,6 +381,26 @@ function delete_item(items_ids) {
         }
 
         mod_item(items_ids, 'delete')
+
+        reinit_pages()
+    })
+}
+
+// Archive & Readd item
+function archive_item(items_ids, status) {
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        for (var i = 0; i < items_ids.length; i++) {
+            var rs = tx.executeSql("UPDATE Entries SET status = ? WHERE item_id = ?", [status, items_ids[i]]);
+        }
+
+        if (status == 1) {
+            mod_item(items_ids, 'archive');
+        } else {
+            mod_item(items_ids, 'readd');
+        }
+
+        reinit_pages()
     })
 }
 

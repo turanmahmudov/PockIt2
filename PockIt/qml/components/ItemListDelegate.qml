@@ -51,7 +51,8 @@ ListItem {
                 iconName: "tick"
                 text: status == 1 ? i18n.tr("Re-add") : i18n.tr("Archive")
                 onTriggered: {
-
+                    removalAnimation.start()
+                    Scripts.archive_item([item_id], status == 1 ? 0 : 1)
                 }
             },
             Action {

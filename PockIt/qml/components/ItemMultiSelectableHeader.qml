@@ -35,10 +35,11 @@ PageHeader {
 
                     for (var i = 0; i < indicies.length; i++) {
                         items.push(listview.model.get(indicies[i], listview.model.RoleModelData).item_id)
-                        listview.model.remove(indicies[i]-i, 1)
                     }
 
                     Scripts.delete_item(items)
+
+                    listview.closeSelection()
                 }
             },
             Action {
@@ -64,10 +65,21 @@ PageHeader {
             },
             Action {
                 iconName: "tick"
-                text: i18n.tr("Archive")
+                text: itemstype == "archive" ? i18n.tr("Re-add") : i18n.tr("Archive")
                 visible: listview !== null ? listview.getSelectedIndices().length > 0 : false
                 onTriggered: {
+                    var items = []
+                    var indicies = listview.getSelectedIndices()
 
+                    listview.clearSelection()
+
+                    for (var i = 0; i < indicies.length; i++) {
+                        items.push(listview.model.get(indicies[i], listview.model.RoleModelData).item_id)
+                    }
+
+                    Scripts.archive_item(items, itemstype == "archive" ? 0 : 1)
+
+                    listview.closeSelection()
                 }
             },
             Action {
