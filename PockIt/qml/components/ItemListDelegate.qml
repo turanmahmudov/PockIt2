@@ -67,9 +67,13 @@ ListItem {
                     if (is_fav === 1) {
                         iconColor = darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
                         Scripts.fav_item([item_id], 0, pageIdString)
+                        is_fav = 0
+                        favRect.is_fav = 0
                     } else {
                         iconColor = UbuntuColors.blue
                         Scripts.fav_item([item_id], 1, pageIdString)
+                        is_fav = 1
+                        favRect.is_fav = 1
                     }
                 }
             },
@@ -106,9 +110,11 @@ ListItem {
     }
 
     Item {
-        width: favorite == 1 ? units.gu(5) : 0
+        id: favRect
+        property var is_fav: favorite == 1 ? 1 : 0
+        width: is_fav === 1 ? units.gu(5) : 0
         height: width
-        visible: favorite == 1
+        visible: is_fav === 1
 
         Rectangle {
             id: categoryColorRec

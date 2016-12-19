@@ -382,7 +382,7 @@ function delete_item(items_ids, pageId) {
 
         mod_item(items_ids, 'delete')
 
-        reinit_onvisible(pageId)
+        reinit_onvisible(pageId, items_ids.length)
     })
 }
 
@@ -400,7 +400,7 @@ function archive_item(items_ids, status, pageId) {
             mod_item(items_ids, 'readd');
         }
 
-        reinit_onvisible(pageId)
+        reinit_onvisible(pageId, items_ids.length)
     })
 }
 
@@ -418,15 +418,17 @@ function fav_item(items_ids, status, pageId) {
             mod_item(items_ids, 'unfavorite');
         }
 
-        reinit_onvisible(pageId)
+        reinit_onvisible(pageId, items_ids.length)
     })
 }
 
 // Reinit on visible
-function reinit_onvisible(pageId) {
+function reinit_onvisible(pageId, items_len) {
     switch (pageId) {
         case 'myListPage':
-            myListPage.home()
+            if (items_len !== 1) {
+                myListPage.home()
+            }
             reinit_articles_onvisible = true
             reinit_images_onvisible = true
             reinit_videos_onvisible = true
@@ -434,7 +436,9 @@ function reinit_onvisible(pageId) {
             reinit_favorites_onvisible = true
             break;
         case 'articlesPage':
-            articlesPage.home()
+            if (items_len !== 1) {
+                articlesPage.home()
+            }
             reinit_mylist_onvisible = true
             reinit_images_onvisible = true
             reinit_videos_onvisible = true
@@ -442,7 +446,9 @@ function reinit_onvisible(pageId) {
             reinit_favorites_onvisible = true
             break;
         case 'imagesPage':
-            imagesPage.home()
+            if (items_len !== 1) {
+                imagesPage.home()
+            }
             reinit_mylist_onvisible = true
             reinit_articles_onvisible = true
             reinit_videos_onvisible = true
@@ -450,7 +456,9 @@ function reinit_onvisible(pageId) {
             reinit_favorites_onvisible = true
             break;
         case 'videosPage':
-            videosPage.home()
+            if (items_len !== 1) {
+                videosPage.home()
+            }
             reinit_mylist_onvisible = true
             reinit_articles_onvisible = true
             reinit_images_onvisible = true
@@ -458,7 +466,9 @@ function reinit_onvisible(pageId) {
             reinit_favorites_onvisible = true
             break;
         case 'archivePage':
-            archivePage.home()
+            if (items_len !== 1) {
+                archivePage.home()
+            }
             reinit_mylist_onvisible = true
             reinit_articles_onvisible = true
             reinit_images_onvisible = true
@@ -466,7 +476,9 @@ function reinit_onvisible(pageId) {
             reinit_favorites_onvisible = true
             break;
         case 'favoritesPage':
-            favoritesPage.home()
+            if (items_len !== 1) {
+                favoritesPage.home()
+            }
             reinit_mylist_onvisible = true
             reinit_articles_onvisible = true
             reinit_images_onvisible = true
@@ -474,7 +486,9 @@ function reinit_onvisible(pageId) {
             reinit_archive_onvisible = true
             break;
         case 'searchPage':
-            searchPage.home(searchPage.s_query)
+            if (items_len !== 1) {
+                searchPage.home(searchPage.s_query)
+            }
             reinit_mylist_onvisible = true
             reinit_articles_onvisible = true
             reinit_images_onvisible = true
