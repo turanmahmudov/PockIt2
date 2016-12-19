@@ -25,6 +25,7 @@ Page {
         title: i18n.tr("Videos")
         listview: active_section == 0 ? videosView : videosArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
+        pageId: videosPage
     }
 
     ItemDefaultHeader {
@@ -121,6 +122,7 @@ Page {
         videosArchiveListModel.clear()
         get_videos_list()
         get_videos_archive_list()
+        reinit_videos_onvisible = false
     }
 
     Component.onCompleted: {

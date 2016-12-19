@@ -10,6 +10,7 @@ import "../js/scripts.js" as Scripts
 PageHeader {
     property var listview
     property var itemstype
+    property var pageId
 
     leadingActionBar {
         actions: [
@@ -37,7 +38,7 @@ PageHeader {
                         items.push(listview.model.get(indicies[i], listview.model.RoleModelData).item_id)
                     }
 
-                    Scripts.delete_item(items)
+                    Scripts.delete_item(items, pageId)
 
                     listview.closeSelection()
                 }
@@ -69,9 +70,9 @@ PageHeader {
                     }
 
                     if (items.length == favs.length) {
-                        Scripts.fav_item(items, 0)
+                        Scripts.fav_item(items, 0, pageId)
                     } else {
-                        Scripts.fav_item(items, 1)
+                        Scripts.fav_item(items, 1, pageId)
                     }
 
                     listview.closeSelection()
@@ -91,7 +92,7 @@ PageHeader {
                         items.push(listview.model.get(indicies[i], listview.model.RoleModelData).item_id)
                     }
 
-                    Scripts.archive_item(items, itemstype == "archive" ? 0 : 1)
+                    Scripts.archive_item(items, itemstype == "archive" ? 0 : 1, pageId)
 
                     listview.closeSelection()
                 }

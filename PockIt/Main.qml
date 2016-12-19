@@ -96,6 +96,14 @@ MainView {
     property bool syncing: false
     property bool syncing_stopped: false
 
+    // Reinit on visible
+    property bool reinit_mylist_onvisible: false
+    property bool reinit_articles_onvisible: false
+    property bool reinit_images_onvisible: false
+    property bool reinit_videos_onvisible: false
+    property bool reinit_favorites_onvisible: false
+    property bool reinit_archive_onvisible: false
+
     signal entryworksfinished(bool finished)
     signal networkerroroccured()
 
@@ -146,6 +154,9 @@ MainView {
             iconName: "view-list-symbolic"
             onTriggered: {
                 pageLayout.replacePage(myListPage)
+                if (reinit_mylist_onvisible) {
+                    myListPage.home()
+                }
             }
         },
         Action {
@@ -154,6 +165,9 @@ MainView {
             iconSource: Qt.resolvedUrl("qml/images/blank.png")
             onTriggered: {
                 pageLayout.replacePage(articlesPage)
+                if (reinit_articles_onvisible) {
+                    articlesPage.home()
+                }
             }
         },
         Action {
@@ -162,6 +176,9 @@ MainView {
             iconSource: Qt.resolvedUrl("qml/images/blank.png")
             onTriggered: {
                 pageLayout.replacePage(videosPage)
+                if (reinit_videos_onvisible) {
+                    videosPage.home()
+                }
             }
         },
         Action {
@@ -170,6 +187,9 @@ MainView {
             iconSource: Qt.resolvedUrl("qml/images/blank.png")
             onTriggered: {
                 pageLayout.replacePage(imagesPage)
+                if (reinit_images_onvisible) {
+                    imagesPage.home()
+                }
             }
         },
         Action {
@@ -178,6 +198,9 @@ MainView {
             iconName: "starred"
             onTriggered: {
                 pageLayout.replacePage(favoritesPage)
+                if (reinit_favorites_onvisible) {
+                    favoritesPage.home()
+                }
             }
         },
         Action {
@@ -186,6 +209,9 @@ MainView {
             iconName: "tick"
             onTriggered: {
                 pageLayout.replacePage(archivePage)
+                if (reinit_archive_onvisible) {
+                    archivePage.home()
+                }
             }
         },
         Action {

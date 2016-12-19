@@ -23,6 +23,7 @@ Page {
         title: i18n.tr("Archive")
         listview: archiveView
         itemstype: "archive"
+        pageId: archivePage
     }
 
     ItemDefaultHeader {
@@ -66,6 +67,7 @@ Page {
     function home() {
         archiveListModel.clear()
         get_archive_list()
+        reinit_archive_onvisible = false
     }
 
     Component.onCompleted: {

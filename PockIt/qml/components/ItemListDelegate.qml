@@ -25,7 +25,7 @@ ListItem {
                 text: i18n.tr("Remove")
                 onTriggered: {
                     removalAnimation.start()
-                    Scripts.delete_item([item_id])
+                    Scripts.delete_item([item_id], pageId)
                 }
             }
         ]
@@ -54,7 +54,7 @@ ListItem {
                 text: status == 1 ? i18n.tr("Re-add") : i18n.tr("Archive")
                 onTriggered: {
                     removalAnimation.start()
-                    Scripts.archive_item([item_id], status == 1 ? 0 : 1)
+                    Scripts.archive_item([item_id], status == 1 ? 0 : 1, pageId)
                 }
             },
             Action {
@@ -65,10 +65,10 @@ ListItem {
                 onTriggered: {
                     if (is_fav === 1) {
                         iconColor = darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
-                        Scripts.fav_item([item_id], 0)
+                        Scripts.fav_item([item_id], 0, pageId)
                     } else {
                         iconColor = UbuntuColors.blue
-                        Scripts.fav_item([item_id], 1)
+                        Scripts.fav_item([item_id], 1, pageId)
                     }
                 }
             },

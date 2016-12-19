@@ -23,6 +23,7 @@ Page {
         title: i18n.tr("Favorites")
         listview: favoritesView
         itemstype: "favorites"
+        pageId: favoritesPage
     }
 
     ItemDefaultHeader {
@@ -66,6 +67,7 @@ Page {
     function home() {
         favoritesListModel.clear()
         get_favorites_list()
+        reinit_favorites_onvisible = false
     }
 
     Component.onCompleted: {

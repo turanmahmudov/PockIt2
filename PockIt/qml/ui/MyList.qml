@@ -23,6 +23,7 @@ Page {
         visible: myListPage.state == "selection"
         title: i18n.tr("PockIt")
         listview: myListView
+        pageId: myListPage
         itemstype: "all"
     }
 
@@ -80,6 +81,7 @@ Page {
     function home() {
         myListModel.clear()
         get_my_list()
+        reinit_mylist_onvisible = false
     }
 
     Component.onCompleted: {

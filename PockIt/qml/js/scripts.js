@@ -371,7 +371,7 @@ function delete_tag(tag) {
 }
 
 // Delete item
-function delete_item(items_ids) {
+function delete_item(items_ids, pageId) {
     var db = LocalDB.init();
     db.transaction(function(tx) {
         for (var i = 0; i < items_ids.length; i++) {
@@ -382,12 +382,12 @@ function delete_item(items_ids) {
 
         mod_item(items_ids, 'delete')
 
-        reinit_pages()
+        reinit_onvisible(pageId)
     })
 }
 
 // Archive & Readd item
-function archive_item(items_ids, status) {
+function archive_item(items_ids, status, pageId) {
     var db = LocalDB.init();
     db.transaction(function(tx) {
         for (var i = 0; i < items_ids.length; i++) {
@@ -400,12 +400,12 @@ function archive_item(items_ids, status) {
             mod_item(items_ids, 'readd');
         }
 
-        reinit_pages()
+        reinit_onvisible(pageId)
     })
 }
 
 // Favorite & Unfavorite item
-function fav_item(items_ids, status) {
+function fav_item(items_ids, status, pageId) {
     var db = LocalDB.init();
     db.transaction(function(tx) {
         for (var i = 0; i < items_ids.length; i++) {
@@ -418,8 +418,64 @@ function fav_item(items_ids, status) {
             mod_item(items_ids, 'unfavorite');
         }
 
-        reinit_pages()
+        reinit_onvisible(pageId)
     })
+}
+
+// Reinit on visible
+function reinit_onvisible(pageId) {
+    switch (pageId) {
+        case 'myListPage':
+            myListPage.home()
+            reinit_articles_onvisible = true
+            reinit_images_onvisible = true
+            reinit_videos_onvisible = true
+            reinit_archive_onvisible = true
+            reinit_favorites_onvisible = true
+            break;
+        case 'articlesPage':
+            articlesPage.home()
+            reinit_mylist_onvisible = true
+            reinit_images_onvisible = true
+            reinit_videos_onvisible = true
+            reinit_archive_onvisible = true
+            reinit_favorites_onvisible = true
+            break;
+        case 'imagesPage':
+            imagesPage.home()
+            reinit_mylist_onvisible = true
+            reinit_articles_onvisible = true
+            reinit_videos_onvisible = true
+            reinit_archive_onvisible = true
+            reinit_favorites_onvisible = true
+            break;
+        case 'videosPage':
+            videosPage.home()
+            reinit_mylist_onvisible = true
+            reinit_articles_onvisible = true
+            reinit_images_onvisible = true
+            reinit_archive_onvisible = true
+            reinit_favorites_onvisible = true
+            break;
+        case 'archivePage':
+            archivePage.home()
+            reinit_mylist_onvisible = true
+            reinit_articles_onvisible = true
+            reinit_images_onvisible = true
+            reinit_videos_onvisible = true
+            reinit_favorites_onvisible = true
+            break;
+        case 'favoritesPage':
+            favoritesPage.home()
+            reinit_mylist_onvisible = true
+            reinit_articles_onvisible = true
+            reinit_images_onvisible = true
+            reinit_videos_onvisible = true
+            reinit_archive_onvisible = true
+            break;
+        default:
+            reinit_pages()
+    }
 }
 
 function mod_item(items_ids, action) {

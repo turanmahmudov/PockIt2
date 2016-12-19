@@ -25,6 +25,7 @@ Page {
         title: i18n.tr("Images")
         listview: active_section == 0 ? imagesView : imagesArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
+        pageId: imagesPage
     }
 
     ItemDefaultHeader {
@@ -121,6 +122,7 @@ Page {
         imagesArchiveListModel.clear()
         get_images_list()
         get_images_archive_list()
+        reinit_images_onvisible = false
     }
 
     Component.onCompleted: {

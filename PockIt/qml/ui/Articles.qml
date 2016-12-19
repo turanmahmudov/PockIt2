@@ -25,6 +25,7 @@ Page {
         title: i18n.tr("Articles")
         listview: active_section == 0 ? articlesView : articlesArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
+        pageId: articlesPage
     }
 
     ItemDefaultHeader {
@@ -121,6 +122,7 @@ Page {
         articlesArchiveListModel.clear()
         get_articles_list()
         get_articles_archive_list()
+        reinit_articles_onvisible = false
     }
 
     Component.onCompleted: {
