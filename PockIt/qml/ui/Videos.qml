@@ -25,7 +25,7 @@ Page {
         title: i18n.tr("Videos")
         listview: active_section == 0 ? videosView : videosArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
-        pageId: videosPage
+        pageId: "videosPage"
     }
 
     ItemDefaultHeader {
@@ -148,6 +148,7 @@ Page {
         cacheBuffer: parent.height*2
         model: videosListModel
         page: videosPage
+        pageString: "videosPage"
     }
 
     ItemListView {
@@ -162,6 +163,7 @@ Page {
         cacheBuffer: parent.height*2
         model: videosArchiveListModel
         page: videosPage
+        pageString: "videosPage"
     }
 
     EmptyBox {

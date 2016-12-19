@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 14:29+0300\n"
+"POT-Creation-Date: 2016-12-19 14:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid "Favorites"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:208
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:54
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:55
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:83
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:23
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:32
@@ -63,7 +63,7 @@ msgid "Archive"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:219
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:77
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:78
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:96
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:97
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Tags.qml:18
@@ -72,8 +72,8 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:231
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:232
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:24
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:32
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:26
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:35
 msgid "Search"
 msgstr ""
 
@@ -112,32 +112,32 @@ msgstr ""
 msgid "Please check your network settings."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:25
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:26
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:105
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:106
 msgid "Remove"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:47
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:48
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:69
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:70
 msgid "Share"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:54
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:55
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:83
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:78
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:79
 msgid "Re-add"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:62
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:63
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:87
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:88
 msgid "Unfavorite"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:62
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:63
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:56
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:87
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:88
@@ -182,7 +182,7 @@ msgstr ""
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:128
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:37
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:40
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:14
 msgid "Close"
@@ -201,29 +201,29 @@ msgstr ""
 msgid "Source code available on %1"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:106
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:107
 msgid "Archive Empty"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:107
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:108
 msgid "The Archive can be used to list items that you're finished with."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:108
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Archive.qml:109
 msgid ""
 "To add items to your Archive, tap the checkmark button after opening an item."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:177
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:191
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:179
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:193
 msgid "No Articles Found"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:178
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:180
 msgid "There are no articles in your List."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:192
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Articles.qml:194
 msgid "There are no articles in your Archive."
 msgstr ""
 
@@ -282,30 +282,30 @@ msgstr ""
 msgid "Translators"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:106
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:107
 msgid "Favorites Empty"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:107
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:108
 msgid "The Favorites list can help you remember your favorite content."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:108
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Favorites.qml:109
 msgid ""
 "To add items to your Favorites list, tap the star button after opening an "
 "item."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:177
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:191
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:179
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:193
 msgid "No Images Found"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:178
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:180
 msgid "There are no images in your List."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:192
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Images.qml:194
 msgid "There are no images in your Archive."
 msgstr ""
 
@@ -323,19 +323,19 @@ msgstr ""
 msgid "PockIt"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:120
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:121
 msgid "Your List Empty"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:121
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:122
 msgid "There are many ways to add content to your List."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:148
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:154
 msgid "Search by title or URL"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:161
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:167
 msgid "No Results Found"
 msgstr ""
 
@@ -430,16 +430,16 @@ msgid ""
 "button."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:177
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:191
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:179
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:193
 msgid "No Videos Found"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:178
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:180
 msgid "There are no videos in your List."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:192
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Videos.qml:194
 msgid "There are no videos in your Archive."
 msgstr ""
 

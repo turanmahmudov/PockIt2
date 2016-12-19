@@ -25,7 +25,7 @@ Page {
         title: i18n.tr("Images")
         listview: active_section == 0 ? imagesView : imagesArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
-        pageId: imagesPage
+        pageId: "imagesPage"
     }
 
     ItemDefaultHeader {
@@ -148,6 +148,7 @@ Page {
         cacheBuffer: parent.height*2
         model: imagesListModel
         page: imagesPage
+        pageString: "imagesPage"
     }
 
     ItemListView {
@@ -162,6 +163,7 @@ Page {
         cacheBuffer: parent.height*2
         model: imagesArchiveListModel
         page: imagesPage
+        pageString: "imagesPage"
     }
 
     EmptyBox {

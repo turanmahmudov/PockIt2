@@ -3,6 +3,7 @@ import Ubuntu.Components 1.3
 
 ListView {
     property var page
+    property string pageString
 
     clip: true
     state: ViewItems.selectMode ? "multiselectable" : "normal"
@@ -16,6 +17,7 @@ ListView {
     ViewItems.selectMode: false
     delegate: ItemListDelegate {
         pageId: page
+        pageIdString: pageString
     }
 
     function getSelectedIndices() {

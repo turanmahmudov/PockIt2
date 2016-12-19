@@ -15,6 +15,7 @@ ListItem {
     height: layout.height + divider.height
 
     property var pageId
+    property string pageIdString
 
     property var removalAnimation
 
@@ -54,7 +55,7 @@ ListItem {
                 text: status == 1 ? i18n.tr("Re-add") : i18n.tr("Archive")
                 onTriggered: {
                     removalAnimation.start()
-                    Scripts.archive_item([item_id], status == 1 ? 0 : 1, pageId)
+                    Scripts.archive_item([item_id], status == 1 ? 0 : 1, pageIdString)
                 }
             },
             Action {
@@ -65,10 +66,10 @@ ListItem {
                 onTriggered: {
                     if (is_fav === 1) {
                         iconColor = darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
-                        Scripts.fav_item([item_id], 0, pageId)
+                        Scripts.fav_item([item_id], 0, pageIdString)
                     } else {
                         iconColor = UbuntuColors.blue
-                        Scripts.fav_item([item_id], 1, pageId)
+                        Scripts.fav_item([item_id], 1, pageIdString)
                     }
                 }
             },

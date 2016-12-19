@@ -23,7 +23,7 @@ Page {
         title: i18n.tr("Archive")
         listview: archiveView
         itemstype: "archive"
-        pageId: archivePage
+        pageId: "archivePage"
     }
 
     ItemDefaultHeader {
@@ -91,6 +91,7 @@ Page {
         cacheBuffer: parent.height*2
         model: archiveListModel
         page: archivePage
+        pageString: "archivePage"
     }
 
     EmptyBox {

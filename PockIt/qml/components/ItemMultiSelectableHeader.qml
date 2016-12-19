@@ -10,7 +10,7 @@ import "../js/scripts.js" as Scripts
 PageHeader {
     property var listview
     property var itemstype
-    property var pageId
+    property string pageId
 
     leadingActionBar {
         actions: [

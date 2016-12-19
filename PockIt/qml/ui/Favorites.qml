@@ -23,7 +23,7 @@ Page {
         title: i18n.tr("Favorites")
         listview: favoritesView
         itemstype: "favorites"
-        pageId: favoritesPage
+        pageId: "favoritesPage"
     }
 
     ItemDefaultHeader {
@@ -91,6 +91,7 @@ Page {
         cacheBuffer: parent.height*2
         model: favoritesListModel
         page: favoritesPage
+        pageString: "favoritesPage"
     }
 
     EmptyBox {

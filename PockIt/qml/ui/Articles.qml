@@ -25,7 +25,7 @@ Page {
         title: i18n.tr("Articles")
         listview: active_section == 0 ? articlesView : articlesArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
-        pageId: articlesPage
+        pageId: "articlesPage"
     }
 
     ItemDefaultHeader {
@@ -148,6 +148,7 @@ Page {
         cacheBuffer: parent.height*2
         model: articlesListModel
         page: articlesPage
+        pageString: "articlesPage"
     }
 
     ItemListView {
@@ -162,6 +163,7 @@ Page {
         cacheBuffer: parent.height*2
         model: articlesArchiveListModel
         page: articlesPage
+        pageString: "articlesPage"
     }
 
     EmptyBox {

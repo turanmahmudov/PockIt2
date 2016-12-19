@@ -18,12 +18,15 @@ Page {
     property bool noQuery: true
     property bool isEmpty: true
 
+    property string s_query: ""
+
     ItemMultiSelectableHeader {
         id: multiselectableHeader
         visible: searchPage.state == "selection"
         title: i18n.tr("Search")
-        listview: favoritesView
+        listview: searchView
         itemstype: "all"
+        pageId: "searchPage"
     }
 
     PageHeader {
@@ -67,9 +70,11 @@ Page {
             }
             onTextChanged: {
                 if (searchField.text == "") {
+                    s_query = ""
                     searchEntriesModel.clear()
                     noQuery = true
                 } else {
+                    s_query = searchField.text
                     home(searchField.text)
                     noQuery = false
                 }
@@ -122,7 +127,7 @@ Page {
     }
 
     ItemListView {
-        id: favoritesView
+        id: searchView
         anchors {
             left: parent.left
             right: parent.right
@@ -132,6 +137,7 @@ Page {
         cacheBuffer: parent.height*2
         model: searchEntriesModel
         page: searchPage
+        pageString: "searchPage"
     }
 
     EmptyBox {

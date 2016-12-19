@@ -23,7 +23,7 @@ Page {
         visible: myListPage.state == "selection"
         title: i18n.tr("PockIt")
         listview: myListView
-        pageId: myListPage
+        pageId: "myListPage"
         itemstype: "all"
     }
 
@@ -105,6 +105,7 @@ Page {
         cacheBuffer: parent.height*2
         model: myListModel
         page: myListPage
+        pageString: "myListPage"
     }
 
     EmptyBox {

@@ -473,6 +473,15 @@ function reinit_onvisible(pageId) {
             reinit_videos_onvisible = true
             reinit_archive_onvisible = true
             break;
+        case 'searchPage':
+            searchPage.home(searchPage.s_query)
+            reinit_mylist_onvisible = true
+            reinit_articles_onvisible = true
+            reinit_images_onvisible = true
+            reinit_videos_onvisible = true
+            reinit_archive_onvisible = true
+            reinit_favorites_onvisible = true
+            break;
         default:
             reinit_pages()
     }
