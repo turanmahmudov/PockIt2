@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 15:11+0300\n"
+"POT-Creation-Date: 2016-12-24 03:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -181,6 +181,7 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:128
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:166
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:40
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
@@ -257,8 +258,32 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:114
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:115
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:153
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:156
 msgid "Display Settings"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:161
+msgid "Font Settings"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:310
+msgid "Ubuntu"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:311
+msgid "Roboto"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:312
+msgid "Open Sans"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:313
+msgid "Raleway"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:314
+msgid "Dosis"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:8

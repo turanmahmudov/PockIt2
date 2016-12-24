@@ -115,7 +115,7 @@ Page {
             keywords: i18n.tr("Display Settings")
             iconName: "settings"
             onTriggered: {
-                bottomEdge.commit()
+                displaySettingsPanel.commit()
             }
         }
     ]
@@ -142,19 +142,41 @@ Page {
     }
 
     BottomEdge {
-        id: bottomEdge
-        height: units.gu(20)
+        id: displaySettingsPanel
+        height: units.gu(30)
         hint.visible: false
         contentComponent: Page {
-            width: bottomEdge.width
-            height: bottomEdge.height
+            width: displaySettingsPanel.width
+            height: displaySettingsPanel.height
 
-            header: PageHeader {
+            header: displaySettingsLoader.sourceComponent == displaySettingsComponent ? displaySettingsHeader : fontSettingsHeader
+
+            PageHeader {
+                id: displaySettingsHeader
                 title: i18n.tr("Display Settings")
             }
 
-            Column {
-                width: parent.width
+            PageHeader {
+                id: fontSettingsHeader
+                title: i18n.tr("Font Settings")
+                leadingActionBar {
+                    actions: [
+                        Action {
+                            id: closePageAction
+                            text: i18n.tr("Close")
+                            iconName: "back"
+                            onTriggered: {
+                                displaySettingsLoader.sourceComponent = displaySettingsComponent
+                            }
+                        }
+
+                    ]
+                }
+            }
+
+            Loader {
+                id: displaySettingsLoader
+
                 anchors {
                     left: parent.left
                     right: parent.right
@@ -162,101 +184,171 @@ Page {
                     bottom: parent.bottom
                 }
 
-                Row {
-                    width: parent.width - units.gu(4)
-                    spacing: units.gu(0.45)
-                    anchors.horizontalCenter: parent.horizontalCenter
+                sourceComponent: displaySettingsComponent
+            }
+
+            Component {
+                id: displaySettingsComponent
+
+                Column {
 
                     Row {
-                        height: units.gu(5)
-                        width: (parent.width-units.gu(1))/2
+                        width: parent.width - units.gu(4)
+                        spacing: units.gu(0.45)
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                        Label {
-                            anchors.verticalCenter: parent.verticalCenter
-                            text: article_fontFamily
-                            fontSize: "large"
+                        Row {
+                            height: units.gu(5)
+                            width: (parent.width-units.gu(1))/2
+
+                            Label {
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: article_fontFamily
+                                fontSize: "large"
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        displaySettingsLoader.sourceComponent = fontSettingsComponent
+                                    }
+                                }
+                            }
+                        }
+
+                        Rectangle {
+                            width: units.gu(0.1)
+                            height: units.gu(5)
+                            color: theme.palette.normal.backgroundTertiaryText
+                            opacity: 0.4
+                        }
+
+                        Column {
+                            height: units.gu(5)
+                            width: (parent.width-units.gu(1))/2
+
+                            Row {
+                                height: units.gu(5)
+                                spacing: units.gu(1)
+                                anchors.horizontalCenter: parent.horizontalCenter
+
+                                Rectangle {
+                                    width: units.gu(5)
+                                    height: width
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    Label {
+                                        anchors.centerIn: parent
+                                        text: "-"
+                                        fontSize: "x-large"
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            article_fontSize = article_fontSize-1
+                                            if (article_fontSize < 0) {
+                                                article_fontSize = 0
+                                            } else {
+                                                parse_article()
+                                            }
+                                        }
+                                    }
+                                }
+
+                                Label {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: "A"
+                                    fontSize: "x-large"
+                                    font.weight: Font.DemiBold
+                                }
+
+                                Rectangle {
+                                    width: units.gu(5)
+                                    height: width
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    Label {
+                                        anchors.centerIn: parent
+                                        text: "+"
+                                        fontSize: "x-large"
+                                    }
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            article_fontSize = article_fontSize+1
+                                            if (article_fontSize > 9) {
+                                                article_fontSize = 9
+                                            } else {
+                                                parse_article()
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
 
                     Rectangle {
-                        width: units.gu(0.1)
-                        height: units.gu(5)
+                        width: parent.width
+                        height: units.gu(0.1)
                         color: theme.palette.normal.backgroundTertiaryText
                         opacity: 0.4
                     }
+                }
+            }
 
-                    Column {
-                        height: units.gu(5)
-                        width: (parent.width-units.gu(1))/2
+            Component {
+                id: fontSettingsComponent
 
-                        Row {
-                            height: units.gu(5)
-                            spacing: units.gu(1)
-                            anchors.horizontalCenter: parent.horizontalCenter
+                Item {
+                    anchors.fill: parent
 
-                            Rectangle {
-                                width: units.gu(5)
-                                height: width
-                                anchors.verticalCenter: parent.verticalCenter
+                    ListModel {
+                        id: fontsModel
+                        Component.onCompleted: {
+                            fontsModel.append({ name: i18n.tr("Ubuntu"), value: "Ubuntu" })
+                            fontsModel.append({ name: i18n.tr("Roboto"), value: "Roboto" })
+                            fontsModel.append({ name: i18n.tr("Open Sans"), value: "Open+Sans" })
+                            fontsModel.append({ name: i18n.tr("Raleway"), value: "Raleway" })
+                            fontsModel.append({ name: i18n.tr("Dosis"), value: "Dosis" })
+                        }
+                    }
 
-                                Label {
-                                    anchors.centerIn: parent
-                                    text: "-"
-                                    fontSize: "x-large"
-                                }
+                    ListView {
+                        id: sort
+                        currentIndex: -1
+                        model: fontsModel
+                        clip: true
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                            bottom: parent.bottom
+                            top: parent.top
+                        }
 
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        article_fontSize = article_fontSize-1
-                                        if (article_fontSize < 0) {
-                                            article_fontSize = 0
-                                        } else {
-                                            parse_article()
-                                        }
-                                    }
+                        delegate: ListItem {
+                            height: themeLayout.height + divider.height
+                            ListItemLayout {
+                                id: themeLayout
+
+                                title.text: model.name
+
+                                Icon {
+                                    width: units.gu(2)
+                                    height: width
+                                    name: "ok"
+                                    visible: article_fontFamily === model.value
+                                    SlotsLayout.position: SlotsLayout.Trailing
                                 }
                             }
 
-                            Label {
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: "A"
-                                fontSize: "x-large"
-                                font.weight: Font.DemiBold
-                            }
-
-                            Rectangle {
-                                width: units.gu(5)
-                                height: width
-                                anchors.verticalCenter: parent.verticalCenter
-
-                                Label {
-                                    anchors.centerIn: parent
-                                    text: "+"
-                                    fontSize: "x-large"
-                                }
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        article_fontSize = article_fontSize+1
-                                        if (article_fontSize > 9) {
-                                            article_fontSize = 9
-                                        } else {
-                                            parse_article()
-                                        }
-                                    }
-                                }
+                            onClicked: {
+                                article_fontFamily = model.value
+                                parse_article()
                             }
                         }
                     }
-                }
-
-                Rectangle {
-                    width: parent.width
-                    height: units.gu(0.1)
-                    color: theme.palette.normal.backgroundTertiaryText
-                    opacity: 0.4
                 }
             }
         }
