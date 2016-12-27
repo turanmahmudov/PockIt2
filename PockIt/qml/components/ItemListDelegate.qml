@@ -64,6 +64,9 @@ ListItem {
                 property var iconColor: favorite == 1 ? UbuntuColors.blue : darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
                 property var is_fav: favorite == 1 ? 1 : 0
                 onTriggered: {
+                    if (pageIdString == "favoritesPage") {
+                        removalAnimation.start()
+                    }
                     if (is_fav === 1) {
                         iconColor = darkTheme ? UbuntuColors.lightGrey : UbuntuColors.darkGrey
                         Scripts.fav_item([item_id], 0, pageIdString)
