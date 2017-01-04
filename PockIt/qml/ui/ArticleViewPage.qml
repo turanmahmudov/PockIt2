@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.LocalStorage 2.0
 import Ubuntu.Components 1.3
+import Ubuntu.Content 1.1
 import Ubuntu.Connectivity 1.0
 import Ubuntu.Web 0.2
 import com.canonical.Oxide 1.0 as Oxide
@@ -70,7 +71,7 @@ Page {
             keywords: i18n.tr("Share")
             iconName: "share"
             onTriggered: {
-
+                PopupUtils.open(shareDialog, mainView, {"contentType": ContentType.Links, "path": resolved_url});
             }
         },
         Action {
@@ -202,9 +203,24 @@ Page {
                             width: (parent.width-units.gu(1))/2
 
                             Label {
+                                width: parent.width - units.gu(5)
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: article_fontFamily
                                 fontSize: "large"
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        displaySettingsLoader.sourceComponent = fontSettingsComponent
+                                    }
+                                }
+                            }
+
+                            Icon {
+                                width: units.gu(3)
+                                height: width
+                                name: "go-next"
+                                anchors.verticalCenter: parent.verticalCenter
 
                                 MouseArea {
                                     anchors.fill: parent
@@ -235,6 +251,7 @@ Page {
                                     width: units.gu(5)
                                     height: width
                                     anchors.verticalCenter: parent.verticalCenter
+                                    color: "transparent"
 
                                     Label {
                                         anchors.centerIn: parent
@@ -266,6 +283,7 @@ Page {
                                     width: units.gu(5)
                                     height: width
                                     anchors.verticalCenter: parent.verticalCenter
+                                    color: "transparent"
 
                                     Label {
                                         anchors.centerIn: parent
@@ -295,6 +313,65 @@ Page {
                         color: theme.palette.normal.backgroundTertiaryText
                         opacity: 0.4
                     }
+
+                    Item {
+                        width: parent.width
+                        height: units.gu(2)
+                    }
+
+                    Row {
+                        width: parent.width - units.gu(4)
+                        spacing: units.gu(0.5)
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        Rectangle {
+                            width: (parent.width-units.gu(0.5))/2
+                            height: units.gu(4)
+                            border.width: units.gu(0.2)
+                            border.color: theme.palette.normal.backgroundTertiaryText
+                            color: "#111111"
+
+                            Label {
+                                anchors.centerIn: parent
+                                text: i18n.tr("Dark")
+                                color: "#fff"
+                            }
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    darkTheme = true
+                                    themeManager.currentThemeIndex = 1
+                                    parse_article()
+                                    displaySettingsPanel.collapse()
+                                }
+                            }
+                        }
+
+                        Rectangle {
+                            width: (parent.width-units.gu(0.5))/2
+                            height: units.gu(4)
+                            border.width: units.gu(0.2)
+                            border.color: theme.palette.normal.backgroundTertiaryText
+
+                            Label {
+                                anchors.centerIn: parent
+                                text: i18n.tr("Light")
+                                color: "#000"
+                            }
+
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    darkTheme = false
+                                    themeManager.currentThemeIndex = 0
+                                    parse_article()
+                                    displaySettingsPanel.collapse()
+                                }
+                            }
+                        }
+                    }
+
                 }
             }
 
