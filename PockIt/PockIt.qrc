@@ -52,5 +52,6 @@
         <file>qml/components/EmptyBox.qml</file>
         <file>content.json</file>
         <file>qml/components/ContentShareDialog.qml</file>
+        <file>qml/ui/ItemTagsEdit.qml</file>
     </qresource>
 </RCC>

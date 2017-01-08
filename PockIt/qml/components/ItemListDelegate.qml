@@ -84,7 +84,8 @@ ListItem {
                 iconName: "tag"
                 text: i18n.tr("Tags")
                 onTriggered: {
-
+                    isArticleOpen = true
+                    pageLayout.addPageToNextColumn(pageId, Qt.resolvedUrl("../ui/ItemTagsEdit.qml"), {"item_id":item_id})
                 }
             }
         ]
