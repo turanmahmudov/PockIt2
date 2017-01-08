@@ -85,7 +85,8 @@ ListItem {
                 text: i18n.tr("Tags")
                 onTriggered: {
                     isArticleOpen = true
-                    pageLayout.addPageToNextColumn(pageId, Qt.resolvedUrl("../ui/ItemTagsEdit.qml"), {"items_ids":[item_id]})
+                    pageLayout.addPageToNextColumn(pageId, itemTagsPage, {"items_ids":[item_id]})
+                    itemTagsPage.home()
                 }
             }
         ]

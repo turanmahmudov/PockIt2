@@ -475,6 +475,11 @@ MainView {
             visible: false
         }
 
+        Ui.ItemTagsEdit {
+            id: itemTagsPage
+            visible: false
+        }
+
         // Functions
         function replacePageSource(pageSource) {
             pageLayout.removePages(pageLayout.primaryPage)

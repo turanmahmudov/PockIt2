@@ -59,7 +59,8 @@ PageHeader {
                     }
 
                     isArticleOpen = true
-                    pageLayout.addPageToNextColumn(pageIdObject, Qt.resolvedUrl("../ui/ItemTagsEdit.qml"), {"items_ids":items})
+                    pageLayout.addPageToNextColumn(pageIdObject, itemTagsPage, {"items_ids":items})
+                    itemTagsPage.home()
 
                     listview.closeSelection()
                 }

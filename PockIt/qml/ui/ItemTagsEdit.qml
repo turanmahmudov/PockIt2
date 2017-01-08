@@ -60,8 +60,8 @@ Page {
         allTagsModel.clear()
         itemTagsModel.clear()
 
+        var allTags = []
         var itemsTags = []
-        var allTags = [];
         var commonTags = []
 
         var db = LocalDB.init();
@@ -69,38 +69,32 @@ Page {
             var rs = tx.executeSql("SELECT * FROM Tags GROUP BY tag ORDER BY tag");
 
             if (rs.rows.length !== 0) {
-                for(var i = 0; i < rs.rows.length; i++) {
-                    var tag = rs.rows.item(i).tag;
-
-                    allTags.push(tag);
+                for (var i = 0; i < rs.rows.length; i++) {
+                    allTags.push(rs.rows.item(i).tag)
                 }
-            }
 
-            for(var i = 0; i < items_ids.length; i++) {
-                var rs_e = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ? GROUP BY tag ORDER BY tag", items_ids[i]);
+                for (var j = 0; j < items_ids.length; j++) {
+                    var rs_t = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ? GROUP BY tag ORDER BY tag", items_ids[j]);
 
-                if (rs_e.rows.length !== 0) {
-                    itemsTags[i] = []
+                    itemsTags[j] = []
 
-                    for(var j = 0; j < rs_e.rows.length; j++) {
-                        var tag = rs_e.rows.item(j).tag;
-
-                        itemsTags[i].push(tag)
+                    for (var k = 0; k < rs_t.rows.length; k++) {
+                        itemsTags[j].push(rs_t.rows.item(k).tag)
                     }
                 }
-            }
 
-            commonTags = Scripts.getCommonElements(itemsTags)
+                commonTags = Scripts.getCommonElements(itemsTags)
 
-            for (var k = 0; k < commonTags.length; k++) {
-                itemTagsModel.append({"tag":commonTags[k]});
+                for (var l = 0; l < commonTags.length; l++) {
+                    itemTagsModel.append({"tag":commonTags[l]})
 
-                var index = allTags.indexOf(commonTags[k]);
-                allTags.splice(index, 1);
-            }
+                    var index = allTags.indexOf(commonTags[l]);
+                    allTags.splice(index, 1);
+                }
 
-            for(var j = 0; j < allTags.length; j++) {
-                allTagsModel.append({"tag":allTags[j]});
+                for (var m = 0; m < allTags.length; m++) {
+                    allTagsModel.append({"tag":allTags[m]})
+                }
             }
         })
     }
@@ -110,7 +104,7 @@ Page {
     }
 
     Component.onCompleted: {
-        home()
+        //home()
     }
 
     Column {

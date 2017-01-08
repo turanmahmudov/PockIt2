@@ -8,7 +8,8 @@
         "webview",
         "keep-display-on",
         "audio",
-        "video"
+        "video",
+        "debug"
     ],
     "policy_version": 1.3
 }
