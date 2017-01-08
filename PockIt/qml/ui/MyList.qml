@@ -24,6 +24,7 @@ Page {
         title: i18n.tr("PockIt")
         listview: myListView
         pageId: "myListPage"
+        pageIdObject: myListPage
         itemstype: "all"
     }
 

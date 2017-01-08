@@ -26,6 +26,7 @@ Page {
         listview: active_section == 0 ? videosView : videosArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
         pageId: "videosPage"
+        pageIdObject: videosPage
     }
 
     ItemDefaultHeader {

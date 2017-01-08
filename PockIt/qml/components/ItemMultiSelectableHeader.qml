@@ -11,6 +11,7 @@ PageHeader {
     property var listview
     property var itemstype
     property string pageId
+    property var pageIdObject
 
     leadingActionBar {
         actions: [
@@ -48,7 +49,19 @@ PageHeader {
                 text: i18n.tr("Add tag")
                 visible: listview !== null ? listview.getSelectedIndices().length > 0 : false
                 onTriggered: {
+                    var items = []
+                    var indicies = listview.getSelectedIndices()
 
+                    listview.clearSelection()
+
+                    for (var i = 0; i < indicies.length; i++) {
+                        items.push(listview.model.get(indicies[i], listview.model.RoleModelData).item_id)
+                    }
+
+                    isArticleOpen = true
+                    pageLayout.addPageToNextColumn(pageIdObject, Qt.resolvedUrl("../ui/ItemTagsEdit.qml"), {"items_ids":items})
+
+                    listview.closeSelection()
                 }
             },
             Action {

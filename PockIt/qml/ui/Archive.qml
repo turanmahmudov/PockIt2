@@ -24,6 +24,7 @@ Page {
         listview: archiveView
         itemstype: "archive"
         pageId: "archivePage"
+        pageIdObject: archivePage
     }
 
     ItemDefaultHeader {

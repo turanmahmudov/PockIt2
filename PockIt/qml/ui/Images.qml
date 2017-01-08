@@ -26,6 +26,7 @@ Page {
         listview: active_section == 0 ? imagesView : imagesArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
         pageId: "imagesPage"
+        pageIdObject: imagesPage
     }
 
     ItemDefaultHeader {

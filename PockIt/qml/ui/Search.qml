@@ -27,6 +27,7 @@ Page {
         listview: searchView
         itemstype: "all"
         pageId: "searchPage"
+        pageIdObject: searchPage
     }
 
     PageHeader {

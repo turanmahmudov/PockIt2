@@ -24,6 +24,8 @@ Page {
         title: tag == "0" ? i18n.tr("All Untagged Items") : tag
         listview: tagEntriesView
         itemstype: "all"
+        pageId: "tagEntriesPage"
+        pageIdObject: tagEntriesPage
     }
 
     PageHeader {
@@ -103,5 +105,6 @@ Page {
         cacheBuffer: parent.height*2
         model: tagEntriesModel
         page: tagEntriesPage
+        pageString: "tagEntriesPage"
     }
 }

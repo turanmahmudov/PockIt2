@@ -24,6 +24,7 @@ Page {
         listview: favoritesView
         itemstype: "favorites"
         pageId: "favoritesPage"
+        pageIdObject: favoritesPage
     }
 
     ItemDefaultHeader {

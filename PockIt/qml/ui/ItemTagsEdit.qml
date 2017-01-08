@@ -14,6 +14,7 @@ Page {
 
     // Params come from List
     property string item_id
+    property var items_ids
 
     header: PageHeader {
         title: i18n.tr("Edit Tags")
@@ -56,16 +57,16 @@ Page {
     }
 
     function home() {
-        var itemTags = [];
+        allTagsModel.clear()
+        itemTagsModel.clear()
+
+        var itemsTags = []
         var allTags = [];
+        var commonTags = []
 
         var db = LocalDB.init();
         db.transaction(function(tx) {
             var rs = tx.executeSql("SELECT * FROM Tags GROUP BY tag ORDER BY tag");
-            var rs_e = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ? GROUP BY tag ORDER BY tag", item_id);
-
-            allTagsModel.clear()
-            itemTagsModel.clear()
 
             if (rs.rows.length !== 0) {
                 for(var i = 0; i < rs.rows.length; i++) {
@@ -75,27 +76,37 @@ Page {
                 }
             }
 
-            if (rs_e.rows.length !== 0) {
-                for(var i = 0; i < rs_e.rows.length; i++) {
-                    var tag = rs_e.rows.item(i).tag;
+            for(var i = 0; i < items_ids.length; i++) {
+                var rs_e = tx.executeSql("SELECT * FROM Tags WHERE entry_id = ? GROUP BY tag ORDER BY tag", items_ids[i]);
 
-                    itemTags.push(tag);
+                if (rs_e.rows.length !== 0) {
+                    itemsTags[i] = []
 
-                    itemTagsModel.append({"tag":tag});
+                    for(var j = 0; j < rs_e.rows.length; j++) {
+                        var tag = rs_e.rows.item(j).tag;
 
-                    var index = allTags.indexOf(tag);
-                    allTags.splice(index, 1);
+                        itemsTags[i].push(tag)
+                    }
                 }
+            }
+
+            commonTags = Scripts.getCommonElements(itemsTags)
+
+            for (var k = 0; k < commonTags.length; k++) {
+                itemTagsModel.append({"tag":commonTags[k]});
+
+                var index = allTags.indexOf(commonTags[k]);
+                allTags.splice(index, 1);
             }
 
             for(var j = 0; j < allTags.length; j++) {
                 allTagsModel.append({"tag":allTags[j]});
             }
-        });
+        })
     }
 
     function save() {
-        Scripts.save_item_tags(item_id)
+        Scripts.save_item_tags(items_ids)
     }
 
     Component.onCompleted: {

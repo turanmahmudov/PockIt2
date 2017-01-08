@@ -371,7 +371,8 @@ function delete_tag(tag) {
 }
 
 // Save item tags
-function save_item_tags(item_id) {
+function save_item_tags(items_ids) {
+    var actions = []
     var newTags_fordb = [];
     var newTags_forapi = [];
 
@@ -383,18 +384,17 @@ function save_item_tags(item_id) {
 
             var tag = itemTagsModel.get(i).tag
 
-            var rs = tx.executeSql("SELECT * FROM Tags WHERE tag = ? AND entry_id = ?", [tag, item_id]);
-
-            if (rs.rows.length === 0) {
-                var rs_e = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [item_id, tag, tag, item_id]);
+            for(var l = 0; l < items_ids.length; l++) {
+                var rs = tx.executeSql("SELECT * FROM Tags WHERE tag = ? AND entry_id = ?", [tag, items_ids[l]]);
+                if (rs.rows.length === 0) {
+                    var rs_e = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [items_ids[l], tag, tag, items_ids[l]]);
+                }
             }
         }
 
-        var actions = [{
-            "action": "tags_replace",
-            "item_id": item_id,
-            "tags": newTags_forapi.join(",")
-        }]
+        for(var j = 0; j < items_ids.length; j++) {
+            actions.push({"action": "tags_replace","item_id": items_ids[j],"tags": newTags_forapi.join(",")})
+        }
 
         // Send to Pocket
         // Get access_token from user table
@@ -406,7 +406,9 @@ function save_item_tags(item_id) {
 
         // Delete old tags from DB
         var notin = "("+newTags_fordb.join(",")+")";
-        var rs_d = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND tag NOT IN " + notin, [item_id]);
+        for(var k = 0; k < items_ids.length; k++) {
+            var rs_d = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND tag NOT IN " + notin, [items_ids[k]]);
+        }
 
         isArticleOpen = false
         pageLayout.removePages(itemTagsEditPage)
@@ -678,4 +680,30 @@ function objectLength(obj) {
     }
 
     return result
+}
+
+// Array common values
+function getCommonElements(arrays){
+    var currentValues = {}
+    var commonValues = {}
+
+    for (var i = arrays[0].length-1; i >=0; i--) {
+        currentValues[arrays[0][i]] = 1
+    }
+
+    for (var i = arrays.length-1; i>0; i--){
+        var currentArray = arrays[i]
+
+        for (var j = currentArray.length-1; j >=0; j--){
+            if (currentArray[j] in currentValues){
+                commonValues[currentArray[j]] = 1
+            }
+        }
+        currentValues = commonValues
+        commonValues = {}
+    }
+
+    return Object.keys(currentValues).map(function(value){
+        return value;
+    });
 }

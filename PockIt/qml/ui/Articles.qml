@@ -26,6 +26,7 @@ Page {
         listview: active_section == 0 ? articlesView : articlesArchiveView
         itemstype: active_section == 0 ? "all" : "archive"
         pageId: "articlesPage"
+        pageIdObject: articlesPage
     }
 
     ItemDefaultHeader {
