@@ -370,6 +370,50 @@ function delete_tag(tag) {
     })
 }
 
+// Save item tags
+function save_item_tags(item_id) {
+    var newTags_fordb = [];
+    var newTags_forapi = [];
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        for (var i = 0; i < itemTagsModel.count; i++) {
+            newTags_fordb.push("'"+itemTagsModel.get(i).tag+"'")
+            newTags_forapi.push(itemTagsModel.get(i).tag)
+
+            var tag = itemTagsModel.get(i).tag
+
+            var rs = tx.executeSql("SELECT * FROM Tags WHERE tag = ? AND entry_id = ?", [tag, item_id]);
+
+            if (rs.rows.length === 0) {
+                var rs_e = tx.executeSql("INSERT INTO Tags(item_id, item_key, tag, entry_id) VALUES(?, ?, ?, ?)", [item_id, tag, tag, item_id]);
+            }
+        }
+
+        var actions = [{
+            "action": "tags_replace",
+            "item_id": item_id,
+            "tags": newTags_forapi.join(",")
+        }]
+
+        // Send to Pocket
+        // Get access_token from user table
+        var access_token = User.getKey('access_token');
+        var url = 'https://getpocket.com/v3/send';
+        var data = "actions="+encodeURIComponent(JSON.stringify(actions))+"&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
+
+        request(url, data, item_moded, actions, true);
+
+        // Delete old tags from DB
+        var notin = "("+newTags_fordb.join(",")+")";
+        var rs_d = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND tag NOT IN " + notin, [item_id]);
+
+        isArticleOpen = false
+        pageLayout.removePages(itemTagsEditPage)
+        reinit_pages()
+    })
+}
+
 // Delete item
 function delete_item(items_ids, pageId) {
     var db = LocalDB.init();

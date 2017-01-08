@@ -56,8 +56,6 @@ Page {
     }
 
     function home() {
-        console.log('aha')
-
         var itemTags = [];
         var allTags = [];
 
@@ -97,7 +95,7 @@ Page {
     }
 
     function save() {
-
+        Scripts.save_item_tags(item_id)
     }
 
     Component.onCompleted: {
