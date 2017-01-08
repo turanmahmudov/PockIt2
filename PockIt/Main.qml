@@ -317,6 +317,7 @@ MainView {
         favoritesPage.home()
         archivePage.home()
         tagsPage.home()
+        tagEntriesPage.home()
     }
 
     // Workers
