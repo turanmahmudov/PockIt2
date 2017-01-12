@@ -309,14 +309,16 @@ MainView {
     }
 
     // Re-initialize pages
-    function reinit_pages() {
+    function reinit_pages(except) {
         myListPage.home()
         articlesPage.home()
         imagesPage.home()
         videosPage.home()
         favoritesPage.home()
         archivePage.home()
-        tagsPage.home()
+        if (!except || (except && except != 'tags')) {
+            tagsPage.home()
+        }
         tagEntriesPage.home()
     }
 

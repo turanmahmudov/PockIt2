@@ -366,7 +366,7 @@ function delete_tag(tag) {
         // Delete tags from DB
         var rs_d = tx.executeSql("DELETE FROM Tags WHERE tag = ?", tag);
 
-        reinit_pages()
+        reinit_pages('tags')
     })
 }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-08 23:05+0000\n"
+"POT-Creation-Date: 2017-01-09 17:32+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,32 +100,19 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:514
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:516
 msgid "Syncing..."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:522
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:524
 msgid "Network error occured."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:523
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:525
 msgid "Please check your network settings."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ErrorPopup.qml:36
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:129
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:167
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:41
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/TagEntriesList.qml:39
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:14
-msgid "Close"
-msgstr ""
-
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:26
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/TagsListDelegate.qml:25
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:106
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:107
 msgid "Remove"
@@ -186,38 +173,20 @@ msgstr ""
 msgid "Downloading Items... Tap to cancel download."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/TagRenamePopup.qml:16
-msgid "Rename Tag"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/TagRenamePopup.qml:24
-msgid "Enter a new name for this tag"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/TagRenamePopup.qml:42
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ItemTagsEdit.qml:26
-msgid "Cancel"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/TagRenamePopup.qml:48
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ItemTagsEdit.qml:41
-msgid "Save"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/TagsListDelegate.qml:48
-msgid "Edit"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/TagsListDelegate.qml:86
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/TagEntriesList.qml:24
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/TagEntriesList.qml:34
-msgid "All Untagged Items"
-msgstr ""
-
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:8
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:293
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:303
 msgid "About"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:129
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:167
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:41
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:14
+msgid "Close"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:67
@@ -373,18 +342,6 @@ msgstr ""
 msgid "There are no images in your Archive."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ItemTagsEdit.qml:20
-msgid "Edit Tags"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ItemTagsEdit.qml:165
-msgid "Select or enter a tag..."
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ItemTagsEdit.qml:183
-msgid "All Tags"
-msgstr ""
-
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Login.qml:18
 msgid "Login"
 msgstr ""
@@ -395,7 +352,7 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:24
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:34
-#: /home/turan/Apps/build-PockIt3-UbuntuSDK_for_device_armhf_GCC_armhf_ubuntu_sdk_15_04-Debug/PockIt/PockIt.desktop.h:1
+#: /home/turan/Apps/build-PockIt3-Desktop-Debug/PockIt/PockIt.desktop.h:1
 msgid "PockIt"
 msgstr ""
 
