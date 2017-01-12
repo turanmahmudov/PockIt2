@@ -78,18 +78,20 @@ Page {
             id: archiveAction
             text: articleEntryArchived ? i18n.tr("Re-add") : i18n.tr("Archive")
             keywords: articleEntryArchived ? i18n.tr("Re-add") : i18n.tr("Archive")
-            iconName: "tick"
+            iconName: articleEntryArchived ? "add" : "tick"
             onTriggered: {
-
+                Scripts.archive_item([item_id], articleEntryArchived === true ? 0 : 1, "articleViewPage")
+                articleEntryArchived = !articleEntryArchived
             }
         },
         Action {
             id: favoriteAction
             text: articleEntryFavorited ? i18n.tr("Unfavorite") : i18n.tr("Favorite")
             keywords: articleEntryFavorited ? i18n.tr("Unfavorite") : i18n.tr("Favorite")
-            iconName: "starred"
+            iconName: articleEntryFavorited ? "non-starred" : "starred"
             onTriggered: {
-
+                Scripts.fav_item([item_id], articleEntryFavorited === true ? 0 : 1, "articleViewPage")
+                articleEntryFavorited = !articleEntryFavorited
             }
         },
         Action {
@@ -98,7 +100,9 @@ Page {
             keywords: i18n.tr("Tags")
             iconName: "tag"
             onTriggered: {
-
+                isArticleOpen = true
+                pageLayout.addPageToNextColumn(articleViewPage, itemTagsPage, {"items_ids":[item_id], "articleView":true})
+                itemTagsPage.home()
             }
         },
         Action {
@@ -107,7 +111,9 @@ Page {
             keywords: i18n.tr("Remove")
             iconName: "delete"
             onTriggered: {
-
+                Scripts.delete_item([item_id], articleViewPage)
+                isArticleOpen = false
+                pageLayout.removePages(articleViewPage)
             }
         },
         Action {

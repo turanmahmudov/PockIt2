@@ -371,7 +371,7 @@ function delete_tag(tag) {
 }
 
 // Save item tags
-function save_item_tags(items_ids) {
+function save_item_tags(items_ids, isArticleView) {
     var actions = []
     var newTags_fordb = [];
     var newTags_forapi = [];
@@ -410,7 +410,9 @@ function save_item_tags(items_ids) {
             var rs_d = tx.executeSql("DELETE FROM Tags WHERE entry_id = ? AND tag NOT IN " + notin, [items_ids[k]]);
         }
 
-        isArticleOpen = false
+        if (!isArticleView) {
+            isArticleOpen = false
+        }
         pageLayout.removePages(itemTagsEditPage)
         reinit_pages()
     })

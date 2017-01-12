@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-09 17:32+0300\n"
+"POT-Creation-Date: 2017-01-12 18:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,8 +64,8 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:219
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:85
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:97
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:98
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:99
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:100
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Tags.qml:18
 msgid "Tags"
 msgstr ""
@@ -113,8 +113,8 @@ msgid "Please check your network settings."
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:26
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:106
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:107
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:110
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:111
 msgid "Remove"
 msgstr ""
 
@@ -132,15 +132,15 @@ msgid "Re-add"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:63
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:88
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:89
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:90
 msgid "Unfavorite"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:63
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemMultiSelectableHeader.qml:70
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:88
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:89
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:90
 msgid "Favorite"
 msgstr ""
 
@@ -180,8 +180,8 @@ msgid "About"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:129
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:167
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:135
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:173
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:41
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
@@ -256,41 +256,41 @@ msgstr ""
 msgid "Re-get article"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:115
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:116
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:157
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:121
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:122
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:163
 msgid "Display Settings"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:162
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:168
 msgid "Font Settings"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:336
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:342
 msgid "Dark"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:359
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:365
 msgid "Light"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:387
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:393
 msgid "Ubuntu"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:388
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:394
 msgid "Roboto"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:389
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:395
 msgid "Open Sans"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:390
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:396
 msgid "Raleway"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:391
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:397
 msgid "Dosis"
 msgstr ""
 

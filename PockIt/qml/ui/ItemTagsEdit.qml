@@ -13,8 +13,8 @@ Page {
     id: itemTagsEditPage
 
     // Params come from List
-    property string item_id
     property var items_ids
+    property bool articleView: false
 
     header: PageHeader {
         title: i18n.tr("Edit Tags")
@@ -100,7 +100,7 @@ Page {
     }
 
     function save() {
-        Scripts.save_item_tags(items_ids)
+        Scripts.save_item_tags(items_ids, articleView)
     }
 
     Component.onCompleted: {
