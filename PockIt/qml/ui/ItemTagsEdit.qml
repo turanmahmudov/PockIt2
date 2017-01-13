@@ -26,7 +26,9 @@ Page {
                     text: i18n.tr("Cancel")
                     iconName: "back"
                     onTriggered: {
-                        isArticleOpen = false
+                        if (!articleView) {
+                            isArticleOpen = false
+                        }
                         pageLayout.removePages(itemTagsEditPage)
                     }
                 }
