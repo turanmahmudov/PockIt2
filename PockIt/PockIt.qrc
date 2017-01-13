@@ -53,5 +53,6 @@
         <file>content.json</file>
         <file>qml/components/ContentShareDialog.qml</file>
         <file>qml/ui/ItemTagsEdit.qml</file>
+        <file>qml/components/ItemAddingPopup.qml</file>
     </qresource>
 </RCC>

@@ -106,6 +106,7 @@ MainView {
 
     signal entryworksfinished(bool finished)
     signal networkerroroccured()
+    signal itemaddingfinished()
 
     // Entry works finished
     Connections {
@@ -530,5 +531,13 @@ MainView {
     Component {
         id: tagRenamePopupComponent
         TagRenamePopup { }
+    }
+
+    // Item add popup component
+    Component {
+        id: itemAddingPopupComponent
+        ItemAddingPopup {
+            adding_text: i18n.tr("Adding...")
+        }
     }
 }
