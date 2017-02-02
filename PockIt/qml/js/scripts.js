@@ -49,7 +49,7 @@ function logOut() {
 
 // Get list from Pocket API & Start syncing
 function get_list(results) {
-    console.log('get list started')
+    console.log('Getting list started')
 
     if (results) {
         var entriesData = {}
@@ -86,7 +86,7 @@ function get_list(results) {
 
 // Sync start (GET all entries from DB and send data to sync worker)
 function sync_start(api_entries) {
-    console.log('sync loop worked')
+    console.log('Syncing started')
 
     // It's not first sync anymore
     firstSync = false
@@ -127,7 +127,7 @@ function sync_start(api_entries) {
 
 // Complete entries work (Worker sends processed data here)
 function complete_entries_works(entries_works, api_entries) {
-    console.log('complete entries worked')
+    console.log('Completing entries works started')
 
     var mustGetArticlesList = []
 
@@ -189,7 +189,7 @@ function complete_entries_works(entries_works, api_entries) {
                     mustGetArticlesList.push({'item_id': ew_i, 'resolved_url': api_entries[ew_i].resolved_url})
                 }
             } else {
-                console.log('Something goes wrong.')
+                console.warn('Something goes wrong on complete entries works')
             }
 
             loop_index++
@@ -213,7 +213,7 @@ function complete_entries_works(entries_works, api_entries) {
 
 // Delete items from db which deleted from api
 function delete_works(entries, articles, tags) {
-    console.log('delete works')
+    console.log('Delete works started')
 
     var db = LocalDB.init();
     db.transaction(function(tx) {
@@ -263,7 +263,7 @@ function get_article(mustGetArticlesList, index, parseArticle) {
 
 // Complete articles works (Worker sends processed data here)
 function complete_articles_works(article_result, item_id, finish, parseArticle) {
-    console.log('complete articles worked')
+    console.log('Complete articles works started')
 
     var db = LocalDB.init();
     db.transaction(function(tx) {
@@ -566,7 +566,7 @@ function mod_item(items_ids, action) {
 }
 
 function item_moded(results, params, data) {
-    console.log('geldu')
+    console.log('Item moded')
 }
 
 function add_item(item_url, item_title) {
@@ -581,15 +581,13 @@ function add_item(item_url, item_title) {
 }
 
 function item_added(results, params, data) {
-    console.log(JSON.stringify(results))
-
     itemaddingfinished()
 
     afterAddingTimer.start()
 }
 
 function queue_insert(url, data) {
-    console.log('insert to queue')
+    console.log('Inserted to Queue')
 
     console.log(data)
 
@@ -601,7 +599,7 @@ function queue_insert(url, data) {
 
 // Request (POST url, POST params, Callback function, Callback params)
 function request(url, params, callback, callbackParams, addToQueue) {
-    console.log('getdu')
+    console.log('Request')
 
     var xhr = new XMLHttpRequest;
     xhr.open("POST", url);
@@ -624,8 +622,6 @@ function request(url, params, callback, callbackParams, addToQueue) {
                 networkerroroccured()
                 return false
             } else {
-                console.log(xhr.responseText)
-
                 if (xhr.responseText == "403 Forbidden") {
                     console.log(xhr.getResponseHeader('X-Limit-User-Reset'))
                     console.log(xhr.responseText)
