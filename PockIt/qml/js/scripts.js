@@ -569,6 +569,25 @@ function item_moded(results, params, data) {
     console.log('geldu')
 }
 
+function add_item(item_url, item_title) {
+
+    // Send to Pocket
+    // Get access_token from user table
+    var access_token = User.getKey('access_token');
+    var url = 'https://getpocket.com/v3/add';
+    var data = "url="+item_url+"&consumer_key="+ApiKeys.consumer_key+"&access_token="+access_token;
+
+    request(url, data, item_added, {}, true);
+}
+
+function item_added(results, params, data) {
+    console.log(JSON.stringify(results))
+
+    itemaddingfinished()
+
+    get_list()
+}
+
 function queue_insert(url, data) {
     console.log('insert to queue')
 

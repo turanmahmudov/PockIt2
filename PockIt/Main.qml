@@ -133,7 +133,11 @@ MainView {
             var title = transfer.items[0]['title'];
             var url = transfer.items[0]['url'];
 
+            PopupUtils.open(itemAddingPopupComponent)
+
             console.log(url)
+
+            Scripts.add_item(url, title)
         }
     }
     Component {
