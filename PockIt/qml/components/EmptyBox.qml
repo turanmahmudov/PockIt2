@@ -48,7 +48,7 @@ Column {
 
         Label {
             text: title
-            font.weight: Font.Medium
+            font.weight: Font.Normal
             fontSize: "large"
             wrapMode: Text.WordWrap
             anchors.centerIn: parent
