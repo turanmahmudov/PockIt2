@@ -585,7 +585,7 @@ function item_added(results, params, data) {
 
     itemaddingfinished()
 
-    get_list()
+    afterAddingTimer.start()
 }
 
 function queue_insert(url, data) {

@@ -369,6 +369,16 @@ MainView {
         }
     }
 
+    Timer {
+        id: afterAddingTimer
+        interval: 1000
+        running: false
+        repeat: false
+        onTriggered: {
+            Scripts.get_list()
+        }
+    }
+
     // Models
     // MyList
     ListModel {

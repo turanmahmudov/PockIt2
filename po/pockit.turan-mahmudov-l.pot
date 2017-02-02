@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-02 12:26+0300\n"
+"POT-Creation-Date: 2017-02-03 02:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,19 +100,19 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:521
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:534
 msgid "Syncing..."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:529
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:542
 msgid "Network error occured."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:530
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:543
 msgid "Please check your network settings."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:544
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:557
 msgid "Adding..."
 msgstr ""
 
