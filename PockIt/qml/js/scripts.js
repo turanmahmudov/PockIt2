@@ -597,6 +597,21 @@ function queue_insert(url, data) {
     })
 }
 
+function send_queue() {
+    console.log('Queue started')
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("SELECT * FROM Queue")
+
+        var dbQueueData = {}
+
+        for(var i = 0; i < rs.rows.length; i++) {
+            dbQueueData[i] = rs.rows.item(i);
+        }
+    })
+}
+
 // Request (POST url, POST params, Callback function, Callback params)
 function request(url, params, callback, callbackParams, addToQueue) {
     console.log('Request')
