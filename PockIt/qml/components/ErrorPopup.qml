@@ -21,6 +21,8 @@ Dialog {
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: error_subtitle_text
+                width: units.gu(30)
+                wrapMode: Text.WordWrap
                 fontSize: "medium"
                 color: "#999999"
             }

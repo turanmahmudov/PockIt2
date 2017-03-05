@@ -160,7 +160,8 @@ ListItem {
             Label {
                 id: title
                 text: resolved_title
-                fontSize: "medium"
+                fontSize: "small"
+                font.weight: Font.Medium
                 maximumLineCount: 3
                 wrapMode: Text.WordWrap
                 width: parent.width

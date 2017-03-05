@@ -537,7 +537,7 @@ MainView {
         id: networkErrorPopupComponent
         ErrorPopup {
             error_text: i18n.tr("Sync error")
-            error_subtitle_text: i18n.tr("Please check your network settings.")
+            error_subtitle_text: i18n.tr("Your device must be connected to the internet in order to sync.")
         }
     }
 
