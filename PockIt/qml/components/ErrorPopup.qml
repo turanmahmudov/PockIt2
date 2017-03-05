@@ -8,6 +8,8 @@ Dialog {
     property string error_text: ""
     property string error_subtitle_text: ""
 
+    title: error_text
+
     Column {
         anchors.horizontalCenter: parent.horizontalCenter
         spacing: units.gu(1)
@@ -18,25 +20,18 @@ Dialog {
 
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: error_text
-                fontSize: "large"
-                color: "#999999"
-            }
-
-            Label {
-                anchors.horizontalCenter: parent.horizontalCenter
                 text: error_subtitle_text
                 fontSize: "medium"
                 color: "#999999"
             }
         }
+    }
 
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: i18n.tr("Close")
-            onClicked: {
-                PopupUtils.close(dialog)
-            }
+    Button {
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: i18n.tr("OK")
+        onClicked: {
+            PopupUtils.close(dialog)
         }
     }
 }

@@ -49,7 +49,7 @@ Page {
                ListItemLayout {
                    id: yourAccountHeader
 
-                   title.text: i18n.tr("Your Account")
+                   title.text: i18n.tr("Account")
                    title.font.weight: Text.Normal
                }
            }
@@ -60,13 +60,52 @@ Page {
                ListItemLayout {
                    id: logOutLayout
 
-                   title.text: i18n.tr("Log Out")
+                   title.text: i18n.tr("Log out")
                    subtitle.text: User.getKey('username') ? User.getKey('username') : ''
                    subtitle.visible: User.getKey('username') ? true : false
                }
 
                onClicked: {
                    Scripts.logOut()
+               }
+           }
+
+           ListItem {
+               height: generalHeader.height
+
+               ListItemLayout {
+                   id: generalHeader
+
+                   title.text: i18n.tr("General")
+                   title.font.weight: Text.Normal
+               }
+           }
+
+           ListItem {
+               height: themeLayout.height
+               divider.visible: false
+               ListItemLayout {
+                   id: themeLayout
+
+                   title.text: i18n.tr("Dark theme")
+                   subtitle.text: i18n.tr("You can also toggle this by tapping the Theme button in the Article View")
+                   subtitle.maximumLineCount: 2
+                   subtitle.wrapMode: Text.WordWrap
+
+                   Switch {
+                       id: themeSwitch
+                       SlotsLayout.position: SlotsLayout.Trailing
+                       checked: darkTheme
+                       onCheckedChanged: {
+                            if (checked) {
+                                darkTheme = true
+                                themeManager.currentThemeIndex = 1
+                            } else {
+                                darkTheme = false
+                                themeManager.currentThemeIndex = 0
+                            }
+                       }
+                   }
                }
            }
 
@@ -86,8 +125,8 @@ Page {
                ListItemLayout {
                    id: openBestViewLayout
 
-                   title.text: i18n.tr("Open Best View")
-                   subtitle.text: i18n.tr("PockIt will automatically decide the best view (Article or Web View) to show.")
+                   title.text: i18n.tr("Open best view")
+                   subtitle.text: i18n.tr("PockIt will automatically decide the best view (Article or Web View) to show")
                    subtitle.maximumLineCount: 2
                    subtitle.wrapMode: Text.WordWrap
 
@@ -112,8 +151,8 @@ Page {
                ListItemLayout {
                    id: justifiedTextLayout
 
-                   title.text: i18n.tr("Justify Text")
-                   subtitle.text: i18n.tr("Justify and hyphenate text in Article View when possible.")
+                   title.text: i18n.tr("Justified Text")
+                   subtitle.text: i18n.tr("Displays text in Article View with justification")
                    subtitle.maximumLineCount: 2
                    subtitle.wrapMode: Text.WordWrap
 
@@ -193,7 +232,7 @@ Page {
                ListItemLayout {
                    id: clearFilesLayout
 
-                   title.text: i18n.tr("Clear Downloaded Files")
+                   title.text: i18n.tr("Clear downloaded files")
                }
 
                onClicked: {
@@ -217,7 +256,7 @@ Page {
                ListItemLayout {
                    id: autoSyncLayout
 
-                   title.text: i18n.tr("Refresh When App Opens")
+                   title.text: i18n.tr("Sync when app opens")
 
                    Switch {
                        id: autoSyncSwitch
@@ -236,6 +275,7 @@ Page {
 
            ListItem {
                height: sortLayout.height
+               divider.visible: false
                ListItemLayout {
                    id: sortLayout
 
@@ -253,34 +293,6 @@ Page {
                onClicked: {
                    isArticleOpen = true
                    pageLayout.addPageToNextColumn(settingsPage, Qt.resolvedUrl("settings/ListSort.qml"))
-               }
-           }
-
-           ListItem {
-               height: themeLayout.height
-               divider.visible: false
-               ListItemLayout {
-                   id: themeLayout
-
-                   title.text: i18n.tr("Dark Theme")
-                   subtitle.text: i18n.tr("You can also toggle this by tapping the Theme button in the Article View.")
-                   subtitle.maximumLineCount: 2
-                   subtitle.wrapMode: Text.WordWrap
-
-                   Switch {
-                       id: themeSwitch
-                       SlotsLayout.position: SlotsLayout.Trailing
-                       checked: darkTheme
-                       onCheckedChanged: {
-                            if (checked) {
-                                darkTheme = true
-                                themeManager.currentThemeIndex = 1
-                            } else {
-                                darkTheme = false
-                                themeManager.currentThemeIndex = 0
-                            }
-                       }
-                   }
                }
            }
 

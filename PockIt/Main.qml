@@ -528,7 +528,7 @@ MainView {
     Component {
         id: syncingPopupComponent
         LoadingSpinnerPopup {
-            spinner_text: i18n.tr("Syncing...")
+            spinner_text: i18n.tr("Retrieving your list...")
         }
     }
 
@@ -536,7 +536,7 @@ MainView {
     Component {
         id: networkErrorPopupComponent
         ErrorPopup {
-            error_text: i18n.tr("Network error occured.")
+            error_text: i18n.tr("Sync error")
             error_subtitle_text: i18n.tr("Please check your network settings.")
         }
     }

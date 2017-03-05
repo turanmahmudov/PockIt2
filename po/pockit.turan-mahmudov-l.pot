@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-02 23:40+0000\n"
+"POT-Creation-Date: 2017-03-05 23:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,11 +101,11 @@ msgid "Help"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:531
-msgid "Syncing..."
+msgid "Retrieving your list..."
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:539
-msgid "Network error occured."
+msgid "Sync error"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/Main.qml:540
@@ -116,16 +116,8 @@ msgstr ""
 msgid "Adding..."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/components/ErrorPopup.qml:36
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:136
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:174
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:41
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/TagEntriesList.qml:39
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:14
-msgid "Close"
+#: /home/turan/Apps/PockIt3/PockIt/qml/components/ErrorPopup.qml:32
+msgid "OK"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/components/ItemListDelegate.qml:26
@@ -219,9 +211,20 @@ msgid "All Untagged Items"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:8
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:293
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:303
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:305
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:315
 msgid "About"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:14
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:136
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/ArticleViewPage.qml:174
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:14
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Search.qml:41
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:20
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/TagEntriesList.qml:39
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:14
+msgid "Close"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/About.qml:67
@@ -330,7 +333,7 @@ msgid "Dosis"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Credits.qml:8
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:321
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:333
 msgid "Credits"
 msgstr ""
 
@@ -399,7 +402,7 @@ msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:24
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/MyList.qml:34
-#: /home/turan/Apps/build-PockIt3-UbuntuSDK_for_device_armhf_GCC_armhf_ubuntu_sdk_15_04-Debug/PockIt/PockIt.desktop.h:1
+#: /home/turan/Apps/build-PockIt3-Desktop-Debug/PockIt/PockIt.desktop.h:1
 msgid "PockIt"
 msgstr ""
 
@@ -420,82 +423,86 @@ msgid "No Results Found"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:52
-msgid "Your Account"
+msgid "Account"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:63
-msgid "Log Out"
+msgid "Log out"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:79
-msgid "Reading"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:89
-msgid "Open Best View"
+msgid "General"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:90
+msgid "Dark theme"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:91
 msgid ""
-"PockIt will automatically decide the best view (Article or Web View) to show."
+"You can also toggle this by tapping the Theme button in the Article View"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:115
-msgid "Justify Text"
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:118
+msgid "Reading"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:116
-msgid "Justify and hyphenate text in Article View when possible."
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:128
+msgid "Open best view"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:141
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:129
+msgid ""
+"PockIt will automatically decide the best view (Article or Web View) to show"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:154
+msgid "Justified Text"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:155
+msgid "Displays text in Article View with justification"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:180
 msgid "Offline Downloading"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:151
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:190
 msgid "Download Articles"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:173
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:212
 msgid "Use Mobile User Agent"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:196
-msgid "Clear Downloaded Files"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:210
-msgid "List"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:220
-msgid "Refresh When App Opens"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:242
-msgid "Sort"
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:235
+msgid "Clear downloaded files"
 msgstr ""
 
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:249
+msgid "List"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:259
+msgid "Sync when app opens"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:282
+msgid "Sort"
+msgstr ""
+
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:289
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:29
 msgid "Newest First"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:249
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:289
 #: /home/turan/Apps/PockIt3/PockIt/qml/ui/settings/ListSort.qml:30
 msgid "Oldest First"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:265
-msgid "Dark Theme"
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:266
-msgid ""
-"You can also toggle this by tapping the Theme button in the Article View."
-msgstr ""
-
-#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:304
+#: /home/turan/Apps/PockIt3/PockIt/qml/ui/Settings.qml:316
 #, qt-format
 msgid "Version %1"
 msgstr ""
