@@ -50,7 +50,7 @@ Page {
                    id: yourAccountHeader
 
                    title.text: i18n.tr("Account")
-                   title.font.weight: Text.Normal
+                   title.font.weight: Font.Normal
                }
            }
 
@@ -77,7 +77,7 @@ Page {
                    id: generalHeader
 
                    title.text: i18n.tr("General")
-                   title.font.weight: Text.Normal
+                   title.font.weight: Font.Normal
                }
            }
 
@@ -116,7 +116,7 @@ Page {
                    id: readingHeader
 
                    title.text: i18n.tr("Reading")
-                   title.font.weight: Text.Normal
+                   title.font.weight: Font.Normal
                }
            }
 
@@ -178,7 +178,7 @@ Page {
                    id: offlineDownloadingHeader
 
                    title.text: i18n.tr("Offline Downloading")
-                   title.font.weight: Text.Normal
+                   title.font.weight: Font.Normal
                }
            }
 
@@ -247,7 +247,7 @@ Page {
                    id: listHeader
 
                    title.text: i18n.tr("List")
-                   title.font.weight: Text.Normal
+                   title.font.weight: Font.Normal
                }
            }
 
@@ -303,7 +303,7 @@ Page {
                    id: aboutHeader
 
                    title.text: i18n.tr("About")
-                   title.font.weight: Text.Normal
+                   title.font.weight: Font.Normal
                }
            }
 
