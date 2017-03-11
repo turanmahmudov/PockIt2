@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-06 00:02+0300\n"
+"POT-Creation-Date: 2017-03-11 03:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,19 +100,19 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:531
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:539
 msgid "Retrieving your list..."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:539
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:547
 msgid "Sync error"
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:540
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:548
 msgid "Your device must be connected to the internet in order to sync."
 msgstr ""
 
-#: /home/turan/Apps/PockIt3/PockIt/Main.qml:554
+#: /home/turan/Apps/PockIt3/PockIt/Main.qml:562
 msgid "Adding..."
 msgstr ""
 

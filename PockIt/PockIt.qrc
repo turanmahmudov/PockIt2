@@ -54,5 +54,6 @@
         <file>qml/components/ContentShareDialog.qml</file>
         <file>qml/ui/ItemTagsEdit.qml</file>
         <file>qml/components/ItemAddingPopup.qml</file>
+        <file>qml/js/queue_worker.js</file>
     </qresource>
 </RCC>

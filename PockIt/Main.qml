@@ -305,10 +305,7 @@ MainView {
                 /**
                   * Sync queued items (tags, favs, archives, deletes, adds)
                   */
-
-                if (autoSync) {
-                    Scripts.get_list()
-                }
+                Scripts.send_queue()
             }
         }
     }
@@ -368,7 +365,18 @@ MainView {
 
         }
     }
+    // Queue Worker
+    WorkerScript {
+        id: queue_worker
+        source: "qml/js/queue_worker.js"
+        onMessage: {
+            if (messageObject.action === "DELETE_WORKS") {
+                Scripts.delete_queue(messageObject.params, messageObject.url, messageObject.finish)
+            }
+        }
+    }
 
+    // Timer which starts working after adding an item to get list
     Timer {
         id: afterAddingTimer
         interval: 1000

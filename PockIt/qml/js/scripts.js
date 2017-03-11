@@ -604,10 +604,37 @@ function send_queue() {
     db.transaction(function(tx) {
         var rs = tx.executeSql("SELECT * FROM Queue")
 
+        if (rs.rows.length === 0) {
+            if (autoSync) {
+                afterAddingTimer.start()
+            }
+            return false
+        }
+
         var dbQueueData = {}
 
         for(var i = 0; i < rs.rows.length; i++) {
-            dbQueueData[i] = rs.rows.item(i);
+            var new_params = removeParam("access_token", rs.rows.item(i).params) + "&access_token=" + User.getKey('access_token');
+            var url = rs.rows.item(i).url;
+            var params = rs.rows.item(i).params;
+
+            dbQueueData[i] = {'url':url, 'params':params, 'new_params':new_params}
+        }
+
+        // Start articles sync worker
+        queue_worker.sendMessage({'db_queue_items': dbQueueData});
+    })
+}
+
+function delete_queue(params, url, finish) {
+    console.log('queue delete')
+
+    var db = LocalDB.init();
+    db.transaction(function(tx) {
+        var rs_e = tx.executeSql("DELETE FROM Queue WHERE url = ? AND params = ?", [url, params]);
+
+        if (finish) {
+            afterAddingTimer.start()
         }
     })
 }
@@ -738,4 +765,22 @@ function getCommonElements(arrays){
     return Object.keys(currentValues).map(function(value){
         return value;
     });
+}
+
+function removeParam(key, sourceURL) {
+    var rtn = sourceURL.split("?")[0],
+        param,
+        params_arr = [],
+        queryString = (sourceURL.indexOf("?") !== -1) ? sourceURL.split("?")[1] : "";
+    if (queryString !== "") {
+        params_arr = queryString.split("&");
+        for (var i = params_arr.length - 1; i >= 0; i -= 1) {
+            param = params_arr[i].split("=")[0];
+            if (param === key) {
+                params_arr.splice(i, 1);
+            }
+        }
+        rtn = rtn + "?" + params_arr.join("&");
+    }
+    return rtn;
 }
