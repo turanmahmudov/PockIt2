@@ -31,7 +31,7 @@ MainView {
     Settings {
         id: settings
 
-        property bool firstRun: true
+        property bool firstRun: false
 
         property bool firstSync: true
 

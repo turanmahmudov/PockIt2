@@ -7,6 +7,6 @@ PageHeader {
     }
     trailingActionBar {
         numberOfSlots: (isArticleOpen && wideScreen) || !wideScreen ? 2 : 5
-        actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction, helpAction] : [helpAction, settingsAction, refreshAction, searchAction]
+        actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction] : [settingsAction, refreshAction, searchAction]
     }
 }
