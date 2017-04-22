@@ -1,0 +1,45 @@
+name: pockit
+version: '0.1.0'
+summary: Unofficial Native Pocket Client
+description: Unofficial Native Pocket Client
+
+grade: devel
+confinement: devmode
+
+apps:
+  pockit:
+    command: desktop-launch $SNAP/bin/pockit
+    plugs:
+      - unity7
+      - x11
+      - opengl
+      - home
+      - browser-sandbox
+      - gsettings
+      - network
+      - network-observe
+      - network-control
+      - network-bind
+plugs:
+  browser-sandbox:
+    interface: browser-support
+
+parts:
+  launcher:
+    plugin: dump
+    source: .
+    organize:
+        launcher.sh: bin/pockit-launch
+  pockit:
+    plugin: qmake
+    source: https://github.com/turanmahmudov/PockIt2.git
+    qt-version: qt5
+    build-packages:
+    - ubuntu-sdk-libs
+    - qtubuntu-desktop
+    stage-packages:
+    - ubuntu-sdk-libs
+    - qtubuntu-desktop
+    after: [desktop-qt5]
+    organize:
+      icon.png: meta/gui/pockit.png
