@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=PockIt
+Comment=Unofficial Native Pocket Client
+Exec=pockit
+Icon=${SNAP}/meta/gui/pockit.png
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;
+Name[en_US]=PockIt
