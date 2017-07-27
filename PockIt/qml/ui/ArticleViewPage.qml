@@ -4,7 +4,6 @@ import Ubuntu.Components 1.3
 import Ubuntu.Content 1.1
 import Ubuntu.Connectivity 1.0
 import Ubuntu.Components.Popups 1.3
-import Ubuntu.Web 0.2
 import com.canonical.Oxide 1.0 as Oxide
 
 import "../components"
