@@ -7,6 +7,9 @@ Unofficial Pocket Client for Ubuntu
 
 ## Installation
 
+- Search "PockIt" in the OpenStore and install the app
+- Direct download ".click" package from the [OpenStore](https://open.uappexplorer.com/app/pockit.turan-mahmudov-l)
+
 ## Usage
 
 ## Missing Features
@@ -28,6 +31,7 @@ Reach out to me at one of the following places!
 - Twitter at <a href="http://twitter.com/turanmahmudov" target="_blank">`@turanmahmudov`</a>
 
 ## Donations
+Donate me on [Librepay](https://liberapay.com/turanmahmudov)
 
 ## License
 The app is open source and licensed under GNU General Public License v3.0 (http://www.gnu.org/licenses/gpl-3.0.en.html).
