@@ -1,0 +1,613 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-27 12:45+0000\n"
+"PO-Revision-Date: 2020-07-23 19:17+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:158
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Articles.qml:42
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Images.qml:42
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/MyList.qml:41
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Videos.qml:42
+msgid "My List"
+msgstr "Mijn lijst"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:169
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Articles.qml:25
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Articles.qml:35
+msgid "Articles"
+msgstr "Artikelen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:180
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Videos.qml:25
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Videos.qml:35
+msgid "Videos"
+msgstr "Video's"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:191
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Images.qml:25
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Images.qml:35
+msgid "Images"
+msgstr "Afbeeldingen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:202
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Favorites.qml:23
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Favorites.qml:33
+msgid "Favorites"
+msgstr "Favorieten"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:213
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemListDelegate.qml:55
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemMultiSelectableHeader.qml:97
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Archive.qml:23
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Archive.qml:33
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Articles.qml:48
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:79
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:80
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Images.qml:48
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Videos.qml:48
+msgid "Archive"
+msgstr "Archief"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:224
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemListDelegate.qml:85
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:99
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:100
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Tags.qml:18
+msgid "Tags"
+msgstr "Labels"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:236
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:237
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Search.qml:26
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Search.qml:36
+msgid "Search"
+msgstr "Zoeken"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:247
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:248
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:14
+msgid "Settings"
+msgstr "Instellingen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:258
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:259
+msgid "Stop Refresh"
+msgstr "Stoppen met verversen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:258
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:259
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:59
+msgid "Refresh"
+msgstr "Verversen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:271
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:272
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Help.qml:8
+msgid "Help"
+msgstr "Hulp"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:539
+msgid "Retrieving your list..."
+msgstr "Bezig met ophalen van lijst..."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:547
+msgid "Sync error"
+msgstr "Synchronisatiefout"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:548
+msgid "Your device must be connected to the internet in order to sync."
+msgstr "Zorg er voor dat je verbonden bent met internet."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/Main.qml:562
+msgid "Adding..."
+msgstr "Bezig met toevoegen..."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ErrorPopup.qml:34
+msgid "OK"
+msgstr "Oké"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemListDelegate.qml:26
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/TagsListDelegate.qml:25
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:110
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:111
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemListDelegate.qml:48
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:70
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:71
+msgid "Share"
+msgstr "Delen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemListDelegate.qml:55
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemMultiSelectableHeader.qml:97
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:79
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:80
+msgid "Re-add"
+msgstr "Opnieuw toevoegen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemListDelegate.qml:63
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:89
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:90
+msgid "Unfavorite"
+msgstr "Verw. uit favorieten"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemListDelegate.qml:63
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemMultiSelectableHeader.qml:70
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:89
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:90
+msgid "Favorite"
+msgstr "Toev. aan favorieten"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemMultiSelectableHeader.qml:19
+msgid "Cancel selection"
+msgstr "Niets selecteren"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemMultiSelectableHeader.qml:30
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemMultiSelectableHeader.qml:49
+msgid "Add tag"
+msgstr "Label toekennen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/ItemMultiSelectableHeader.qml:116
+msgid "Select All"
+msgstr "Alles selecteren"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/LoadingSpinnerComponent.qml:53
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Login.qml:86
+msgid "Loading..."
+msgstr "Bezig met laden..."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/SyncingProgressBar.qml:25
+msgid "Stopping download..."
+msgstr "Bezig met afbreken..."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/SyncingProgressBar.qml:25
+msgid "Downloading Items... Tap to cancel download."
+msgstr "Bezig met downloaden... Druk om af te breken."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/TagRenamePopup.qml:16
+msgid "Rename Tag"
+msgstr "Labelnaam wijzigen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/TagRenamePopup.qml:24
+msgid "Enter a new name for this tag"
+msgstr "Voer een nieuwe naam in voor dit label"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/TagRenamePopup.qml:42
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ItemTagsEdit.qml:26
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/TagRenamePopup.qml:48
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ItemTagsEdit.qml:43
+msgid "Save"
+msgstr "Opslaan"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/TagsListDelegate.qml:48
+msgid "Edit"
+msgstr "Aanpassen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/TagsListDelegate.qml:86
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/TagEntriesList.qml:24
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/TagEntriesList.qml:34
+msgid "All Untagged Items"
+msgstr "Alle ongelabelde items"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/About.qml:8
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:305
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:315
+msgid "About"
+msgstr "Over"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/About.qml:14
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:135
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:173
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Credits.qml:14
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Search.qml:41
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:20
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/TagEntriesList.qml:39
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/settings/ListSort.qml:14
+msgid "Close"
+msgstr "Sluiten"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/About.qml:67
+msgid "Unofficial Pocket Client"
+msgstr "Onofficiële Pocket-app"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/About.qml:95
+msgid "Released under the terms of the GNU GPL v3"
+msgstr "Uitgebracht onder de voorwaarden van de GNU GPL v3"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/About.qml:104
+#, qt-format
+msgid "Source code available on %1"
+msgstr "De broncode is beschikbaar op %1"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Archive.qml:108
+msgid "Archive Empty"
+msgstr "Leeg archief"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Archive.qml:109
+msgid "The Archive can be used to list items that you're finished with."
+msgstr "Je kunt het archief gebruiken om reeds bekeken items op te slaan."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Archive.qml:110
+msgid ""
+"To add items to your Archive, tap the checkmark button after opening an item."
+msgstr ""
+"Druk na het openen van een item op het afvinkpictogram om het toe te voegen "
+"aan het archief."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Articles.qml:180
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Articles.qml:194
+msgid "No Articles Found"
+msgstr "Geen artikelen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Articles.qml:181
+msgid "There are no articles in your List."
+msgstr "Er staan nog geen artikelen op je lijst."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Articles.qml:195
+msgid "There are no articles in your Archive."
+msgstr "Er staan nog geen artikelen in je archief."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:35
+msgid "Article View"
+msgstr "Artikelweergave"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:35
+msgid "Web View"
+msgstr "Webweergave"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:36
+msgid "Switch to Article View"
+msgstr "Artikelweergave gebruiken"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:36
+msgid "Switch to Web View"
+msgstr "Webweergave gebruiken"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:50
+msgid "External"
+msgstr "Extern"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:51
+msgid "Go to external link"
+msgstr "Externe link openen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:60
+msgid "Re-get article"
+msgstr "Artikel opnieuw ophalen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:121
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:122
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:163
+msgid "Display Settings"
+msgstr "Weergave-instellingen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:168
+msgid "Font Settings"
+msgstr "Lettertype-instellingen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:342
+msgid "Dark"
+msgstr "Donker"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:365
+msgid "Light"
+msgstr "Licht"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:393
+msgid "Ubuntu"
+msgstr "Ubuntu"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:394
+msgid "Roboto"
+msgstr "Roboto"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:395
+msgid "Open Sans"
+msgstr "Open Sans"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:396
+msgid "Raleway"
+msgstr "Raleway"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ArticleViewPage.qml:397
+msgid "Dosis"
+msgstr "Dosis"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Credits.qml:8
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:333
+msgid "Credits"
+msgstr "Met dank aan"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Credits.qml:46
+msgid "Creator"
+msgstr "Maker"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Credits.qml:74
+msgid "Developers"
+msgstr "Ontwikkelaars"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Credits.qml:102
+msgid "Icons"
+msgstr "Pictogrammen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Credits.qml:130
+msgid "Translators"
+msgstr "Vertalers"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Favorites.qml:108
+msgid "Favorites Empty"
+msgstr "Geen favorieten"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Favorites.qml:109
+msgid "The Favorites list can help you remember your favorite content."
+msgstr ""
+"Je kunt de favorietenlijst gebruiken om je favoriete artikelen op te slaan."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Favorites.qml:110
+msgid ""
+"To add items to your Favorites list, tap the star button after opening an "
+"item."
+msgstr ""
+"Druk op de sterknop na het openen van een item om het toe te voegen aan je "
+"favorieten."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Images.qml:180
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Images.qml:194
+msgid "No Images Found"
+msgstr "Geen afbeeldingen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Images.qml:181
+msgid "There are no images in your List."
+msgstr "Er staan nog geen afbeeldingen op je lijst."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Images.qml:195
+msgid "There are no images in your Archive."
+msgstr "Er staan nog geen afbeeldingen in je archief."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ItemTagsEdit.qml:20
+msgid "Edit Tags"
+msgstr "Labels aanpassen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ItemTagsEdit.qml:165
+msgid "Select or enter a tag..."
+msgstr "Kies een label of voer een labelnaam in..."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/ItemTagsEdit.qml:183
+msgid "All Tags"
+msgstr "Alle labels"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Login.qml:18
+msgid "Login"
+msgstr "Inloggen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Login.qml:86
+msgid "Success!"
+msgstr "Gelukt!"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/MyList.qml:24
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/MyList.qml:34
+#: /home/turan/Apps/Ubuntu/build-PockIt3-UbuntuSDK_for_desktop_GCC_amd64_ubuntu_sdk_16_04-Debug/PockIt/PockIt.desktop.h:1
+msgid "PockIt"
+msgstr "PockIt"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/MyList.qml:122
+msgid "Your List Empty"
+msgstr "Blanco lijst"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/MyList.qml:123
+msgid "There are many ways to add content to your List."
+msgstr "Er zijn verschillende manieren om items toe te voegen aan je lijst."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Search.qml:155
+msgid "Search by title or URL"
+msgstr "Zoeken op naam of url"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Search.qml:168
+msgid "No Results Found"
+msgstr "Geen zoekresultaten"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:52
+msgid "Account"
+msgstr "Account"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:63
+msgid "Log out"
+msgstr "Uitloggen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:79
+msgid "General"
+msgstr "Algemeen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:90
+msgid "Dark theme"
+msgstr "Donker thema"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:91
+msgid ""
+"You can also toggle this by tapping the Theme button in the Article View"
+msgstr ""
+"Je kunt ook schakelen door in de artikelweergave op de themaknop te drukken"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:118
+msgid "Reading"
+msgstr "Lezen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:128
+msgid "Open best view"
+msgstr "Beste weergave gebruiken"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:129
+msgid ""
+"PockIt will automatically decide the best view (Article or Web View) to show"
+msgstr ""
+"PockIt zal automatisch bepalen wat de beste weergave is (artikel- of "
+"webweergave)"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:154
+msgid "Justified Text"
+msgstr "Tekst uitvullen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:155
+msgid "Displays text in Article View with justification"
+msgstr "Toont tekst met uitvulling in de artikelweergave"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:180
+msgid "Offline Downloading"
+msgstr "Opslaan voor offline-gebruik"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:190
+msgid "Download Articles"
+msgstr "Artikelen downloaden"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:212
+msgid "Use Mobile User Agent"
+msgstr "Mobiele gebruikersagent gebruiken"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:235
+msgid "Clear downloaded files"
+msgstr "Gedownloade bestanden wissen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:249
+msgid "List"
+msgstr "Lijst"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:259
+msgid "Sync when app opens"
+msgstr "Synchroniseren na openen"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:282
+msgid "Sort"
+msgstr "Sorteren"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:289
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/settings/ListSort.qml:29
+msgid "Newest First"
+msgstr "Nieuwste eerst"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:289
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/settings/ListSort.qml:30
+msgid "Oldest First"
+msgstr "Oudste eerst"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Settings.qml:316
+#, qt-format
+msgid "Version %1"
+msgstr "Versie %1"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Tags.qml:90
+msgid "Tags List Empty"
+msgstr "Blanco labellijst"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Tags.qml:91
+msgid ""
+"To create a tag, swipe from right on an item in your list and tap the Tag "
+"button."
+msgstr ""
+"Veeg een item naar rechts en druk op de labelknop om een label toe te kennen."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Videos.qml:180
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Videos.qml:194
+msgid "No Videos Found"
+msgstr "Geen video's"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Videos.qml:181
+msgid "There are no videos in your List."
+msgstr "Er staan nog geen video's op je lijst."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/Videos.qml:195
+msgid "There are no videos in your Archive."
+msgstr "Er staan nog geen video's in je archief."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide1.qml:60
+msgid "Welcome to PockIt!"
+msgstr "Welkom bij PockIt!"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide1.qml:74
+msgid ""
+"There are a few ways you can save items to PockIt. We'll walk you through "
+"each of them so you can start getting the most out of your list."
+msgstr ""
+"Er zijn verschillende manieren om items op te slaan in PockIt. We nemen ze "
+"allemaal door zodat je direct aan de slag kunt met je lijst."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide2.qml:60
+msgid "Save From Your Computer"
+msgstr "Opslaan via je computer"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide2.qml:74
+msgid ""
+"Adding the PockIt button to your browser makes it easy to save articles, "
+"videos and webpages with a single click on your computer."
+msgstr ""
+"Voeg de PockIt-knop toe aan de browser op je computer om snel artikelen, "
+"video's en websites op te slaan."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide3.qml:60
+msgid "Save Via Email"
+msgstr "Versturen via e-mail"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide3.qml:74
+msgid ""
+"You can save from any app that doesn't have a PockIt button by emailing the "
+"link to <b>add@getpocket.com</b>."
+msgstr ""
+"Als een app geen PockIt-knop heeft, kun je items opslaan door de link te "
+"mailen naar <b>add@getpocket.com</b>."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide4.qml:60
+msgid "Save From Anywhere"
+msgstr "Overal opslaan"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide4.qml:74
+msgid ""
+"Save from Browser, or any of your favorite apps like Twitter and Facebook. "
+"It only takes a minute."
+msgstr ""
+"Sla items op via je browser of je favoriete apps, zoals Twitter of Facebook. "
+"Het kost slechts een minuutje."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide5.qml:60
+msgid "You're All Set!"
+msgstr "Dat was het!"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide5.qml:74
+msgid ""
+"Your Pocket account is ready to go. Now go save all the things you'd like to "
+"view later."
+msgstr ""
+"Je Pocket-account is volledig ingesteld. Vanaf nu kun je alles opslaan wat "
+"je later wilt bekijken."
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Slide5.qml:89
+msgid "Finish"
+msgstr "Afronden"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/components/Walkthrough/Walkthrough.qml:117
+msgid "Skip"
+msgstr "Overslaan"
+
+#: /home/turan/Apps/Ubuntu/PockIt2/PockIt/qml/ui/settings/ListSort.qml:8
+msgid "List Sort"
+msgstr "Lijstsortering"
