@@ -589,8 +589,6 @@ function item_added(results, params, data) {
 function queue_insert(url, data) {
     console.log('Inserted to Queue')
 
-    console.log(data)
-
     var db = LocalDB.init();
     db.transaction(function(tx) {
         var rs = tx.executeSql("INSERT INTO Queue(url, params) VALUES(?, ?)", [url, data])
@@ -665,9 +663,6 @@ function request(url, params, callback, callbackParams, addToQueue) {
                 return false
             } else {
                 if (xhr.responseText == "403 Forbidden") {
-                    console.log(xhr.getResponseHeader('X-Limit-User-Reset'))
-                    console.log(xhr.responseText)
-
                     if (addToQueue) {
                         queue_insert(url, params)
                         return false
@@ -680,9 +675,6 @@ function request(url, params, callback, callbackParams, addToQueue) {
                 }
 
                 if (xhr.responseText == "400 Bad Request") {
-                    console.log(xhr.getResponseHeader('X-Error'))
-                    console.log(xhr.responseText)
-
                     if (addToQueue) {
                         queue_insert(url, params)
                         return false

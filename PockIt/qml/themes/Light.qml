@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.12
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Themes.Ambiance 0.1
 

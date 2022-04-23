@@ -10,7 +10,7 @@
             "content-hub": "PockIt/content.json"
         }
     },
-    "version": "0.2",
+    "version": "0.3",
     "maintainer": "Turan Mahmudov <turan.mahmudov@gmail.com>",
-    "framework": "ubuntu-sdk-15.04.6"
+    "framework" : "@CLICK_FRAMEWORK@"
 }

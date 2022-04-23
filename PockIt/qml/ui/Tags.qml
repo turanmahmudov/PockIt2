@@ -1,5 +1,5 @@
-import QtQuick 2.4
-import QtQuick.LocalStorage 2.0
+import QtQuick 2.12
+import QtQuick.LocalStorage 2.12
 import Ubuntu.Components 1.3
 
 import "../components"
@@ -22,7 +22,7 @@ Page {
         }
         trailingActionBar {
             numberOfSlots: (isArticleOpen && wideScreen) || !wideScreen ? 2 : 5
-            actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction, helpAction] : [helpAction, settingsAction, refreshAction, searchAction]
+            actions: (isArticleOpen && wideScreen) || !wideScreen ? [searchAction, refreshAction, settingsAction] : [settingsAction, refreshAction, searchAction]
         }
     }
 

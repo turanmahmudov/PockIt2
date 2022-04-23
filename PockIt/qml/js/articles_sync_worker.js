@@ -24,8 +24,6 @@ WorkerScript.onMessage = function(msg) {
             if (xhr.status !== 0) {
                 var results = JSON.parse(xhr.responseText);
 
-                console.log('geldi')
-
                 WorkerScript.sendMessage({'action': 'ARTICLES_WORKS', 'article_result': results, 'item_id': item_id, 'parseArticle': parseArticle, 'finish': index+1===objectLength(mustGetArticlesList)})
                 if (index+1 < objectLength(mustGetArticlesList)) {
                     WorkerScript.sendMessage({'action': 'LOOP_WORKS', 'index': index+1, 'mustGetArticlesList': mustGetArticlesList})

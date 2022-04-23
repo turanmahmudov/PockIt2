@@ -1,5 +1,5 @@
-import QtQuick 2.4
-import QtQuick.LocalStorage 2.0
+import QtQuick 2.12
+import QtQuick.LocalStorage 2.12
 import QtSystemInfo 5.0
 import Qt.labs.settings 1.0
 import Ubuntu.Components 1.3
@@ -135,8 +135,6 @@ MainView {
 
             PopupUtils.open(itemAddingPopupComponent)
 
-            console.log(url)
-
             Scripts.add_item(url, title)
         }
     }
@@ -235,7 +233,7 @@ MainView {
             id: searchAction
             text: i18n.tr("Search")
             keywords: i18n.tr("Search")
-            iconName: "search"
+            iconName: "find"
             onTriggered: {
                 isArticleOpen = false
                 isTagOpen = false
@@ -264,17 +262,6 @@ MainView {
                 } else {
                     Scripts.get_list()
                 }
-            }
-        },
-        Action {
-            id: helpAction
-            text: i18n.tr("Help")
-            keywords: i18n.tr("Help")
-            iconName: "help"
-            onTriggered: {
-                isArticleOpen = false
-                isTagOpen = false
-                pageLayout.addPageToCurrentColumn(pageLayout.primaryPage, Qt.resolvedUrl("qml/ui/Help.qml"))
             }
         }
     ]

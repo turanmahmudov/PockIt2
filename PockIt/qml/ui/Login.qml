@@ -1,8 +1,8 @@
-import QtQuick 2.4
-import QtQuick.LocalStorage 2.0
+import QtQuick 2.12
+import QtQuick.LocalStorage 2.12
 import Ubuntu.Components 1.3
 import Ubuntu.Connectivity 1.0
-import Ubuntu.Web 0.2
+import QtWebEngine 1.8
 
 import "../components"
 
@@ -18,12 +18,7 @@ Page {
         title: i18n.tr("Login")
     }
 
-    WebContext {
-        id: webcontext
-        userAgent: "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
-    }
-
-    WebView {
+    WebEngineView {
         id: webView
         anchors {
             left: parent.left
@@ -31,14 +26,14 @@ Page {
             bottom: parent.bottom
             top: loginPage.header.bottom
         }
+        profile:  WebEngineProfile{
+            httpUserAgent: "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:45.0) Gecko/20100101 Firefox/45.0"
+        }
 
-        context: webcontext
-        incognito: true
-        preferences.localStorageEnabled: true
-        preferences.allowFileAccessFromFileUrls: true
-        preferences.allowUniversalAccessFromFileUrls: true
-        preferences.appCacheEnabled: true
-        preferences.javascriptCanAccessClipboard: true
+        settings.localStorageEnabled: true
+        settings.javascriptEnabled: true
+        settings.javascriptCanAccessClipboard: true
+
 
         // the redirect_uri can be any site
         property string redirect_uri : "https://api.github.com/zen"

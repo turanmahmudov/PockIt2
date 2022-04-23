@@ -1,10 +1,12 @@
-import QtQuick 2.4
-import QtQuick.LocalStorage 2.0
+import QtQuick 2.12
+import QtQuick.LocalStorage 2.12
 import Ubuntu.Components 1.3
 import Ubuntu.Content 1.1
 import Ubuntu.Connectivity 1.0
 import Ubuntu.Components.Popups 1.3
-import com.canonical.Oxide 1.0 as Oxide
+//import com.canonical.Oxide 1.0 as Oxide
+//import Ubuntu.Web 0.2
+import QtWebEngine 1.8
 
 import "../components"
 
@@ -618,12 +620,7 @@ Page {
 
     }
 
-    Oxide.WebContext {
-        id: webcontext
-        userAgent: "Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
-    }
-
-    Oxide.WebView {
+    WebEngineView {
         id: articleBody
         anchors {
             left: parent.left
@@ -631,10 +628,14 @@ Page {
             bottom: parent.bottom
             top: articleViewPage.header.bottom
         }
-        context: webcontext
         onNavigationRequested: {
-            request.action = Oxide.NavigationRequest.ActionReject;
-            Qt.openUrlExternally(request.url);
+            if (request.navigationType == WebEngineNavigationRequest.LinkClickedNavigation) {
+                request.action = WebEngineNavigationRequest.IgnoreRequest
+                Qt.openUrlExternally(request.url);
+            }
+        }
+        profile:  WebEngineProfile{
+            httpUserAgent: "Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"
         }
     }
 }

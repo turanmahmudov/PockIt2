@@ -19,7 +19,6 @@ WorkerScript.onMessage = function(msg) {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status !== 0) {
-                    console.log(xhr.responseText)
                     var results = JSON.parse(xhr.responseText);
 
                     if (results.status == 1) {
